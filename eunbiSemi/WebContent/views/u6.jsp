@@ -1,0 +1,159 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>u6_장바구니</title>
+	<link rel="stylesheet" href="./u6.css">
+</head>
+<body>
+	<nav>
+        <img src="../icon/icon1_navy.png"  id="icon1">
+        <img src="../icon/logo_gray.png" id="icon2">
+
+        <ul id="navi">
+            <li><a href="#">카테고리</a></li>
+            <li><a href="#">베스트</a></li>
+            <li><a href="#">신상품</a></li>
+            <li><a href="#">QnA</a></li>
+            
+
+            <div id="search">
+                <input type="text" placeholder="내용을 입력해주세요" >
+                <button>검색</button>
+            </div>
+
+            <li id="lojo"><a href="#">로그인</a> <label> | </label> <a href="#">회원가입</a></li>
+        </ul>
+    </nav>
+
+        <div class="homecart">
+            <a href="#"><img src="../icon/home_icon.png"id="icon3"></a>
+            <label> > </label>
+            <a href="#" id="cart1">장바구니</a>
+        </div>
+
+        <br><br><br><br>
+
+        <div class="t1">
+            <table >
+                <tr id="thead">
+                    <th colspan="4"></th>
+                    <th>장바구니</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+
+                <tr class="tbody">
+                        <td id="chb1"><input type="checkbox"></td>
+                        <td colspan="3" >상품명</td>
+                        <td>단가</td>
+                        <td>수량</td>
+                        <td colspan="4">합계</td>
+                        <td id="m2" colspan="4"></td>
+                </tr>
+
+                <tr>
+                        <td id="chb1"><input type="checkbox"></td>
+                        <td colspan="2"><img src="../icon/book_unity.png" id="img1"></td>
+                        <td id="spm1">유니티 모바일 게임 개발/존도란</td>
+                        <td id="dg1">36,000원</td>
+                        <td id="sl1">2</td>
+                        <td id="hg1" colspan="4">72,000원</td>
+                        <td  colspan="4"></td>
+                </tr>
+            </table>
+
+                <hr>
+
+            <table>
+                <tr>
+                        <td id="chb1"><input type="checkbox"></td>
+                        <td colspan="2"><img src="../icon/book_ml.png" id="img2"> </td>
+                        <td id="spm1">혼자 공부하는 머신러닝/박해선</td>
+                        <td id="dg1">23,400원</td>
+                        <td id="sl1">1</td>
+                        <td id="hg1" colspan="4" >23,400원</td>
+                        <td colspan="4"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><input type="submit" id="choice" value="선택상품삭제"></td>
+                    <td colspan="2"><input type="submit" id="all" value="전체상품삭제"></td>
+                    <td colspan="6"></td>
+                </tr>
+            </table>
+
+                <hr>
+        </div>
+
+        <div class="t2">
+            <table >
+                <tr>
+                    <th></th>
+                    <th><input type="checkbox"></th>
+                    <th id="jp">주문내역확인 동의서(필수)</th>
+                    <th></th>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td id="gg1-1"><b>결제수단</b></td>
+                    <td>
+                        <select>
+                            <option>---------------------------------</option>
+                            <option>카드결제</option>
+                            <option>무통장입금</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td id="gg1-1"><b>포인트 사용</b></td>
+                    <td><input type="text" placeholder="100원부터 입력"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td id="gg1-2"><b>합계</b></td>
+                    <td><input type="text" placeholder="총 합계 금액"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2"><input type="submit" id="payment" value="결제하기"  ></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+</body>
+</html>
