@@ -14,7 +14,7 @@
     <!-- 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <!-- css -->
-    <link rel="stylesheet" href="./관2_상품관리_굿즈수정.css">
+    <link rel="stylesheet" href="Resources/Product_Goods/관2_상품관리_굿즈수정.css">
 
 
 </head>
@@ -22,7 +22,7 @@
     <div id="red"></div>
 
     <div id="route">
-        <img id="home_icon"src="./홈1.png" alt="">
+        <img id="home_icon"src="Resources/img/i_con/home_icon.png" alt="">
         <div id="aa">
             <!-- <a href="" id="route">홈</a>  -->
             &nbsp; > 
@@ -34,7 +34,7 @@
     <div id="search_div" class="clearfix">
         <input type="text" class="form-control" placeholder="굿즈명으로 검색하세요" style="float: left;">
         <button type="submit" id="searchbtn" class="btn-outline-secondary">
-            <img id="searchbtn_img" src="./search.png" alt="검색" >
+            <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
         </button>
     </div>
     

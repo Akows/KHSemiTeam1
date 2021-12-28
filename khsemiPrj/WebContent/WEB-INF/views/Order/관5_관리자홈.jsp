@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
-    <link rel="stylesheet" href="./관5_관리자홈.css">
+    <link rel="stylesheet" href="Resources/Order/관5_관리자홈.css">
     <title>Document</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
     
     
     <div id="route">
-        <img id="home_icon"src="./홈1.png" alt="" style="float: left;">
+        <img id="home_icon"src="Resources/img/i_con/home_icon.png" alt="" style="float: left;">
         <div style="display: block; float: left;"> &nbsp;관리자 홈 </div> 
             
     </div>
