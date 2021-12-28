@@ -53,14 +53,14 @@ nav
    height:45px;
 }
 
-/* 메뉴바-글자로고 */
+/* 메뉴바-글자로고*/ 
 #icon2
 {   
     float: left;
     width: 100px
 }
 
-      /* 메뉴바-검색 */
+/* 메뉴바-검색 */
 #search
 {
     position: absolute;
@@ -83,7 +83,7 @@ nav
     height:20px;
 }
 
-      /* 이동경로 div */
+/* 이동경로 div */
 .src
 {
     position: absolute;

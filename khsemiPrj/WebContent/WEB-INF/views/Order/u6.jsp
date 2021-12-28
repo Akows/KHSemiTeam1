@@ -5,12 +5,12 @@
 <head>
 <meta charset="EUC-KR">
 <title>u6_장바구니</title>
-	<link rel="stylesheet" href="./u6.css">
+	<link rel="stylesheet" href="./Resources/Order/u6.css">
 </head>
 <body>
 	<nav>
-        <img src="../icon/icon1_navy.png"  id="icon1">
-        <img src="../icon/logo_gray.png" id="icon2">
+        <img src="Resources/img/Logo/로고 사진 연그레이 s.png"  id="icon1">
+        <img src="Resources/img/Logo/로고 글자 연그레이 s.png" id="icon2">
 
         <ul id="navi">
             <li><a href="#">카테고리</a></li>
@@ -29,7 +29,7 @@
     </nav>
 
         <div class="homecart">
-            <a href="#"><img src="../icon/home_icon.png"id="icon3"></a>
+            <a href="#"><img src="Resources/img/i_con/home_icon.png"id="icon3"></a>
             <label> > </label>
             <a href="#" id="cart1">장바구니</a>
         </div>
@@ -58,21 +58,23 @@
 
                 <tr>
                         <td id="chb1"><input type="checkbox"></td>
-                        <td colspan="2"><img src="../icon/book_unity.png" id="img1"></td>
+                        <td colspan="2"><img src="Resources/img/Bookcover/book_unity.png" id="img1"></td>
                         <td id="spm1">유니티 모바일 게임 개발/존도란</td>
                         <td id="dg1">36,000원</td>
                         <td id="sl1">2</td>
                         <td id="hg1" colspan="4">72,000원</td>
                         <td  colspan="4"></td>
                 </tr>
-            </table>
-
-                <hr>
-
-            <table>
+                
+				<tr>
+					<td colspan="11">
+						<hr>
+					</td>
+				</tr>
+				
                 <tr>
                         <td id="chb1"><input type="checkbox"></td>
-                        <td colspan="2"><img src="../icon/book_ml.png" id="img2"> </td>
+                        <td colspan="2"><img src="Resources/img/Bookcover/book_ml.png" id="img2"> </td>
                         <td id="spm1">혼자 공부하는 머신러닝/박해선</td>
                         <td id="dg1">23,400원</td>
                         <td id="sl1">1</td>
