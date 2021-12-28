@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>goods_detail</title>
     <!-- 굿즈 상세페이지 Bootstrap(MDB Bootstrap) -->
-    <link rel="stylesheet" href="./goods_detail.css">
+    <link rel="stylesheet" href="/WebContent/Resources/Product_Goods/goods_detail.css">
     <!-- CSS Bootstrap -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -33,7 +33,7 @@
 </head>
 <body>
     <!-- 위치 링크 -->
-    <a href=""><img src="./home_icon.png" id="home_icon"></a>
+    <a href=""><img src="/WebContent/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> DEV BOOKS 굿즈</a>
     <a href="" id="placeLink">> PC/노트북</a>
     <a href="" id="placeLink">> 키보드/마우스</a>
@@ -81,7 +81,7 @@
         <div class="box_detail_left">
             <!-- 굿즈 이미지 -->
             <div class="cover">
-                <img src="./goods_img.jpg" width="198" height="282" alt="" class="coverImg">
+                <img src="/WebContent/Resources/img/Goods/goods_img.jpg" width="198" height="282" alt="" class="coverImg">
             </div>
         </div>
         <br><br><br>
@@ -97,7 +97,7 @@
             <div class="bottom_book_intro">
                 <strong id="book_intro">굿즈 소개</strong>
                 <br>
-                <img src="./goods_intro.png" style="margin-top: 40px; margin-bottom: 10px;">
+                <img src="/WebContent/Resources/img/Goods/goods_intro.png" style="margin-top: 40px; margin-bottom: 10px;">
             </div>
             <hr style="border: 0; height: 1px; background: #ccc; width: 62%; position: relative; bottom: 2px;">
         </div>
