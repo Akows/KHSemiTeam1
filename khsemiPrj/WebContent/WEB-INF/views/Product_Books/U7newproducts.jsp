@@ -7,8 +7,8 @@
 <title>NewProductsPage</title>
 
     <!-- 내부 스타일시트 -->
-    <link rel="stylesheet" href="./U9. 카테고리상품보기.css" type="text/css">
-    <link rel="stylesheet" href="./style.css" type="text/css">
+    <link rel="stylesheet" href="./Resources/Product_Books/U7newproducts.css" type="text/css">
+    <link rel="stylesheet" href="./Resources/Product_Books/style.css" type="text/css">
 
 </head>
 <body>

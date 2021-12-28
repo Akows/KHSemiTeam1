@@ -11,9 +11,8 @@
     <script src="./U8. 베스트셀러.css"></script>
 
     <!-- 내부 스타일시트 -->
-    <link rel="stylesheet" href="./U8. 베스트셀러.css">
-    
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./Resources/Product_Books/U8bestseller(2).css" type="text/css">
+    <link rel="stylesheet" href="./Resources/Product_Books/style.css" type="text/css">
 
     <!-- 외부 스타일시트 -->
     
