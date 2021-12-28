@@ -10,10 +10,9 @@
     <!-- css 파일 -->
     <link rel="stylesheet" href="/WebContent/Resources/Product_Goods/goods_detail.css">
     <!-- 굿즈 상세페이지 Bootstrap(MDB Bootstrap) -->
-<<<<<<< HEAD
+
     <link rel="stylesheet" href="/WebContent/Resources/Product_Goods/goods_detail.css">
-=======
->>>>>>> 54412a2e81b36b8d188fd32992919fafdd28d3bc
+
     <!-- CSS Bootstrap -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
