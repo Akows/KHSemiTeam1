@@ -1,0 +1,173 @@
+/* 영역 확인용 div border */
+div {
+    /* border: 1px solid black; */
+}
+
+/* 전체 배경색 */
+section, header
+{
+    background-color: #f1f1f1;
+}
+
+/* @media all and (max-width: 600px)
+{
+    #container, nav
+    {
+        flex-direction: column;
+    }
+} */
+
+/* 헤더 영역 */
+#uppermenubararea 
+{
+    /* border: 1px solid black; */
+} 
+
+#pagetitle 
+{
+    text-align: center;
+    padding: 30px;
+    font-size: 50px;
+
+    /* border: springgreen 1px solid; */
+}
+
+#uppermenubar2area 
+{
+    display: flex;
+    justify-content: center;
+}
+
+#submenu
+{
+    display: flex;
+    background-color: #333333;
+    height: 50px;
+}
+#submenu >#blank
+{
+    padding: 14px 20px;
+    width: 88%;
+}
+#submenu >a
+{
+    /* color: white; */
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    width: 12%;
+}
+
+nav
+{
+    display: flex;
+    /* background-color: #333333; */
+}
+nav a
+{
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+nav a:hover{
+    background-color: #A5A5A5;
+    color: black;
+}
+a
+{
+    text-decoration-line : none;
+}
+
+/* 섹션 영역 */
+.maincontentarea
+{
+    padding: 10px;
+}
+#maincontentdeployarea {
+    display: flex;
+    justify-content: center;
+}
+
+#contentarea, #bookarea
+{
+    padding: 10px;
+    text-align: center;
+}
+#contentarea
+{
+    padding: 10px;
+    text-align: center;
+
+    /* border: hotpink 1px solid; */
+}
+#contentarea2outer
+{
+    padding: 20px;
+    background-color: #aaaaaa;
+
+    /* border: indianred 1px solid; */
+}
+#contentarea2
+{
+    padding: 10px;
+    text-align: center;
+    background-color: #F1F1F1;
+
+    /* border: yellowgreen 1px solid; */
+}
+
+#contentarea3
+{
+    width: 1000px;
+    padding: 10px;
+    text-align: center;
+    background-color: #aaaaaa;
+    color: white;
+
+    /* border: gold 1px solid; */
+}
+
+#bookcover
+{
+    background-color: darkorange;
+    width: 180px; 
+    height: 250px;
+}
+
+#pagecontrol
+{
+    padding: 10px;
+}
+
+#pagecontrol2
+{
+    padding: 5px;
+}
+
+
+/* 좋아요, 장바구니 버튼 디자인 */
+button
+{
+    border: 0;
+    outline: 0;
+}
+#cont1button
+{
+    background-color: #f1f1f1;
+}
+#cont2button
+{
+    background-color: #F1F1F1;
+}
+#cont3button
+{
+    background-color: #aaaaaa;
+}
+/* 푸터 영역 */
+#footerarea {
+    padding: 30px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
