@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="/WebContent/Resources/Member/login.css">
     <!-- CSS Bootstrap -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
 </head>
 <body>
-    <a href="http://www.naver.com"><img src="./home_icon.png" id="home_icon"></a>
+    <a href=""><img src="/WebContent/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="changeUserInfo">> 로그인</a>
     <div class="inputBox">
         <p id="loginBox">로그인</p>

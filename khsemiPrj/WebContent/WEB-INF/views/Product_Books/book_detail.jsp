@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>book_detail</title>
     <!-- 상품 상세페이지 Bootstrap(MDB Bootstrap) -->
-    <link rel="stylesheet" href="./book_detail.css">
+    <link rel="stylesheet" href="/WebContent/Resources/Product_Books/book_detail.css">
     <!-- CSS Bootstrap -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -33,7 +33,7 @@
 </head>
 <body>
     <!-- 위치 링크 -->
-    <a href=""><img src="./home_icon.png" id="home_icon"></a>
+    <a href=""><img src="/WebContent/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> 주제별 도서</a>
     <a href="" id="placeLink">> IT 자격증</a>
     <!-- 상단 컨텐츠 항목 -->
@@ -115,7 +115,7 @@
         <div class="box_detail_left">
             <!-- 책 커버 이미지 -->
             <div class="cover">
-                <img src="./book_cover.jpg" width="198" height="282" alt="" class="coverImg">
+                <img src="/WebContent/Resources/img/Bookcover/book_cover.jpg" width="198" height="282" alt="" class="coverImg">
             </div>
         </div>
         <br><br><br>
