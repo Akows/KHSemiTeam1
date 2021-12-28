@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>메뉴바</title>
-    <link rel="stylesheet" href="menubar.css">
+    <link rel="stylesheet" href="Resources/Common/menubar.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/d088eb3922.js" crossorigin="anonymous"></script>
 </head>
@@ -13,8 +13,8 @@
 	<nav class="navbar">
         <!-- <div class="navbar-center"> -->
             <span class="nav-icon">
-                <img src="../images/로고 사진 연그레이.png" alt="logo" style="width: 50px;">
-                <img src="../images/로고 글자 연그레이.png" alt="logo_text" style="width: 100px;">
+                <img src="Resources/img/Logo/로고 사진 연그레이.png" alt="logo" style="width: 50px;">
+                <img src="Resources/img/Logo/로고 글자 연그레이.png" alt="logo_text" style="width: 100px;">
             </span>
             <div id="menu">
                 <ul class="main1">

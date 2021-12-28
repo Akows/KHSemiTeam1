@@ -15,7 +15,7 @@
     
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./qna_write.css">
+    <link rel="stylesheet" href="Resources/QnA/qna_write.css">
 
     <style>
         #bdTitle {
