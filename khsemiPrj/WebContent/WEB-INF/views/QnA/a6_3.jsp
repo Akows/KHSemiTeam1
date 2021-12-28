@@ -5,11 +5,11 @@
 <head>
 <meta charset="EUC-KR">
 <title>a6_3_QnA신고</title>
-	<link rel="stylesheet" href="./a6_3.css">
+	<link rel="stylesheet" href="./Resources/QnA/a6_3.css">
 </head>
 <body>
 	<nav>
-		<img src="../icon/icon2_gray.png" id="icon1">
+		<img src="Resources/img/Logo/로고 사진 연그레이 s.png" id="icon1">
         <ul id="navi">
             <li><a href="#">상품관리</a></li>
             <li><a href="#">회원관리</a></li>
@@ -20,7 +20,7 @@
     </nav>
 
     <div class="home">
-        <a href="#"><img src="../icon/home_icon.png" id="icon3"></a>
+        <a href="#"><img src="Resources/img/i_con/home_icon.png" id="icon3"></a>
         <label> > </label>
         <a href="#" id="gs">회원관리</a>
         <label> > </label>

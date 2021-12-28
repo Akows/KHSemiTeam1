@@ -5,11 +5,11 @@
 <head>
 <meta charset="EUC-KR">
 <title>a6_2_굿즈리뷰신고</title>
-	<link rel="stylesheet" href="./a6_2.css">
+	<link rel="stylesheet" href="./Resources/Product_Goods/a6_2.css"">
 </head>
 <body>
 	<nav>
-		<img src="../icon/icon2_gray.png" id="icon1">
+		<img src="Resources/img/Logo/로고 사진 연그레이 s.png" id="icon1">
         <ul id="navi">
             <li><a href="#">상품관리</a></li>
             <li><a href="#">회원관리</a></li>
@@ -20,7 +20,7 @@
     </nav>
 
     <div class="home">
-        <a href="#"><img src="../icon/home_icon.png" id="icon3"></a>
+        <a href="#"><img src="Resources/img/i_con/home_icon.png" id="icon3"></a>
         <label> > </label>
         <a href="#" id="gs">회원관리</a>
         <label> > </label>
@@ -37,9 +37,9 @@
         <div>
             <table>
                 <tr>
-                    <th id="book2"><img src="../icon/book_java1.png" id="book1"></th>
+                    <th id="book2"><img src="Resources/img/Bookcover/자바의정석.JPG" id="book1"></th>
                     <th id="lab1"> 
-                        <img src="../icon/wish2_icon.png" id="wish">
+                        <img src="Resources/img/i_con/wish2_icon.png" id="wish">
 
                         <br>
 
@@ -69,9 +69,9 @@
 
             <table>
                 <tr>
-                    <td id="book3"><img src="../icon/book_java2.png" id="book1"></td>
+                    <td id="book3"><img src="Resources/img/Bookcover/it지식.JPG" id="book1"></td>
                     <td id="lab1"> 
-                        <img src="../icon/wish2_icon.png" id="wish">
+                        <img src="Resources/img/i_con/wish2_icon.png" id="wish">
 
                         <br>
 
@@ -103,9 +103,9 @@
 
             <table>
                 <tr>
-                    <td id="book3"><img src="../icon/book_java3.png" id="book1"></td>
+                    <td id="book3"><img src="Resources/img/Bookcover/몰입.JPG" id="book1"></td>
                     <td id="lab1"> 
-                        <img src="../icon/wish2_icon.png" id="wish">
+                        <img src="Resources/img/i_con/wish2_icon.png" id="wish">
 
                         <br>
 

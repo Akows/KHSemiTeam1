@@ -1,53 +1,53 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="EUC-KR">
-<title>u12_ÁÖ¹®³»¿ªÁ¶È¸</title>
-	<link rel="stylesheet" href="./u12.css">
+<meta charset="UTF-8">
+<title>u12_ì£¼ë¬¸ë‚´ì—­ì¡°íšŒ</title>
+	<link rel="stylesheet" href="./Resources/Order/u12.css">
 </head>
 <body>
 	<nav>
-		<img src="../icon/icon1_navy.png" id="icon1">   
-        <img src="../icon/logo_gray.png" id="icon2">
+		<img src="Resources/img/Logo/ë¡œê³  ì‚¬ì§„ ì—°ê·¸ë ˆì´ s.png" id="icon1">   
+        <img src="Resources/img/Logo/ë¡œê³  ê¸€ìž ì—°ê·¸ë ˆì´ s.png" id="icon2">
         <ul id="navi">
-            <li><a href="#">Ä«Å×°í¸®</a></li>
-            <li><a href="#">º£½ºÆ®</a></li>
-            <li><a href="#">½Å»óÇ°</a></li>
+            <li><a href="#">ì¹´í…Œê³ ë¦¬</a></li>
+            <li><a href="#">ë² ìŠ¤íŠ¸</a></li>
+            <li><a href="#">ì‹ ìƒí’ˆ</a></li>
             <li><a href="#">QnA</a></li>
 
             <div id="search">
-                <input type="text" placeholder="³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä" >
-                <button>°Ë»ö</button>
+                <input type="text" placeholder="ë‚´ìš©ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”" >
+                <button>ê²€ìƒ‰</button>
             </div>
 
-            <li id="lojo"><a href="#">·Î±×ÀÎ</a> <label> | </label> <a href="#">È¸¿ø°¡ÀÔ</a></li>
+            <li id="lojo"><a href="#">ë¡œê·¸ì¸</a> <label> | </label> <a href="#">íšŒì›ê°€ìž…</a></li>
         </ul>
     </nav>
 
     <form>
         <div class="src">
-            <a href="#"><img src="../icon/home_icon.png"id="icon3"></a>
+            <a href="#"><img src="Resources/img/i_con/home_icon.png"id="icon3"></a>
             <label> > </label>
-            <a href="#" id="mypage">¸¶ÀÌÆäÀÌÁö</a>
+            <a href="#" id="mypage">ë§ˆì´íŽ˜ì´ì§€</a>
             <label> > </label>
-            <a href="#" id="ordercheck">ÁÖ¹®³»¿ªÁ¶È¸</a>
+            <a href="#" id="ordercheck">ì£¼ë¬¸ë‚´ì—­ì¡°íšŒ</a>
         </div>
 
 
         <table class="t1">
             <tr >
                 <th colspan="3"></th>
-                <th id="cg">Ãâ°íÁØºñ</th>
+                <th id="cg">ì¶œê³ ì¤€ë¹„</th>
                 <th></th>
-                <th id="ordate1">ÁÖ¹®ÀÏÀÚ : </th>
+                <th id="ordate1">ì£¼ë¬¸ì¼ìž : </th>
                 <th id="ordate2" colspan="3">2021/12/15</th>
             </tr>
 
             <tr>
                 <td id="gc1-3"></td>
-                <td id="gc1-2" ><img src="../icon/book_java1.png" id="img"></td>
+                <td id="gc1-2" ><img src="Resources/img/Bookcover/ìžë°”ì˜ì •ì„.JPG" id="img"></td>
                 <td id="gc1-2" ></td>
                 <td id="gc1-2" colspan="2"></td>
                 <td id="gc1-2"></td>
@@ -58,38 +58,38 @@
 
             <tr>
                 <td id="gc1-2" colspan="3"></td>
-                <td id="gc" colspan="2"><b>ÀÚ¹ÙÀÇ Á¤¼®</b> (¿Ü3)</td>
+                <td id="gc" colspan="2"><b>ìžë°”ì˜ ì •ì„</b> (ì™¸3)</td>
                 <td id="gc1-2"></td>
                 <td id="gc1-2"></td>
-                <td id="gc">89,000£Ü</td>
+                <td id="gc">89,000ï¿¦</td>
                 <td id="gc1-3"></td>
 
             </tr>
 
             <tr>
                 <td id="gc1-2" colspan="3"></td>
-                <td id="bg" colspan="2">¡¤ ÀÚ¹ÙÀÇ Á¤¼®</td>
+                <td id="bg" colspan="2">Â· ìžë°”ì˜ ì •ì„</td>
                 <td id="bg"></td>
-                <td id="bg">1±Ç</td>
-                <td id="bg">32,000£Ü</td>
+                <td id="bg">1ê¶Œ</td>
+                <td id="bg">32,000ï¿¦</td>
                 <td id="gc1-2" colspan="3"></td>
             </tr>
 
             <tr>
                 <td id="gc1-2" colspan="3"></td>
-                <td id="bg" colspan="2">¡¤ SQLÀÇ Á¤¼®</td>
+                <td id="bg" colspan="2">Â· SQLì˜ ì •ì„</td>
                 <td id="bg"></td>
-                <td id="bg">1±Ç</td>
-                <td id="bg">25,000£Ü</td>
+                <td id="bg">1ê¶Œ</td>
+                <td id="bg">25,000ï¿¦</td>
                 <td id="gc1-2" colspan="3"></td>
             </tr>
 
             <tr>
                 <td id="gc1-2" colspan="3"></td>
-                <td id="bg" colspan="2">¡¤ DO IT! Java</td>
+                <td id="bg" colspan="2">Â· DO IT! Java</td>
                 <td id="bg"></td>
-                <td id="bg">1±Ç</td>
-                <td id="bg">32,000£Ü</td>
+                <td id="bg">1ê¶Œ</td>
+                <td id="bg">32,000ï¿¦</td>
                 <td id="gc1-2" colspan="3"></td>
             </tr>
 
@@ -108,15 +108,15 @@
         <table class="t2" >
             <tr >
                 <th colspan="3"></th>
-                <th id="cg">¹è¼Û Áß</th>
+                <th id="cg">ë°°ì†¡ ì¤‘</th>
                 <th></th>
-                <th id="ordate1">ÁÖ¹®ÀÏÀÚ : </th>
+                <th id="ordate1">ì£¼ë¬¸ì¼ìž : </th>
                 <th id="ordate2" colspan="3">2021/12/17</th>
             </tr>
 
             <tr>
                 <td id="gc1-3"></td>
-                <td id="gc1-2" ><img src="../icon/book_java4.png" id="img"></td>
+                <td id="gc1-2" ><img src="Resources/img/Bookcover/book_java4.png" id="img"></td>
                 <td id="gc1-2" ></td>
                 <td id="gc1-2" colspan="2"></td>
                 <td id="gc1-2"></td>
@@ -127,29 +127,29 @@
 
             <tr>
                 <td id="gc1-2" colspan="3"></td>
-                <td id="gc" colspan="2"><b>ÄÚ¾î ÀÚ¹Ù½ºÅ©¸³Æ®</b> (¿Ü2)</td>
+                <td id="gc" colspan="2"><b>ì½”ì–´ ìžë°”ìŠ¤í¬ë¦½íŠ¸</b> (ì™¸2)</td>
                 <td id="gc1-2"></td>
                 <td id="gc1-2"></td>
-                <td id="gc">47,000£Ü</td>
+                <td id="gc">47,000ï¿¦</td>
                 <td id="gc1-3"></td>
 
             </tr>
 
             <tr>
                 <td id="gc1-2" colspan="3"></td>
-                <td id="bg" colspan="2">¡¤ ÄÚ¾î ÀÚ¹Ù ½ºÅ©¸³Æ®</td>
+                <td id="bg" colspan="2">Â· ì½”ì–´ ìžë°” ìŠ¤í¬ë¦½íŠ¸</td>
                 <td id="bg"></td>
-                <td id="bg">1±Ç</td>
-                <td id="bg">22,000£Ü</td>
+                <td id="bg">1ê¶Œ</td>
+                <td id="bg">22,000ï¿¦</td>
                 <td id="gc1-2" colspan="3"></td>
             </tr>
 
             <tr>
                 <td id="gc1-2" colspan="3"></td>
-                <td id="bg" colspan="2">¡¤ SQLÀÇ Á¤¼®</td>
+                <td id="bg" colspan="2">Â· SQLì˜ ì •ì„</td>
                 <td id="bg"></td>
-                <td id="bg">1±Ç</td>
-                <td id="bg">25,000£Ü</td>
+                <td id="bg">1ê¶Œ</td>
+                <td id="bg">25,000ï¿¦</td>
                 <td id="gc1-2" colspan="3"></td>
             </tr>
 

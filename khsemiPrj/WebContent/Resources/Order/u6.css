@@ -1,55 +1,59 @@
 @charset "EUC-KR";
 
+*
+{
+   margin: auto;
+   padding: 0%;
+}
+
 /* 배경 */
 body
 {
-    background-color: #EEEEEE;
+	background-color: #EEEEEE;
 }
 
 /* 메뉴바 */
 nav 
 {
-    border: 1px solid; 
-    width: 1500px;
-    height: 50px;
-    background-color:#2d313c;
+   border: 1px solid; 
+   width: 1500px;
+   height: 50px;
+   background-color:#2d313c;
 }
 
 #navi
 {
-    list-style-type: none;
-    height: 100%;
-    padding: 0;
-    margin: 0;
+   list-style-type: none;
+   height: 100%;
 }
 
 #navi>li 
 {
-    float: left;
-    width: 13%;
-    height: 100%;
-    text-align: center;
+   float: left;
+   width: 13%;
+   height: 100%;
+   text-align: center;
 }
 
 #navi a                       /* a 태그 모두 선택 */
 {
     text-decoration: none;    /* 밑줄 없애기 */
-    color:white;
-    font-size: 1.3em;
-    font-weight: 400%;        /* 폰트 굵기 */
-    height: 100%;
-    line-height: 40px;         /* 라인 높이 지정 */
+   color:white;
+   font-size: 1.3em;
+   font-weight: 400%;        /* 폰트 굵기 */
+   height: 100%;
+   line-height: 40px;         /* 라인 높이 지정 */
 }
 
 /* 메뉴바-로고 */
 #icon1
 {
-    float: left;
-    width: 50px;
-    height:45px;
+   float: left;
+   width: 50px;
+   height:43px;
 }
 
-/* 메뉴바-글자로고 */
+/* 메뉴바-글자로고*/ 
 #icon2
 {   
     float: left;
@@ -61,16 +65,15 @@ nav
 {
     position: absolute;
     right: 300px;
-    top: 20px;
+    top: 13px;
 }
 
 /* 메뉴바-로그인,회원가입 */
 #lojo
 {
     position: absolute;
-    right: 80px;
+    right: 30px;
     font-size: 0.6em;
-    top: 13px;
 }
 
 /* 경로-홈 아이콘 */
