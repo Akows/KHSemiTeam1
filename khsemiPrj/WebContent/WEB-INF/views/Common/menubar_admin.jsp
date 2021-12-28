@@ -1,20 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="./menubar_admin.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴바</title>
+    <link rel="stylesheet" href="Resources/Common/menubar_admin.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/d088eb3922.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<nav class="navbar">
+    <nav class="navbar">
         <!-- <div class="navbar-center"> -->
             <span class="nav-icon">
-                <img src="../images/로고 사진 연그레이.png" alt="logo" style="width: 50px;">
-                <img src="../images/로고 글자 연그레이.png" alt="logo_text" style="width: 100px;">
+               	<img src="Resources/img/Logo/로고 사진 연그레이.png" alt="logo" style="width: 50px;">
+                <img src="Resources/img/Logo/로고 글자 연그레이.png" alt="logo_text" style="width: 100px;">
             </span>
             <div id="menu">
                 <ul class="main1">
@@ -60,17 +62,17 @@
 
             <div class="cart-btn">
                 <span class="nav-icon" style="color:#eee">
-                    <i class="fas fa-cart-plus"></i>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <!-- <span>로그인 </span><span>| 회원가입</span> -->
+                    MD추천 관리
                 </span>
-                <div class="cart-items">0</div>
+                <!-- <div class="cart-items">0</div> -->
             </div>
             <div id="menu2">
                 <ul class="main1">
                     <li><a href="#"><i class="fas fa-user fa-2x" style="color: #eee;"></i></a>
                         <ul class="main2">
-                            <li><a href="#">신고내역</a></li>
+                            <li><a href="#">도서리뷰 신고내역</a></li>
+                            <li><a href="#">굿즈리뷰 신고내역</a></li>
+                            <li><a href="#">QnA 신고내역</a></li>
                             <li><a href="#">로그아웃</a></li>
                         </ul>
                     </li>

@@ -98,8 +98,8 @@
 	<div class="footer-basic">
         <footer>
             <div class="social">
-                <a href="#"><img src="../images/로고 사진 연그레이 s.png" alt=""></a>
-                <a href="#"><img src="../images/로고 글자 연그레이 s.png"><br>
+                <a href="#"><img src="Resources/img/Logo/로고 사진 연그레이 s.png" alt=""></a>
+                <a href="#"><img src="Resources/img/Logo/로고 글자 연그레이 s.png"><br>
                 </a>
             </div>
             <ul class="list-inline">
