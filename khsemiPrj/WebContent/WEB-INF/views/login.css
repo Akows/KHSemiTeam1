@@ -1,0 +1,77 @@
+body {
+    background-color: #EEEEEE !important;
+}
+
+img {
+    width: 23px;
+    height: 21px;
+    position: relative;
+    top: 129px;
+    left: 353px;
+}
+
+a {
+    color: #2D313C !important;
+    font-size: 15px;
+}
+
+#changeUserInfo {
+    position: relative;
+    top: 130px;
+    left: 350px;
+    font-size: 1.6ch;
+}
+
+.inputBox {
+    background-color: white;
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    margin-top: 180px;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+#loginBox {
+    text-align: center;
+    position: relative;
+    top: 30px;
+    font-size: xx-large;
+    font-weight: 400;
+}
+
+label {
+    position: relative;
+    margin-left: 100px;
+    font-weight: 700;
+}
+
+#id {
+    margin: auto;
+}
+
+#password {
+    margin: auto;
+}
+
+#saveInfo {
+    font-weight: normal !important;
+}
+
+#submit {
+    position: relative;
+    margin-left: 100px;
+    width: 200px;
+    background-color: #2D313C !important;
+}
+
+.find_Info {
+    position: relative;
+    margin-left: 107px;
+}
+
+#sign_Up {
+    font-weight: normal !important;
+}
+
