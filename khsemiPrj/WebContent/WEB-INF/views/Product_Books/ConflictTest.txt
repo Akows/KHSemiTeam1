@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-Test12121212
-55555
-=======
-Test
-TestTest
->>>>>>> main

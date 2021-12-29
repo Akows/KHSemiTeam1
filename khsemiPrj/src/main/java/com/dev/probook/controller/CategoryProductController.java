@@ -14,6 +14,6 @@ public class CategoryProductController extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		req.getRequestDispatcher("./WEB-INF/views/Product_Books/U9categoryproduct.jsp").forward(req, resp);
+		req.getRequestDispatcher("./WEB-INF/views/Product_Books/U9categoryproduct(2).jsp").forward(req, resp);
 	}
 }

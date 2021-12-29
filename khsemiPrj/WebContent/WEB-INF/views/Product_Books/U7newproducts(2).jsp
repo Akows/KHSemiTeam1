@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>NewProductsPage</title>
+
+    <title>신상품</title>
 
     <!-- 내부 스타일시트 -->
     <link rel="stylesheet" href="./Resources/Product_Books/U7newproducts.css" type="text/css">
@@ -14,9 +15,9 @@
 <body>
     <!-- 헤더 영역, 상단 메뉴바 -->
     <header>
-        <nav>
-            <div id="uppermenubararea"><h1>상단 메뉴바 영역 (nav 태그) </h1></div>
-        </nav>
+        <%@ include file="/WEB-INF/views/Common/menubar.jsp"%>
+        
+        <br>
 
         <div id="currentlocationarea">
             <a href="#" class="icon-home3"></a>
@@ -25,30 +26,27 @@
         </div>
 
         <div><h1 id="pagetitle">신상품</h1></div>
-
-        <nav id="submenu">
-            <a id="submenuscript">결과 표시됨</a>
-            <div id="blank"></div>
-            <a href="#" id="submenubotton"><span class="icon-thumbsup"></span> 추천 순</a>
-            <a href="#" id="submenubotton"><span class="icon-coin-dollar"></span> 판매 순</a>
-        </nav>
-
     </header>
 
     <section>
         <div id="maincontentouterarea" class="maincontentarea">
             <!-- 컨텐츠 바깥 배경 영역 (padding: 40px;) -->
             <div id="maincontentinnerarea" class="maincontentarea">
-                <!-- 컨텐츠 내부 배경 영역 (padding: 40px;) -->
+                
+                <nav id="submenu">
+                    <a id="submenuscript">결과 표시됨</a>
+                    <div id="blank"></div>
+                    <a href="#" id="submenubotton"><span class="icon-thumbsup"></span> 추천 순</a>
+                    <a href="#" id="submenubotton"><span class="icon-coin-dollar"></span> 판매 순</a>
+                </nav>
 
+                <!-- 컨텐츠 내부 배경 영역 (padding: 40px;) -->
                 <div id="maincontentdeployarea" class="maincontentarea">
                     <!-- 컨텐츠 배치 영역 (padding: 40px;) -->
-
                     <div id="maincontent01area" class="maincontentarea">
                         <!-- 컨텐츠 배치 첫번째 영역 (padding: 40px;) -->
 
                         <div id="contentarea">
-
                             <table border="0">
                                 <tr>
                                     <td>
@@ -144,19 +142,32 @@
                             </table>
 
                             <div id="pagecontrol">
-                                pagecontrol
+                                <ul class="pagination modal">
+                                    <li> <a href="#" class="first">처음 페이지</a></li>
+                                    <li> <a href="#" class="arrow left"><<</a></li> 
+                                    <li> <a href="#" class="active num">1</a></li>
+                                    <li> <a href="#" class="num">2</a></li>
+                                    <li> <a href="#" class="num">3</a></li>
+                                    <li> <a href="#" class="num">4</a></li>
+                                    <li> <a href="#" class="num">5</a></li>
+                                    <li> <a href="#" class="num">6</a></li>
+                                    <li> <a href="#" class="num">7</a></li>
+                                    <li> <a href="#" class="num">8</a></li>
+                                    <li> <a href="#" class="num">9</a></li>
+                                    <li> <a href="#" class="arrow right">>></a></li>
+                                    <li><a href="#" class="last">끝 페이지</a></li>
+                                </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
-    </section>
 
-    <footer id="footerarea">
-        <h5>Find Us to Development</h5>
-        <div>
-            <h3>DevBooks</h3>
+
+            </div>
         </div>
-    </footer>
+    </section>
+    
+    <%@ include file="/WEB-INF/views/Common/footer.jsp"%>
+
 </body>
 </html>

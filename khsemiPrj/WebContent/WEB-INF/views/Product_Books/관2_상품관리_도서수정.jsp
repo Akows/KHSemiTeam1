@@ -19,9 +19,7 @@
 
 </head>
 <body>
-
-
-
+    <%@ include file="/WEB-INF/views/Common/menubar_admin.jsp"%>
 
     <div id="red"></div>
     <div id="route">
@@ -292,9 +290,10 @@
           </div>
         </div></div>
 
+    <br><br>
 
-
-    <br><br><br><br>
+	<%@ include file="/WEB-INF/views/Common/footer.jsp"%>
+	
 </body>
 </html>
 

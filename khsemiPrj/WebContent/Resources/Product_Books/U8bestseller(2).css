@@ -18,7 +18,6 @@
         }
 
 /* 실제 페이지 CSS */
-
     /* 페이지 전체 배경 */
     body 
     {
@@ -136,7 +135,6 @@
     padding: 5px;
 }
 
-
 /* 좋아요, 장바구니 버튼 디자인 */
 button
 {
@@ -153,7 +151,7 @@ button
 }
 #cont3button
 {
-    background-color: #aaaaaa;
+    background-color: #f1f1f1;
 }
 
 .page{
@@ -221,11 +219,3 @@ button
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-right:10px solid blue; }
-
-/* 푸터 영역 */
-#footerarea {
-    padding: 30px;
-    background-color: black;
-    color: white;
-    text-align: center;
-}
