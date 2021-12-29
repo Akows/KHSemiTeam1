@@ -7,13 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원정보 변경</title>
-    <link rel="stylesheet" href="/WebContent/Resources/Member/change_memeberInfo.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Resources/Member/change_memeberInfo.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <a href=""><img src="/WebContent/Resources/img/i_con/home_icon.png" id="home_icon"></a>
+	<%@ include file="/WEB-INF/views/Common/menubar.jsp"%>
+    <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="changeUserInfo">> 마이페이지</a>
     <a href="" id="changeUserInfo">> 회원정보 변경</a>
     <div id="inputBox">
@@ -71,5 +72,6 @@
         더 이상 DEV BOOKS를 이용하지 않는다면    
         <strong><a href="" style="margin-left: 12px;">회원탈퇴 신청</a></strong>
     </span>
+    <%@ include file="/WEB-INF/views/Common/footer.jsp"%>
 </body>
 </html>
