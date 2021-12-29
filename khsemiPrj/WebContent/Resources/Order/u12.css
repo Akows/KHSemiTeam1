@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+
 
 *
 {
@@ -6,13 +6,13 @@
    padding: 0%;
 }
 
-/* ¹è°æ */
+/* ë°°ê²½ */
 body
 {
 	background-color: #EEEEEE;
 }
 
-/* ¸Ş´º¹Ù */
+/* ë©”ë‰´ë°” */
 nav 
 {
    border: 1px solid; 
@@ -35,17 +35,17 @@ nav
    text-align: center;
 }
 
-#navi a                       /* a ÅÂ±× ¸ğµÎ ¼±ÅÃ */
+#navi a                       /* a íƒœê·¸ ëª¨ë‘ ì„ íƒ */
 {
-    text-decoration: none;    /* ¹ØÁÙ ¾ø¾Ö±â */
+    text-decoration: none;    /* ë°‘ì¤„ ì—†ì• ê¸° */
    color:white;
    font-size: 1.3em;
-   font-weight: 400%;        /* ÆùÆ® ±½±â */
+   font-weight: 400%;        /* í°íŠ¸ êµµê¸° */
    height: 100%;
-   line-height: 40px;         /* ¶óÀÎ ³ôÀÌ ÁöÁ¤ */
+   line-height: 40px;         /* ë¼ì¸ ë†’ì´ ì§€ì • */
 }
 
-/* ¸Ş´º¹Ù-·Î°í */
+/* ë©”ë‰´ë°”-ë¡œê³  */
 #icon1
 {
    float: left;
@@ -53,14 +53,14 @@ nav
    height:45px;
 }
 
-/* ¸Ş´º¹Ù-±ÛÀÚ·Î°í*/ 
+/* ë©”ë‰´ë°”-ê¸€ìë¡œê³ */ 
 #icon2
 {   
     float: left;
     width: 100px
 }
 
-/* ¸Ş´º¹Ù-°Ë»ö */
+/* ë©”ë‰´ë°”-ê²€ìƒ‰ */
 #search
 {
     position: absolute;
@@ -68,7 +68,7 @@ nav
     top: 13px;
 }
 
-/* ¸Ş´º¹Ù-·Î±×ÀÎ,È¸¿ø°¡ÀÔ */
+/* ë©”ë‰´ë°”-ë¡œê·¸ì¸,íšŒì›ê°€ì… */
 #lojo
 {
     position: absolute;
@@ -76,14 +76,14 @@ nav
     font-size: 0.6em;
 }
 
-/* °æ·Î-È¨ ¾ÆÀÌÄÜ */
+/* ê²½ë¡œ-í™ˆ ì•„ì´ì½˜ */
 #icon3
 {
     width: 25px;
     height:20px;
 }
 
-/* ÀÌµ¿°æ·Î div */
+/* ì´ë™ê²½ë¡œ div */
 .src
 {
     position: absolute;
@@ -91,21 +91,21 @@ nav
     left: 10px;
 }
 
-/* ¸¶ÀÌÆäÀÌÁö ÀÌµ¿°æ·Î */
+/* ë§ˆì´í˜ì´ì§€ ì´ë™ê²½ë¡œ */
 #mypage
 {
     text-decoration: none;
     color: #2d313c;
 }
 
-/* ÁÖ¹®³»¿ªÁ¶È¸ ÀÌµ¿°æ·Î */
+/* ì£¼ë¬¸ë‚´ì—­ì¡°íšŒ ì´ë™ê²½ë¡œ */
 #ordercheck
 {
     text-decoration: none;
     color: #2d313c;
 }
 
-/* Å×ÀÌºí 1,2 */
+/* í…Œì´ë¸” 1,2 */
 .t1
 {
     position: absolute;
@@ -124,13 +124,13 @@ nav
     border-collapse : collapse;
 }
 
-      /* ÀÌ¹ÌÁö */
+      /* ì´ë¯¸ì§€ */
 #img
 {
     width: 100px;
 }
 
-/* Ãâ°íÁØºñ,¹è¼ÛÁß Ç¥½Ã */
+/* ì¶œê³ ì¤€ë¹„,ë°°ì†¡ì¤‘ í‘œì‹œ */
 #cg
 {
     background-color: #2d313c ;
@@ -140,7 +140,7 @@ nav
     font-size: 1.2em;
 }
 
-/* ÁÖ¹®ÀÏÀÚ */
+/* ì£¼ë¬¸ì¼ì */
 #ordate1
 {
     color: #2d313c ;
@@ -155,7 +155,7 @@ nav
     width: 245px;
 }
 
-/* µµ¼­¸í,°¡°İ  */
+/* ë„ì„œëª…,ê°€ê²©  */
 #gc
 {
     background-color: #787878;
@@ -163,27 +163,27 @@ nav
     font-size: 1.7em;
 }
 
-      /* ¾Õ¹è°æ»ö */
+      /* ì•ë°°ê²½ìƒ‰ */
 #gc1-2
 {
     background-color: #787878;
 }
 
-/* ¾Õ¹è°æ»ö -°¡·Î·Î ´Ã¸®±â */
+/* ì•ë°°ê²½ìƒ‰ -ê°€ë¡œë¡œ ëŠ˜ë¦¬ê¸° */
 #gc1-3
 {
     background-color: #787878;;
     width: 180px;
 }
 
-/* ¸Ç ¹Ø ¾Õ¹è°æ»ö-¼¼·Î·Î ´Ã¸®±â */
+/* ë§¨ ë°‘ ì•ë°°ê²½ìƒ‰-ì„¸ë¡œë¡œ ëŠ˜ë¦¬ê¸° */
 #gc1-4
 {
     background-color: #787878;;
     height: 50px;
 }
 
-/* ÀÏºÎ¹è°æ */
+/* ì¼ë¶€ë°°ê²½ */
 #bg
 {
     background-color:#adacac ;

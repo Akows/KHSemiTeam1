@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,6 +9,11 @@
 	<link rel="stylesheet" href="./Resources/Order/u12.css">
 </head>
 <body>
+
+<%-- <%@ include file="/WEB-INF/views/Common/menubar.jsp"%> --%>
+
+
+<%-- 
 	<nav>
 		<img src="Resources/img/Logo/로고 사진 연그레이 s.png" id="icon1">   
         <img src="Resources/img/Logo/로고 글자 연그레이 s.png" id="icon2">
@@ -25,7 +31,7 @@
             <li id="lojo"><a href="#">로그인</a> <label> | </label> <a href="#">회원가입</a></li>
         </ul>
     </nav>
-
+--%>
     <form>
         <div class="src">
             <a href="#"><img src="Resources/img/i_con/home_icon.png"id="icon3"></a>
@@ -167,5 +173,10 @@
     <br><br><br><br><br>
     <br><br><br><br><br>
     <br><br><br><br><br>
+    
+    <%--<%@ include file="/WEB-INF/views/Common/footer.jsp"%>
+    
+     --%>
+    
 </body>
 </html>
