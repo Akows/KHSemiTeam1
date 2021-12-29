@@ -5,7 +5,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="Resources/Product_Goods/1_홈.css">
+<link rel="stylesheet" href="Resources/Product_Goods/user_home.css">
 
 </head>
 <body>
@@ -15,7 +15,7 @@
     <div id="bb">
       <div id="bb1"><img src="Resources/img/Logo/로고 사진 연그레이.png" id="icon">DEV BOOKS</div>
         <div id="bb2"><br>
-          IT인을 위한 온라인 북 스토어<br>
+            IT인을 위한 온라인 북 스토어<br>
             다양한 IT 서적을 찾고 계신가요?<br>
             방대한 종류의 IT 자격증 서적과<br>
             전문적인 개발자들을 위한 프로그래밍 서적까지,<br>
@@ -33,7 +33,7 @@
     <div class="mySlides fade">
       <div class="numbertext">1 / 3</div>
         <div id="img">
-          <img id="book" src="Resources/img/Bookcover/자바의정석.JPG">
+          <img id="book" src="	.JPG">
           <div id="txt">
             <h3>MD 추천</h3>
             <h1>자바의 정석</h1>
