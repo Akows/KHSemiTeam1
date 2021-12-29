@@ -41,8 +41,8 @@
       <div class="">
           <a href="#" class="breadcrumbtext"><i class="glyphicon glyphicon-home"></i></a> > 
           <a href="#" class="breadcrumbtext">게시판</a> > 
-          <a href="#" class="breadcrumbtext">Q&A</a> > 
-          <a href="#" class="breadcrumbtext">질문작성</a>
+          <a href="#" class="breadcrumbtext">공지사항</a> > 
+          <a href="#" class="breadcrumbtext">공지작성</a>
       </div>
 	</div>
   
@@ -69,7 +69,7 @@
           <!-- END FILTERS -->
           <!-- BEGIN RESULT -->
           <div class="col-md-10">
-            <h2>질문작성</h2>
+            <h2>공지작성</h2>
             <form action="writerAction" method="post">
                 <input type="hidden" name="bdGroup">
                 <input type="hidden" name="bdOrder">
@@ -84,7 +84,7 @@
                 </div>
                 <div class="writeBtn">
                     <button type="button" class="btn btn-primary" style="background-color: #6c757d; border-color: #6c757d;">취소</button>
-                    <button type="submit" class="btn btn-primary">질문작성</button>
+                    <button type="submit" class="btn btn-primary">공지작성</button>
                 </div>
             </form>
         
@@ -108,8 +108,7 @@
     
     </script>
     
-    
 <%@ include file="/WEB-INF/views/Common/footer.jsp"%>
-    
+
 </body>
 </html>

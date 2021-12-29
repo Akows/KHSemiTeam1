@@ -8,16 +8,6 @@
 	<link rel="stylesheet" href="./Resources/QnA/a6_3.css">
 </head>
 <body>
-	<nav>
-		<img src="Resources/img/Logo/로고 사진 연그레이 s.png" id="icon1">
-        <ul id="navi">
-            <li><a href="#">상품관리</a></li>
-            <li><a href="#">회원관리</a></li>
-            <li><a href="#">주문내역관리</a></li>
-            <li><a href="#">QnA</a></li>
-            <li id="list4"><a href="#">관리자님</a></li>
-        </ul>
-    </nav>
 
     <div class="home">
         <a href="#"><img src="Resources/img/i_con/home_icon.png" id="icon3"></a>
@@ -142,5 +132,7 @@
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
+    
+    
 </body>
 </html>

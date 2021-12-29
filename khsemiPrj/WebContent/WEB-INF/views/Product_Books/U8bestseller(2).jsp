@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>베스트셀러</title>
 
-    <script src="./U8. 베스트셀러.css"></script>
-
     <!-- 내부 스타일시트 -->
     <link rel="stylesheet" href="./Resources/Product_Books/U8bestseller(2).css" type="text/css">
     <link rel="stylesheet" href="./Resources/Product_Books/style.css" type="text/css">
@@ -20,10 +18,6 @@
 <body>
     <!-- 헤더 영역, 상단 메뉴바 -->
     <header>
-        <nav>
-            <div id="uppermenubararea"><h1>상단 메뉴바 영역 (nav 태그) </h1></div>
-        </nav>
-
         <div id="currentlocationarea">
             <a href="#" class="icon-home3"></a>
             >
@@ -302,11 +296,5 @@
         </div>
     </section>
 
-    <footer id="footerarea">
-        <h5>Find Us to Development</h5>
-        <div>
-            <h3>DevBooks</h3>
-        </div>
-    </footer>
 </body>
 </html>

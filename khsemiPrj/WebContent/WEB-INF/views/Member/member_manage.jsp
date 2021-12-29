@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>회원 관리</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -14,14 +14,14 @@
     <!-- 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <!-- css -->
-    <link rel="stylesheet" href="Resources/Member/관3_회원관리.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Resources/Member/member_manage.css">
 
 </head>
 <body>
 
     <div id="red"></div>
     <div id="route">
-        <img id="home_icon"src="Resources/img/i_con/home_icon.png" alt="">
+        <img id="home_icon" src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" alt="">
         <div id="aa">
             <!-- <a href="" id="route">홈</a>  -->
             > 
@@ -33,7 +33,7 @@
     <div id="search_div" class="clearfix">
         <input type="text" class="form-control" placeholder="회원 이름으로 검색하세요" style="float: left;">
         <button type="submit" id="searchbtn" class="btn-outline-secondary">
-            <img id="Resources/img/i_con/searchbtn_img" src="./search.png" alt="검색" >
+            <img id="searchbtn_img" src="${pageContext.request.contextPath}/Resources/img/i_con/search.png" alt="검색" >
         </button>
     </div>
     

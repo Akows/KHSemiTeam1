@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
-
 :root {
   --primaryColor: #f09d51;
   --mainWhite: #fff;
@@ -23,7 +21,7 @@ body {
   position: sticky;
   top: 0;
   height: 70px;
-  width: 100%;
+  /*width: 100%;*/
   display: flex;
   align-items: center;
   background: #2D313C;

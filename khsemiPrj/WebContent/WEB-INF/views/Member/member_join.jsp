@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-    <link rel="stylesheet" href="/WebContent/Resources/Member/member_join.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Resources/Member/member_join.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <a href=""><img src="/WebContent/Resources/img/i_con/home_icon.png" id="home_icon"></a>
+    <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="changeUserInfo">>로그인</a>
     <a href="" id="changeUserInfo">>회원가입</a>
     <div id="inputBox">

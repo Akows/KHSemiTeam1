@@ -155,6 +155,9 @@ th {
 
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<%@ include file="/WEB-INF/views/Common/menubar.jsp"%>
+
 <div class="container">
 <div class="row">
   <!-- BEGIN SEARCH RESULT -->
@@ -259,5 +262,8 @@ th {
     <script type="text/javascript">
     
     </script>
+    
+    <%@ include file="/WEB-INF/views/Common/footer.jsp"%>
+    
 </body>
 </html>
