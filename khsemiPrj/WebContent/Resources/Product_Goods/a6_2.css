@@ -1,4 +1,3 @@
-@charset "EUC-KR";
 
 *
 {
@@ -6,64 +5,14 @@
     padding: 0%;
 }
 
-/* ¸Ş´º¹Ù */
-nav 
-{
-    border: 1px solid; 
-    width: 1500px;
-    height: 50px;
-    background-color: brown;
-}
 
-#navi
-{
-    list-style-type: none;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-#navi>li 
-{
-    float: left;
-    width: 22%;
-    height: 100%;
-    text-align: center;
-}
-
-/* ¸Ş´º¹Ù-°ü¸®ÀÚ */
-#list4
-{
-    font-size: 0.6em; 
-    position:absolute;
-    right: -70px;
-}
-
-#navi a                       /* a ÅÂ±× ¸ğµÎ ¼±ÅÃ */
-{
-    text-decoration: none;    /* ¹ØÁÙ ¾ø¾Ö±â */
-    color:white;
-    font-size: 1.5em;
-    font-weight: 400%;        /* ÆùÆ® ±½±â */
-    height: 100%;
-    line-height: 40px;         /* ¶óÀÎ ³ôÀÌ ÁöÁ¤ */
-}
-
-/* ¸Ş´º¹Ù-·Î°í */
-#icon1
-{
-    float: left;
-    width: 50px;
-    height:45px;
-}
-
-/* ¹è°æ */
+/* ë°°ê²½ */
 body
 {
     background-color: #EEEEEE;
 }
 
-/* ±ÂÁî¸®ºä½Å°í¸®½ºÆ® ±Û¾¾ */
+/* êµ¿ì¦ˆë¦¬ë·°ì‹ ê³ ë¦¬ìŠ¤íŠ¸ ê¸€ì”¨ */
 h2
 {
     background-color: #787878;
@@ -71,12 +20,12 @@ h2
     font-size: 1.7em;
     font-weight: 200;
     text-align: center;
-    width: 1500px;
+    width: 100%;
     height: 50px;
     line-height: 50px; 
 }
 
-    /* ÀÌµ¿°æ·Î div */
+    /* ì´ë™ê²½ë¡œ div */
 .home
 {
     position: absolute;
@@ -84,28 +33,28 @@ h2
     left: 50px;
 }
 
-/* °æ·Î-È¨ ¾ÆÀÌÄÜ */
+/* ê²½ë¡œ-í™ˆ ì•„ì´ì½˜ */
 #icon3
 {
     width: 25px;
     height:20px;
 }
 
-/* °æ·Î-È¸¿ø°ü¸®,½Å°í¸®ºä¸®½ºÆ® */
+/* ê²½ë¡œ-íšŒì›ê´€ë¦¬,ì‹ ê³ ë¦¬ë·°ë¦¬ìŠ¤íŠ¸ */
 #gs 
 {
     text-decoration: none;
     color: #2d313c;
 }
 
-/* Ã¥ ÀÌ¹ÌÁö */
+/* ì±… ì´ë¯¸ì§€ */
 #book1
 {
     width: 120px;
     height: 140px;
 }
 
-/* Ã¥ ÀÌ¹ÌÁö Ä­  */
+/* ì±… ì´ë¯¸ì§€ ì¹¸  */
 #book2
 {
     width: 150px;
@@ -116,14 +65,14 @@ h2
     width: 140px;
 }
 
-/* ¾ÆÀÌÄÜ-ÁÁ¾Æ¿ä */
+/* ì•„ì´ì½˜-ì¢‹ì•„ìš” */
 #wish
 {
     width: 30px;
     height: 30px;
 }
 
-/* ¸®ºä,ÀÛ¼ºÀÚ,ÀÛ¼º³¯Â¥ */
+/* ë¦¬ë·°,ì‘ì„±ì,ì‘ì„±ë‚ ì§œ */
 #lab1
 {
     text-align: left ;
@@ -133,7 +82,7 @@ h2
     color: black;
 }
 
-/* ¹öÆ°-½Å°íÃë¼Ò */
+/* ë²„íŠ¼-ì‹ ê³ ì·¨ì†Œ */
 #btn1
 {
     background-color: #787878;
@@ -143,7 +92,7 @@ h2
     left: 970px;
 }
 
-/* ¹öÆ°-»èÁ¦ */
+/* ë²„íŠ¼-ì‚­ì œ */
 #btn2
 {
     background-color: #2d313c;
