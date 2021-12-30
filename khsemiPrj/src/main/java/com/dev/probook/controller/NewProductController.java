@@ -16,4 +16,19 @@ public class NewProductController extends HttpServlet
 	{
 		req.getRequestDispatcher("./WEB-INF/views/Product_Books/U7newproducts(2).jsp").forward(req, resp);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
+	{
+		String imgpath;
+		String name;
+		String writer;
+		String price;
+		
+	}
+	
+	
+	
+	
+	
 }
