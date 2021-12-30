@@ -9,15 +9,31 @@
     <title>베스트셀러</title>
 
     <!-- 내부 스타일시트 -->
-    <link rel="stylesheet" href="./Resources/Product_Books/U8bestseller(2).css" type="text/css">
-    <link rel="stylesheet" href="./Resources/Product_Books/style.css" type="text/css">
+    <link rel="stylesheet" href="./Resources/Product_Books/U8bestseller(2).css">
+    <link rel="stylesheet" href="./Resources/Product_Books/style.css">
 
     <!-- 외부 스타일시트 -->
-    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
     <!-- 헤더 영역, 상단 메뉴바 -->
     <header>
+    
+    	<%@ include file="/WEB-INF/views/Common/menubar.jsp" %>
+    	
+    	<br>
+
         <div id="currentlocationarea">
             <a href="#" class="icon-home3"></a>
             >
@@ -270,23 +286,19 @@
 
                             <div id="pagecontrol">
 
-                                <ul class="pagination modal">
-                                    <li> <a href="#" class="first">처음 페이지</a></li>
-                                    <li> <a href="#" class="arrow left"><<</a></li> 
-                                    <li> <a href="#" class="active num">1</a></li>
-                                    <li> <a href="#" class="num">2</a></li>
-                                    <li> <a href="#" class="num">3</a></li>
-                                    <li> <a href="#" class="num">4</a></li>
-                                    <li> <a href="#" class="num">5</a></li>
-                                    <li> <a href="#" class="num">6</a></li>
-                                    <li> <a href="#" class="num">7</a></li>
-                                    <li> <a href="#" class="num">8</a></li>
-                                    <li> <a href="#" class="num">9</a></li>
-                                    <li> <a href="#" class="arrow right">>></a></li>
-                                    <li><a href="#" class="last">끝 페이지</a></li>
-                                </ul>
+                                <nav id="pagecontrolinner" aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                </nav>
 
                             </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -295,6 +307,8 @@
             </div>
         </div>
     </section>
+
+    <%@ include file="/WEB-INF/views/Common/footer.jsp" %>
 
 </body>
 </html>

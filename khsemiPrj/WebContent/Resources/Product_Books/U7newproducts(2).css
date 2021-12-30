@@ -18,12 +18,13 @@
         }
 
 /* 실제 페이지 CSS */
+
     /* 페이지 전체 배경 */
     body 
     {
         width: 100%;
         height: 100%;
-        background-color: #f1f1f1;
+        background-color: #f1f1f1 !important;
         border: none;
     }
 
@@ -91,32 +92,6 @@
 
     /* border: hotpink 1px solid; */
 }
-#contentarea2outer
-{
-    padding: 20px;
-    background-color: #aaaaaa;
-
-    /* border: indianred 1px solid; */
-}
-#contentarea2
-{
-    padding: 10px;
-    text-align: center;
-    background-color: #F1F1F1;
-
-    /* border: yellowgreen 1px solid; */
-}
-
-#contentarea3
-{
-    width: 1000px;
-    padding: 10px;
-    text-align: center;
-    background-color: #aaaaaa;
-    color: white;
-
-    /* border: gold 1px solid; */
-}
 
 #bookcover
 {
@@ -130,12 +105,6 @@
     padding: 10px;
 }
 
-#pagecontrol2
-{
-    padding: 5px;
-}
-
-
 /* 좋아요, 장바구니 버튼 디자인 */
 button
 {
@@ -146,13 +115,14 @@ button
 {
     background-color: #f1f1f1;
 }
-#cont2button
+
+#pagecontrol
 {
-    background-color: #F1F1F1;
+    text-align: center;
 }
-#cont3button
+#pagecontrolinner
 {
-    background-color: #f1f1f1;
+    display: inline-block;
 }
 
 .page{
@@ -169,7 +139,6 @@ button
 .pagination li {
     display: inline;
     text-align: center;}
-
 
 .pagination a {
     float: left;
@@ -220,3 +189,11 @@ button
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-right:10px solid blue; }
+
+/* 푸터 영역 */
+#footerarea {
+    padding: 30px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
