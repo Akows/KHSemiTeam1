@@ -21,7 +21,7 @@
 </head>
 <body>
 
-	<%@ include file="../Common/menubar.jsp" %>
+	<%@ include file="../Common/menubar_admin.jsp" %>
 
 <!-- 
 	<nav>
@@ -51,7 +51,7 @@
     <br><br><br><br>
 
     <form>
-        <div>
+        <div >
             <table>
                 <tr>
                     <th id="book2"><img src="Resources/img/Bookcover/자바의정석.JPG" id="book1"></th>
@@ -146,9 +146,11 @@
         </div>
     </form>
 
+	<br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    
 	<%@ include file="../Common/footer.jsp" %>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
+  
 </body>
 </html>
