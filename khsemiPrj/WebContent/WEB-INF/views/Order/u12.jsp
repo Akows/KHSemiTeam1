@@ -6,8 +6,22 @@
 <meta charset="UTF-8">
 <title>u12_주문내역조회</title>
 	<link rel="stylesheet" href="./Resources/Order/u12.css">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	
+	<!-- jQuery library -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
+<!--
 	<nav>
 		<img src="Resources/img/Logo/로고 사진 연그레이 s.png" id="icon1">   
         <img src="Resources/img/Logo/로고 글자 연그레이 s.png" id="icon2">
@@ -25,6 +39,7 @@
             <li id="lojo"><a href="#">로그인</a> <label> | </label> <a href="#">회원가입</a></li>
         </ul>
     </nav>
+-->
 
     <form>
         <div class="src">

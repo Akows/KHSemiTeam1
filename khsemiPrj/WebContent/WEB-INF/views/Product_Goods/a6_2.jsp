@@ -1,35 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="EUC-KR">
-<title>a6_2_±ÂÁî¸®ºä½Å°í</title>
-	<link rel="stylesheet" href="./Resources/Product_Goods/a6_2.css"">
+<meta charset="UTF-8">
+<title>a6_2_êµ¿ì¦ˆë¦¬ë·°ì‹ ê³ </title>
+	<link rel="stylesheet" href="./Resources/Product_Goods/a6_2.css">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	
+	<!-- jQuery library -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
+	<%-- <%@ include file="/WEB-INF/views/Common/menubar.jsp"%> --%>
+
+<!-- 
 	<nav>
-		<img src="Resources/img/Logo/·Î°í »çÁø ¿¬±×·¹ÀÌ s.png" id="icon1">
+		<img src="Resources/img/Logo/ë¡œê³  ì‚¬ì§„ ì—°ê·¸ë ˆì´ s.png" id="icon1">
         <ul id="navi">
-            <li><a href="#">»óÇ°°ü¸®</a></li>
-            <li><a href="#">È¸¿ø°ü¸®</a></li>
-            <li><a href="#">ÁÖ¹®³»¿ª°ü¸®</a></li>
+            <li><a href="#">ìƒí’ˆê´€ë¦¬</a></li>
+            <li><a href="#">íšŒì›ê´€ë¦¬</a></li>
+            <li><a href="#">ì£¼ë¬¸ë‚´ì—­ê´€ë¦¬</a></li>
             <li><a href="#">QnA</a></li>
-            <li id="list4"><a href="#">°ü¸®ÀÚ´Ô</a></li>
+            <li id="list4"><a href="#">ê´€ë¦¬ìžë‹˜</a></li>
         </ul>
     </nav>
+-->
 
     <div class="home">
         <a href="#"><img src="Resources/img/i_con/home_icon.png" id="icon3"></a>
         <label> > </label>
-        <a href="#" id="gs">È¸¿ø°ü¸®</a>
+        <a href="#" id="gs">íšŒì›ê´€ë¦¬</a>
         <label> > </label>
-        <a href="#" id="gs">±ÂÁî ¸®ºä_½Å°í¸®½ºÆ®</a>
+        <a href="#" id="gs">êµ¿ì¦ˆ ë¦¬ë·°_ì‹ ê³ ë¦¬ìŠ¤íŠ¸</a>
     </div>
 
     <br><br><br><br>
 
-    <h2>±ÂÁî ¸®ºä_½Å°í ¸®½ºÆ®</h2>
+    <h2>êµ¿ì¦ˆ ë¦¬ë·°_ì‹ ê³  ë¦¬ìŠ¤íŠ¸</h2>
     
     <br><br><br><br>
 
@@ -37,28 +54,28 @@
         <div>
             <table>
                 <tr>
-                    <th id="book2"><img src="Resources/img/Bookcover/ÀÚ¹ÙÀÇÁ¤¼®.JPG" id="book1"></th>
+                    <th id="book2"><img src="Resources/img/Bookcover/ìžë°”ì˜ì •ì„.JPG" id="book1"></th>
                     <th id="lab1"> 
                         <img src="Resources/img/i_con/wish2_icon.png" id="wish">
 
                         <br>
 
                         <label> 
-                            ¼öÇÐ¿¡ ¼öÇÐÀÇ Á¤¼®ÀÌ ÀÖ´Ù¸é, ÀÚ¹Ù¿¡´Â ÀÚ¹ÙÀÇ Á¤¼®ÀÌ ÀÖ´Ù.
+                            ìˆ˜í•™ì— ìˆ˜í•™ì˜ ì •ì„ì´ ìžˆë‹¤ë©´, ìžë°”ì—ëŠ” ìžë°”ì˜ ì •ì„ì´ ìžˆë‹¤.
                             <br>
-                            ÀÚ¹ÙÀÇ Á¤¼®Àº ³ª¿Í Âü ±íÀº Ã¥ÀÌ±â´Â *¤©.. ÀÌÇØ 1µµ ¸øÇÏ°Ú´Ù 
+                            ìžë°”ì˜ ì •ì„ì€ ë‚˜ì™€ ì°¸ ê¹Šì€ ì±…ì´ê¸°ëŠ” *ã„¹.. ì´í•´ 1ë„ ëª»í•˜ê² ë‹¤ 
                             <br> 
-                            °­ÀÇ¸¦ µèÁö ¾ÊÀ¸¸é ½±°Ô ÀÌÇØ Èûµë.
+                            ê°•ì˜ë¥¼ ë“£ì§€ ì•Šìœ¼ë©´ ì‰½ê²Œ ì´í•´ íž˜ë“¬.
                         </label>
 
                         <br><br>
 
-                        <label >ÀÛ¼ºÀÚ : jackand</label>
+                        <label >ìž‘ì„±ìž : jackand</label>
                         <br><br>
-                        <label>ÀÛ¼º³¯Â¥ : 2021.08.25</label>
+                        <label>ìž‘ì„±ë‚ ì§œ : 2021.08.25</label>
 
-                        <input type="submit" id="btn1" value="½Å°íÃë¼Ò">
-                        <input type="submit" id="btn2" value="»èÁ¦">
+                        <input type="submit" id="btn1" value="ì‹ ê³ ì·¨ì†Œ">
+                        <input type="submit" id="btn2" value="ì‚­ì œ">
                     </th>
                 </tr>
             </table>
@@ -69,30 +86,30 @@
 
             <table>
                 <tr>
-                    <td id="book3"><img src="Resources/img/Bookcover/itÁö½Ä.JPG" id="book1"></td>
+                    <td id="book3"><img src="Resources/img/Bookcover/itì§€ì‹.JPG" id="book1"></td>
                     <td id="lab1"> 
                         <img src="Resources/img/i_con/wish2_icon.png" id="wish">
 
                         <br>
 
                         <label> 
-                            °³³ä¿¡ ´ëÇÑ ¼³¸íÀ» À§Å°¹é°ú ±×´ë·Î ÆÛ¿Â ¾²¤Ñ·¹±â°°Àº Ã¥ÀÓ. 
+                            ê°œë…ì— ëŒ€í•œ ì„¤ëª…ì„ ìœ„í‚¤ë°±ê³¼ ê·¸ëŒ€ë¡œ í¼ì˜¨ ì“°ã…¡ë ˆê¸°ê°™ì€ ì±…ìž„. 
                             <br>
-                            ÀúÀÚ°¡ °³³ä ¼³¸í¿¡ ´ëÇÑ °³³äÀÌ ºÎÁ·ÇÑ°ÇÁö, 
+                            ì €ìžê°€ ê°œë… ì„¤ëª…ì— ëŒ€í•œ ê°œë…ì´ ë¶€ì¡±í•œê±´ì§€, 
                             <br>
-                            ÀÚ½ÅÀÇ ¾èÀº Áö½ÄÀ» ÀÚ¶ûÇÏ´Â°ÇÁö ÀÇµµ¸¦ ¸ð¸£°ÚÀ½. 
+                            ìžì‹ ì˜ ì–•ì€ ì§€ì‹ì„ ìžëž‘í•˜ëŠ”ê±´ì§€ ì˜ë„ë¥¼ ëª¨ë¥´ê² ìŒ. 
                             <br>
-                            ÀÌµý Ã¥ »ì¹Ù¿¡ ±× µ·À¸·Î ´õ¿í À¯¿ëÇÑ ÀÏÀ» ÇÒ ¼ö ÀÖÀ» °ÍÀÓ.
+                            ì´ë”´ ì±… ì‚´ë°”ì— ê·¸ ëˆìœ¼ë¡œ ë”ìš± ìœ ìš©í•œ ì¼ì„ í•  ìˆ˜ ìžˆì„ ê²ƒìž„.
                         </label>
 
                         <br><br>
 
-                        <label >ÀÛ¼ºÀÚ : gn040545</label>
+                        <label >ìž‘ì„±ìž : gn040545</label>
                         <br><br>
-                        <label>ÀÛ¼º³¯Â¥ : 2021.12.01</label>
+                        <label>ìž‘ì„±ë‚ ì§œ : 2021.12.01</label>
 
-                        <input type="submit" id="btn1" value="½Å°íÃë¼Ò">
-                        <input type="submit" id="btn2" value="»èÁ¦">
+                        <input type="submit" id="btn1" value="ì‹ ê³ ì·¨ì†Œ">
+                        <input type="submit" id="btn2" value="ì‚­ì œ">
                     </td>
                 </tr>
             </table>
@@ -103,26 +120,26 @@
 
             <table>
                 <tr>
-                    <td id="book3"><img src="Resources/img/Bookcover/¸ôÀÔ.JPG" id="book1"></td>
+                    <td id="book3"><img src="Resources/img/Bookcover/ëª°ìž….JPG" id="book1"></td>
                     <td id="lab1"> 
                         <img src="Resources/img/i_con/wish2_icon.png" id="wish">
 
                         <br>
 
                         <label> 
-                            ¼³¸íÀÌ ³Ê¹« ºó¾àÇÏ°í ½ÇÇà°á°ú »çÁøµµ ÀÌÇØ°¡ ¾È°¨.
+                            ì„¤ëª…ì´ ë„ˆë¬´ ë¹ˆì•½í•˜ê³  ì‹¤í–‰ê²°ê³¼ ì‚¬ì§„ë„ ì´í•´ê°€ ì•ˆê°.
                             <br>
-                            ¾Æ¿¹ ±âº»À» ¸ð¸£´Â ÃÊº¸³ª ÀÔ¹®ÀÚµé¿¡°Õ ¾î·Á¿ï ¼ö ÀÖ´Â Ã¥ÀÓ.
+                            ì•„ì˜ˆ ê¸°ë³¸ì„ ëª¨ë¥´ëŠ” ì´ˆë³´ë‚˜ ìž…ë¬¸ìžë“¤ì—ê² ì–´ë ¤ìš¸ ìˆ˜ ìžˆëŠ” ì±…ìž„.
                         </label>
 
                         <br><br>
 
-                        <label >ÀÛ¼ºÀÚ : jj5555</label>
+                        <label >ìž‘ì„±ìž : jj5555</label>
                         <br><br>
-                        <label>ÀÛ¼º³¯Â¥ : 2021.10.18</label>
+                        <label>ìž‘ì„±ë‚ ì§œ : 2021.10.18</label>
 
-                        <input type="submit" id="btn1" value="½Å°íÃë¼Ò">
-                        <input type="submit" id="btn2" value="»èÁ¦">
+                        <input type="submit" id="btn1" value="ì‹ ê³ ì·¨ì†Œ">
+                        <input type="submit" id="btn2" value="ì‚­ì œ">
                     </td>
                 </tr>
             </table>
