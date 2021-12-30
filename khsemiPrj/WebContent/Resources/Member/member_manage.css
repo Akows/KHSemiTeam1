@@ -9,7 +9,7 @@ body{
     height: 50px;
     background-color: brown;
 }
-/* ---------- Í≤ΩÎ°ú ---------------- */
+/* ---------- ∞Ê∑Œ ---------------- */
 #route{
     position: relative;
     margin-top: 10px;
@@ -30,7 +30,7 @@ a{
     vertical-align: middle;
     font-size: 15px;
 }
-/* ---------- Í≤ÄÏÉâ ---------------- */
+/* ---------- ∞Àªˆ ---------------- */
 #search_div{
     margin-top: 15px;
     margin-left: 10px;
@@ -40,7 +40,8 @@ width: 300px;
 }
 
 #searchbtn{
-    height: 33px;
+    height: 38px;
+    border: 1px solid #b4b4b4;
 }
 #searchbtn_img{
     height: 100%;
@@ -51,7 +52,7 @@ width: 300px;
 }
 
 
-/* ---------- Î©îÏù∏ ---------------- */
+/* ---------- ∏ﬁ¿Œ ---------------- */
 #main{
     width: 80%;
     height: 700px;
@@ -86,14 +87,14 @@ tr:nth-child(2n-1){
     background-color: #e6e6e6;
 }
 
-/*-------------------- ÌéòÏù¥Ï†Ä ---------------------*/
-nav{
-    text-align: center;
+/*-------------------- ∆‰¿Ã¿˙ ---------------------*/
+#nav{
     margin-top: 10px;
+    padding-left: 45%;
 }
 
 
-/*-------------------- Î≤ÑÌäº ---------------------*/
+/*-------------------- πˆ∆∞ ---------------------*/
 #b2{
     margin-top: 50px;
 }
@@ -107,7 +108,7 @@ nav{
     background-color: #797979;
     color: #eeeeee;
 }
-/*-------------------- ÏÇ¨Ïù¥Îìú ---------------------*/
+/*-------------------- ªÁ¿ÃµÂ ---------------------*/
 #side{
     /* border: 1px solid black; */
     display: block;

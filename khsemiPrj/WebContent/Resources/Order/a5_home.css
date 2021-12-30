@@ -15,7 +15,7 @@ div{
     border-radius: 0px !important;
 }
 
-/* ---------- ê²½ë¡œ ---------------- */
+/* ---------- °æ·Î ---------------- */
 #route{
     position: relative;
     margin-top: 10px;
@@ -41,14 +41,14 @@ div{
     padding-left: 100px;
     padding-right: 100px;
 }
-/* --------------------top : ìƒí’ˆê´€ë¦¬ / íšŒì›ê´€ë¦¬ / ì£¼ë¬¸ë‚´ì—­ê´€ë¦¬-----------------------*/
+/* --------------------top : »óÇ°°ü¸® / È¸¿ø°ü¸® / ÁÖ¹®³»¿ª°ü¸®-----------------------*/
 #t1, #t2{
     height: 90%;
     width: 25%;
     display: inline flex;
     margin: 5px;
     background-color: #e3e3e3;   
-    padding-top: 20px;     
+    padding-top: 10px;     
 }
 #t3{
     height: 90%;
@@ -57,10 +57,10 @@ div{
     float: left;
     margin: 5px;
     background-color: #e3e3e3;
-    padding-top: 20px;   
+    padding-top: 10px;   
 }
 
-/*-------bottom : í†µê³„ / QnAê´€ë¦¬ / ë¦¬ë·°ì‹ ê³  ê´€ë¦¬----------  */
+/*-------bottom : Åë°è / QnA°ü¸® / ¸®ºä½Å°í °ü¸®----------  */
 #bottom{
     width: 100%;
     height: 600px;
@@ -75,17 +75,15 @@ div{
 }
 #bRight{
     width: 73%;
-    padding-top: 15px;
 }
 #bLeft{
     width: 27%;
-    padding-top: 15px;
+    padding-top: 18px;
     padding-left: 25px;
 }
-/* --------------- í†µê³„ í…Œì´ë¸” ë°°ê²½------------------------------- */
+/* --------------- Åë°è Å×ÀÌºí ¹è°æ------------------------------- */
 #wrap{
     height: 100%;
-    padding-top: 10px;
     padding-bottom: 20px;
     background-color: #e3e3e3;
 }
@@ -93,20 +91,21 @@ div{
     height: 40%;
     width: 98%;
     background-color: #e3e3e3;
-    padding-top: 20px;  
+    padding-top: 10px;  
 }
 #left2{
     margin-top: 20px;
 }
 
 
-/* í…Œì´ë¸” ê´€ë ¨=============================================================== */
+/* Å×ÀÌºí °ü·Ã=============================================================== */
 table{
     width: 80%;
 }
 caption{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: bold;
+    caption-side: top;
 }
 
 .tb1, .tb2, .tb3{
@@ -150,7 +149,7 @@ caption{
 }
 
 
-/* -----------í†µê³„----------------------- */
+/* -----------Åë°è----------------------- */
 .week{
     background-color: #f0f0f0;
 }

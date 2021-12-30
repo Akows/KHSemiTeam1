@@ -6,7 +6,7 @@ body{
     height: 50px;
     background-color: brown;
 }
-/* ---------- Í≤ΩÎ°ú ---------------- */
+/* ---------- ∞Ê∑Œ ---------------- */
 #route{
     position: relative;
     margin-top: 10px;
@@ -27,7 +27,7 @@ a{
     vertical-align: middle;
     font-size: 15px;
 }
-/* ---------- Í≤ÄÏÉâ ---------------- */
+/* ---------- ∞Àªˆ ---------------- */
 #search_div{
     margin-top: 15px;
     margin-left: 10px;
@@ -37,7 +37,7 @@ width: 300px;
 }
 
 #searchbtn{
-    height: 33px;
+    height: 39px;
 }
 #searchbtn_img{
     height: 100%;
@@ -48,7 +48,7 @@ width: 300px;
 }
 
 
-/* ---------- Î©îÏù∏ ---------------- */
+/* ---------- ∏ﬁ¿Œ ---------------- */
 #main{
     width: 1700px;
     height: 850px;
@@ -80,11 +80,11 @@ table {
 }
 table th, table td{
     height: 45px;
-    border:1px solid #c5c5c5;
+    border:1px solid #c5c5c5 !important;
     text-align: center;
 }
 th{
-    background-color: #d4d4d4;
+    background-color: #d4d4d4 !important;
     color: #797979;
     font-size: 15px;
 }
@@ -97,14 +97,17 @@ tr:nth-child(2n-1){
 select{
     height: 30px;
 }
-/*-------------------- ÌéòÏù¥Ï†Ä ---------------------*/
-nav{
-    text-align: center;
-    margin-top: 5px;
+/*-------------------- ∆‰¿Ã¿˙ ---------------------*/
+#nav{
+    margin-top: 10px;
+    padding-left: 45%;
 }
 
 
-/*-------------------- Î≤ÑÌäº ---------------------*/
+/*-------------------- πˆ∆∞ ---------------------*/
+#b2{
+    margin-top: 30px;
+}
 .btn1{
     border-radius: 3px;
     border: 1px solid #b4b4b4;
@@ -115,13 +118,13 @@ nav{
     background-color: #797979;
     color: #eeeeee;
 }
-/* ÌéòÏù¥ÏßÄ ÎØ∏Î¶¨Î≥¥Í∏∞ */
+/* ∆‰¿Ã¡ˆ πÃ∏Æ∫∏±‚ */
 #slide{
     /* border: 1px solid red; */
     border-radius: 10px;
     background-color: #b4b4b4;
     width: 430px;
-    height: 250px;
+    height: 280px;
     margin-top: 10px;
     margin-left: 20px;
     display: inline;
@@ -158,5 +161,5 @@ nav{
     text-align: center;
 }
 #btn3{
-    margin-top: 10px;
+    margin-top: 30px;
 }
