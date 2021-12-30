@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>카테고리상품보기</title>
+    <title>카테고리상품보기(도서)</title>
 
     <!-- 내부 스타일시트 -->
-    <link rel="stylesheet" href="./Resources/Product_Books/U9categoryproduct(2).css">
-    <link rel="stylesheet" href="./Resources/Product_Books/style.css">
+    <link rel="stylesheet" href="./Resources/css/Product_Books/u_category_book_list.css">
+    <link rel="stylesheet" href="./Resources/css/Product_Books/style.css">
 
     <!-- 외부 스타일시트 -->
     <!-- Latest compiled and minified CSS -->
@@ -30,17 +30,17 @@
     <!-- 헤더 영역, 상단 메뉴바 -->
     <header>
     
-    	<%@ include file="/WEB-INF/views/Common/menubar.jsp" %>
+    	<%@ include file="../Common/u_menubar.jsp" %>
     	
     	<br>
 
         <div id="currentlocationarea">
             <a href="#" class="icon-home3"></a>
             >
-            <a href="#">카테고리상품보기</a>
+            <a href="#">카테고리상품보기(도서)</a>
         </div>
 
-        <div><h1 id="pagetitle">카테고리상품보기</h1></div>
+        <div><h1 id="pagetitle">카테고리상품보기(도서)</h1></div>
 
     </header>
 
@@ -168,7 +168,7 @@
         </div>
     </section>
 
-    <%@ include file="/WEB-INF/views/Common/footer.jsp" %>
+    <%@ include file="../Common/u_footer.jsp" %>
 
 </body>
 </html>

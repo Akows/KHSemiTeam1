@@ -14,6 +14,6 @@ public class BestSellerController extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		req.getRequestDispatcher("./WEB-INF/views/Product_Books/U8bestseller(2).jsp").forward(req, resp);
+		req.getRequestDispatcher("./WEB-INF/views/Product_Books/u_bestseller_list.jsp").forward(req, resp);
 	}
 }
