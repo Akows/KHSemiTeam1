@@ -7,44 +7,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script> 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>  -->
-    
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-	  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Resources/QnA/event_view.css">
+    
+    <!-- 공용으로 쓰는 부트스트랩 -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
-    <style>
-        #bdTitle {
-            margin-bottom: 7px;
-        }
-    </style>
+    <!-- 기존에 쓰던 부트스트랩 -->
+    <!-- <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+	
+	<style>
+		#home_icon {
+    		width: 23px;
+    		height: 21px;
+  		}
+  		 .bbiv {
+        	position: relative;
+        	left: 30px;
+        	top: 10px;
+        	padding-bottom: 20px;
+    	}
+	</style>
 </head>
 
 <body>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
-<%@ include file="/WEB-INF/views/Common/menubar.jsp"%>
-
+<%@ include file="../Common/menubar.jsp" %>
 <div class="container">
 <div class="row">
-  <!-- BEGIN SEARCH RESULT -->
-  <!-- <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Page name</a></li>
-    <li class="breadcrumb-item"><a href="#">Search Results</a></li>
-    <li class="pull-right"><a href="" class="text-muted"><i class="fa fa-refresh"></i></a></li>
-  </ol> -->
   <div class="bbiv">
-      <div class="">
-          <a href="#" class="breadcrumbtext"><i class="glyphicon glyphicon-home"></i></a> > 
-          <a href="#" class="breadcrumbtext">게시판</a> > 
-          <a href="#" class="breadcrumbtext">Q&A</a> > 
-          <a href="#" class="breadcrumbtext">질문작성</a>
-      </div>
-	</div>
+    <div class="">
+        <a href="#" class="breadcrumbtext"><img id="home_icon" src="Resources/img/i_con/home_icon.png" alt="홈아이콘"></a> > 
+        <a href="#" class="breadcrumbtext">게시판</a> >  
+        <a href="#" class="breadcrumbtext">이벤트</a> > 
+        <a href="#" class="breadcrumbtext">자세히보기</a>
+    </div>
+  </div>
   
   <div class="col-md-12">
     <div class="grid search">
@@ -70,7 +68,7 @@
           <!-- BEGIN RESULT -->
           <div class="col-md-10">
             <h2>상세보기</h2>
-            <caption>Q&A</caption>
+            <caption>이벤트</caption>
               <colgroup>
                   <col width="15%">
                   <col width="35%">
@@ -81,7 +79,7 @@
               <tbody>
                 <tr>
                   <th style="width: 8%;">제목</th>
-                  <td id="title" colspan="5">제목 테스트입니다.</td>
+                  <td id="title" colspan="5">이벤트 테스트입니다.</td>
                   <!-- <td>2</td>
                   <td>3</td>
                   <td>4</td>
@@ -106,6 +104,7 @@
           <button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button>
           <button class="btn btn-primary" style="float: right;">수정</button>
           <button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button>
+          <hr>
           <h4>신청</h4>
           <hr>
           <form action="">
@@ -123,9 +122,9 @@
                     <input type="text" class="form-control" name="" id="">
                 </ul>
                 <ul>
-                    <input type="submit" class="btn btn-primary" value="가입 신청">
+                    <input type="submit" class="btn btn-primary" value="이벤트 신청">
                 </ul>
-                </div>
+               </div>
           </form>
         
         <!-- <hr/> -->
@@ -147,8 +146,6 @@
     <script type="text/javascript">
     
     </script>
-    
-    <%@ include file="/WEB-INF/views/Common/footer.jsp"%>
-    
+    <%@ include file="../Common/footer.jsp" %>
 </body>
 </html>

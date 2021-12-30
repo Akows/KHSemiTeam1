@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script> 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>  -->
-    
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-	  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Resources/QnA/notice_view.css" type="text/css">
+    
+    <!-- 공용으로 쓰는 부트스트랩 -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- 기존에 쓰던 부트스트랩 -->
+    <!-- <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 
     <style>
         #bdTitle {
@@ -25,26 +25,18 @@
 </head>
 
 <body>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
-<%@ include file="/WEB-INF/views/Common/menubar.jsp"%>
-
+<%@ include file="../Common/menubar.jsp" %>
 <div class="container">
 <div class="row">
   <!-- BEGIN SEARCH RESULT -->
-  <!-- <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Page name</a></li>
-    <li class="breadcrumb-item"><a href="#">Search Results</a></li>
-    <li class="pull-right"><a href="" class="text-muted"><i class="fa fa-refresh"></i></a></li>
-  </ol> -->
   <div class="bbiv">
-      <div class="">
-          <a href="#" class="breadcrumbtext"><i class="glyphicon glyphicon-home"></i></a> > 
-          <a href="#" class="breadcrumbtext">게시판</a> > 
-          <a href="#" class="breadcrumbtext">공지사항</a> > 
-          <a href="#" class="breadcrumbtext">상세보기</a>
-      </div>
-	</div>
+    <div class="">
+        <a href="#" class="breadcrumbtext"><img id="home_icon" src="Resources/img/i_con/home_icon.png" alt="홈아이콘"></a> > 
+        <a href="#" class="breadcrumbtext">게시판</a> >  
+        <a href="#" class="breadcrumbtext">공지사항</a> >  
+        <a href="#" class="breadcrumbtext">상세보기</a> 
+    </div>
+  </div>
   
   <div class="col-md-12">
     <div class="grid search">
@@ -126,8 +118,6 @@
     <script type="text/javascript">
     
     </script>
-    
-    <%@ include file="/WEB-INF/views/Common/footer.jsp"%>
-    
+    <%@ include file="../Common/footer.jsp" %>
 </body>
 </html>

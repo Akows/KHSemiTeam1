@@ -6,11 +6,26 @@
 <meta charset="UTF-8">
 <title>메뉴바</title>
     <link rel="stylesheet" href="Resources/Common/menubar.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- 개인 코드에서 사용한 부트스트랩 -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <script src="https://kit.fontawesome.com/d088eb3922.js" crossorigin="anonymous"></script>
+
+
+    <!-- 공용으로 사용할 부트스트랩 -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-	<nav class="navbar">
+    <nav class="navbar">
         <!-- <div class="navbar-center"> -->
             <span class="nav-icon">
                 <img src="Resources/img/Logo/로고 사진 연그레이.png" alt="logo" style="width: 50px;">
