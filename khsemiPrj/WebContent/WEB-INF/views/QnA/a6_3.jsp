@@ -1,25 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="EUC-KR">
-<title>a6_3_QnA½Å°í</title>
+<meta charset="UTF-8">
+<title>a6_3_QnAì‹ ê³ </title>
 	<link rel="stylesheet" href="./Resources/QnA/a6_3.css">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	
+	<!-- jQuery library -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
+	<%@ include file="../Common/menubar.jsp" %>
+	
     <div class="home">
         <a href="#"><img src="Resources/img/i_con/home_icon.png" id="icon3"></a>
         <label> > </label>
-        <a href="#" id="gs">È¸¿ø°ü¸®</a>
+        <a href="#" id="gs">íšŒì›ê´€ë¦¬</a>
         <label> > </label>
-        <a href="#" id="gs">QnA_½Å°í¸®½ºÆ®</a>
+        <a href="#" id="gs">QnA_ì‹ ê³ ë¦¬ìŠ¤íŠ¸</a>
     </div>
 
     <br><br><br><br>
 
-    <h2>QnA_½Å°í ¸®½ºÆ®</h2>
+    <h2>QnA_ì‹ ê³  ë¦¬ìŠ¤íŠ¸</h2>
     
     <br><br><br><br>
 
@@ -31,24 +45,24 @@
                     <th id="lab1"> 
 
                         <br>
-                        <label >ÀÛ¼º³¯Â¥ : 2021.08.25</label>
+                        <label >ìž‘ì„±ë‚ ì§œ : 2021.08.25</label>
                         <br>
-                        <label >ÀÛ¼ºÀÚ :  jackand</label>
+                        <label >ìž‘ì„±ìž :  jackand</label>
 
                         <br><br>
-                        <label><b>¼¼Æ® µµ¼­¸¦ ±¸¸ÅÇß´Âµ¥...</b></label>
+                        <label><b>ì„¸íŠ¸ ë„ì„œë¥¼ êµ¬ë§¤í–ˆëŠ”ë°...</b></label>
                         <br>
 
                         <label> 
-                            ¼öÇÐ¿¡ ¼öÇÐÀÇ Á¤¼®ÀÌ ÀÖ´Ù¸é, ÀÚ¹Ù¿¡´Â ÀÚ¹ÙÀÇ Á¤¼®ÀÌ ÀÖ´Ù.
+                            ìˆ˜í•™ì— ìˆ˜í•™ì˜ ì •ì„ì´ ìžˆë‹¤ë©´, ìžë°”ì—ëŠ” ìžë°”ì˜ ì •ì„ì´ ìžˆë‹¤.
                             <br>
-                            ÀÚ¹ÙÀÇ Á¤¼®Àº ³ª¿Í Âü ±íÀº Ã¥ÀÌ±â´Â *¤©.. ÀÌÇØ 1µµ ¸øÇÏ°Ú´Ù 
+                            ìžë°”ì˜ ì •ì„ì€ ë‚˜ì™€ ì°¸ ê¹Šì€ ì±…ì´ê¸°ëŠ” *ã„¹.. ì´í•´ 1ë„ ëª»í•˜ê² ë‹¤ 
                             <br> 
-                            °­ÀÇ¸¦ µèÁö ¾ÊÀ¸¸é ½±°Ô ÀÌÇØ Èûµë.
+                            ê°•ì˜ë¥¼ ë“£ì§€ ì•Šìœ¼ë©´ ì‰½ê²Œ ì´í•´ íž˜ë“¬.
                         </label>
 
-                        <input type="submit" id="btn1" value="½Å°íÃë¼Ò">
-                        <input type="submit" id="btn2" value="»èÁ¦">
+                        <input type="submit" id="btn1" value="ì‹ ê³ ì·¨ì†Œ">
+                        <input type="submit" id="btn2" value="ì‚­ì œ">
                     </th>
                 </tr>
             </table>
@@ -63,28 +77,28 @@
                     <td id="lab1"> 
 
                         <br>
-                        <label >ÀÛ¼º³¯Â¥ : 2021.12.01</label>
+                        <label >ìž‘ì„±ë‚ ì§œ : 2021.12.01</label>
                         <br>
-                        <label >ÀÛ¼ºÀÚ : gn040545</label>
+                        <label >ìž‘ì„±ìž : gn040545</label>
 
                         <br><br>
-                        <label><b>´ë·®»óÇ°À» ±¸¸ÅÇÏ°í ½ÍÀºµ¥¿ä</b></label>
+                        <label><b>ëŒ€ëŸ‰ìƒí’ˆì„ êµ¬ë§¤í•˜ê³  ì‹¶ì€ë°ìš”</b></label>
                         <br>
 
                         <label> 
-                            ±¤°í±¤°í±¤°í±¤°í±¤°í±¤°í±¤°í±¤°í±¤°í°¡¤Ç¤·°í±¤°í±¤½ºÆÔ 
+                            ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê°€ã…—ã…‡ê³ ê´‘ê³ ê´‘ìŠ¤íŒ¸ 
                             <br>
-                            ±¤°í±¤°í±¤°í±¤°í±¤°í³»¿ëÀÓ±¤°í±¤°í±¤°í±¤°í°¡¤Ç¤·°í±¤°í±¤
+                            ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ë‚´ìš©ìž„ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê°€ã…—ã…‡ê³ ê´‘ê³ ê´‘
                             <br>
-                            ±¤°í±¤°í½ºÆÔ±¤°í±¤°í±¤°í±¤°í±¤°í±¤°í±¤°í°¡¤Ç¤·°í±¤°í±¤ 
+                            ê´‘ê³ ê´‘ê³ ìŠ¤íŒ¸ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê°€ã…—ã…‡ê³ ê´‘ê³ ê´‘ 
                             <br>
-                            ±¤°í±¤°í±¤°í±¤°í±¤°í±¤°í±¤°í½ºÆÔ±¤°í±¤°í°¡¤Ç¤·°í±¤°í±¤
+                            ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ê´‘ê³ ìŠ¤íŒ¸ê´‘ê³ ê´‘ê³ ê°€ã…—ã…‡ê³ ê´‘ê³ ê´‘
                         </label>
 
                         <br><br>
 
-                        <input type="submit" id="btn1" value="½Å°íÃë¼Ò">
-                        <input type="submit" id="btn2" value="»èÁ¦">
+                        <input type="submit" id="btn1" value="ì‹ ê³ ì·¨ì†Œ">
+                        <input type="submit" id="btn2" value="ì‚­ì œ">
                     </td>
                 </tr>
             </table>
@@ -99,30 +113,30 @@
                     <td id="lab1"> 
 
                         <br>
-                        <label >ÀÛ¼º³¯Â¥ : 2021.10.18</label>
+                        <label >ìž‘ì„±ë‚ ì§œ : 2021.10.18</label>
                         <br>
-                        <label >ÀÛ¼ºÀÚ :  jj5555</label>
+                        <label >ìž‘ì„±ìž :  jj5555</label>
 
                         <br><br>
-                        <label><b>ÈÑ¼ÕµÈ »óÇ° ¾î¶»°Ô ÇÏÁÒ?</b></label>
+                        <label><b>í›¼ì†ëœ ìƒí’ˆ ì–´ë–»ê²Œ í•˜ì£ ?</b></label>
                         <br>
 
                         <label> 
-                            ¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å
+                            ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•
                             <br>
-                            ¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å
+                            ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•
                             <br>
-                            ¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å
+                            ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•
                             <br>
-                            ¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å¿å
+                            ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•
                             <br>
-                            ¿å¿å¿å¿å¿å¿å¿å¿åÁö±Ý´çÀåÈ¯ºÒÇÏ°í½Í³×¿ä¾î¶»°ÔÇÏÁÒ
+                            ìš•ìš•ìš•ìš•ìš•ìš•ìš•ìš•ì§€ê¸ˆë‹¹ìž¥í™˜ë¶ˆí•˜ê³ ì‹¶ë„¤ìš”ì–´ë–»ê²Œí•˜ì£ 
                         </label>
                         
                          <br><br>
                          
-                        <input type="submit" id="btn1" value="½Å°íÃë¼Ò">
-                        <input type="submit" id="btn2" value="»èÁ¦">
+                        <input type="submit" id="btn1" value="ì‹ ê³ ì·¨ì†Œ">
+                        <input type="submit" id="btn2" value="ì‚­ì œ">
                     </td>
                 </tr>
             </table>
@@ -132,7 +146,7 @@
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
-    
+    <%@ include file="../Common/footer.jsp" %>
     
 </body>
 </html>

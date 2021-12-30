@@ -1,37 +1,53 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="EUC-KR">
-<title>u6_Àå¹Ù±¸´Ï</title>
+<meta charset="UTF-8">
+<title>u6_ìž¥ë°”êµ¬ë‹ˆ</title>
 	<link rel="stylesheet" href="./Resources/Order/u6.css">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	
+	<!-- jQuery library -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
+	<%@ include file="../Common/menubar.jsp" %>
+
+<!-- 
 	<nav>
-        <img src="Resources/img/Logo/·Î°í »çÁø ¿¬±×·¹ÀÌ s.png"  id="icon1">
-        <img src="Resources/img/Logo/·Î°í ±ÛÀÚ ¿¬±×·¹ÀÌ s.png" id="icon2">
+        <img src="Resources/img/Logo/ë¡œê³  ì‚¬ì§„ ì—°ê·¸ë ˆì´ s.png"  id="icon1">
+        <img src="Resources/img/Logo/ë¡œê³  ê¸€ìž ì—°ê·¸ë ˆì´ s.png" id="icon2">
 
         <ul id="navi">
-            <li><a href="#">Ä«Å×°í¸®</a></li>
-            <li><a href="#">º£½ºÆ®</a></li>
-            <li><a href="#">½Å»óÇ°</a></li>
+            <li><a href="#">ì¹´í…Œê³ ë¦¬</a></li>
+            <li><a href="#">ë² ìŠ¤íŠ¸</a></li>
+            <li><a href="#">ì‹ ìƒí’ˆ</a></li>
             <li><a href="#">QnA</a></li>
             
 
             <div id="search">
-                <input type="text" placeholder="³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä" >
-                <button>°Ë»ö</button>
+                <input type="text" placeholder="ë‚´ìš©ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”" >
+                <button>ê²€ìƒ‰</button>
             </div>
 
-            <li id="lojo"><a href="#">·Î±×ÀÎ</a> <label> | </label> <a href="#">È¸¿ø°¡ÀÔ</a></li>
+            <li id="lojo"><a href="#">ë¡œê·¸ì¸</a> <label> | </label> <a href="#">íšŒì›ê°€ìž…</a></li>
         </ul>
     </nav>
-
+-->
         <div class="homecart">
             <a href="#"><img src="Resources/img/i_con/home_icon.png"id="icon3"></a>
             <label> > </label>
-            <a href="#" id="cart1">Àå¹Ù±¸´Ï</a>
+            <a href="#" id="cart1">ìž¥ë°”êµ¬ë‹ˆ</a>
         </div>
 
         <br><br><br><br>
@@ -40,7 +56,7 @@
             <table >
                 <tr id="thead">
                     <th colspan="4"></th>
-                    <th>Àå¹Ù±¸´Ï</th>
+                    <th>ìž¥ë°”êµ¬ë‹ˆ</th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -49,20 +65,20 @@
 
                 <tr class="tbody">
                         <td id="chb1"><input type="checkbox"></td>
-                        <td colspan="3" >»óÇ°¸í</td>
-                        <td>´Ü°¡</td>
-                        <td>¼ö·®</td>
-                        <td colspan="4">ÇÕ°è</td>
+                        <td colspan="3" >ìƒí’ˆëª…</td>
+                        <td>ë‹¨ê°€</td>
+                        <td>ìˆ˜ëŸ‰</td>
+                        <td colspan="4">í•©ê³„</td>
                         <td id="m2" colspan="4"></td>
                 </tr>
 
                 <tr>
                         <td id="chb1"><input type="checkbox"></td>
                         <td colspan="2"><img src="Resources/img/Bookcover/book_unity.png" id="img1"></td>
-                        <td id="spm1">À¯´ÏÆ¼ ¸ð¹ÙÀÏ °ÔÀÓ °³¹ß/Á¸µµ¶õ</td>
-                        <td id="dg1">36,000¿ø</td>
+                        <td id="spm1">ìœ ë‹ˆí‹° ëª¨ë°”ì¼ ê²Œìž„ ê°œë°œ/ì¡´ë„ëž€</td>
+                        <td id="dg1">36,000ì›</td>
                         <td id="sl1">2</td>
-                        <td id="hg1" colspan="4">72,000¿ø</td>
+                        <td id="hg1" colspan="4">72,000ì›</td>
                         <td  colspan="4"></td>
                 </tr>
                 
@@ -75,16 +91,16 @@
                 <tr>
                         <td id="chb1"><input type="checkbox"></td>
                         <td colspan="2"><img src="Resources/img/Bookcover/book_ml.png" id="img2"> </td>
-                        <td id="spm1">È¥ÀÚ °øºÎÇÏ´Â ¸Ó½Å·¯´×/¹ÚÇØ¼±</td>
-                        <td id="dg1">23,400¿ø</td>
+                        <td id="spm1">í˜¼ìž ê³µë¶€í•˜ëŠ” ë¨¸ì‹ ëŸ¬ë‹/ë°•í•´ì„ </td>
+                        <td id="dg1">23,400ì›</td>
                         <td id="sl1">1</td>
-                        <td id="hg1" colspan="4" >23,400¿ø</td>
+                        <td id="hg1" colspan="4" >23,400ì›</td>
                         <td colspan="4"></td>
                 </tr>
 
                 <tr>
-                    <td colspan="2"><input type="submit" id="choice" value="¼±ÅÃ»óÇ°»èÁ¦"></td>
-                    <td colspan="2"><input type="submit" id="all" value="ÀüÃ¼»óÇ°»èÁ¦"></td>
+                    <td colspan="2"><input type="submit" id="choice" value="ì„ íƒìƒí’ˆì‚­ì œ"></td>
+                    <td colspan="2"><input type="submit" id="all" value="ì „ì²´ìƒí’ˆì‚­ì œ"></td>
                     <td colspan="6"></td>
                 </tr>
             </table>
@@ -97,19 +113,19 @@
                 <tr>
                     <th></th>
                     <th><input type="checkbox"></th>
-                    <th id="jp">ÁÖ¹®³»¿ªÈ®ÀÎ µ¿ÀÇ¼­(ÇÊ¼ö)</th>
+                    <th id="jp">ì£¼ë¬¸ë‚´ì—­í™•ì¸ ë™ì˜ì„œ(í•„ìˆ˜)</th>
                     <th></th>
                 </tr>
 
                 <tr>
                     <td></td>
                     <td></td>
-                    <td id="gg1-1"><b>°áÁ¦¼ö´Ü</b></td>
+                    <td id="gg1-1"><b>ê²°ì œìˆ˜ë‹¨</b></td>
                     <td>
                         <select>
                             <option>---------------------------------</option>
-                            <option>Ä«µå°áÁ¦</option>
-                            <option>¹«ÅëÀåÀÔ±Ý</option>
+                            <option>ì¹´ë“œê²°ì œ</option>
+                            <option>ë¬´í†µìž¥ìž…ê¸ˆ</option>
                         </select>
                     </td>
                 </tr>
@@ -117,21 +133,21 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td id="gg1-1"><b>Æ÷ÀÎÆ® »ç¿ë</b></td>
-                    <td><input type="text" placeholder="100¿øºÎÅÍ ÀÔ·Â"></td>
+                    <td id="gg1-1"><b>í¬ì¸íŠ¸ ì‚¬ìš©</b></td>
+                    <td><input type="text" placeholder="100ì›ë¶€í„° ìž…ë ¥"></td>
                 </tr>
 
                 <tr>
                     <td></td>
                     <td></td>
-                    <td id="gg1-2"><b>ÇÕ°è</b></td>
-                    <td><input type="text" placeholder="ÃÑ ÇÕ°è ±Ý¾×"></td>
+                    <td id="gg1-2"><b>í•©ê³„</b></td>
+                    <td><input type="text" placeholder="ì´ í•©ê³„ ê¸ˆì•¡"></td>
                 </tr>
 
                 <tr>
                     <td></td>
                     <td></td>
-                    <td colspan="2"><input type="submit" id="payment" value="°áÁ¦ÇÏ±â"  ></td>
+                    <td colspan="2"><input type="submit" id="payment" value="ê²°ì œí•˜ê¸°"  ></td>
                 </tr>
 
                 <tr>
@@ -156,6 +172,6 @@
                 </tr>
             </table>
         </div>
-
+	<%@ include file="../Common/footer.jsp" %>
 </body>
 </html>
