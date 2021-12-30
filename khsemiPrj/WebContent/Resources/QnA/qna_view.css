@@ -63,11 +63,12 @@ body{margin-top:20px;
         font-weight: 600;
     }
 
-.bbiv {
-    position: relative;
-    left: 16px;
-    top: -10px;
-}
+    .bbiv {
+        position: relative;
+        left: 30px;
+        top: 10px;
+        padding-bottom: 20px;
+    }
 .breadcrumbtext {
   color: #2D313C;
 }
@@ -114,6 +115,7 @@ th {
 th {
     background-color: #666666;
     color: white;
+    text-align: center;
 }
 #coment {
     width: 98%;
@@ -123,5 +125,12 @@ th {
 }
 #submit {
     position: relative;
-    left: 825px;
+    left: 751px;
+}
+#home_icon {
+    width: 23px;
+    height: 21px;
+  }
+#bdTitle {
+    margin-bottom: 7px;
 }

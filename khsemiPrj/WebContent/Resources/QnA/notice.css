@@ -63,11 +63,12 @@ body{margin-top:20px;
         font-weight: 600;
     }
 
-.bbiv {
-    position: relative;
-    left: 16px;
-    top: -10px;
-}
+    .bbiv {
+        position: relative;
+        left: 30px;
+        top: 10px;
+        padding-bottom: 20px;
+    }
 .breadcrumbtext {
   color: #2D313C;
 }
@@ -83,3 +84,7 @@ body{margin-top:20px;
 .writeBtn {
   float: right;
 }
+#home_icon {
+    width: 23px;
+    height: 21px;
+  }

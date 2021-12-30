@@ -3,12 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <style>
+        .footerbody {
+            margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff
+        }
         .footer-basic {
             padding:40px 0;
             background-color:#2D313C;
@@ -40,7 +43,7 @@
 
         .footer-basic .social {
             text-align:center;
-            padding-bottom:25px;
+            padding-bottom: 20px;
         }
 
         .footer-basic .social > a {
@@ -82,6 +85,7 @@
         .footer-basic .list-inline {
             text-align:center;
             padding-bottom:25px;
+            padding-left:0;list-style:none
         }
 
         .footer-basic .copyright {
@@ -91,12 +95,12 @@
             color:#aaa;
             margin-bottom:0;
         }
-
     </style>
 </head>
-<body>
-	<div class="footer-basic">
-        <footer>
+
+<body class="footerbody">
+    <div class="footer-basic">
+        <footer style="display:block;">
             <div class="social">
                 <a href="#"><img src="Resources/img/Logo/로고 사진 연그레이 s.png" alt=""></a>
                 <a href="#"><img src="Resources/img/Logo/로고 글자 연그레이 s.png"><br>
@@ -116,4 +120,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

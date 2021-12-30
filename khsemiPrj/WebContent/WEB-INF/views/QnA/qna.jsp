@@ -7,37 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script> 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>  -->
-    
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-	  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Resources/QnA/qna.css">
+    
+    <!-- 공용으로 쓰는 부트스트랩 -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- 기존에 쓰던 부트스트랩 -->
+    <!-- <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+	  
+	<style>
+	#home_icon {
+    width: 23px;
+    height: 21px;
+    }
+     .bbiv {
+        position: relative;
+        left: 30px;
+        top: 10px;
+        padding-bottom: 20px;
+    }
+	</style>
 </head>
 
 <body>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
-<%@ include file="/WEB-INF/views/Common/menubar.jsp"%>
+<%@ include file="../Common/menubar.jsp" %>
 
 <div class="container">
 <div class="row">
   <!-- BEGIN SEARCH RESULT -->
-  <!-- <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Page name</a></li>
-    <li class="breadcrumb-item"><a href="#">Search Results</a></li>
-    <li class="pull-right"><a href="" class="text-muted"><i class="fa fa-refresh"></i></a></li>
-  </ol> -->
   <div class="bbiv">
-      <div class="">
-          <a href="#" class="breadcrumbtext"><i class="glyphicon glyphicon-home"></i></a> > 
-          <a href="#" class="breadcrumbtext">게시판</a> > 
-          <a href="#" class="breadcrumbtext">Q&A</a>
-      </div>
-	</div>
+    <div class="">
+        <a href="#" class="breadcrumbtext"><img id="home_icon" src="Resources/img/i_con/home_icon.png" alt="홈아이콘"></a> > 
+        <a href="#" class="breadcrumbtext">게시판</a> 
+        <a href="#" class="breadcrumbtext">Q&A</a> 
+    </div>
+  </div>
   
   <div class="col-md-12">
     <div class="grid search">
@@ -67,11 +73,11 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th style="width: 5%;">번호</th>
+                    <th style="width: 6%;">번호</th>
                     <th style="width: 60%">제목</th>
                     <th style="width: 10%;">작성일</th>
                     <th style="width: 8%;">작성자</th>
-                    <th style="width: 6%;">조회수</th>
+                    <th style="width: 7%;">조회수</th>
                 </tr>
             </thead>
             <tbody>
@@ -170,14 +176,12 @@
             <!-- END TABLE RESULT -->
             <!-- BEGIN PAGINATION -->
             <ul class="pagination">
-              <li class="disabled"><a href="#">«</a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">»</a></li>
-            </ul>
+                <li class="page-item"><a class="page-link" href="#"> << </a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#"> >> </a></li>
+              </ul>
             <!-- END PAGINATION -->
           </div>
           <!-- END RESULT -->
@@ -193,7 +197,6 @@
     <script type="text/javascript">
     
     </script>
-    
-    <%@ include file="/WEB-INF/views/Common/footer.jsp"%>
+    <%@ include file="../Common/footer.jsp" %>
 </body>
 </html>
