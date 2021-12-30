@@ -25,6 +25,7 @@
 </head>
 <body>
 
+<%@ include file="../Common/menubar.jsp" %>
 <div class="parallax"> 
   <div id="aa">
     <div id="bb">
@@ -61,7 +62,7 @@
           <div id="slide1">
             <div id="img">
                 <div id="numbertext">1 / 3</div>
-                <img id="book" src="./자바의정석.JPG">
+                <img id="book" src="Resources/img/Bookcover/자바의정석.JPG">
                 <div id="txt">
                   <h3>MD 추천</h3>
                   <h4>자바의 정석</h4>
@@ -75,7 +76,7 @@
           <div id="slide1">
             <div id="img">
                 <div id="numbertext">2 / 3</div>
-                <img id="book" src="./몰입.JPG">
+                <img id="book" src="Resources/img/Bookcover/몰입.JPG">
                 <div id="txt">
                   <h3>MD 추천</h3>
                   <h4>자바의 정석</h4>
@@ -89,7 +90,7 @@
           <div id="slide1">
             <div id="img">
                 <div id="numbertext">3 / 3</div>
-                <img id="book" src="./it지식.JPG">
+                <img id="book" src="Resources/img/Bookcover/it지식.JPG">
                 <div id="txt">
                   <h3>MD 추천</h3>
                   <h4>자바의 정석</h4>
@@ -111,8 +112,9 @@
     </div>
 
 </div><!-- wrap -->
+<div id="bg"></div>
 
-
+<%@ include file="../Common/footer.jsp" %>
 </body>
 </html>
     
