@@ -14,6 +14,6 @@ public class Goodscontrol_1 extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		req.getRequestDispatcher("/WEB-INF/views/Product_Goods/a2_product_goods_Register.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/Product_Goods/a_product_goods_insert.jsp").forward(req, resp);
 	}
 }

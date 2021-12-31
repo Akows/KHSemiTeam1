@@ -17,12 +17,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- css -->
-    <link rel="stylesheet" href="Resources/Order/a5_home.css">
+    <link rel="stylesheet" href="Resources/css/Order/a_home.css">
     <title>Document</title>
 </head>
 <body>
-    <div id="Mmenubar"></div>
-    
+ 
+    <%@ include file="../Common/a_menubar.jsp" %>
     
     <div id="route">
         <img id="home_icon"src="Resources/img/i_con/home_icon.png" alt="" style="float: left;">
@@ -256,5 +256,6 @@
 
     
 <br><br><br>
+<%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>

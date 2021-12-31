@@ -20,12 +20,12 @@
 </style>
 
 
-<link rel="stylesheet" href="Resources/Product_Goods/user_home.css">
+<link rel="stylesheet" href="Resources/css/Product_Goods/u_home.css">
 
 </head>
 <body>
 
-<%@ include file="../Common/menubar.jsp" %>
+<%@ include file="../Common/u_menubar.jsp" %>
 <div class="parallax"> 
   <div id="aa">
     <div id="bb">
@@ -114,7 +114,7 @@
 </div><!-- wrap -->
 <div id="bg"></div>
 
-<%@ include file="../Common/footer.jsp" %>
+<%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>
     
