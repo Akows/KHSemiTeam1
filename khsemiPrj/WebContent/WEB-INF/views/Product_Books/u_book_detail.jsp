@@ -65,6 +65,7 @@
     </style>
 </head>
 <body>
+	<%@ include file="../Common/u_menubar.jsp" %>
     <!-- 위치 링크 -->
     <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> 주제별 도서</a>
@@ -429,7 +430,7 @@
                                         <textarea class="form-control" style="resize: none; height: 150px;"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary btn-m" type="button" style="background-color: #2D313C !important;"> 등록하기 </button>
+                                        <button class="btn btn-primary btn-m" type="button" style="background-color: #2D313C !important; border: 1px solid #2D313C;"> 등록하기 </button>
                                     </div>
                                 </form>
                             </div>
@@ -440,5 +441,6 @@
             </div>
         </div>
     </div>
+    <%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>
