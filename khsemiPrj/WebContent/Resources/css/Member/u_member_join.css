@@ -26,7 +26,7 @@ body {
     border-radius: 1.5em;
     border: 2px solid black;
     width: 900px;
-    height: 1030px;
+    height: 1100px;
     margin: auto;
     margin-top: 180px;
     position: relative;
@@ -34,7 +34,7 @@ body {
     margin-bottom: 100px; 
 }
 
-/* 회원가입 텍스트 */
+/* 회원정보 변경 텍스트 */
 h1 {
     margin-top: 10px;
     margin-left: 55px;
@@ -51,47 +51,44 @@ h3 {
 }
 
 /* 각종 정보 텍스트 (아이디, 비밀번호 등)*/
-p {
+.text_info {
     width: 150px;
-    padding-top: 10px;
-    margin-left: 3px;
-    position: absolute;
+    padding-top: 5px;
+    margin-left: 10px;
+    position: relative;
     font-size: 12;
     font-weight: 700;
 }
 
-/* 텍스트와 인풋 박스들 div */
-ul {
+/* 텍스트와 인풋 박스 div */
+.wright-info {
     background-color: white;
-    padding: 15px;
-    margin-left: 30px;
     right: 30px;
 }
 
-/* 인풋 박스들 */
-input {
-    margin-left: 200px;
-    margin-top: 6px;
+/* 인풋 박스 */
+.form-control {
+    margin-left: 10px;  
     width: 350px !important;
     height: 40px;
     position: relative;
-    left: 200px;
-    top: 2px;
+    left: 180px;
+    bottom: 48px;
 }
 
 /* 첫번째 이메일 입력 인풋 */
 #user_Email {
-    width: 170px !important;
+    width: 155px !important;
     height: 38px;
 }
 
 /* 두번째 이메일 선택 인풋 */
 #select_Site {
     position: relative;
-    width: 155px;
+    width: 158px !important;
     height: 38px;
-    left: 395px;
-    bottom: 68px;
+    left: 370px;
+    bottom: 117px !important;
 }
 
 /* 세번째 다른 이메일 주소 인풋 */
@@ -99,45 +96,46 @@ input {
     position: relative;
     width: 150px !important;
     height: 38px;
-    left: 560px;
-    top: -105px;
+    left: 540px;
+    bottom: 155px;
 }
 
 /* 두번째 주소 인풋 간격 */
 #addrBox2 {
     position: relative;
-    top: 3px !important;
+    bottom: 43px !important;
 }
 
 /* 년도 셀렉트 */
 #year {
-    width: 115px;
+    width: 115px !important;
     height: 38px;
     position: relative;
-    left: 200px;
+    left: 180px;
 }
 
 /* 월 셀렉트 */
 #month {
-    width: 115px;
+    width: 115px !important;
     height: 38px;
     position: relative;
-    left: 320px;
-    bottom: 38px;
+    left: 300px;
+    bottom: 85px;
 }
 
 /* 날짜 셀렉트 */
 #day {
-    background-color: white;
-    width: 110px;
+    width: 110px !important;
     position: relative;
     height: 38px;
-    left: 440px;
-    bottom: 76px;
+    left: 420px;
+    bottom: 123px;
 }
 
-/* 회원 가입 버튼 */
+/* 정보 변경 버튼 */
 #info_Submit {
-    left: 245px;
-    top: -250px;
+    position: relative;
+    left: 235px !important;
+    top: -290px !important;
+    width: 350px;
 }
