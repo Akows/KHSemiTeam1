@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>a6_독자리뷰신고</title>
-	<link rel="stylesheet" href="./Resources/Product_Books/a6.css">
+	<link rel="stylesheet" href="./Resources/Product_Books/a_book_review_report.css">
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -21,7 +21,7 @@
 </head>
 <body>
 
-	<%@ include file="../Common/menubar.jsp" %>
+	<%@ include file="../Common/a_menubar.jsp" %>
 <!--  
 	<nav>
 		<img src="Resources/img/Logo/로고 사진 연그레이 s.png"  id="icon1">
@@ -148,6 +148,6 @@
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
 
-	<%@ include file="../Common/footer.jsp" %>
+	<%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>

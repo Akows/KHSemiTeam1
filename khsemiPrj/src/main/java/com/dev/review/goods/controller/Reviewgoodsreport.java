@@ -14,6 +14,6 @@ public class Reviewgoodsreport extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		req.getRequestDispatcher("/WEB-INF/views/Product_Goods/a6_2.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/Product_Goods/a_goods_review_report.jsp").forward(req, resp);
 	}
 }

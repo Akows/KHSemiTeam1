@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>u12_주문내역조회</title>
-	<link rel="stylesheet" href="./Resources/Order/u12.css">
+	<link rel="stylesheet" href="./Resources/Order/u_order_list.css">
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-	<%@ include file="../Common/menubar.jsp" %>
+	<%@ include file="../Common/u_menubar.jsp" %>
 
 
 <%-- 
@@ -187,7 +187,7 @@
     <br><br><br><br><br>
     <br><br><br><br><br>
     
-    <%@ include file="../Common/footer.jsp" %>
+    <%@ include file="../Common/u_footer.jsp" %>
     
 </body>
 </html>
