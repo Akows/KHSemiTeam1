@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Resources/QnA/notice.css">
+    <link rel="stylesheet" href="Resources/css/QnA/m_notice_detail.css">
     
     <!-- 공용으로 쓰는 부트스트랩 -->
     <!-- Latest compiled and minified CSS -->
@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<%@ include file="../Common/menubar.jsp" %>
+<%@ include file="../Common/u_menubar.jsp" %>
 <div class="container">
 <div class="row">
   <!-- BEGIN SEARCH RESULT -->
@@ -170,6 +170,6 @@
     <script type="text/javascript">
     
     </script>
-    <%@ include file="../Common/footer.jsp" %>
+    <%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>

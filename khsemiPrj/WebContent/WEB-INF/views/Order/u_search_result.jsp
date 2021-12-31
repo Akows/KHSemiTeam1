@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Resources/Order/searchResult.css">
+    <link rel="stylesheet" href="Resources/css/Order/u_search_result.css">
 
     <!-- 기존에 쓰던 부트스트랩 -->
     <!-- <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<%@ include file="../Common/menubar.jsp" %>
+<%@ include file="../Common/u_menubar.jsp" %>
 <div class="container">
 <div class="row">
   <div class="bbiv">
@@ -239,6 +239,6 @@
     
     </script>
     
-    <%@ include file="../Common/footer.jsp" %>
+    <%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>

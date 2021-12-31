@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Resources/QnA/qna_view.css">
+    <link rel="stylesheet" href="Resources/css/QnA/m_qna_detail.css">
     
     <!-- 공용으로 쓰는 부트스트랩 -->
     <!-- Latest compiled and minified CSS -->
@@ -21,7 +21,7 @@
 
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<%@ include file="../Common/menubar.jsp" %>
+<%@ include file="../Common/u_menubar.jsp" %>
 <div class="container">
   <div class="bbiv">
     <div class="">
@@ -120,6 +120,7 @@
     <script type="text/javascript">
     
     </script>
-    <%@ include file="../Common/footer.jsp" %>
+    
+	<%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>
