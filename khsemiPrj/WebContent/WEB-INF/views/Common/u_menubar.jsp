@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>메뉴바</title>
-    <link rel="stylesheet" href="Resources/Common/menubar.css">
+    <link rel="stylesheet" href="Resources/css/Common/u_menubar.css">
     <!-- 개인 코드에서 사용한 부트스트랩 -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <script src="https://kit.fontawesome.com/d088eb3922.js" crossorigin="anonymous"></script>

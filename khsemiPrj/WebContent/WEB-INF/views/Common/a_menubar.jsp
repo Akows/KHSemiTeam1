@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메뉴바</title>
-    <link rel="stylesheet" href="Resources/Common/menubar_admin.css">
+    <link rel="stylesheet" href="Resources/css/Common/a_menubar.css">
     
    <!-- 개인 코드에서 사용한 부트스트랩 -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
@@ -36,27 +36,6 @@
             </span>
             <div id="menu">
                 <ul class="main1">
-                    <!-- <li><a href="#"><i id="menu" class="fas fa-bars fa-2x" style="color: #eee;"></i></a>
-                        <ul class="main2">
-                            <li><a href="#">주제별</a>
-                                <ul class="main3">
-                                    <li><a href="#">프로그래밍 언어</a></li>
-                                    <li><a href="#">엑셀 / 활용서</a></li>
-                                    <li><a href="#">IT 자격증</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">프로그래밍</a>
-                                <ul class="main3">
-                                    <li><a href="#">딥러닝</a></li>
-                                    <li><a href="#">머신러닝</a></li>
-                                    <li><a href="#">인공지능</a></li>
-                                    <li><a href="#">안드로이드</a></li>
-                                    <li><a href="#">유니티</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">굿즈</a></li>
-                        </ul>
-                    </li> -->
                     <li><a href="#">상품관리</a>
                         <ul class="main2">
                             <li><a href="#">책 관리</a></li>
@@ -72,7 +51,6 @@
             <form class="form-inline" action="/action_page.php">
                 <div class="inputDiv">
                     <input class="form-control mr-sm-2" type="text" placeholder="내용을 입력해주세요.">
-                    <button type="submit" style="background-color: #2D313C; border: none;"><i id="search" class="fas fa-search fa-2x" type="submit"></i></button>
                 </div>
             </form>
 

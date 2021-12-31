@@ -12,6 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 public class NoticeListController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/QnA/notice.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/QnA/m_notice_list.jsp").forward(req, resp);
 	}
 }
