@@ -6,34 +6,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book_detail</title>
-    <!-- 상품 상세페이지 Bootstrap(MDB Bootstrap) -->
-    <link rel="stylesheet" href="./Resources/Product_Books/book_detail.css">
-    <!-- CSS Bootstrap -->
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+    <title>상품 상세페이지(도서)</title>
+    <!-- CSS 파일 -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Resources/css/Product_Books/u_book_detail.css">
 
-    <!-- JS Bootstrap -->
-    <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
-    <!-- w3s Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- 부트스트랩 CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 폰트어썸 CDN -->
+    <script src="https://kit.fontawesome.com/08023c4634.js" crossorigin="anonymous"></script>
+    
+    <!-- * CSS 파일 불러오기 오류로 인한 비 설정된 CSS들 추가 -->
+    <style type="text/css">
+    	/* 페이지 네비게이션 바 */
+	    .pagination {
+			display: flex;
+			justify-content: center;
+			margin-top: 25px;
+			margin-bottom: -5px;
+		}
+		
+		/* 페이지 네비게이션 텍스트 색상 */
+		.page-link {
+		   	color: #2D313C !important;
+		}
+		
+		/* 구매 버튼 */
+		.buy_btn {
+		    position: relative;
+		    left: 1090px;
+		    top: 350px;  
+		}
+		
+		/* 하단 소개항목 */
+		.bottom_book_intro {
+		    padding-top: 10px;
+		    padding-left: 180px;
+		    padding-right: 180px;
+		    margin-left: 185px;
+		    margin-right: 700px;
+		    position: relative;
+		    bottom: 130px;
+		}
+		
+		/* 점프 버튼 */
+		#jump_button {
+		    position: sticky;
+		    left: 1200px;
+		    top: 0;
+		}		
+    </style>
 </head>
 <body>
     <!-- 위치 링크 -->
-    <a href=""><img src="./Resources/img/i_con/home_icon.png" id="home_icon"></a>
+    <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> 주제별 도서</a>
     <a href="" id="placeLink">> IT 자격증</a>
     <!-- 상단 컨텐츠 항목 -->
@@ -96,6 +129,7 @@
                 <input class="quantity" min="0" name="quantity" value="1" type="number">
             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
         </div>
+        <br>
         <!-- 금액 영역 -->
         <div class="buy_price">
             <strong>
@@ -105,8 +139,8 @@
         </div>
         <!-- 버튼 영역 -->
         <div class="buy_btn">
-            <button type="button" class="btn btn-default btn-lg" style="background-color: white !important; color: black; width: 190px !important;">장바구니</button>
-            <button type="button" class="btn btn-primary btn-lg" style="background-color: #2D313C !important; width: 190px !important;">바로구매</button>
+            <button type="button" class="btn btn-default btn-lg" style="background-color: white; color: black; width: 190px !important;">장바구니</button>
+            <button type="button" class="btn btn-primary btn-lg" style="background-color: #2D313C; border: 1px solid #2D313C; width: 190px !important;">바로구매</button>
         </div>
         <!-- // 구매 수량 및 가격 그리고 장바구니,구매 버튼 -->
         <!-- //오른쪽 책 제목 및 설명 / 구매 항목 -->
@@ -115,18 +149,18 @@
         <div class="box_detail_left">
             <!-- 책 커버 이미지 -->
             <div class="cover">
-                <img src="/WebContent/Resources/img/Bookcover/book_cover.jpg" width="198" height="282" alt="" class="coverImg">
+                <img src="${pageContext.request.contextPath}/Resources/img/Bookcover/book_cover.jpg" width="198" height="282" alt="" class="coverImg">
             </div>
         </div>
         <br><br><br>
-        <hr style="border: 0; height: 1px; background: #ccc; width: 62%; position: relative; bottom: 100px;">
+        <hr style="border: 0; height: 1px; background: #ccc; width: 62%; position: relative; bottom: 101px;">
         <!-- 하단 소개항목 -->
         <!-- 점프 버튼 -->
         <div class="bottom_intro">
             <div class="btn-group-vertical" id="jump_button" role="group" aria-label="Vertical button group">
-                <a href="#book_intro"><button type="button" class="btn" style="background-color: #2D313C !important; color: white; width: 150px !important;">책 소개</button></a>
-                <a href="#book_contents"><button type="button" class="btn" style="background-color: #2D313C !important; color: white; width: 150px !important;">목차</button></a>
-                <a href="#book_review"><button type="button" class="btn" style="background-color: #2D313C !important; color: white; width: 150px !important;">독자 리뷰</button></a>
+                <a href="#book_intro"><button type="button" class="btn" style="background-color: #2D313C !important; color: white; width: 150px !important; margin-bottom: 1px;">책 소개</button></a>
+                <a href="#book_contents"><button type="button" class="btn" style="background-color: #2D313C !important; color: white; width: 150px !important; margin-bottom: 1px;">목차</button></a>
+                <a href="#book_review"><button type="button" class="btn" style="background-color: #2D313C !important; color: white; width: 150px !important; margin-bottom: 1px;">독자 리뷰</button></a>
             </div>
             <!-- 하단 소개항목/책 소개 -->
             <div class="bottom_book_intro">
@@ -284,15 +318,22 @@
                                         <div class="media-body">
                                             <div class="reviews-members-header">
                                                 <span class="star-rating float-right">
-                                                    <a href="#"><i class="fas fa-bell fa-2x red-text" style="position: relative; left: 3px;"></i></a>
+                                                    <a href="#"><i class='fas fa-bell fa-2x' style="position: relative; left: 3px; color: red;"></i></a>
                                                 </span>
                                                 <!-- 리뷰 글쓴이 및 작성일 -->
                                                 <h6 class="mb-1"><a class="text-black" href="#">Singh Osahan</a></h6>
-                                                <p class="text-gray">Tue, 20 Mar 2020</p>
+                                                <p class="text-gray">2021-12-15</p>
                                             </div>
                                             <!-- 리뷰 내용 -->
                                             <div class="reviews-members-body">
-                                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections </p>
+                                                <p>개발 관련하여 인터넷에 검색해보면 고가의 강의들, 오프라인 수업들, 부트캠프 등등 사실 어디서 이 공부를 시작해야할지 또한 하나의 공부인데
+                                                    <br>
+                                                    이 책에서는 개발자로 공부나 취업을 꿈꾸는 사람들에게 '어떤 방법이 좋은지', '어떤 경로가 있는지', '어떤 사람에게 어떤 공부를 추천하는지' 등
+                                                    <br>
+                                                    경험자의 입장에서 상세하게 담겨있더라고요. 특히 기업별로(스타트업, 대기업, SI 등) 특징이 정리되어 있고
+                                                    <br>
+                                                    다양한 개발자 분들의 인터뷰도 담겨있어서 개발에 관해 넓게 감을 얻고 지식을 쌓을 수 있어 좋았습니다.
+                                                </p>
                                             </div>
                                             <div class="reviews-members-footer">
                                                 <a class="total-like" href="#" style="background-color: #2D313C !important; color: white;"><i class="far fa-thumbs-up"></i> 856</a>
@@ -310,15 +351,22 @@
                                         <div class="media-body">
                                             <div class="reviews-members-header">
                                                 <span class="star-rating float-right">
-                                                    <a href="#"><i class="fas fa-bell fa-2x red-text" style="position: relative; left: 3px;"></i></a>
+                                                    <a href="#"><i class="fas fa-bell fa-2x" style="position: relative; left: 3px; color: red;"></i></a>
                                                 </span>
                                                 <!-- 리뷰 글쓴이 및 작성일 -->
                                                 <h6 class="mb-1"><a class="text-black" href="#">Gurdeep Singh</a></h6>
-                                                <p class="text-gray">Tue, 20 Mar 2020</p>
+                                                <p class="text-gray">2021-12-20</p>
                                             </div>
                                             <!-- 리뷰 내용 -->
                                             <div class="reviews-members-body">
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                                                <p>개발 관련하여 인터넷에 검색해보면 고가의 강의들, 오프라인 수업들, 부트캠프 등등 사실 어디서 이 공부를 시작해야할지 또한 하나의 공부인데
+                                                    <br>
+                                                    이 책에서는 개발자로 공부나 취업을 꿈꾸는 사람들에게 '어떤 방법이 좋은지', '어떤 경로가 있는지', '어떤 사람에게 어떤 공부를 추천하는지' 등
+                                                    <br>
+                                                    경험자의 입장에서 상세하게 담겨있더라고요. 특히 기업별로(스타트업, 대기업, SI 등) 특징이 정리되어 있고
+                                                    <br>
+                                                    다양한 개발자 분들의 인터뷰도 담겨있어서 개발에 관해 넓게 감을 얻고 지식을 쌓을 수 있어 좋았습니다.
+                                                </p>
                                             </div>
                                             <div class="reviews-members-footer">
                                                 <a class="total-like" href="#" style="background-color: #2D313C !important; color: white;"><i class="far fa-thumbs-up"></i> 125</a>
@@ -336,15 +384,22 @@
                                         <div class="media-body">
                                             <div class="reviews-members-header">
                                                 <span class="star-rating float-right">
-                                                    <a href="#"><i class="fas fa-bell fa-2x red-text" style="position: relative; left: 3px;"></i></a>
+                                                    <a href="#"><i class="fas fa-bell fa-2x red-text" style="position: relative; left: 3px; color: red;"></i></a>
                                                 </span>
                                                 <!-- 리뷰 글쓴이 및 작성일 -->
                                                 <h6 class="mb-1"><a class="text-black" href="#">Gurdeep Singh</a></h6>
-                                                <p class="text-gray">Tue, 20 Mar 2020</p>
+                                                <p class="text-gray">2021-12-30</p>
                                             </div>
                                             <!-- 리뷰 내용 -->
                                             <div class="reviews-members-body">
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                                                <p>개발 관련하여 인터넷에 검색해보면 고가의 강의들, 오프라인 수업들, 부트캠프 등등 사실 어디서 이 공부를 시작해야할지 또한 하나의 공부인데
+                                                    <br>
+                                                    이 책에서는 개발자로 공부나 취업을 꿈꾸는 사람들에게 '어떤 방법이 좋은지', '어떤 경로가 있는지', '어떤 사람에게 어떤 공부를 추천하는지' 등
+                                                    <br>
+                                                    경험자의 입장에서 상세하게 담겨있더라고요. 특히 기업별로(스타트업, 대기업, SI 등) 특징이 정리되어 있고
+                                                    <br>
+                                                    다양한 개발자 분들의 인터뷰도 담겨있어서 개발에 관해 넓게 감을 얻고 지식을 쌓을 수 있어 좋았습니다.
+                                                </p>
                                             </div>
                                             <div class="reviews-members-footer">
                                                 <a class="total-like" href="#" style="background-color: #2D313C !important; color: white;"><i class="far fa-thumbs-up"></i> 88</a>
@@ -357,21 +412,13 @@
                                 </div>
                                 <hr>
                                 <!-- 페이지 네비게이션 -->
-                                <nav aria-label="Page navigation example" class="naviBar">
-                                    <ul class="pagination pagination-circle pg-dark">
-                                        <li class="page-item ">
-                                            <a class="page-link" tabindex="-1">이전</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link">1</a></li>
-                                        <li class="page-item active">
-                                            <a class="page-link">2 <span class="sr-only">(current)</span></a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link">3</a></li>
-                                        <li class="page-item ">
-                                            <a class="page-link">다음</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">이전</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#" style="background-color: #2D313C; color: white !important; border: 1px solid #2D313C;">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">다음</a></li>
+                                </ul>
                             </div>
                             <!-- 리뷰 작성 박스 -->
                             <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">

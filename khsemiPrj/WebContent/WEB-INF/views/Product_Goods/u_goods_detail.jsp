@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상품 상세페이지(굿즈)</title>
     <!-- CSS 파일 -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/Resources/Product_Goods/goods_detail.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Resources/css/Product_Goods/u_goods_detail.css">
     
     <!-- 부트스트랩 CDN -->
     <!-- Latest compiled and minified CSS -->

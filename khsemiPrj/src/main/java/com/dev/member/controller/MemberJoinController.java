@@ -13,6 +13,6 @@ public class MemberJoinController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/Member/member_join.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/Member/u_member_join.jsp").forward(req, resp);
 	}
 }
