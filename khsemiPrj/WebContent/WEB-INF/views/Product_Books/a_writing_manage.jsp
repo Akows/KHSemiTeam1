@@ -25,7 +25,6 @@
 
 </head>
 <body>
-<%@ include file="../Common/a_menubar.jsp" %>
 
     <div id="route">
         <img id="home_icon"src="Resources/img/i_con/home_icon.png" alt="">
@@ -49,12 +48,12 @@
             </div>
             <div id="main2">
             <!-------------------------------- 검색----------------------------------- -->
-            <div id="search_div" class="clearfix">
-                <input type="text" class="form-control" placeholder="저자명으로 검색하세요" style="float: left;">
-                <button type="submit" id="searchbtn" class="btn-outline-secondary">
+             <div id="search_div" class="clearfix">
+            </div>
+                <input type="text" placeholder="저서명으로 검색하세요" style="float: left;">
+                <button type="submit" class="btn1" id="searchbtn">
                     <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
                 </button>
-            </div>
 
 
             <table class="table-hover">
@@ -96,7 +95,7 @@
     
     
         <!-- -----------------------페이저----------------------------- -->
-        <div id="nav">
+        <div id="nav1">
             <nav aria-label="Page navigation example">
                 <ul class="pagination pagination-sm pagination-secondary">
                     <li class="page-item">
@@ -209,7 +208,7 @@
     </div>
 
     <br><br><br><br>
-    <%@ include file="../Common/u_footer.jsp" %>
+
 </body>
 </html>
 

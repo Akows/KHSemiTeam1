@@ -26,7 +26,7 @@
 
 </head>
 <body>
-<%@ include file="../Common/a_menubar.jsp" %>
+
 
 
     <div id="route">
@@ -122,7 +122,7 @@
             </table>
 
 
-        <!-- -----------------------페이저----------------------------- -->
+        <!-- ----------------------- 페이저 ------------------------------->
         <div id="nav">
             <nav aria-label="Page navigation example">
                 <ul class="pagination pagination-sm pagination-secondary">
@@ -219,7 +219,7 @@
 
     <br><br><br><br><br><br>
 
-<%@ include file="../Common/u_footer.jsp" %>
+
 </body>
 </html>
 

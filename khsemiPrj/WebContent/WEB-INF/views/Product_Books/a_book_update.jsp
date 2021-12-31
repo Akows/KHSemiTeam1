@@ -39,13 +39,13 @@
         </div>
     </div>
 
-    
-    <div id="search_div" class="clearfix">
-        <input type="text" class="form-control" placeholder="책 제목으로 검색하세요" style="float: left;">
-        <button type="submit" id="searchbtn" class="btn-outline-secondary">
-            <img id="searchbtn_img" src="Resources/img/i_con/home_icon.png" alt="검색" >
-        </button>
+    <!-------------------------------- 검색----------------------------------- -->
+    <div id="search_div" class="clearfix" style="float: left;">
+        <input type="text" class="form-control" id="search" placeholder="책 제목으로 검색하세요" style="float: left;">
     </div>
+        <button type="submit" id="searchbtn" class="btn-outline-secondary">
+            <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
+        </button>
     
     <!-- ROW 색상 변경 : tr태그에 table-색상 / text-색상 -->
     <div id="main">
@@ -305,7 +305,7 @@
 
     <br><br><br><br>
     
-    <%@ include file="../Common/u_footer.jsp" %>
+    <%@ include file="../Common/a_footer.jsp" %>
 </body>
 </html>
 

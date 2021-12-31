@@ -26,11 +26,8 @@ a{
 }
 /* ---------- °Ë»ö ---------------- */
 #search_div{
-    margin-top: 15px;
     margin-left: 10px;
-}
-.form-control {
-width: 300px;
+	width: 400px;
 }
 
 #searchbtn{
@@ -42,7 +39,6 @@ width: 300px;
 }
 #search{
     border: 1px solid black !important;
-    margin-top: 50px;
 }
 
 

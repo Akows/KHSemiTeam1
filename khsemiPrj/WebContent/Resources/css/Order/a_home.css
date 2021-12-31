@@ -25,8 +25,6 @@ div{
     height: 21px;
 }
 
-
-
 #top{
     width: 100%;
     height: 250px;
@@ -70,6 +68,7 @@ div{
 }
 #bRight{
     width: 73%;
+    margin-top: 20px;
 }
 #bLeft{
     width: 27%;
@@ -93,14 +92,14 @@ div{
 }
 
 
-/* 테이블 관련=============================================================== */
+/*================ 테이블 관련================= */
 table{
     width: 80%;
 }
 caption{
     margin-bottom: 5px;
     font-weight: bold;
-    caption-side: top;
+    caption-side: top !important;
 }
 
 .tb1, .tb2, .tb3{

@@ -32,8 +32,8 @@
 
     <div id="top">
         <div id="t1">
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상품관리
             <table class="tb1">
-                <caption>상품 관리</caption>
                 <tr>
                     <td>품절 상품</td>
                     <td>2</td>
@@ -45,8 +45,8 @@
             </table>
         </div>
         <div id="t2">
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;회원관리
             <table class="tb1">
-                <caption>회원 관리</caption>
                 <tr>
                     <td>신규 회원</td>
                     <td></td>
@@ -58,8 +58,9 @@
             </table>
         </div>
         <div id="t3">
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주문 내역 관리
             <table class="tb2">
-                <caption>주문 내역 관리</caption>
+               
                 <tr>
                     <td>입금확인</td>
                     <td>출고준비</td>
@@ -81,8 +82,9 @@
 
         <div id="bRight">
         <div id="wrap">
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일간 / 주간 / 월간 통계
                 <table class="tb3">
-                    <caption>일간 / 주간 / 월간 통계</caption>
+                    
                     <thead>
                       <tr>
                         <th style="font-style: italic;">12월</th>
@@ -226,8 +228,9 @@
         </div>
         <div id="bLeft">
             <div id="left1">
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QnA 관리
                 <table class="tb1">
-                    <caption>Q&A 관리</caption>
+                    
                     <tr>
                         <td>신규 Q&A</td>
                         <td></td>
@@ -239,8 +242,9 @@
                 </table>
             </div>
             <div id="left2">
+             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리뷰 신고 처리
                 <table class="tb1">
-                    <caption>리뷰 신고 관리</caption>
+                   
                     <tr>
                         <td>미처리 신고</td>
                         <td></td>
@@ -256,6 +260,6 @@
 
     
 <br><br><br>
-<%@ include file="../Common/u_footer.jsp" %>
+<%@ include file="../Common/a_footer.jsp" %>
 </body>
 </html>

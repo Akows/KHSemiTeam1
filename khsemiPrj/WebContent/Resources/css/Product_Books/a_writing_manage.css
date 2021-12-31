@@ -26,24 +26,17 @@ a{
 }
 /* ---------- °Ë»ö ---------------- */
 #search_div{
-    /* border: 1px solid red; */
     margin-top: 15px;
-    margin-left: 10px;
+    width: 400px;
 }
-.form-control {
-width: 300px;
-}
-
 #searchbtn{
-    height: 38px;
-    border: 1px solid #b4b4b4;
+    height: 30px;
 }
 #searchbtn_img{
     height: 100%;
 }
 #search{
     border: 1px solid black !important;
-    margin-top: 50px;
 }
 
 

@@ -27,21 +27,18 @@ a{
 /* ---------- °Ë»ö ---------------- */
 #search_div{
     margin-top: 15px;
-    margin-left: 10px;
-}
-.form-control {
-width: 300px;
+    width: 400px;
 }
 
 #searchbtn{
-    height: 39px;
+    height: 30px;
 }
 #searchbtn_img{
     height: 100%;
 }
 #search{
     border: 1px solid black !important;
-    margin-top: 50px;
+
 }
 
 
@@ -80,6 +77,11 @@ table th, table td{
     border:1px solid #c5c5c5 !important;
     text-align: center;
 }
+
+table tr:hoverr{
+   background-color: #d4d4d4 !important;
+}
+
 th{
     background-color: #d4d4d4 !important;
     color: #797979;

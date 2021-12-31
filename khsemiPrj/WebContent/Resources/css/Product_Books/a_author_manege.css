@@ -25,27 +25,20 @@ a{
     font-size: 15px;
 }
 /* ---------- 검색 ---------------- */
-#search_div{
-    /* border: 1px solid red; */
-    margin-top: 15px;
-    margin-left: 10px;
-}
-.form-control {
-width: 300px;
-}
 
+#search_div{
+    margin-top: 15px;
+    width: 400px;
+}
 #searchbtn{
-    height: 38px;
-    border: 1px solid #b4b4b4;
+    height: 30px;
 }
 #searchbtn_img{
     height: 100%;
 }
 #search{
     border: 1px solid black !important;
-    margin-top: 50px;
 }
-
 
 /* ---------- 메인 ---------------- */
 #main{
@@ -97,10 +90,6 @@ tr:nth-child(2n-1){
 }
 #addtb th, #addtb td{height: 30px;}
 /*-------------------- 페이저 ---------------------*/
-nav{
-    text-align: center;
-    margin-top: 10px;
-}
 
 
 /*-------------------- 버튼 ---------------------*/
