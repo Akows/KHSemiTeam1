@@ -20,12 +20,12 @@
 <!-- 아이콘 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 <!-- css -->
-<link rel="stylesheet" href="Resources/Product_Goods/관_MD추천관리.css">
+<link rel="stylesheet" href="Resources/css/Product_Goods/a_md_recommend.jsp.css">
 
 
 </head>
 <body>
-    <div id="red"></div>
+<%@ include file="../Common/a_menubar.jsp" %>
     <div id="route">
         <img id="home_icon"src="Resources/img/i_con/home_icon.png" alt="">
         <div id="aa">
@@ -248,6 +248,7 @@
 
 
     <br><br><br><br>
+    <%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>
 

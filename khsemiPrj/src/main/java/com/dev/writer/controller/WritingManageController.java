@@ -14,6 +14,6 @@ public class WritingManageController extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		req.getRequestDispatcher("./WEB-INF/views/Product_Books/A8authormanege.jsp").forward(req, resp);
+		req.getRequestDispatcher("./WEB-INF/views/Product_Books/a_writing_manage.jsp").forward(req, resp);
 	}
 }
