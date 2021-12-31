@@ -105,7 +105,7 @@
 
 
     <br><br><br><br>
- <%@ include file="../Common/u_footer.jsp" %>
+ <%@ include file="../Common/a_footer.jsp" %>
 </body>
 </html>
 

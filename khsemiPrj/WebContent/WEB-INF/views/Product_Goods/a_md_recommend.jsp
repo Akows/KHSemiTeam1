@@ -20,12 +20,13 @@
 <!-- 아이콘 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 <!-- css -->
-<link rel="stylesheet" href="Resources/css/Product_Goods/a_md_recommend.jsp.css">
+<link rel="stylesheet" href="Resources/css/Product_Goods/a_md_recommend.css">
 
 
 </head>
 <body>
-<%@ include file="../Common/a_menubar.jsp" %>
+
+   
     <div id="route">
         <img id="home_icon"src="Resources/img/i_con/home_icon.png" alt="">
         <div id="aa">
@@ -44,11 +45,12 @@
         <div id="main2">
             <h3>도서 수정/삭제</h3> 
             <div id="search_div" class="clearfix">
-                <input type="text" class="form-control" placeholder="책 제목으로 검색하세요" style="float: left;">
+            </div>
+                <input type="text" placeholder="책 제목으로 검색하세요" style="float: left;">
                 <button type="submit" class="btn1" id="searchbtn">
                     <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
                 </button>
-            </div>
+                
                 <table class="table-hover">
                     <thead>
                         <tr class="table-success">
@@ -243,12 +245,10 @@
         </div><!-- main2 -->
     </div><!-- main -->
 
-    
-
-
+   
 
     <br><br><br><br>
-    <%@ include file="../Common/u_footer.jsp" %>
+
 </body>
 </html>
 
