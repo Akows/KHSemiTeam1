@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>a6_독자리뷰신고</title>
-	<link rel="stylesheet" href="./Resources/Product_Books/a_book_review_report.css">
+	<link rel="stylesheet" href="./Resources/css/Product_Books/a_book_review_report.css">
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -21,19 +21,8 @@
 </head>
 <body>
 
-	<%@ include file="../Common/a_menubar.jsp" %>
-<!--  
-	<nav>
-		<img src="Resources/img/Logo/로고 사진 연그레이 s.png"  id="icon1">
-        <ul id="navi">
-            <li><a href="#">상품관리</a></li>
-            <li><a href="#">회원관리</a></li>
-            <li><a href="#">주문내역관리</a></li>
-            <li><a href="#">QnA</a></li>
-            <li id="list4"><a href="#">관리자님</a></li>
-        </ul>
-    </nav>
--->
+	<%@ include file="../Common/a_menubar.jsp" %> 
+
     <div class="home">
         <a href="#"><img src="Resources/img/i_con/home_icon.png" id="icon3"></a>
         <label> > </label>
@@ -148,6 +137,6 @@
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
 
-	<%@ include file="../Common/u_footer.jsp" %>
+	<%@ include file="../Common/a_footer.jsp" %>
 </body>
 </html>
