@@ -1,4 +1,4 @@
-package com.dev.writer.vo;
+package com.dev.writer.model;
 
 public class WriterVO 
 {

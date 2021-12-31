@@ -176,13 +176,6 @@
                 <hr>
                 <br>
 
-                <nav id="submenu">
-                    <a id="submenuscript">결과 표시됨</a>
-                    <div id="blank"></div>
-                    <a href="#" id="submenubotton"><span class="icon-thumbsup"></span> 추천 순</a>
-                    <a href="#" id="submenubotton"><span class="icon-coin-dollar"></span> 판매 순</a>
-                </nav>
-
                 <!-- 컨텐츠 내부 배경 영역 (padding: 40px;) -->
                 <div id="maincontentdeployarea" class="maincontentarea">
                     <!-- 컨텐츠 배치 영역 (padding: 40px;) -->
@@ -288,11 +281,11 @@
 
                                 <nav id="pagecontrolinner" aria-label="Page navigation example">
                                     <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+		                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+		                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+		                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+		                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+		                                <li class="page-item"><a class="page-link" href="#">5</a></li>
                                     </ul>
                                 </nav>
 

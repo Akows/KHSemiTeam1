@@ -1,5 +1,14 @@
+<%@page import="java.util.List"%>
+<%@page import="com.dev.probook.model.ProbookVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
+    
+    <% 
+    	List<ProbookVO> dateList = (List<ProbookVO>) request.getAttribute("data");
+    %>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +52,7 @@
         <div><h1 id="pagetitle">신상품</h1></div>
 
     </header>
-
+    
     <section>
         <nav id="submenu">
             <a id="submenuscript">결과 표시됨</a>
@@ -57,13 +66,25 @@
             <!-- 컨텐츠 배치 영역 (padding: 40px;) -->
             <div id="maincontent01area" class="maincontentarea">
 
+<% 
+
+for (ProbookVO p : dateList)
+{
+	String productNumber = p.getProductNumber();
+	String productName = p.getProductName();
+	String imageLink = p.getImageLink();
+	String productPrice = p.getProductPrice();
+	String enrollDate = p.getEnrollDate();
+	String productDescript = p.getProductDescript();
+%>
+
                 <!-- 컨텐츠 배치 첫번째 영역 (padding: 40px;) -->
                 <div id="contentarea">
                     <table border="0">
                         <tr>
                             <td>
                                 <div id="bookarea">
-                                    <div id="bookcover">책 표지</div>
+                                    <div id="bookcover"> <img alt="" src="<%= imageLink %>"> </div>
                                     <div id="booktitle">
                                         <h2>책 제목</h2>
                                         <h5>저자</h5>
@@ -75,6 +96,8 @@
                                     </div>
                                 </div>
                             </td>
+                            
+                            <% } %>
                             <td>
                                 <div id="bookarea">
                                     <div id="bookcover">책 표지</div>
@@ -155,11 +178,11 @@
                     <div id="pagecontrol">
                         <nav id="pagecontrolinner" aria-label="Page navigation example">
                             <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
                             </ul>
                         </nav>
                     </div>
