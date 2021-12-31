@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <!-- CSS 파일 -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/Resources/Member/login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Resources/css/Member/u_login.css">
 
     <!-- 부트스트랩 CDN -->
     <!-- Latest compiled and minified CSS -->
