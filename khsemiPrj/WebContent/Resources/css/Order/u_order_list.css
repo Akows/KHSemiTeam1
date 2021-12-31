@@ -1,10 +1,9 @@
-
-
 *
 {
    margin: auto;
    padding: 0%;
 }
+
 
 /* 배경 */
 body
@@ -12,69 +11,6 @@ body
 	background-color: #EEEEEE;
 }
 
-/* 메뉴바 */
-nav 
-{
-   border: 1px solid; 
-   width: 1500px;
-   height: 50px;
-   background-color:#2d313c;
-}
-
-#navi
-{
-   list-style-type: none;
-   height: 100%;
-}
-
-#navi>li 
-{
-   float: left;
-   width: 13%;
-   height: 100%;
-   text-align: center;
-}
-
-#navi a                       /* a 태그 모두 선택 */
-{
-    text-decoration: none;    /* 밑줄 없애기 */
-   color:white;
-   font-size: 1.3em;
-   font-weight: 400%;        /* 폰트 굵기 */
-   height: 100%;
-   line-height: 40px;         /* 라인 높이 지정 */
-}
-
-/* 메뉴바-로고 */
-#icon1
-{
-   float: left;
-   width: 50px;
-   height:45px;
-}
-
-/* 메뉴바-글자로고*/ 
-#icon2
-{   
-    float: left;
-    width: 100px
-}
-
-/* 메뉴바-검색 */
-#search
-{
-    position: absolute;
-    right: 300px;
-    top: 13px;
-}
-
-/* 메뉴바-로그인,회원가입 */
-#lojo
-{
-    position: absolute;
-    right: 30px;
-    font-size: 0.6em;
-}
 
 /* 경로-홈 아이콘 */
 #icon3
@@ -87,8 +23,8 @@ nav
 .src
 {
     position: absolute;
-    top: 100px;
-    left: 10px;
+    top: 90px;
+    left: 50px;
 }
 
 /* 마이페이지 이동경로 */
@@ -110,7 +46,7 @@ nav
 {
     position: absolute;
     top: 250px;
-    left: 287px;
+    left: 410px;
     border: 1px solid;
     border-collapse : collapse;
 }
@@ -119,12 +55,12 @@ nav
 {
     position: absolute;
     top: 750px;
-    left: 250px;
+    left: 410px;
     border: 1px solid;
     border-collapse : collapse;
 }
 
-      /* 이미지 */
+/* 이미지 */
 #img
 {
     width: 100px;
@@ -137,14 +73,16 @@ nav
     color: white;
     width: 145px;
     height: 50px;
+    text-align:center;
     font-size: 1.2em;
+    
 }
 
 /* 주문일자 */
 #ordate1
 {
     color: #2d313c ;
-    text-align: right;
+    text-align: left;
     width: 115px;
 }
 
@@ -163,7 +101,7 @@ nav
     font-size: 1.7em;
 }
 
-      /* 앞배경색 */
+/* 앞배경색 */
 #gc1-2
 {
     background-color: #787878;
@@ -179,8 +117,15 @@ nav
 /* 맨 밑 앞배경색-세로로 늘리기 */
 #gc1-4
 {
-    background-color: #787878;;
-    height: 50px;
+    background-color: #787878;
+    height: 50px;   
+}
+
+/* 배송지 */
+#gc1-5
+{
+	background-color: #787878;
+	color: white;
 }
 
 /* 일부배경 */

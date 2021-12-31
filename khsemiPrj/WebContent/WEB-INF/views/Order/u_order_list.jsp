@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>u12_주문내역조회</title>
-	<link rel="stylesheet" href="./Resources/Order/u_order_list.css">
+	<link rel="stylesheet" href="./Resources/css/Order/u_order_list.css">
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -24,27 +24,6 @@
 
 	<%@ include file="../Common/u_menubar.jsp" %>
 
-
-<%-- 
-	<nav>
-		<img src="Resources/img/Logo/로고 사진 연그레이 s.png" id="icon1">   
-        <img src="Resources/img/Logo/로고 글자 연그레이 s.png" id="icon2">
-        <ul id="navi">
-            <li><a href="#">카테고리</a></li>
-            <li><a href="#">베스트</a></li>
-            <li><a href="#">신상품</a></li>
-            <li><a href="#">QnA</a></li>
-
-            <div id="search">
-                <input type="text" placeholder="내용을 입력해주세요" >
-                <button>검색</button>
-            </div>
-
-            <li id="lojo"><a href="#">로그인</a> <label> | </label> <a href="#">회원가입</a></li>
-        </ul>
-    </nav>
---%>
-
     <form>
         <div class="src">
             <a href="#"><img src="Resources/img/i_con/home_icon.png"id="icon3"></a>
@@ -54,14 +33,16 @@
             <a href="#" id="ordercheck">주문내역조회</a>
         </div>
 
-
-        <table class="t1">
+		
+        <table class="t1" >
             <tr >
                 <th colspan="3"></th>
                 <th id="cg">출고준비</th>
                 <th></th>
-                <th id="ordate1">주문일자 : </th>
-                <th id="ordate2" colspan="3">2021/12/15</th>
+                <th></th>
+                <th id="ordate1" colspan="2">주문일자 : 2021/12/15</th>
+                <th id="ordate2">배송지 : 강원도 춘천시</th>
+                <th></th>
             </tr>
 
             <tr>
@@ -70,7 +51,7 @@
                 <td id="gc1-2" ></td>
                 <td id="gc1-2" colspan="2"></td>
                 <td id="gc1-2"></td>
-                <td id="gc1-2" colspan="2"></td>
+                <td id="gc1-5" colspan="2"></td>
                 <td id="gc1-3"></td>
                 
             </tr>
@@ -129,8 +110,9 @@
                 <th colspan="3"></th>
                 <th id="cg">배송 중</th>
                 <th></th>
-                <th id="ordate1">주문일자 : </th>
-                <th id="ordate2" colspan="3">2021/12/17</th>
+                <th></th>
+                <th id="ordate1" colspan="2">주문일자: 2021-12-15</th>
+                <th id="ordate2">배송지 : 강원도 춘천시</th>
             </tr>
 
             <tr>
@@ -139,7 +121,7 @@
                 <td id="gc1-2" ></td>
                 <td id="gc1-2" colspan="2"></td>
                 <td id="gc1-2"></td>
-                <td id="gc1-2" colspan="2"></td>
+               <td id="gc1-5" colspan="2"></td>
                 <td id="gc1-3"></td>
                 
             </tr>
@@ -187,7 +169,7 @@
     <br><br><br><br><br>
     <br><br><br><br><br>
     
-    <%@ include file="../Common/u_footer.jsp" %>
+    
     
 </body>
 </html>

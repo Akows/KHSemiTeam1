@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>a6_3_QnA신고</title>
-	<link rel="stylesheet" href="./Resources/QnA/a_qna_report.css">
+	<link rel="stylesheet" href="./Resources/css/QnA/a_qna_report.css">
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -146,7 +146,7 @@
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
-    <%@ include file="../Common/u_footer.jsp" %>
+    <%@ include file="../Common/a_footer.jsp" %>
     
 </body>
 </html>

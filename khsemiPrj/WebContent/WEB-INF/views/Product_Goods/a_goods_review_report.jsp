@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>a6_2_굿즈리뷰신고</title>
-	<link rel="stylesheet" href="./Resources/Product_Goods/a_goods_review_report.css">
+	<link rel="stylesheet" href="./Resources/css/Product_Goods/a_goods_review_report.css">
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -145,12 +145,13 @@
             </table>
         </div>
     </form>
+    
 
 	<br><br><br><br><br><br>
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
     
-	<%@ include file="../Common/u_footer.jsp" %>
+	<%@ include file="../Common/a_footer.jsp" %>
   
 </body>
 </html>
