@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>u6_장바구니</title>
-	<link rel="stylesheet" href="./Resources/Order/u6.css">
+	<link rel="stylesheet" href="./Resources/Order/u_cart.css">
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -21,7 +21,7 @@
 </head>
 <body>
 
-	<%@ include file="../Common/menubar.jsp" %>
+	<%@ include file="../Common/u_menubar.jsp" %>
 
 <!-- 
 	<nav>
@@ -172,6 +172,7 @@
                 </tr>
             </table>
         </div>
-	<%@ include file="../Common/footer.jsp" %>
+        
+	<%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>

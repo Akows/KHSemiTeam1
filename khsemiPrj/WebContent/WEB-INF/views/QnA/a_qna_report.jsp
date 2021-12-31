@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>a6_3_QnA신고</title>
-	<link rel="stylesheet" href="./Resources/QnA/a6_3.css">
+	<link rel="stylesheet" href="./Resources/QnA/a_qna_report.css">
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -21,7 +21,7 @@
 </head>
 <body>
 
-	<%@ include file="../Common/menubar.jsp" %>
+	<%@ include file="../Common/a_menubar.jsp" %>
 	
     <div class="home">
         <a href="#"><img src="Resources/img/i_con/home_icon.png" id="icon3"></a>
@@ -146,7 +146,7 @@
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
-    <%@ include file="../Common/footer.jsp" %>
+    <%@ include file="../Common/u_footer.jsp" %>
     
 </body>
 </html>

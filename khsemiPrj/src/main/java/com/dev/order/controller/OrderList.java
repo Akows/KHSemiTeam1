@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/orderset")
-public class OrderSetting extends HttpServlet{
+@WebServlet("/orderlist")
+public class OrderList extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/Order/a4_order_setting.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/Order/u_order_list.jsp").forward(req, resp);
 	}
 
 }

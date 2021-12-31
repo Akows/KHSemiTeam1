@@ -12,6 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 public class QnaReportController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/QnA/a6_3.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/QnA/a_qna_report.jsp").forward(req, resp);
 	}
 }
