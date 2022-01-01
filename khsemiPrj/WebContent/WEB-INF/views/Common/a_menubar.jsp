@@ -36,15 +36,15 @@
             </span>
             <div id="menu">
                 <ul class="main1">
-                    <li><a href="#">상품관리</a>
+                    <li><a href="bookinsert">상품관리</a>
                         <ul class="main2">
-                            <li><a href="#">책 관리</a></li>
-                            <li><a href="#">굿즈 관리</a></li>
+                            <li><a href="bookinsert">책 관리</a></li>
+                            <li><a href="gcon1">굿즈 관리</a></li>
                         </ul>
                     </li>
                     <li><a href="#">회원관리</a></li>
                     <li><a href="#">주문내역관리</a></li>
-                    <li><a href="#">게시판</a></li>
+                    <li><a href="qna">게시판</a></li>
                 </ul>
             </div>
             
@@ -64,10 +64,10 @@
                 <ul class="main1">
                     <li><a href="#"><i class="fas fa-user fa-2x" style="color: #eee;"></i></a>
                         <ul class="main2">
-                            <li><a href="#">도서리뷰 신고내역</a></li>
-                            <li><a href="#">굿즈리뷰 신고내역</a></li>
-                            <li><a href="#">QnA 신고내역</a></li>
-                            <li><a href="#">로그아웃</a></li>
+                            <li><a href="reviewreport">도서리뷰 신고내역</a></li>
+                            <li><a href="a6_2">굿즈리뷰 신고내역</a></li>
+                            <li><a href="qnareport">QnA 신고내역</a></li>
+                            <li><a href="home">로그아웃</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -9,10 +9,10 @@ public class Paging {
 	 public int currentPage = 0;
 
 	 public Paging(int rowNo, int size, int totalRowCount, int currentPage){
-	     this.rowNo = rowNo;
-	     this.size = size;
-	     this.totalRowCount = totalRowCount;
-	     this.currentPage = currentPage;
+	     this.rowNo = rowNo;  // 한 페이지에 보여지는 개수
+	     this.size = size;	  // 페이저 개수
+	     this.totalRowCount = totalRowCount; // 전체 글 개수
+	     this.currentPage = currentPage;	// 현재 페이지
 	 }
 	    
 	 public int maxPage() {

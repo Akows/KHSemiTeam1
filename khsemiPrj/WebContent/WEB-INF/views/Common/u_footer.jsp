@@ -102,7 +102,7 @@
     <div class="footer-basic">
         <footer style="display:block;">
             <div class="social">
-                <a href="#"><img src="Resources/img/Logo/로고 사진 연그레이 s.png" alt=""></a>
+                <a href="home"><img src="Resources/img/Logo/로고 사진 연그레이 s.png" alt=""></a>
                 <a href="#"><img src="Resources/img/Logo/로고 글자 연그레이 s.png"><br>
                 </a>
             </div>
