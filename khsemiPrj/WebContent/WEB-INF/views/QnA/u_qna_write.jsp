@@ -26,9 +26,9 @@
   <!-- BEGIN SEARCH RESULT -->
   <div class="bbiv">
     <div class="">
-        <a href="#" class="breadcrumbtext"><img id="home_icon" src="Resources/img/i_con/home_icon.png" alt="홈아이콘"></a> > 
-        <a href="#" class="breadcrumbtext">게시판</a> > 
-        <a href="#" class="breadcrumbtext">Q&A</a> > 
+        <a href="home" class="breadcrumbtext"><img id="home_icon" src="Resources/img/i_con/home_icon.png" alt="홈아이콘"></a> > 
+        <a href="qna" class="breadcrumbtext">게시판</a> > 
+        <a href="qna" class="breadcrumbtext">Q&A</a> > 
         <a href="#" class="breadcrumbtext">질문작성</a>
     </div>
   </div>
@@ -43,9 +43,9 @@
             <hr>
             
             <!-- BEGIN FILTER BY CATEGORY -->
-            <a class="community" href="#"><h4>공지사항</h4></a>
-            <a class="community" href="#"><h4>Q&A</h4></a>
-            <a class="community" href="#"><h4>이벤트</h4></a>
+            <a class="community" href="notice"><h4>공지사항</h4></a>
+            <a class="community" href="qna"><h4>Q&A</h4></a>
+            <a class="community" href="event"><h4>이벤트</h4></a>
             <!-- END FILTER BY CATEGORY -->
             
             <div class="padding"></div>

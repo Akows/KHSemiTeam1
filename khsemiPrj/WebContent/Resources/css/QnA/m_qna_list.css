@@ -73,8 +73,9 @@ body{margin-top:20px;
   color: #2D313C;
 }
 .pagination {
-    position: relative;
+    position: absolute;
     left: 300px;
+    width: 100px;
 } 
 .community {
   cursor: pointer;
