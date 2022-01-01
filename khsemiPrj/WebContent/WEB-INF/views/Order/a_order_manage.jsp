@@ -27,7 +27,7 @@
 </head>
 <body>
 
-
+<%@ include file="../Common/a_menubar.jsp" %>
 
     <div id="route">
         <img id="home_icon"src="Resources/img/i_con/home_icon.png" alt="">
@@ -39,19 +39,19 @@
     </div>
 
     
-    <div id="search_div" class="clearfix">
+    <div id="search_div">
         <input type="text" class="form-control" placeholder="회원 이름으로 검색하세요" style="float: left;">
+    </div>
         <button type="submit" id="searchbtn" class="btn-outline-secondary">
             <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
         </button>
-    </div>
     
     <!-- ROW 색상 변경 : tr태그에 table-색상 / text-색상 -->
-    <div id="main">
-        <!-- <table class="table table-striped table-bordered table-hover"> -->
-        
-        
-            <table class="table-hover">
+    <div class="row">
+  <div class="col-sm-9">
+  	<div id="m1">
+   		<!-- <table class="table table-striped table-bordered table-hover"> -->
+             <table class="table-hover">
                 <thead>
                     <tr>
                         <th>주문번호</th>
@@ -122,29 +122,16 @@
             </table>
 
 
-        <!-- ----------------------- 페이저 ------------------------------->
-        <div id="nav">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination pagination-sm pagination-secondary">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-
-        <!-- ----------------------- 등록/수정 버튼 ----------------------------- -->
+	<!-- -----------------------페이저----------------------------- -->
+        <ul class="pagination justify-content-center" style="margin:20px 0">
+  			 <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+  			 <li class="page-item"><a class="page-link" href="#">1</a></li>
+ 			 <li class="page-item"><a class="page-link" href="#">2</a></li>
+ 			 <li class="page-item"><a class="page-link" href="#">3</a></li>
+ 			 <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+		</ul>
+        
+    <!-- ----------------------- 등록/수정 버튼 ----------------------------- -->
         <div id="b2">
             <div style="text-align: center;">
                 <button type="submit" class="btn1">&nbsp;&nbsp;&nbsp;&nbsp;주문 조회&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
@@ -153,8 +140,8 @@
                 <i class="fas fa-chevron-up"></i>
                 <button type="submit" class="btn1">주문정보 수정</button>
             </div>
-        </div>
 
+        </div>
         <table>
             <tr>
                 <th>주문번호</th>
@@ -181,11 +168,16 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-
-    <div id="side">
+  </div><!-- m1 -->
+  
+       
+    
+    </div><!-- col1 end -->
+   	<div class="col-sm-3" id="side">
+    
         <div id="empty"></div>
         <div id="side1">
+        <br>
             <table id="tb_side">
                 <tr>
                     <th>ID</th>
@@ -213,13 +205,17 @@
             </div>
 
 
-        </div>
-    </div>
+        </div><!-- empty -->
+    
+   	</div><!-- col2 end -->
+	</div><!-- row -->
+
+    
 
 
-    <br><br><br><br><br><br>
+    <br><br>
 
-
+<%@ include file="../Common/a_footer.jsp" %>
 </body>
 </html>
 

@@ -25,7 +25,7 @@
 
 </head>
 <body>
-
+	<%@ include file="../Common/a_menubar.jsp" %>
    
     <div id="route">
         <img id="home_icon"src="Resources/img/i_con/home_icon.png" alt="">
@@ -35,220 +35,206 @@
             <a href="" id="tt">MD추천 도서 관리</a>
         </div>
     </div>
-
+<!-------------------------main------------------------------->
+    <div class="row">
+    	<div class="col-sm-12">
+    		<div id="m1">
+			    <h3>도서 수정/삭제</h3> 
+			        <div id="search_div" class="clearfix">
+			                <input type="text" placeholder="책 제목으로 검색하세요" style="float: left;">
+			                <button type="submit" class="btn1" id="searchbtn">
+			                    <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
+			                </button>
+			            </div>
+			    
+			    <!----------------- 테이블 ------------------------->
+			      <table class="table-hover">
+			                    <thead>
+			                        <tr class="table-success">
+			                            <th>상품번호</th>
+			                            <th>상품이름</th>
+			                            <th>이미지</th>
+			                            <th>단가</th>
+			                            <th>재고</th>
+			                            <th>판매수</th>
+			                            <th>좋아요</th>
+			                            <th>상품설명</th>
+			                            <th>상품유형</th>
+			                            <th>책번호</th>
+			                            <th>저자</th>
+			                            <th>출판사</th>
+			                            <th>출판일</th>
+			                            <th>카테고리</th>
+			                            <th>목차</th>
+			                        </tr>
+			                    </thead>
+			                    <tbody>
+			                        <tr class="primary">
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                        </tr>
+			                        <tr>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                            <td>데이터</td>
+			                        </tr>
+			                        <tr>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                        </tr>
+			                        <tr>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                        </tr>
+			                        <tr>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                            <td></td>
+			                        </tr>
+			                </tbody>
+			                </table>    
+			    <!------------------------페이저------------------------------->
+			        <ul class="pagination justify-content-center" style="margin:20px 0">
+			  			 <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+			  			 <li class="page-item"><a class="page-link" href="#">1</a></li>
+			 			 <li class="page-item"><a class="page-link" href="#">2</a></li>
+			 			 <li class="page-item"><a class="page-link" href="#">3</a></li>
+			 			 <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+					</ul>
+			    <!---------------------버튼3------------------------->
+			    <div id="b2">
+			          <div>
+			              <button type="submit" class="btn1">1페이지 ▼</button>
+			              <button type="submit" class="btn1">2페이지 ▼</button>
+			              <button type="submit" class="btn1">3페이지 ▼</button>
+			          </div>
+			     </div>
+			    
+			    <!------------------- 슬라이드 ---------------------->
+			    <div class="row">
+				    <div class="col-sm-4">
+				    <div id="slide">
+			                <div style="margin-left: 20px;">1 / 3</div>
+			                <div id="middle">
+			                    <div id="img">
+			                        <img id="book" src="./it지식.JPG">
+			                    </div><!-- img -->
+			                    <div id="txt">
+			                        <h4>비전공자를 위한 IT 지식</h4>
+			                        <span>남궁성 | 강산북스 | 27000원</span>
+			                        <textarea name="" id="md" cols="30" rows="10"></textarea>
+			                    </div>
+			                </div>
+			                    <button class="btn1" id="btn3">등록</button>
+			            </div><!-- slide -->
+				    </div>
+				    <div class="col-sm-4">
+				    <div id="slide">
+			                <div style="margin-left: 20px;">1 / 3</div>
+			                <div id="middle">
+			                    <div id="img">
+			                        <img id="book" src="./it지식.JPG">
+			                    </div><!-- img -->
+			                    <div id="txt">
+			                        <h4>비전공자를 위한 IT 지식</h4>
+			                        <span>남궁성 | 강산북스 | 27000원</span>
+			                        <textarea name="" id="md" cols="30" rows="10"></textarea>
+			                    </div>
+			                </div>
+			                    <button class="btn1" id="btn3">등록</button>
+			            </div><!-- slide -->
+				    </div>
+				    <div class="col-sm-4">
+				    <div id="slide">
+			                <div style="margin-left: 20px;">1 / 3</div>
+			                <div id="middle">
+			                    <div id="img">
+			                        <img id="book" src="./it지식.JPG">
+			                    </div><!-- img -->
+			                    <div id="txt">
+			                        <h4>비전공자를 위한 IT 지식</h4>
+			                        <span>남궁성 | 강산북스 | 27000원</span>
+			                        <textarea name="" id="md" cols="30" rows="10"></textarea>
+			                    </div>
+			                </div>
+			                    <button class="btn1" id="btn3">등록</button>
+			            </div><!-- slide -->
+				    </div>
+			    </div>
+   		 	</div><!-- m1 -->  
+    	</div><!-- col12 -->
+    </div><!-- row -->
     
     
     
-    <!-- ROW 색상 변경 : tr태그에 table-색상 / text-색상 -->
-    <div id="main">
-        <!-- <table class="table table-striped table-bordered table-hover"> -->
-        <div id="main2">
-            <h3>도서 수정/삭제</h3> 
-            <div id="search_div" class="clearfix">
-            </div>
-                <input type="text" placeholder="책 제목으로 검색하세요" style="float: left;">
-                <button type="submit" class="btn1" id="searchbtn">
-                    <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
-                </button>
-                
-                <table class="table-hover">
-                    <thead>
-                        <tr class="table-success">
-                            <th>상품번호</th>
-                            <th>상품이름</th>
-                            <th>이미지</th>
-                            <th>단가</th>
-                            <th>재고</th>
-                            <th>판매수</th>
-                            <th>좋아요</th>
-                            <th>상품설명</th>
-                            <th>상품유형</th>
-                            <th>책번호</th>
-                            <th>저자</th>
-                            <th>출판사</th>
-                            <th>출판일</th>
-                            <th>카테고리</th>
-                            <th>목차</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="primary">
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                        </tr>
-                        <tr>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                </tbody>
-                </table>
     
-    
-            <!-- -----------------------페이저----------------------------- -->
-            <div id="nav">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination pagination-sm pagination-secondary">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        
-
-    
-    
-    
-            <!-- ----------------------- 등록/수정 버튼 ----------------------------- -->
-            <div id="b2">
-                <div>
-                    <button type="submit" class="btn1">1페이지 ▼</button>
-                    <button type="submit" class="btn1">2페이지 ▼</button>
-                    <button type="submit" class="btn1">3페이지 ▼</button>
-                </div>
-            </div>
-            
-            <div id="slide">
-                <div style="margin-left: 20px;">1 / 3</div>
-                <div id="middle">
-                    <div id="img">
-                        <img id="book" src="./it지식.JPG">
-                    </div><!-- img -->
-                    <div id="txt">
-                        <h4>비전공자를 위한 IT 지식</h4>
-                        <span>남궁성 | 강산북스 | 27000원</span>
-                        <textarea name="" id="md" cols="30" rows="10"></textarea>
-                    </div>
-                </div>
-                <div id="mdbtn">
-                    <button class="btn1" id="btn3">등록</button>
-                </div>
-            </div><!-- slide -->
-            <div id="slide">
-                <div style="margin-left: 20px;">2 / 3</div>
-                <div id="middle">
-                    <div id="img">
-                        <img id="book" src="./it지식.JPG">
-                    </div><!-- img -->
-                    <div id="txt">
-                        <h4>비전공자를 위한 IT 지식</h4>
-                        <span>남궁성 | 강산북스 | 27000원</span>
-                        <textarea name="" id="md" cols="30" rows="10"></textarea>
-                    </div>
-                </div>
-                <div id="mdbtn">
-                    <button class="btn1" id="btn3">등록</button>
-                </div>
-            </div><!-- slide -->
-            <div id="slide">
-                <div style="margin-left: 20px;">3 / 3</div>
-                <div id="middle">
-                    <div id="img">
-                        <img id="book" src="./it지식.JPG">
-                    </div><!-- img -->
-                    <div id="txt">
-                        <h4>비전공자를 위한 IT 지식</h4>
-                        <span>남궁성 | 강산북스 | 27000원</span>
-                        <textarea name="" id="md" cols="30" rows="10"></textarea>
-                    </div>
-                </div>
-                <div id="mdbtn">
-                    <button class="btn1" id="btn3">등록</button>
-            </div><!-- slide -->
-        </div><!-- main2 -->
-    </div><!-- main -->
-
    
 
-    <br><br><br><br>
-
+    <br><br>
+<%@ include file="../Common/a_footer.jsp" %>
 </body>
 </html>
 

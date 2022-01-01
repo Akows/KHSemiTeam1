@@ -1,6 +1,7 @@
 body{
   margin: 0;
   background-color: #eeeeee;
+  overflow-x:hidden;
 }
 body, html {
 height: 100%;
@@ -11,7 +12,7 @@ height: 100%;
 background-image: url("./zzz.jpg");
 
 /* Full height */
-height: 800px; 
+height: 100%; 
 
 /* Create the parallax scrolling effect */
 background-attachment: fixed;
@@ -21,7 +22,7 @@ background-size: cover;
 }
 
 #aa{
-padding-top: 200px;
+padding-top: 100px;
 }
 #bb {
 width: 100%;
@@ -32,13 +33,14 @@ color: #eeeeee;
 font-weight: 500;
 }
 #bb1{
-font-size: 110px;
+font-size: 100px;
 }
 #bb2{
 font-size: 35px;
 }
 #icon{
-height: 100px;
+height: 90px;
+vertical-align: middle !important;
 }
 /* ========================================================================== */
 

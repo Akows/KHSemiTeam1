@@ -30,7 +30,7 @@
   <div id="aa">
     <div id="bb">
       <div id="bb1"><img src="Resources/img/Logo/로고 사진 연그레이.png" id="icon">DEV BOOKS</div>
-        <div id="bb2"><br>
+        <div id="bb2">
           IT인을 위한 온라인 북 스토어<br>
             다양한 IT 서적을 찾고 계신가요?<br>
             방대한 종류의 IT 자격증 서적과<br>
@@ -43,7 +43,7 @@
 </div>
 
 <div class="parallax">
-  <div style="width:100%; height: 250px;"></div>
+  <div style="width:100%; height: 200px;"></div>
 
 <!-- --------------------------------- carousel---------------------------------  -->
 
