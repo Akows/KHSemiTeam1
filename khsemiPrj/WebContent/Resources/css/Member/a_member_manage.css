@@ -4,8 +4,10 @@
 body{
     border: 0;
     background-color: #eeeeee;
+    overflow-x:hidden;
+    
 }
-/* ---------- ï¿½ï¿½ï¿½ ---------------- */
+/*-------------------------------*/
 #route{
     position: relative;
     margin-top: 10px;
@@ -26,13 +28,13 @@ a{
     vertical-align: middle;
     font-size: 15px;
 }
-/* ---------- ï¿½Ë»ï¿½ ---------------- */
+/*----------------------------------*/
 #search_div{
     margin-top: 15px;
     margin-left: 10px;
     width: 300px;
 }
-.form-control {
+.form-control{
 width: 300px;
 }
 
@@ -49,10 +51,10 @@ width: 300px;
 }
 
 
-/* ---------- ï¿½ï¿½ï¿½ï¿½ ---------------- */
-#main{
-    width: 80%;
-    height: 700px;
+/* ---------------------- */
+#m1{
+    width: 100%;
+    height: 660px;
     padding: 40px;
     background-color: #dcdcdc;
     margin-top: 30px;
@@ -84,14 +86,9 @@ tr:nth-child(2n-1){
     background-color: #e6e6e6;
 }
 
-/*-------------------- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------------------*/
-#nav{
-    margin-top: 10px;
-    padding-left: 45%;
-}
+/*---------------------------------------*/
 
-
-/*-------------------- ï¿½ï¿½Æ° ---------------------*/
+/*-------------------------------------*/
 #b2{
     margin-top: 50px;
 }
@@ -105,7 +102,7 @@ tr:nth-child(2n-1){
     background-color: #797979;
     color: #eeeeee;
 }
-/*-------------------- ï¿½ï¿½ï¿½Ìµï¿½ ---------------------*/
+/*----------------»çÀÌµå--------------------*/
 #side{
     /* border: 1px solid black; */
     display: block;
@@ -118,12 +115,12 @@ tr:nth-child(2n-1){
 #empty{
     /* border: 1px solid black; */
     width: 100%;
-    height: 510px;
+    height: 450px;
 }
 #side1{
     /* border: 1px solid black; */
     width: 100%;
-    height:180px;
+    height:200px;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 1px;

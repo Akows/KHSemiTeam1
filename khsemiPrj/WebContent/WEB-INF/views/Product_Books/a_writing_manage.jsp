@@ -25,7 +25,7 @@
 
 </head>
 <body>
-
+<%@ include file="../Common/a_menubar.jsp" %>
     <div id="route">
         <img id="home_icon"src="Resources/img/i_con/home_icon.png" alt="">
         <div id="aa">
@@ -95,25 +95,13 @@
     
     
         <!-- -----------------------페이저----------------------------- -->
-        <div id="nav1">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination pagination-sm pagination-secondary">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <ul class="pagination justify-content-center" style="margin:20px 0">
+  			 <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+  			 <li class="page-item"><a class="page-link" href="#">1</a></li>
+ 			 <li class="page-item"><a class="page-link" href="#">2</a></li>
+ 			 <li class="page-item"><a class="page-link" href="#">3</a></li>
+ 			 <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+		</ul>
 
     
     
@@ -208,7 +196,7 @@
     </div>
 
     <br><br><br><br>
-
+<%@ include file="../Common/a_footer.jsp" %>
 </body>
 </html>
 
