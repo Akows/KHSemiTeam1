@@ -67,7 +67,7 @@ h3 {
 }
 
 /* 인풋 박스 */
-.form-control {
+.box_size {
     margin-left: 10px;  
     width: 350px !important;
     height: 40px;

@@ -24,6 +24,7 @@
     <script src="https://kit.fontawesome.com/08023c4634.js" crossorigin="anonymous"></script>
 </head>
 <body>
+	<%@ include file="../Common/u_menubar.jsp" %>
     <!-- 위치 링크 -->
     <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> 마이페이지</a>
@@ -35,42 +36,42 @@
             <div id="user_Info" class="col-xs-3">
                 <ul class="wright_info">
                     <p class="text_info">아이디</p>
-                    <input type="text" class="form-control" name="user_Id" id="user_Id">
+                    <input type="text" class="form-control box_size" name="user_Id" id="user_Id">
                 </ul>
                 <ul class="wright_info">
                     <p class="text_info">비밀번호</p>
-                    <input type="password" class="form-control" name="user_Pwd" id="user_Pwd">
+                    <input type="password" class="form-control box_size" name="user_Pwd" id="user_Pwd">
                 </ul>
                 <ul class="wright_info">
                     <p class="text_info">비밀번호 확인</p>
-                    <input type="password" class="form-control" name="pwd_Check" id="pwd_Check">
+                    <input type="password" class="form-control box_size" name="pwd_Check" id="pwd_Check">
                 </ul>
                 <ul class="wright_info">
                     <p class="text_info">이름</p>
-                    <input type="text" class="form-control" name="user_Name" id="user_Name">
+                    <input type="text" class="form-control box_size" name="user_Name" id="user_Name">
                 </ul>
                 <ul class="wright_info">
                     <p class="text_info">이메일</p>
-                    <input type="email" class="form-control" name="user_Email" id="user_Email">
+                    <input type="email" class="form-control box_size" name="user_Email" id="user_Email">
                     <label style="font-weight: bold; position: relative; left: 355px; bottom: 78px;">@</label>
-                    <select name="site_Type" class="form-control" id="select_Site" value="이메일 선택" style="position: relative; width: 130px; height: 38px; bottom: 90px;
+                    <select name="site_Type" class="form-control box_size" id="select_Site" value="이메일 선택" style="position: relative; width: 130px; height: 38px; bottom: 90px;
                     "></select>
-                    <input type="email" class="form-control" name="other_Email" id="other_Email" placeholder="다른 이메일 입력">
+                    <input type="email" class="form-control box_size" name="other_Email" id="other_Email" placeholder="다른 이메일 입력">
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 110px;">
                     <p class="text_info">전화번호</p>
-                    <input type="text" class="form-control" name="user_Phone" id="user_Phone" placeholder="-를 제외하고 입력해 주세요.">
+                    <input type="text" class="form-control box_size" name="user_Phone" id="user_Phone" placeholder="-를 제외하고 입력해 주세요.">
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 115px;">
                     <p class="text_info">주소</p>
-                    <input type="text" class="form-control" name="addr" id="addrBox1">
-                    <input type="text" class="form-control" name="addr" id="addrBox2">
+                    <input type="text" class="form-control box_size" name="addr" id="addrBox1">
+                    <input type="text" class="form-control box_size" name="addr" id="addrBox2">
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 120px;">
                     <p class="text_info">생년월일</p>
-                    <select name="year" class="form-control" id="year" value="년도"></select>
-                    <select name="month" class="form-control" id="month" title="월"></select>
-                    <select name="day" class="form-control" id="day" title="일"></select>
+                    <select name="year" class="form-control box_size" id="year" value="년도"></select>
+                    <select name="month" class="form-control box_size" id="month" title="월"></select>
+                    <select name="day" class="form-control box_size" id="day" title="일"></select>
                 </ul>
                 <br>
             </div>
@@ -83,5 +84,6 @@
         더 이상 DEV BOOKS를 이용하지 않는다면    
         <strong><a href="" style="margin-left: 12px; color: #2D313C;">회원탈퇴 신청</a></strong>
     </span>
+    <%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>

@@ -65,6 +65,7 @@
     </style>
 </head>
 <body>
+	<%@ include file="../Common/u_menubar.jsp" %>
     <!-- 위치 링크 -->
     <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> DEV BOOKS 굿즈</a>
@@ -105,7 +106,7 @@
         <!-- 버튼 영역 -->
         <div class="buy_btn">
             <button type="button" class="btn btn-default btn-lg" style="background-color: white; color: black; width: 190px !important;">장바구니</button>
-            <button type="button" class="btn btn-primary btn-lg" style="background-color: #2D313C;  border: 1px solid #2D313C; width: 190px !important;">바로구매</button>
+            <button type="button" class="btn btn-primary btn-lg" style="background-color: #2D313C; border: 1px solid #2D313C; width: 190px !important;">바로구매</button>
         </div>
         <!-- // 구매 수량 및 가격 그리고 장바구니,구매 버튼 -->
         <!-- //오른쪽 책 제목 및 설명 / 구매 항목 -->
@@ -114,7 +115,7 @@
         <div class="box_detail_left">
             <!-- 굿즈 이미지 -->
             <div class="cover">
-                <img src="${pageContext.request.contextPath}/Resources/img/Goods/goods_img.jpg" width="198" height="282" alt="" class="coverImg">
+                <img src="${pageContext.request.contextPath}/Resources/img/Goodscover/goods_img.jpg" width="198" height="282" alt="" class="coverImg">
             </div>
         </div>
         <br><br>
@@ -123,14 +124,14 @@
         <!-- 점프 버튼 -->
         <div class="bottom_intro">
             <div class="btn-group-vertical" id="jump_button" role="group" aria-label="Vertical button group">
-                <a href="#book_intro"><button type="button" class="btn" style="background-color: #2D313C !important; color: white; width: 150px !important; margin-bottom: 1px;">굿즈 소개</button></a>
+                <a href="#book_intro"><button type="button" class="btn" style="background-color: #2D313C !important; color: white; width: 150px !important; margin-bottom: 1px;">상품 소개</button></a>
                 <a href="#book_review"><button type="button" class="btn" style="background-color: #2D313C !important; color: white; width: 150px !important; margin-bottom: 1px;">구매자 리뷰</button></a>
             </div>
             <!-- 하단 소개항목/굿즈 소개 -->
             <div class="bottom_book_intro">
-                <strong id="book_intro">굿즈 소개</strong>
+                <strong id="book_intro">상품 소개</strong>
                 <br>
-                <img src="${pageContext.request.contextPath}/Resources/img/Goods/goods_intro.png" style="margin-top: 40px; margin-bottom: 10px;">
+                <img src="${pageContext.request.contextPath}/Resources/img/Goodsinfo/goods_intro.png" style="margin-top: 40px; margin-bottom: 10px;">
             </div>
             <hr style="border: 0; height: 1px; background: #ccc; width: 62%; position: relative; top: 5px;">
         </div>
@@ -251,7 +252,7 @@
                                         <textarea class="form-control" style="resize: none; height: 150px;"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary btn-m" type="button" style="background-color: #2D313C !important;"> 등록하기 </button>
+                                        <button class="btn btn-primary btn-m" type="button" style="background-color: #2D313C !important; border: 1px solid #2D313C;"> 등록하기 </button>
                                     </div>
                                 </form>
                             </div>
@@ -262,5 +263,6 @@
             </div>
         </div>
     </div>
+    <%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>

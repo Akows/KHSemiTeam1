@@ -24,6 +24,7 @@
     <script src="https://kit.fontawesome.com/08023c4634.js" crossorigin="anonymous"></script>
 </head>
 <body>
+	<%@ include file="../Common/u_menubar.jsp" %>
     <!-- 위치 링크 -->
     <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> 로그인</a>
@@ -54,7 +55,8 @@
             <label for="" id="sign_Up">회원이 아니신가요?</label>
             <a href=""><strong style="font-weight: bold; color: #2D313C;">회원가입</strong></a>
         </div>
-        
     </div>
+    <br><br><br><br><br><br><br><br>
+    <%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>
