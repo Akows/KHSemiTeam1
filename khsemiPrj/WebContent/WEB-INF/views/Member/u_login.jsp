@@ -22,6 +22,9 @@
 
     <!-- 폰트어썸 CDN -->
     <script src="https://kit.fontawesome.com/08023c4634.js" crossorigin="anonymous"></script>
+    
+    <!-- jQuery -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
 	<%@ include file="../Common/u_menubar.jsp" %>
