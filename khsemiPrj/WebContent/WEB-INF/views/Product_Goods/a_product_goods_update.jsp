@@ -46,14 +46,12 @@
             <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
         </button>
     
-    <!-- ROW 색상 변경 : tr태그에 table-색상 / text-색상... 적용 안됨 ㅜ  -->
     <div id="main">
-        <!-- <table class="table table-striped table-bordered table-hover"> -->
         <div id="side">
             <h2>굿즈 관리</h2>
             <br><div id="hrr"></div><br>
-            <a href=""><h3>굿즈 등록</h3></a>
-            <a href=""><h3>굿즈 수정/삭제</h3></a>
+            <a href="gcon1"><h3>굿즈 등록</h3></a>
+            <a href="gcon2"><h3>굿즈 수정/삭제</h3></a>
         </div>
         <div id="main2">
             <h3>굿즈 수정/삭제</h3>            
@@ -227,22 +225,12 @@
                         </td>
                         <td></td>
                         <td>
-                            <select name="b_category" style="width: 100%; font-size: small;">
-                                <optgroup label="주제별">
-                                    <option value="프로그래밍언어">프로그래밍언어</option>
-                                    <option value="엑셀/활용서">엑셀/활용서</option>
-                                    <option value="IT 자격증">IT 자격증</option>
-                                </optgroup>
-                                <optgroup label="프로그래밍">
-                                    프로그래밍
-                                    <option value="딥려닝">딥려닝</option>
-                                    <option value="머신러닝">머신러닝</option>
-                                    <option value="인공지능">인공지능</option>
-                                    <option value="안드로이드">안드로이드</option>
-                                    <option value="유니티">유니티</option>
-                                </optgroup>
-                                <option selected>-------------</option>
-                            </select>
+                             <select name="category" style="width: 100%; font-size: small;">
+                                    <option value="생활용품">생활용품</option>
+                                    <option value="문구/활용서">문구</option>
+                                    <option value="인형">인형</option>
+                                    <option selected>-------------</option>
+                                </select>
                         </td>
                         <td></td>
                         <td></td>
