@@ -49,7 +49,8 @@
         </div>
         <div id="main2">
             <h3>도서 등록</h3> 
-            <form action="">
+            
+            <form action="bookinsert" method="get">
                 <div id="mainR">
                     <table>
                         <tr>
@@ -66,8 +67,7 @@
                         </tr>
                         <tr>
                             <td>저자</td>
-                            <td><span>검색결과</span>
-                                <button type="button" data-toggle="modal" data-target="#myModal" id="btn1" style="width: 50px;">검색</button></td>
+                            <td><input type="text" name="writer"></td>
                         </tr>
                         <tr>
                             <td>출판사</td>
@@ -104,14 +104,15 @@
                 </div>
                 <div id="mainL">
                     <label>상품설명</label><br>
-                    <textarea name="" id="" cols="30" rows="10"></textarea><br><br><br>
+                    <textarea name="descript" id="" cols="30" rows="10"></textarea><br><br><br>
                     <label>목차</label><br>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <textarea name="bookindex" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div id="btn">
                     <input class="btn btn-outline-secondary btn-lg" type="submit" value="등록" id="submit">
                 </div>
             </form>
+            
         </div><!-- main2 -->
             
     </div><!-- main -->

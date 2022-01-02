@@ -55,6 +55,10 @@
     </header>
     
     <section>
+        <nav id="submenu">
+            <a id="submenuscript">신상 서적 30권</a>
+            <div id="blank"></div>
+        </nav>
 
         <!-- 컨텐츠 내부 배경 영역 (padding: 40px;) -->
         <div id="maincontentdeployarea" class="maincontentarea">
@@ -65,16 +69,19 @@
 
                     <table border="0">
                                   
-	                    <div id="searcharea">
-	                    	<form action="newproducts" method="get">
-	                    		<select name="searchtype">
-			                    	<option value="PRO_NAME">책 제목</option>
-		                   		</select>
-	                    
-						        <input id="searchbar" type="text" placeholder="책 제목으로 검색" name="searchvalue">
-						        <button id="searchbutton" type="submit">검색</button>
-	                    	</form>
+					    <div id="searcharea">
+					        <form action="newproducts" method="get">
+					        
+					            <select id="selectbutton" name="searchtype">
+					                <option value="PRO_NAME">책 제목</option>
+					            </select>
+					    
+					            <input id="searchbar" type="text" placeholder="책 제목으로 검색" name="searchvalue">
+					            <button id="searchbutton" type="submit">검색</button>
+					        </form>
 					    </div>
+					    
+						<br>
 
 	                    <c:choose>
 	                    
@@ -86,15 +93,19 @@
 	                    	<c:otherwise>
 	                    		<c:forEach items="${data}" var="d">
 									<tr>
-									<td><img alt="" src="${d.imageLink}" style="width: 130px; height: 190px;"></td>
-									<td>
-										<h4 style="height: 60px; text-align: center;">${d.productName}</h4>
-										<h5>${d.writerName}</h5>
-										${d.productPrice}원
-										<br>
-										<button class="icon-heart1" id="cont1button"></button>
-											<button class="icon-shopping-cart" id="cont1button"></button>
-									</td>
+										<div>
+											<td>
+												<img alt="" src="${d.imageLink}" style="width: 130px; height: 190px;">
+											</td>
+											<td>
+												<h4 style="height: 60px; text-align: center;">${d.productName}</h4>
+												<h5>${d.writerName}</h5>
+												${d.productPrice}원
+												<br>
+												<button class="icon-heart1" id="cont1button"></button>
+												<button class="icon-shopping-cart" id="cont1button"></button>
+											</td>
+										</div>
 									</tr>
 									
 									<tr>
@@ -111,20 +122,20 @@
 
                     </table>
                     
+                        <div id="pagecontrol">
+					        <nav id="pagecontrolinner" aria-label="Page navigation example">
+					            <ul class="pagination">
+					                <c:forEach var="i" begin="1" end="10" step="1">
+					                    <c:if test="${i <= maxPage}">
+					                        <li class="page-item">
+					                            <a class="page-link" href="newproducts?currentPage=${i}">${i}</a>
+					                        </li>
+					                    </c:if>
+					                </c:forEach>
+					            </ul>
+					        </nav>
+					    </div>
 
-                    <div id="pagecontrol">
-                        <nav id="pagecontrolinner" aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    
-                    
                 </div>
             </div>
         </div>
