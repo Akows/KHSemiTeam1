@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.JDBCTemplate;
 import com.dev.probook.model.ProbookVO;
+import com.dev.probook.service.ProbookService;
 
 @WebServlet("/newproducts")
 public class NewProductController extends HttpServlet
@@ -23,57 +24,18 @@ public class NewProductController extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		Connection conn = JDBCTemplate.getConnection();
+		System.out.println("NewProductController is acitve!");
 		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		ProbookVO pvo = null;
-		List<ProbookVO> newProductList = new ArrayList<ProbookVO>();
+		String type = req.getParameter("searchtype");
+		String value = req.getParameter("searchvalue");
 		
-		// 신상품, 상품 테이블에서 데이터 삽입 시간 - ASC 정렬.
-		String sql = "SELECT * FROM PRODUCT ORDER BY ENROLL_DATE ASC;";
+		System.out.println(type);		
+		System.out.println(value);
 		
-		
-		
-		try 
-		{
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while (rs.next()) 
-			{
-				String productNumber = rs.getString("PRODUCT_NO");
-				String productName = rs.getString("PRODUCT_NAME");
-				String imageLink = rs.getString("IMG_LINK");
-				String productPrice = rs.getString("PRICE");
-				String enrollDate = rs.getString("ENROLL_DATE");
-				String productDescript = rs.getString("PRODUCT_DESCRIPT");
-				
-				pvo = new ProbookVO();
-				pvo.setProductNumber(productNumber);
-				pvo.setProductName(productName);
-				pvo.setImageLink(imageLink);
-				pvo.setProductPrice(productPrice);
-				pvo.setEnrollDate(enrollDate);
-				pvo.setProductDescript(productDescript);
-				
-				newProductList.add(pvo);
-			}
-		} 
-		catch (SQLException e) 
-		{
-			e.printStackTrace();
-		}
-		
+		List<ProbookVO> newProductList = new ProbookService().newproductslistcall(type, value);
 		
 		req.setAttribute("data", newProductList);
 		req.getRequestDispatcher("./WEB-INF/views/Product_Books/u_new_book_list.jsp").forward(req, resp);
 	}
-	
 
-	
-	
-	
-	
-	
 }

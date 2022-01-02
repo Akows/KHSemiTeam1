@@ -9,6 +9,15 @@ public class ProbookVO
 	private String enrollDate;
 	private String productDescript;
 	
+	private String writerName;
+	
+	public String getWriterName() {
+		return writerName;
+	}
+	public void setWriterName(String writerName) {
+		this.writerName = writerName;
+	}
+	
 	public String getProductNumber() {
 		return productNumber;
 	}
@@ -44,6 +53,13 @@ public class ProbookVO
 	}
 	public void setProductDescript(String productDescript) {
 		this.productDescript = productDescript;
+	}
+	
+	@Override
+	public String toString() {
+		return "ProbookVO [productNumber=" + productNumber + ", productName=" + productName + ", imageLink=" + imageLink
+				+ ", productPrice=" + productPrice + ", enrollDate=" + enrollDate + ", productDescript="
+				+ productDescript + "]";
 	}
 	
 	

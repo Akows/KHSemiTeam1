@@ -93,16 +93,41 @@
     /* border: hotpink 1px solid; */
 }
 
-#bookcover
+/* 영역 표시용 CSS 속성, 실제 DB 데이터를 받아온 이후에는 사용하지 않음. */
+/* #bookcover
 {
     background-color: darkorange;
     width: 180px; 
     height: 250px;
-}
+} */
 
 #pagecontrol
 {
     padding: 10px;
+}
+
+#searcharea{
+    height: 40px;
+    width: 400px;
+    border: 1px solid darkgray;
+    background: #ffffff;
+}
+#searchbar{
+    font-size: 16px;
+    width: 325px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    float: left;
+}
+#searchbutton{
+    width: 50px;
+    height: 100%;
+    border: 0px;
+    background-color: darkgray;
+    outline: none;
+    float: right;
+    color: #ffffff
 }
 
 /* 좋아요, 장바구니 버튼 디자인 */
