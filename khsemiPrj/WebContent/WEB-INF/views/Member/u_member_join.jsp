@@ -24,6 +24,40 @@
 
     <!-- 폰트어썸 CDN -->
     <script src="https://kit.fontawesome.com/08023c4634.js" crossorigin="anonymous"></script>
+    
+    <!-- jQuery -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+	
+	<!-- 생년월일 셀렉트 박스 -->
+	<script>
+	$(document).ready(function(){
+	    var now = new Date(); 
+	    var year = now.getFullYear();
+	    var mon = (now.getMonth() + 1) > 9 ? ''+(now.getMonth() + 1) : '0'+(now.getMonth() + 1);
+	    var day = (now.getDate()) > 9 ? ''+(now.getDate()) : '0'+(now.getDate());
+
+	    //년도 selectbox만들기
+	    for(var i = 1900 ; i <= year ; i++) {
+	        $('#year').append('<option value="' + i + '">' + i + '년</option>');
+	    }
+
+	    // 월별 selectbox 만들기
+	    for(var i=1; i <= 12; i++) {
+	        var mm = i > 9 ? i : "0"+i ; $('#month').append('<option value="' + mm + '">' + mm + '월</option>');
+	    }
+
+	    // 일별 selectbox 만들기
+	    for(var i=1; i <= 31; i++) {
+	        var dd = i > 9 ? i : "0"+i ;
+	        $('#day').append('<option value="' + dd + '">' + dd+ '일</option>');
+	    }
+
+	$("#year > option[value="+year+"]").attr("selected", "true");
+	$("#month > option[value="+mon+"]").attr("selected", "true");
+	$("#day > option[value="+day+"]").attr("selected", "true");
+
+	})
+	</script>
 </head>
 <body>
 	<%@ include file="../Common/u_menubar.jsp" %>
@@ -35,14 +69,15 @@
         &nbsp;<h1>DEV BOOKS 회원가입</h1>
         <hr color ="#787878" width="90%" height="2px">
         &nbsp;<h3>기본 정보</h3>
+        <form action="join" method="post">
             <div id="user_Info" class="col-xs-3">
                 <ul class="wright_info">
                     <p class="text_info">아이디</p>
-                    <input type="text" class="form-control box_size" name="user_Id" id="user_Id">
+                    <input type="text" class="form-control box_size" name="ID" id="user_Id">
                 </ul>
                 <ul class="wright_info">
                     <p class="text_info">비밀번호</p>
-                    <input type="password" class="form-control box_size" name="user_Pwd" id="user_Pwd">
+                    <input type="password" class="form-control box_size" name="PWD" id="user_Pwd">
                 </ul>
                 <ul class="wright_info">
                     <p class="text_info">비밀번호 확인</p>
@@ -54,11 +89,17 @@
                 </ul>
                 <ul class="wright_info">
                     <p class="text_info">이메일</p>
-                    <input type="email" class="form-control box_size" name="user_Email" id="user_Email">
+                    <input type="text" class="form-control box_size" name="user_Email" id="user_Email">
                     <label style="font-weight: bold; position: relative; left: 355px; bottom: 78px;">@</label>
-                    <select name="site_Type" class="form-control box_size" id="select_Site" value="이메일 선택" style="position: relative; width: 130px; height: 38px; bottom: 90px;
-                    "></select>
-                    <input type="email" class="form-control box_size" name="other_Email" id="other_Email" placeholder="다른 이메일 입력">
+                    <input type="text" class="form-control box_size" name="input_Email" id="input_Email" style="position: relative; width: 155px !important; height: 38px; left: 370px; bottom: 118px;">
+                    <select name="site_Type" class="form-control box_size" id="select_Site" title="이메일 선택" style="position: relative; width: 150px !important; height: 38px; left: 540px; bottom: 156px !important;">
+                    	<option value="">  직접 입력  </option>
+                    	<option value="naver.com">naver.com</option>
+		                <option value="nate.com">nate.com</option>
+		                <option value="gmail.com">gmail.com</option>
+		                <option value="yahoo.com">yahoo.com</option>
+		                <option value="hanmail.net">hanmail.net</option>
+                    </select>
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 110px;">
                     <p class="text_info">전화번호</p>
@@ -71,16 +112,24 @@
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 120px;">
                     <p class="text_info">생년월일</p>
-                    <select name="year" class="form-control box_size" id="year" value="년도"></select>
-                    <select name="month" class="form-control box_size" id="month" title="월"></select>
-                    <select name="day" class="form-control box_size" id="day" title="일"></select>
+                    <select name=yy" class="form-control box_size" id="year"></select>
+                    <select name="mm" class="form-control box_size" id="month"></select>
+                    <select name="dd" class="form-control box_size" id="day"></select>
                 </ul>
                 <br>
-            </div>
-            <hr color ="#787878" width="90%" height="2px" style="position: relative; bottom: 260px;">
-            <br><br>
-            <input style="background-color: #2D313C; color: white;" type="submit" name="info_Submit" class="btn btn-default" id="info_Submit" value="회원 가입">
+        </div>
+    <hr color ="#787878" width="90%" height="2px" style="position: relative; bottom: 260px;">
+    <br><br>
+    <input style="background-color: #2D313C; color: white;" type="submit" name="info_Submit" class="btn btn-default" id="info_Submit" value="회원 가입">
     </div>
+        </form>
     <%@ include file="../Common/u_footer.jsp" %>
+    
+    <!-- 이메일 주소 스크립트 -->
+	<script>
+        $( "#select_Site" ).change(function(){
+            $("#input_Email").val( $("#select_Site").val() );
+        });
+    </script>
 </body>
 </html>

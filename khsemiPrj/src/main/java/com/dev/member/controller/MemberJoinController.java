@@ -30,6 +30,7 @@ public class MemberJoinController extends HttpServlet{
 		String userEmail = req.getParameter("userEmail");
 		int phoneNum = Integer.parseInt(req.getParameter("phoneNum"));
 		String address = req.getParameter("address");
+		String addrDetail = req.getParameter("addrDetail");
 		int birthDay = Integer.parseInt(req.getParameter("birthDay"));
 		
 		MemberVo m = new MemberVo();
@@ -40,8 +41,17 @@ public class MemberJoinController extends HttpServlet{
 		m.setUserEmail(userEmail);
 		m.setPhoneNum(phoneNum);
 		m.setAddress(address);
+		m.setAddrDetail(addrDetail);
 		m.setBirthDay(birthDay);
 		
 		int result = new MemberService().join(m);
+		
+		if(result > 0) {
+			//success
+			req.getRequestDispatcher("WEB-INF/views/Member/u_join_success.jsp").forward(req, resp);
+		} else {
+			//error
+			req.getRequestDispatcher("WEB-INF/views/Member/u_join_error.jsp").forward(req, resp);
+		}
 	}
 }

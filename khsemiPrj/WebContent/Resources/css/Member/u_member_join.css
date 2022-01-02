@@ -83,7 +83,7 @@ h3 {
 }
 
 /* 두번째 이메일 선택 인풋 */
-#select_Site {
+#input_Email {
     position: relative;
     width: 158px !important;
     height: 38px;
@@ -92,7 +92,7 @@ h3 {
 }
 
 /* 세번째 다른 이메일 주소 인풋 */
-#other_Email {
+#select_Site {
     position: relative;
     width: 150px !important;
     height: 38px;

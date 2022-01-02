@@ -9,7 +9,9 @@ public class MemberVo {
 	private String userEmail;
 	private int phoneNum;
 	private String address;
+	private String addrDetail;
 	private int birthDay;
+	
 	
 	
 	
@@ -55,12 +57,20 @@ public class MemberVo {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public String getAddrDetail() {
+		return addrDetail;
+	}
+	public void setAddrDetail(String addrDetail) {
+		this.addrDetail = addrDetail;
+	}
 	public int getBirthDay() {
 		return birthDay;
 	}
 	public void setBirthDay(int birthDay) {
 		this.birthDay = birthDay;
 	}
+	
+	
 	
 	
 	
