@@ -38,18 +38,15 @@
     </div>
 
 
-    
-    <!-- ROW 색상 변경 : tr태그에 table-색상 / text-색상... 적용 안됨 ㅜ  -->
     <div id="main">
-        <!-- <table class="table table-striped table-bordered table-hover"> -->
         <div id="side">
             <h2>굿즈 관리</h2>
             <br><div id="hrr"></div><br>
-            <a href=""><h3>굿즈 등록</h3></a>
-            <a href=""><h3>굿즈 수정/삭제</h3></a>
+            <a href="gcon1"><h3>굿즈 등록</h3></a>
+            <a href="gcon2"><h3>굿즈 수정/삭제</h3></a>
         </div>
         <div id="main2">
-            <form action="">
+            <form action="gcon1" method="post" enctype="multipart/form-data">
                 <h3>굿즈 등록</h3>
                 <div id="mainR">
                     <table>
@@ -70,29 +67,33 @@
                             <td>
                                 <select name="category" style="width: 100%; font-size: small;">
                                     <option value="생활용품">생활용품</option>
-                                    <option value="문구/활용서">문구</option>
-                                    <option value="인형">인형</option>
+                                    <option value="문구">문구</option>
+                                    <option value="전자">전자</option>
                                     <option selected>-------------</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td>이미지</td>
-                            <td><input type="file"></td>
+                            <td><input type="file" accept="image/jpeg,.png" name="goodsimg"></td>
                         </tr>
-                        <tr>
-                            <td>제조사</td>
-                            <td><input type="text" name="stock"></td>
-                        </tr>
-                        <tr>
-                            <td>원산지</td>
-                            <td><input type="text" name="stock"></td>
-                        </tr>
+                       <tr>
+                            <td>상품설명</td>
+                            <td><input type="file" accept="image/jpeg,.png" name="goodsinf"></td>
+                       </tr>
                     </table>                
                 </div>
                 <div id="mainL">
-                    <label>상품설명</label><br>
-                    <textarea name="" id="" cols="30" rows="10"></textarea><br><br><br>
+                    <table>
+        <tr>
+            <td>제조사</td>
+            <td><input type="text" name="maker"></td>
+        </tr>
+        <tr>
+            <td>원산지</td>
+            <td><input type="text" name="country"></td>
+        </tr>
+    </table>
                 </div>
                 <div id="btn">
                     <input class="btn btn-outline-secondary btn-lg" type="submit" value="등록" id="submit">

@@ -1,25 +1,25 @@
-/* 페이지 작업용 CSS */
+/* �럹�씠吏� �옉�뾽�슜 CSS */
 
-    /* 페이지 내부의 각 내부 영역 확인용 */
+    /* �럹�씠吏� �궡遺��쓽 媛� �궡遺� �쁺�뿭 �솗�씤�슜 */
     div {
         /* border: 1px solid black; */
     }
 
-        /* 페이지 내부의 각 세부 영역 확인용 */
-        /* 상단 메뉴바 영역 */
+        /* �럹�씠吏� �궡遺��쓽 媛� �꽭遺� �쁺�뿭 �솗�씤�슜 */
+        /* �긽�떒 硫붾돱諛� �쁺�뿭 */
         #uppermenubararea 
         {
             /* border: 1px solid black; */
         } 
-        /* 상단 타이틀 영역 */
+        /* �긽�떒 ���씠�� �쁺�뿭 */
         #pagetitle 
         {
             /* border: springgreen 1px solid; */
         }
 
-/* 실제 페이지 CSS */
+/* �떎�젣 �럹�씠吏� CSS */
 
-    /* 페이지 전체 배경 */
+    /* �럹�씠吏� �쟾泥� 諛곌꼍 */
     body 
     {
         width: 100%;
@@ -28,15 +28,15 @@
         border: none;
     }
 
-    /* a 태그의 밑줄을 없애는 속성 */
+    /* a �깭洹몄쓽 諛묒쨪�쓣 �뾾�븷�뒗 �냽�꽦 */
     a
     {
         text-decoration-line : none;
     }
 
-/* 헤더 영역 */
+/* �뿤�뜑 �쁺�뿭 */
 
-    /* 상단 타이틀 영역 */
+    /* �긽�떒 ���씠�� �쁺�뿭 */
     #pagetitle 
     {
         text-align: center;
@@ -44,7 +44,7 @@
         font-size: 50px;
     }
 
-    /* 상단 타이틀 아래 서브 메뉴바 영역 */
+    /* �긽�떒 ���씠�� �븘�옒 �꽌釉� 硫붾돱諛� �쁺�뿭 */
     #submenu
     {
         display: flex;
@@ -70,7 +70,7 @@
         color: black;
     }
 
-/* 섹션 영역 */
+/* �꽮�뀡 �쁺�뿭 */
 .maincontentarea
 {
     padding: 10px;
@@ -80,7 +80,7 @@
     justify-content: center;
 }
 
-#contentarea, #bookarea
+#contentarea, #goodsarea
 {
     padding: 10px;
     text-align: center;
@@ -93,7 +93,7 @@
     /* border: hotpink 1px solid; */
 }
 
-#bookcover
+#goodscover
 {
     background-color: darkorange;
     width: 180px; 
@@ -105,7 +105,7 @@
     padding: 10px;
 }
 
-/* 좋아요, 장바구니 버튼 디자인 */
+/* 醫뗭븘�슂, �옣諛붽뎄�땲 踰꾪듉 �뵒�옄�씤 */
 button
 {
     border: 0;
@@ -190,7 +190,7 @@ button
     border-bottom: 10px solid transparent;
     border-right:10px solid blue; }
 
-/* 푸터 영역 */
+/* �뫖�꽣 �쁺�뿭 */
 #footerarea {
     padding: 30px;
     background-color: black;

@@ -62,13 +62,13 @@
                     <table border="0">
                         <tr>
                             <td>
-                                <div id="bookarea">
-                                    <div id="bookcover">굿즈 사진</div>
-                                    <div id="booktitle">
+                                <div id="goodsarea">
+                                    <div><img src="Resources/img/Goodscover/goods_img.jpg" id="goodscover"></div>
+                                    <div id="goodstitle">
                                         <h2>상품 이름</h2>
                                         <h5>제조사</h5>
                                     </div>
-                                    <div id="bookinf">
+                                    <div id="goodsinf">
                                         00,000$
                                         <button class="icon-heart1" id="cont1button"></button>
                                         <button class="icon-shopping-cart" id="cont1button"></button>
@@ -76,13 +76,13 @@
                                 </div>
                             </td>
                              <td>
-                                <div id="bookarea">
-                                    <div id="bookcover">굿즈 사진</div>
-                                    <div id="booktitle">
+                                <div id="goodsarea">
+                                    <div id="goodscover">굿즈 사진</div>
+                                    <div id="goodstitle">
                                         <h2>상품 이름</h2>
                                         <h5>제조사</h5>
                                     </div>
-                                    <div id="bookinf">
+                                    <div id="goodsinf">
                                         00,000$
                                         <button class="icon-heart1" id="cont1button"></button>
                                         <button class="icon-shopping-cart" id="cont1button"></button>
@@ -90,13 +90,13 @@
                                 </div>
                             </td>
                             <td>
-                                <div id="bookarea">
-                                    <div id="bookcover">굿즈 사진</div>
-                                    <div id="booktitle">
+                                <div id="goodsarea">
+                                    <div id="goodscover">굿즈 사진</div>
+                                    <div id="goodstitle">
                                         <h2>상품 이름</h2>
                                         <h5>제조사</h5>
                                     </div>
-                                    <div id="bookinf">
+                                    <div id="goodsinf">
                                         00,000$
                                         <button class="icon-heart1" id="cont1button"></button>
                                         <button class="icon-shopping-cart" id="cont1button"></button>
@@ -108,13 +108,13 @@
                     <table border="0">
                                                 <tr>
                             <td>
-                                <div id="bookarea">
-                                    <div id="bookcover">굿즈 사진</div>
-                                    <div id="booktitle">
+                                <div id="goodsarea">
+                                    <div id="goodscover">굿즈 사진</div>
+                                    <div id="goodstitle">
                                         <h2>상품 이름</h2>
                                         <h5>제조사</h5>
                                     </div>
-                                    <div id="bookinf">
+                                    <div id="goodsinf">
                                         00,000$
                                         <button class="icon-heart1" id="cont1button"></button>
                                         <button class="icon-shopping-cart" id="cont1button"></button>
@@ -122,13 +122,13 @@
                                 </div>
                             </td>
                              <td>
-                                <div id="bookarea">
-                                    <div id="bookcover">굿즈 사진</div>
-                                    <div id="booktitle">
+                                <div id="goodsarea">
+                                    <div id="goodscover">굿즈 사진</div>
+                                    <div id="goodstitle">
                                         <h2>상품 이름</h2>
                                         <h5>제조사</h5>
                                     </div>
-                                    <div id="bookinf">
+                                    <div id="goodsinf">
                                         00,000$
                                         <button class="icon-heart1" id="cont1button"></button>
                                         <button class="icon-shopping-cart" id="cont1button"></button>
@@ -136,13 +136,13 @@
                                 </div>
                             </td>
                             <td>
-                                <div id="bookarea">
-                                    <div id="bookcover">굿즈 사진</div>
-                                    <div id="booktitle">
+                                <div id="goodsarea">
+                                    <div id="goodscover">굿즈 사진</div>
+                                    <div id="goodstitle">
                                         <h2>상품 이름</h2>
                                         <h5>제조사</h5>
                                     </div>
-                                    <div id="bookinf">
+                                    <div id="goodsinf">
                                         00,000$
                                         <button class="icon-heart1" id="cont1button"></button>
                                         <button class="icon-shopping-cart" id="cont1button"></button>

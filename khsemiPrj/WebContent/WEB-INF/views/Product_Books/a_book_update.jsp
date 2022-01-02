@@ -47,9 +47,8 @@
             <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
         </button>
     
-    <!-- ROW 색상 변경 : tr태그에 table-색상 / text-색상 -->
+
     <div id="main">
-        <!-- <table class="table table-striped table-bordered table-hover"> -->
         <div id="side">
             <h2>도서 관리</h2>
             <br><div id="hrr"></div><br>
