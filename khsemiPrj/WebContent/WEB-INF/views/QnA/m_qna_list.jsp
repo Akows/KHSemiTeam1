@@ -103,11 +103,11 @@
             <!-- END TABLE RESULT -->
             <!-- BEGIN PAGINATION -->
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#"> < </a></li>
-	            		<li class="page-item"><a name="currentPage" class="page-link" href="qna?currentPage=1" value="1">1</a></li>
-		                <li class="page-item"><a class="page-link" href="#">2</a></li>
-		                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#"> > </a></li>
+                <li class="page-item"><a id="prePage" class="page-link" > < </a></li>
+	            	<c:forEach var="i" begin="${page.startNo()}" end="${page.endNo()}">
+	            		<li class="page-item"><a name="currentPage" class="page-link" href="qna?currentPage=${i}" value="${i}">${i}</a></li>
+		            </c:forEach>
+                <li class="page-item"><a class="page-link" href="qna?currentPage=${page.nextPage() }"> > </a></li>
               </ul>
             <!-- END PAGINATION -->
           </div>
@@ -122,7 +122,9 @@
 
     
     <script type="text/javascript">
-    
+    	$("#prePage").click(function(){
+    		location.href = 'qna?currentPage=${page.prePage() }';
+    	})
     </script>
     <%@ include file="../Common/u_footer.jsp" %>
 </body>
