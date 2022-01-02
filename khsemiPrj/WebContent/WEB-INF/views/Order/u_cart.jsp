@@ -1,5 +1,12 @@
+<%@page import="com.dev.order.vo.CartVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%
+    	CartVo data = (CartVo)request.getAttribute("data");
+    	System.out.println(data);
+    %>
+    
 <!DOCTYPE html>
 <html lang="ko">
 <head>
