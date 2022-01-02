@@ -91,7 +91,7 @@
           <br>
           <button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button>
           <button class="btn btn-primary" style="float: right;">수정</button>
-          <button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button>
+          <a href="qnadelete"><button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button></a>
           <hr>
           <h4>답변</h4>
           <form action="">

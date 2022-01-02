@@ -5,9 +5,9 @@ public class Paging {
 	 public int rowNo = 5;
 	 public int size = 5;
 	 public int totalRowCount = 0;
-	    
+	   
 	 public int currentPage = 0;
-
+	 
 	 public Paging(int rowNo, int size, int totalRowCount, int currentPage){
 	     this.rowNo = rowNo;  // 한 페이지에 보여지는 개수
 	     this.size = size;	  // 페이저 개수
@@ -30,7 +30,12 @@ public class Paging {
 	 }
 	    
 	 public int endNo() {
-	     return (((currentPage-1)/size) +1)*size;
+		 int result = (((currentPage-1)/size) +1)*size;
+		 if(result > maxPage()) {
+			 result = maxPage();
+		 }
+		 
+	     return result;
 	 }
 	    
 	 public boolean isPre() {
@@ -42,7 +47,7 @@ public class Paging {
 	     }
 	     return b;
 	 }
-	  
+	 
 	 public boolean isNext() {
 	     boolean b = false;
 	     if(endNo()>=maxPage()) {
@@ -52,5 +57,26 @@ public class Paging {
 	     }
 	     return b;
 	 }
-	    
+	 
+	 public int prePage() {
+		 if(isPre()) {
+			 currentPage = startNo()-1;
+		 }
+		 return currentPage;
+	 }
+	 
+	 public int nextPage() {
+		 if(isNext()) {
+			 currentPage = endNo()+1;
+		 }
+		 return currentPage;
+	 }
+	 
+	 public int rowStarNo() {
+		 return (currentPage-1) * rowNo + 1;
+	 }
+	 
+	 public int rowEndNo() {
+		 return currentPage*rowNo;
+	 }
 }

@@ -75,7 +75,9 @@ body{margin-top:20px;
 .pagination {
     position: absolute;
     left: 300px;
-    width: 100px;
+    width: 250px;
+    top: 700px;
+    padding-bottom: 20px;
 } 
 .community {
   cursor: pointer;

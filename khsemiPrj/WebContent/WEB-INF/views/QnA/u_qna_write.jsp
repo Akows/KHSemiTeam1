@@ -57,20 +57,17 @@
           <!-- BEGIN RESULT -->
           <div class="col-md-10">
             <h2>질문작성</h2>
-            <form action="writerAction" method="post">
-                <input type="hidden" name="bdGroup">
-                <input type="hidden" name="bdOrder">
-                <input type="hidden" name="bdIndent">
-                <input type="text" id="bdTitle" name="bdTitle" class="form-control mt-4 mb-2"
+            <form action="qnawrite" method="post">
+                <input type="text" id="qnaTitle" name="qnatitle" class="form-control mt-4 mb-2"
                     placeholder="제목을 입력해주세요." required
                 >
                 <div class="form-group">
-                    <textarea class="form-control" rows="10" name="bdContent"
+                    <textarea class="form-control" rows="10" name="qnacontent"
                         placeholder="내용을 입력해주세요" required
                     ></textarea>
                 </div>
                 <div class="writeBtn">
-                    <button type="button" class="btn btn-primary" style="background-color: #6c757d; border-color: #6c757d;">취소</button>
+                    <a href="qna"><button type="button" class="btn btn-primary" style="background-color: #6c757d; border-color: #6c757d;">취소</button></a>
                     <button type="submit" class="btn btn-primary">질문작성</button>
                 </div>
             </form>
