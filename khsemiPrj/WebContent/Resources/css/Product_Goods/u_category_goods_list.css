@@ -101,10 +101,9 @@
     margin:0 auto;
 }
 
-.image-thumbnail {
-    width:100%;
-    height:100%;
-    object-fit:cover;
+#goodscover{
+	width:200px;
+    height:230px;
 }
 
 
@@ -119,10 +118,17 @@ button
     border: 0;
     outline: 0;
 }
-#cont1button
+#like
 {
     background-color: #f1f1f1;
 }
+
+#addcart
+{
+    background-color: #f1f1f1;
+}
+
+
 
 #pagecontrol
 {
@@ -204,4 +210,8 @@ button
     background-color: black;
     color: white;
     text-align: center;
+}
+
+#proNo{
+	display: none;
 }
