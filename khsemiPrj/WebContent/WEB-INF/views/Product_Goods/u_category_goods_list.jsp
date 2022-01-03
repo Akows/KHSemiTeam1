@@ -70,7 +70,7 @@
 
 			<table> 
 
-			<c:forEach items="${goodsList}" var="g"> 
+			<c:forEach items="${goodsList}" var="g" varStatus="status"> 
 			<c:if test="${a%b == 0 }"> 
 			<tr> 
 			</c:if>
@@ -81,22 +81,30 @@
                <div id="goodstitle">
                    <h5>${g.pro_name}</h5>
                    <h6>${g.maker}</h6>
+                   <span id="proNo">${g.pro_no }</span>
+                   <span>추천 ${g.pro_like} | 판매 ${g.sales}</span>
                </div>
                <div id="goodsinf">
                        ${g.unit_price}원
-                   <button class="icon-heart1" id="cont1button"></button>
-                   <button class="icon-shopping-cart" id="cont1button"></button>
+                    <input type="hidden" name=proNo${status.index}  value="${g.pro_no}"/>
+                    <%-- <button class="icon-heart1" id="like" onclick="addCart(proNo${status.index})"/></button> --%>
+                    <button class="icon-shopping-cart" id="addcart" onclick="addCart(${g.pro_no})"/></button>	
                </div>
            </div>
 			</td> 
-			<c:if test="${a%b == b-1 }"> 
+			
+			
+			<c:if test="${a%b == b-1}"> 
 			</tr> 
 			</c:if> 
-			<c:set var="a" value="${a+1}" /> 
+			<c:set var="a" value="${a+1}"/> 
 			</c:forEach> 
 			</table>
                    
-              <div id="pagecontrol">
+            
+            
+            <c:if test="${desc == 'none'}"> 
+				<div id="pagecontrol">
                   <nav id="pagecontrolinner" aria-label="Page navigation example">
                          <ul class="pagination">
                 			<li class="page-item"><a id="prePage" class="page-link" href="gca?currentPage=${page.prePage()}"> < </a></li>
@@ -107,6 +115,37 @@
              			 </ul>                  
                      </nav>
                 </div>
+			</c:if>
+			<c:if test="${desc == 'likedesc'}"> 
+				<div id="pagecontrol">
+                  <nav id="pagecontrolinner" aria-label="Page navigation example">
+                         <ul class="pagination">
+                			<li class="page-item"><a id="prePage" class="page-link" href="gca_likedesc?currentPage=${page.prePage()}"> < </a></li>
+	            				<c:forEach var="i" begin="${page.startNo()}" end="${page.endNo()}">
+	            				<li class="page-item"><a name="currentPage" class="page-link" href="gca_likedesc?currentPage=${i}" value="${i}">${i}</a></li>
+		            			</c:forEach>
+                			<li class="page-item"><a class="page-link" href="gca?currentPage=${page.nextPage()}"> > </a></li>
+             			 </ul>                  
+                     </nav>
+                </div>
+			</c:if> 
+			<c:if test="${desc == 'salesdesc'}"> 
+				<div id="pagecontrol">
+                  <nav id="pagecontrolinner" aria-label="Page navigation example">
+                         <ul class="pagination">
+                			<li class="page-item"><a id="prePage" class="page-link" href="gca_salesdesc?currentPage=${page.prePage()}"> < </a></li>
+	            				<c:forEach var="i" begin="${page.startNo()}" end="${page.endNo()}">
+	            				<li class="page-item"><a name="currentPage" class="page-link" href="gca_salesdesc?currentPage=${i}" value="${i}">${i}</a></li>
+		            			</c:forEach>
+                			<li class="page-item"><a class="page-link" href="gca?currentPage=${page.nextPage()}"> > </a></li>
+             			 </ul>                  
+                     </nav>
+                </div>
+			</c:if> 
+                   
+                   
+                   
+              
                 
                 
                 </div><!-- 컨텐츠 배치 영역 (padding: 40px;) -->
@@ -119,8 +158,8 @@ var likedesc = function(url){
 
 	$.ajax({
 		type: 'get',
-		url: "/devbooks/gca_desc",
-		data: {likedesc:"likedesc"},
+		url: "/devbooks/gca_likedesc",
+		data: {desc:"likedesc"},
 		contentType:"application/x-www-form-urlencoded; charset=UTF-8",
 		success: function(data) {
 			$('body').html(data);
@@ -130,7 +169,44 @@ var likedesc = function(url){
 		}
 	});
 };
+
+
+var salesdesc = function(url){
+
+	$.ajax({
+		type: 'get',
+		url: "/devbooks/gca_salesdesc",
+		data: {desc:"salesdesc"},
+		contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+		success: function(data) {
+			$('body').html(data);
+		},
+		error: function(request, status, error) {
+			alert(error);
+		}
+	});
+};
+
 </script>
+
+<script>
+
+function addCart(pronum){
+	console.log(pronum);
+			var proNum = document.getElementsByName(pronum);
+            var url = 'addcart?pro_no=' + pronum;
+            window.open(url, "_self");
+    }
+    
+function addLike(proNum){
+    var url = 'addlike?pro_no=' + proNum.value;
+    window.open(url, "_self");
+    }
+
+</script>
+
+
+
  
 
 

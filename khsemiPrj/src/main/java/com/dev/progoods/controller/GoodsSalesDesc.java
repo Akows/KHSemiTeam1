@@ -12,16 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.dev.paging.Paging;
 import com.dev.progoods.model.ProgoodsService;
 import com.dev.progoods.model.ProgoodsVo;
-import com.dev.qna.model.service.QnaService;
-import com.dev.qna.model.vo.QnaVo;
-
-@WebServlet ("/gca")
-public class Goodscategory extends HttpServlet
-{
+@WebServlet("/gca_salesdesc")
+public class GoodsSalesDesc extends HttpServlet{
+	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
-	{
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String desc = req.getParameter("desc");
 		String curpage = req.getParameter("currentPage");
 //		String category = req.getParameter("category");
 		String category = "생활용품";
@@ -37,23 +34,18 @@ public class Goodscategory extends HttpServlet
 		Paging page = new Paging(6, 3, total, curpage2);
 		
 		
-		List<ProgoodsVo> goodsList = new ProgoodsService().goodsListAll(page, category);
+		List<ProgoodsVo> goodsList = new ProgoodsService().salesdesc(page, category);
 		req.setAttribute("curpage", curpage2);
 		req.setAttribute("page", page);
 		req.setAttribute("goodsList", goodsList);
 		req.setAttribute("total", total);
-		req.setAttribute("desc", "none");
+		req.setAttribute("desc", "desc");
 		req.getRequestDispatcher("/WEB-INF/views/Product_Goods/u_category_goods_list.jsp").forward(req, resp);
 		
 		
-		
-		System.out.println("=========컨트롤러===============");
-		System.out.println("curPage:"+ curpage2);
-		System.out.println("startNo:"+ page.startNo());
-		System.out.println("endNo:"+ page.endNo());
-		System.out.println("prePage:"+ page.prePage());
-		System.out.println("nextPage:"+ page.nextPage());
-		System.out.println("category:"+category);
-		System.out.println("========================");
 	}
+	
+	
+
+	
 }
