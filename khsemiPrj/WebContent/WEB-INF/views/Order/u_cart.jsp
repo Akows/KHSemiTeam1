@@ -2,10 +2,10 @@
 <%@page import="com.dev.order.vo.CartVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="co"%>
     
     <%
     	List<CartVo> dataList = (List<CartVo>)request.getAttribute("data");
-
     %>
     
 <!DOCTYPE html>
@@ -31,27 +31,6 @@
 
 	<%@ include file="../Common/u_menubar.jsp" %>
 
-<!-- 
-	<nav>
-        <img src="Resources/img/Logo/로고 사진 연그레이 s.png"  id="icon1">
-        <img src="Resources/img/Logo/로고 글자 연그레이 s.png" id="icon2">
-
-        <ul id="navi">
-            <li><a href="#">카테고리</a></li>
-            <li><a href="#">베스트</a></li>
-            <li><a href="#">신상품</a></li>
-            <li><a href="#">QnA</a></li>
-            
-
-            <div id="search">
-                <input type="text" placeholder="내용을 입력해주세요" >
-                <button>검색</button>
-            </div>
-
-            <li id="lojo"><a href="#">로그인</a> <label> | </label> <a href="#">회원가입</a></li>
-        </ul>
-    </nav>
--->
         <div class="homecart">
             <a href="#"><img src="Resources/img/i_con/home_icon.png"id="icon3"></a>
             <label> > </label>
@@ -72,27 +51,29 @@
                 </tr>
 
                 <tr class="tbody">
-                        <td id="chb1"><input type="checkbox"></td>
+                        <td id="chb1"><input type="checkbox" name="chkAll" value="1" onchange="JavaScript:chkAllChange();"></td>
                         <td colspan="3" >상품명</td>
                         <td>단가</td>
                         <td>수량</td>
                         <td colspan="4">합계</td>
                         <td id="m2" colspan="4"></td>
                 </tr>
-                
+       
 <%
-    int totamt = 0;
-    for(CartVo c : dataList)
-    {
-    	String pro_img = c.getPro_img();
-   		String pro_name = c.getPro_name();
-   		int unit_price = c.getUnit_price();
-   		int quantity = c.getQuantity();
-   		int amt = c.getAmt();
-   		totamt = totamt + amt;
+int totamt = 0;
+int i = 0;
+   for(CartVo c : dataList)
+   {
+   	int pro_no = c.getPro_no();
+   	String pro_img = c.getPro_img();
+  		String pro_name = c.getPro_name();
+  		int unit_price = c.getUnit_price();
+  		int quantity = c.getQuantity();
+  		int amt = c.getAmt();
+  		totamt = totamt + amt;
 %>	 
                 <tr>
-                        <td id="chb1"><input type="checkbox"></td>
+                        <td id="chb1"><input type="checkbox" name="chkUnit" value="<%=pro_no%>" onchange="JavaScript:chkUnitChange();"></td>
                         <td colspan="2"><img src="<%=pro_img%>" id="img1"></td>
                         <td id="spm1"><%=pro_name%></td>
                         <td id="dg1"><%=unit_price%>원</td>
@@ -106,8 +87,29 @@
 					</td>
 				</tr>
 <%
-    }
-%>
+	i = i +1;
+   }
+%>                
+
+
+<!--  
+<co:forEach items="${dataList}" var="c">
+	<tr>
+         <td id="chb1"><input type="checkbox"></td>
+         <td colspan="2"><img src="${c.pro_img}" id="img1"></td>
+         <td id="spm1">${c.pro_name}</td>
+         <td id="dg1">${c.unit_price}원</td>
+         <td id="sl1">${c.quantity}</td>
+         <td id="hg1" colspan="4">${c.amt}원</td>
+         <td colspan="4"></td>
+    </tr>
+	<tr>
+		<td colspan="11">
+			<hr>
+		</td>
+	</tr>
+</co:forEach>
+-->	
                 <tr>
                     <td colspan="2"><input type="submit" id="choice" value="선택상품삭제"></td>
                     <td colspan="2"><input type="submit" id="all" value="전체상품삭제"></td>
@@ -115,7 +117,7 @@
                 </tr>
             </table>
 
-                <hr>
+               
         </div>
 
         <div class="t2">
@@ -144,7 +146,7 @@
                     <td></td>
                     <td></td>
                     <td id="gg1-1"><b>포인트 사용</b></td>
-                    <td><input type="text" placeholder="100원부터 입력" ></td>
+                    <td><input type="text"  onkeydown="" id="target" placeholder="100원부터 입력" ></td>
                 </tr>
 
                 <tr>
@@ -182,7 +184,63 @@
                 </tr>
             </table>
         </div>
-       	
+       
+       
+       
+   <script type="text/javascript">
+   function chkAllChange()
+   {
+	    var chk = document.getElementsByName("chkAll")[0].checked;
+        var arrChk = document.getElementsByName("chkUnit");
+        for(var i = 0; i < arrChk.length; i++) { arrChk[i].checked = chk; }
+   }
+   
+   function chkUnitChange()
+   {
+       var chk = true;
+       var arrChk = document.getElementsByName("chkUnit");
+       for(var i = 0; i < arrChk.length; i++)
+       {
+    	   if ( arrChk[i].checked == false ) { chk = false; }
+       }
+       document.getElementsByName("chkAll")[0].checked = chk;
+   }
+   
+	   /* -- '전체' 선택 시 이벤트 -- 
+	   $('#chb1').click(function()
+		{
+	       '전체' 선택 시 전부 체크하기
+		   $(":checkbox").attr("checked", true);
+		   
+	       '전체' 선택 해제 시 전부 체크해제
+		   //$(":checkbox").attr("checked", false);
+		}
+	   );
+	   */
+	   
+	   
+	   //포인트 차감 안됨 ㅠㅠㅠㅠ
+	   /*
+	   $(function()
+        {
+            $("#target").keydown(function()
+	         {
+	            $('#target').onkeydown();
+	         });
+        });
+	   */
+	   
+	   /*
+	   $('#target').keydown(function() 
+		{ 
+		   $('#target').keydown(); 
+		}
+	   );
+	   */
+	   
+   </script>
+      
+    <%--<%@ include file="../Common/u_footer.jsp" %> --%>	
 </body>
 </html>
 
