@@ -66,12 +66,12 @@
     <section class = "form-search">
       <div class = "find-name">
         <label>이름</label>
-        <input type="text" name="member_name" class = "btn-name" placeholder = "등록한 이름">
+        <input type="text" name="userName" class = "btn-name" placeholder = "등록한 이름">
       <br>
       </div>
       <div class = "find-phone">
         <label>번호</label>
-        <input type="text" name="member_phone" class = "btn-phone" placeholder = "휴대폰번호를 '-'없이 입력">
+        <input type="text" name="userPhone" class = "btn-phone" placeholder = "휴대폰번호를 '-'없이 입력">
       </div>
       <br>
     </section>
@@ -88,12 +88,12 @@
 	    function id_search() { 
 		 	var frm = document.idfindscreen;
 	
-		 	if (frm.member_name.value.length < 1) {
+		 	if (frm.userName.value.length < 1) {
 			  alert("이름을 입력해주세요");
 			  return;
 			 }
 	
-			 if (frm.member_phone.value.length != 11) {
+			 if (frm.userPhone.value.length != 11) {
 				  alert("핸드폰번호를 정확하게 입력해주세요");
 				  return;
 			 }

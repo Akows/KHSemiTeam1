@@ -104,7 +104,7 @@
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">전화번호</p>
-                    <input type="number" class="form-control box_size" name="phoneNum" id="user_Phone" placeholder="-를 제외하고 입력해 주세요.">
+                    <input type="number" class="form-control box_size" name="userPhone" id="userPhone" placeholder="-를 제외하고 입력해 주세요.">
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">주소</p>

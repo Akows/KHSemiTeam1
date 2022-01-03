@@ -52,7 +52,7 @@
       <%
   } else {
  %>
-        <div class = "container">
+       <div class = "container">
       	<div class = "found-fail">
 	      <h4>  등록된 정보가 없습니다 </h4>  
 	     </div>
@@ -61,10 +61,6 @@
  		    <input type="button" id="btnjoin" value="회원가입" onClick="join()"/>
        	</div>
        </div>
-       
-    <div class = "adcontainer">
-	<a href="#" ><img src = "../images/casead.png" /></a>                
-</div>   
        <%
   }
  %> 
