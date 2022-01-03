@@ -86,7 +86,8 @@
                 <c:forEach items="${qnaList}" var="q">
 					<tr>
 						<td>${q.qnaNo}</td>
-						<td>${q.qnaTitle}</td>
+						<td><a href="qnadt?qnaNo=${q.qnaNo}">
+						${q.qnaTitle}</a></td>
 						<td><fmt:formatDate value="${q.qnaDate}" pattern="yy.MM.dd"/></td>
 						<td>${q.qnaId}</td>
 						<td>${q.qnaView}</td>

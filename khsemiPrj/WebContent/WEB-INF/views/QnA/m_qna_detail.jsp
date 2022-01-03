@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,6 +14,7 @@
     <!-- 공용으로 쓰는 부트스트랩 -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/d088eb3922.js" crossorigin="anonymous"></script>
 
     <!-- 기존에 쓰던 부트스트랩 -->
     <!-- <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -63,37 +66,49 @@
                   <col width="15%">
                   <col width="*">
               </colgroup>
-            <table class="board_view" border="1">
+            <table class="board_view table" id="qna">
               <tbody>
                 <tr>
                   <th style="width: 8%;">제목</th>
-                  <td id="title" colspan="5">QnA 테스트입니다.</td>
-                  <!-- <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td> -->
+                  <td id="title" colspan="5">${q.qnaTitle}</td>
                 </tr>
                 <tr>
                   <th>작성일</th>
-                  <td id="date">2018.3.10</td>
+                  <td id="date"><fmt:formatDate value="${q.qnaDate}" pattern="yy.MM.dd"/></td>
                   <th style="width: 10%;">작성자</th>
-                  <td id="author">user300</td>
+                  <td id="author">${q.qnaId}</td>
                   <th style="width: 10%;">조회수</th>
-                  <td id="view">1500</td>
+                  <td id="view">${q.qnaView}</td>
                 </tr>
                 <tr>
                   <td id="content" colspan="6">
-                    ID / 비밀번호를 잊어버렸습니다.
+                    ${q.qnaContent}
                   </td>
                 </tr>
               </tbody>
           </table>
           <br>
-          <button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button>
-          <button class="btn btn-primary" style="float: right;">수정</button>
-          <a href="qnadelete"><button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button></a>
+          <a href="qna"><button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button></a>
+          <a href="qnaupdate?qnaNo=${q.qnaNo}&qnaTitle=${q.qnaTitle}&qnaContent=${q.qnaContent}"><button class="btn btn-primary" style="float: right;">수정</button></a>
+          <a href="qnadelete?qnaNo=${q.qnaNo}"><button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button></a>
           <hr>
           <h4>답변</h4>
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th colspan="2">관리자</th>
+                <!-- <th></th> -->
+                <th>2018.3.11</th>
+                <td style="display: none;"><button type="button" class="btn btn-danger">삭제</button></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2">요로케 하면 돼용 ~~~</td>
+                <td><i class="far fa-thumbs-up fa-2x">+25</i></td>
+              </tr>
+            </tbody>
+          </table>
           <form action="">
             <textarea name="" id="coment" cols="10" rows="5" placeholder="답변을 등록해주세요."></textarea>
             <input id="submit" type="submit" class="btn btn-primary" value="답변 등록">

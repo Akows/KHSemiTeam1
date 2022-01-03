@@ -97,4 +97,79 @@ public class QnaDao {
 		return result;
 	}
 
+	public QnaVo qnaSelect(Connection conn, int qnaNo) {
+		String sql = "SELECT Q.Q_NO, Q.Q_TITLE, Q.Q_CONTENT, TRUNC(Q.Q_DATE) AS \"Q_DATE\", M.ID, Q.Q_VIEW FROM QNA Q JOIN MEMBER M ON Q.M_NO = M.M_NO WHERE Q_NO = ?";
+		String sql2 = "UPDATE QNA SET Q_VIEW = Q_VIEW +1 WHERE Q_NO = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		QnaVo q = new QnaVo();
+		try {
+			//조회수 증가
+			pstmt = conn.prepareStatement(sql2);
+			pstmt.setInt(1, qnaNo);
+			pstmt.execute();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			rs = pstmt.executeQuery();
+				
+			rs.next();
+//			int qnaNo = rs.getInt("Q_NO");
+			String qTitle = rs.getString("Q_TITLE");
+			String qContent = rs.getString("Q_CONTENT");
+			Timestamp qDate = rs.getTimestamp("Q_DATE");
+			String qId = rs.getString("ID");
+			int qView = rs.getInt("Q_VIEW");
+					
+			//모델에 넣어줌
+			q = new QnaVo(qnaNo, qTitle, qContent, qDate, qId, qView);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return q;
+	}
+
+	public int qnaDelete(Connection conn, int qnaNo) {
+		String sql = "UPDATE QNA SET Q_DEL_YN = 'Y' WHERE Q_NO = ?";
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			result = pstmt.executeUpdate();
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	public int qnaUpdate(Connection conn, QnaVo q) {
+		String sql = "UPDATE QNA SET Q_TITLE = ?, Q_CONTENT = ? WHERE Q_NO = ?";
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, q.getQnaTitle());
+			pstmt.setString(2, q.getQnaContent());
+			pstmt.setInt(3, q.getQnaNo());
+			result = pstmt.executeUpdate();
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
 }
