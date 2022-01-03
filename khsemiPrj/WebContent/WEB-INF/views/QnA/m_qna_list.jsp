@@ -96,8 +96,13 @@
             </tbody>
         </table>
         <hr/>
+        <c:set var="user" value="session.getAttribute('loginUser')"></c:set>
         <div class="writeBtn">
+        <%-- 세션에 loginUser가 없다면 글 작성을 하지 못함  --%>
+        <c:if test="${user ne null}">
         	<a href="qnawrite"><button type="button" class="btn btn-primary">질문작성</button></a>
+        </c:if>
+        
         </div>
         <br>
         <br>

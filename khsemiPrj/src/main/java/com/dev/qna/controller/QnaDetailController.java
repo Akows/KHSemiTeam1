@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dev.qna.model.service.QnaService;
+import com.dev.qna.model.vo.QnaAnswersVo;
 import com.dev.qna.model.vo.QnaVo;
 
 @WebServlet("/qnadt")
@@ -21,7 +22,14 @@ public class QnaDetailController extends HttpServlet{
 		
 		QnaVo q = new QnaService().qnaSelect(Integer.parseInt(qnaNo));
 		
+		QnaAnswersVo a = new QnaService().ansSelect(Integer.parseInt(qnaNo));
+		
 		req.setAttribute("q", q);
+		
+		if(a != null) {
+			req.setAttribute("a", a);
+		}
+		
 		req.getRequestDispatcher("WEB-INF/views/QnA/m_qna_detail.jsp").forward(req, resp);
 	}
 }

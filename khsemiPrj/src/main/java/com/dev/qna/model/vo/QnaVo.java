@@ -36,11 +36,10 @@ public class QnaVo {
 	}
 
 	//qna 작성할 때 사용하는 생성자
-	public QnaVo(/*String qnaNo,*/ String qnaTitle, String qnaContent, String qnaId) {
-//		this.qnaNo = qnaNo;
+	public QnaVo(String qnaTitle, String qnaContent, int qnaNo) {
 		this.qnaTitle = qnaTitle;
 		this.qnaContent = qnaContent;
-		this.qnaId = qnaId;
+		this.qnaNo = qnaNo;
 	}
 
 	public int getQnaNo() {

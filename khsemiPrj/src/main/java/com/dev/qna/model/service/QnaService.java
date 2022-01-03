@@ -7,6 +7,7 @@ import static com.dev.common.JDBCTemplate.*;
 
 import com.dev.paging.Paging;
 import com.dev.qna.model.dao.QnaDao;
+import com.dev.qna.model.vo.QnaAnswersVo;
 import com.dev.qna.model.vo.QnaVo;
 
 public class QnaService {
@@ -46,8 +47,6 @@ public class QnaService {
 		
 		int result = 0;
 		result = insertQna(conn, q);
-
-		
 		
 		if(result > 0) {
 			commit(conn);
@@ -102,6 +101,40 @@ public class QnaService {
 		}
 		
 		return result;
+	}
+
+	//qna 답변 작성
+	public int writeQnaAnswers(QnaAnswersVo a) {
+		// 커넥션
+		Connection conn = getConnection();
+
+		int result = 0;
+		result = insertQnaAnswers(conn, a);
+
+		if (result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+
+		return result;
+	}
+
+	private int insertQnaAnswers(Connection conn, QnaAnswersVo a) {
+		//dao 불러서 쿼리 실행
+		//dao 한테 쿼리 실행 결과 받기
+		return new QnaDao().insertQnaAnswers(conn, a);
+	}
+
+	public QnaAnswersVo ansSelect(int qnaNo) {
+		//커넥션 
+		Connection conn = getConnection();
+
+		QnaAnswersVo a = new QnaDao().ansSelect(conn, qnaNo);
+		System.out.println("qnaservice.ansselect called... ");
+		close(conn);
+
+		return a;
 	}
 	
 }
