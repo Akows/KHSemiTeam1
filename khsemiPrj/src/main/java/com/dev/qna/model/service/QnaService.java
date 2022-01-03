@@ -64,5 +64,44 @@ public class QnaService {
 		return new QnaDao().insertQna(conn, q);
 	}
 
+	public QnaVo qnaSelect(int qnaNo) {
+		//커넥션 
+		Connection conn = getConnection();
+				
+		QnaVo q = new QnaDao().qnaSelect(conn, qnaNo);
+		System.out.println("qnaservice.qnaselect called... ");
+		close(conn);
+				
+		return q;
+	}
+
+	public int qnaDelete(int qnaNo) {
+		//커넥션 
+		Connection conn = getConnection();
+						
+		int result = new QnaDao().qnaDelete(conn, qnaNo);
+		System.out.println("qnaservice.qnadelete called... ");
+		close(conn);
+		
+		return result;
+	}
+
+	public int qnaUpdate(QnaVo q) {
+		//커넥션 
+		Connection conn = getConnection();
+								
+		int result = new QnaDao().qnaUpdate(conn, q);
+		
+		System.out.println("qnaservice.qnaupdate called... ");
+		close(conn);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		return result;
+	}
 	
 }
