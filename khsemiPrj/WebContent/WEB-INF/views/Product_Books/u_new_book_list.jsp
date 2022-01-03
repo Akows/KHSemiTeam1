@@ -128,7 +128,7 @@
 					                <c:forEach var="i" begin="1" end="10" step="1">
 					                    <c:if test="${i <= maxPage}">
 					                        <li class="page-item">
-					                            <a class="page-link" href="newproducts?currentPage=${i}">${i}</a>
+					                            <a class="page-link" href="bookupdate?currentPage=${i}">${i}</a>
 					                        </li>
 					                    </c:if>
 					                </c:forEach>

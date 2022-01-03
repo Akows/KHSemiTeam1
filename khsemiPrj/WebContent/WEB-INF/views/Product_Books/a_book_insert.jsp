@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,8 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <!-- css -->
     <link rel="stylesheet" href="Resources/css/Product_Books/a_book_insert.css">
-
-
+	
 </head>
 <body>
 
@@ -50,7 +50,7 @@
         <div id="main2">
             <h3>도서 등록</h3> 
             
-            <form action="bookinsert" method="get">
+            <form action="bookinsert" method="post" id="textdata" enctype="multipart/form-data">
                 <div id="mainR">
                     <table>
                         <tr>
@@ -83,22 +83,20 @@
                                 <optgroup label="주제별">
                                     <option value="프로그래밍언어">프로그래밍언어</option>
                                     <option value="엑셀/활용서">엑셀/활용서</option>
-                                    <option value="IT 자격증">IT 자격증</option>
+                                    <option value="IT자격증">IT자격증</option>
                                 </optgroup>
                                 <optgroup label="프로그래밍">
-                                    프로그래밍
-                                    <option value="딥려닝">딥려닝</option>
+                                    <option value="딥러닝">딥러닝</option>
                                     <option value="머신러닝">머신러닝</option>
                                     <option value="인공지능">인공지능</option>
                                     <option value="안드로이드">안드로이드</option>
                                     <option value="유니티">유니티</option>
                                 </optgroup>
-                                <option selected>-------------</option>
                             </select></td>
                         </tr>
                         <tr>
-                            <td>이미지</td>
-                            <td><input type="file"></td>
+		            	 	<td>이미지</td>
+		                    <td><input type="file" name="upload"></td>
                         </tr>
                     </table>                
                 </div>
@@ -108,44 +106,16 @@
                     <label>목차</label><br>
                     <textarea name="bookindex" id="" cols="30" rows="10"></textarea>
                 </div>
-                <div id="btn">
-                    <input class="btn btn-outline-secondary btn-lg" type="submit" value="등록" id="submit">
-                </div>
+                
+                <div>
+            		<input type="submit" class="btn btn-outline-secondary btn-lg" value="도서 등록">
+           	 	</div>
+
             </form>
-            
+
         </div><!-- main2 -->
             
     </div><!-- main -->
-
-    <!-- ------------------------------모달----------------------------------------- -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">작가 검색</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-              <input type="text"><button id="btn1">검색</button>
-              <table id="modal">
-                  <tr>
-                    <th>저자번호</th>
-                    <th>이름</th>
-                    <th>출생년도</th>
-                  </tr>
-                  <tr>
-
-                  </tr>
-              </table>
-              <button id="btn1">등록</button>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal" id="btn1">닫기</button>
-            </div>
-          </div>
-        </div></div>
-
-
 
     <br><br><br><br>
     <%@ include file="../Common/a_footer.jsp" %>

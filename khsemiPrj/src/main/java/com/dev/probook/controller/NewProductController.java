@@ -51,5 +51,5 @@ public class NewProductController extends HttpServlet
 		req.setAttribute("data", newProductList);
 		req.getRequestDispatcher("./WEB-INF/views/Product_Books/u_new_book_list.jsp").forward(req, resp);
 	}
-
+	
 }

@@ -153,10 +153,12 @@ public class ProbookDAO
 		return result;
 	}
 		
-	public int bookinfinsert(Connection conn, ProbookVO pro) 
+	public int insertBookProduct(Connection conn, ProbookVO pro) 
 	{
-		String sql = "INSERT INTO PRO_INF (PRO_NO, PRO_NAME, PRO_IMG, UNIT_PRICE, STOCK, SALES, PRO_LIKE, DESCRIPTION, PRO_TYPE) "
-				+ "VALUES (SEQ_PRO_INF.NEXTVAL, ?, '링크 거는 법 연구필요', ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT ALL INTO PRO_INF VALUES (SEQ_PRO_INF.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, '도서')"
+				+ 				"INTO BOOK_INF VALUES (SEQ_BOOK_INF.NEXTVAL, SEQ_PRO_INF.NEXTVAL, ?, ?, ?, ?, ?)"
+				+ 				"SELECT *"
+				+ 				"FROM DUAL";
 
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -164,12 +166,22 @@ public class ProbookDAO
 		{
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, pro.getProductName());
-			pstmt.setString(2, pro.getProductPrice());
-			pstmt.setString(3, pro.getProductStock());
-			pstmt.setString(4, pro.getProductSaleCount());
-			pstmt.setString(5, pro.getProductLikeCount());
-			pstmt.setString(6, pro.getProductDescript());
-			pstmt.setString(7, pro.getProductType());
+			
+			pstmt.setString(2, pro.getImageLink());
+			
+			pstmt.setString(3, pro.getProductPrice());
+			pstmt.setString(4, pro.getProductStock());
+			pstmt.setString(5, pro.getProductSaleCount());
+			pstmt.setString(6, pro.getProductLikeCount());
+			pstmt.setString(7, pro.getProductDescript());
+			
+			pstmt.setString(8, pro.getWriterName());
+			pstmt.setString(9, pro.getPublisher());
+			
+			pstmt.setString(10, pro.getEnrollDate());
+			
+			pstmt.setString(11, pro.getCategoty());
+			pstmt.setString(12, pro.getContentList());
 
 			result = pstmt.executeUpdate();
 		} 
@@ -184,23 +196,61 @@ public class ProbookDAO
 		
 		return result;
 	}
-	
-	public int proinfinsert(Connection conn, ProbookVO pro) 
-	{
-		String sql = "INSERT INTO BOOK_INF (BOOK_NO, PRO_NO, BOOK_AUTH, BOOK_PUB, PUBL_DATE, CATEGORY, CONT_LIST) "
-				+ "VALUES (SEQ_BOOK_INF.NEXTVAL, SEQ_PRO_INF.NEXTVAL, ?, ?, SYSDATE, ?, ?)";
 
+	public List<ProbookVO> productlistcall(Connection conn, int startNum, int lastNum) 
+	{
 		PreparedStatement pstmt = null;
-		int result = 0;
+		ResultSet rs = null;
+		ProbookVO pvo = null;
+		List<ProbookVO> newProductList = new ArrayList<ProbookVO>();
+		
+		String sql = "SELECT * FROM ( SELECT ROWNUM as RNUM, P.PRO_NO, P.PRO_NAME, P.PRO_IMG, P.UNIT_PRICE, P.STOCK, P.SALES, P.PRO_LIKE, P.DESCRIPTION, P.PRO_TYPE, B.BOOK_NO, B.BOOK_AUTH, B.PUBL_DATE, B.CATEGORY, B.CONT_LIST FROM PRO_INF P INNER JOIN BOOK_INF B ON(P.PRO_NO = B.PRO_NO) ) WHERE RNUM BETWEEN ? AND ?";
+	
 		try 
 		{
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, pro.getWriterName());
-			pstmt.setString(2, pro.getPublisher());
-			pstmt.setString(3, pro.getCategoty());
-			pstmt.setString(4, pro.getContentList());
-
-			result = pstmt.executeUpdate();
+			pstmt.setInt(1, startNum);
+			pstmt.setInt(2, lastNum);
+			
+			rs = pstmt.executeQuery();
+				
+			while (rs.next()) 
+			{
+				String productNumber = rs.getString("PRO_NO");
+				String productName = rs.getString("PRO_NAME");
+				String imageLink = rs.getString("PRO_IMG");
+				String productPrice = rs.getString("UNIT_PRICE");
+				String productStock = rs.getString("STOCK");
+				String productSales = rs.getString("SALES");
+				String productlike = rs.getString("PRO_LIKE");
+				String productDescript = rs.getString("DESCRIPTION");
+				String productType = rs.getString("PRO_TYPE");
+				
+				String bookNumber = rs.getString("BOOK_NO");
+				String writerName = rs.getString("BOOK_AUTH");
+				String enrollDate = rs.getString("PUBL_DATE");
+				String category = rs.getString("CATEGORY");
+				String contentList = rs.getString("CONT_LIST");
+					
+				pvo = new ProbookVO();
+				pvo.setProductNumber(productNumber);
+				pvo.setProductName(productName);
+				pvo.setImageLink(imageLink);
+				pvo.setProductPrice(productPrice);
+				pvo.setProductStock(productStock);
+				pvo.setProductSaleCount(productSales);
+				pvo.setProductLikeCount(productlike);
+				pvo.setProductType(productType);
+				
+				pvo.setBookNumber(bookNumber);
+				pvo.setCategoty(category);
+				pvo.setContentList(contentList);
+				pvo.setEnrollDate(enrollDate);
+				pvo.setProductDescript(productDescript);
+				pvo.setWriterName(writerName);
+				
+				newProductList.add(pvo);
+			}
 		} 
 		catch (SQLException e) 
 		{
@@ -209,9 +259,11 @@ public class ProbookDAO
 		finally 
 		{
 			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(rs);
 		}
 		
-		return result;
+		return newProductList;
 	}
+
 
 }

@@ -1,8 +1,12 @@
 package com.dev.probook.service;
 
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+
+import javax.servlet.http.Part;
 
 import com.dev.common.JDBCTemplate;
 import com.dev.probook.model.ProbookDAO;
@@ -54,8 +58,7 @@ public class ProbookService
 		
 		try 
 		{
-			result = insertBookInf(conn, pro);
-			result = insertProInf(conn, pro);
+			result = insertBookProduct(conn, pro);
 			
 			if(result > 0)
 			{
@@ -75,15 +78,10 @@ public class ProbookService
 	}	
 	
 	
-	private int insertBookInf(Connection conn, ProbookVO pro) 
+	private int insertBookProduct(Connection conn, ProbookVO pro) 
 	{
-		return new ProbookDAO().bookinfinsert(conn, pro);
+		return new ProbookDAO().insertBookProduct(conn, pro);
 	}
-	private int insertProInf(Connection conn, ProbookVO pro) 
-	{
-		return new ProbookDAO().proinfinsert(conn, pro);
-	}
-	
 
 	private int countAllProductMethod(Connection conn) 
 	{
@@ -95,12 +93,44 @@ public class ProbookService
 		return new ProbookDAO().newproductslistcall(conn, startNum, lastNum);
 	}
 	
-
 	public List<ProbookVO> newproductslistcallsearchcall(Connection conn, String type, String value) 
 	{
 		return new ProbookDAO().newproductslistcallsearch(conn, type, value);
 	}
 
 
+	public List<ProbookVO> productslistcall(String currentPage) 
+	{
+		Connection conn = JDBCTemplate.getConnection();
+		List<ProbookVO> ProductList;
+		
+		int totalListCount = countAllProductMethod(conn);
+		
+		int pageLimit = 5;
+		int boardLimit = 6;
+		int maxPage = 0;
+		
+		maxPage = totalListCount / boardLimit;
+		if((totalListCount % boardLimit) != 0)
+		{
+			maxPage++;
+		}
+		
+		int p = Integer.parseInt(currentPage);
+		
+		int lastNum = p * boardLimit;
+		int startNum = lastNum - boardLimit + 1; 
+		
+		ProductList = productlistcall(conn, currentPage, startNum, lastNum); 
+
+		JDBCTemplate.close(conn);
+			
+		return ProductList;
+	}
+
+	private List<ProbookVO> productlistcall(Connection conn, String currentPage, int startNum, int lastNum) 
+	{
+		return new ProbookDAO().productlistcall(conn, startNum, lastNum);
+	}
 
 }

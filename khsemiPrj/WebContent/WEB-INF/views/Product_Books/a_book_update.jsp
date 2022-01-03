@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="com.dev.probook.model.ProbookVO"%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -78,115 +81,43 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="primary">
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                        </tr>
-                        <tr>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                            <td>데이터</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                    	<c:forEach items="${data}" var="d">
+	                    	<tr class="primary">
+	                    		<td>${d.productNumber}</td>
+	                            <td>${d.productName}</td>
+	                            <td><img alt="" src="${d.imageLink}" style="width: 90px; height: 110px;"></td>
+	                            <td>${d.productPrice}</td>
+	                            <td>${d.productStock}</td>
+	                            <td>${d.productSaleCount}</td>
+	                            <td>${d.productLikeCount}</td>
+	                            <td>${d.productDescript}</td>
+	                            <td>${d.productType}</td>
+	                            <td>${d.bookNumber}</td>
+	                            <td>${d.writerName}</td>
+	                            <td>${d.publisher}</td>
+	                            <td>${d.enrollDate}</td>
+	                            <td>${d.categoty}</td>
+	                            <td>${d.contentList}</td>
+	                        </tr>
+                    	</c:forEach>
                 </tbody>
                 </table>
     
     
             <!-- -----------------------페이저----------------------------- -->
-            <div id="nav">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination pagination-sm pagination-secondary">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+                <div id="pagecontrol">
+					 <nav id="pagecontrolinner" aria-label="Page navigation example">
+					     <ul class="pagination">
+					          <c:forEach var="i" begin="1" end="10" step="1">
+					              <c:if test="${i <= maxPage}">
+					                   <li class="page-item">
+					                       <a class="page-link" href="bookupdate?currentPage=${i}">${i}</a>
+					                   </li>
+					               </c:if>
+					          </c:forEach>
+					      </ul>
+					  </nav>
+				</div>
 
     
     
