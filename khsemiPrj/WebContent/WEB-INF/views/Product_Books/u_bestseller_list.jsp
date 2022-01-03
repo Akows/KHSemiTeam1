@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,137 +47,52 @@
     </header>
 
     <section>
-        <div id="maincontentouterarea" class="maincontentarea">
-            <!-- 컨텐츠 바깥 배경 영역 (padding: 40px;) -->
-            <div id="maincontentinnerarea" class="maincontentarea">
-                <div id="maincontentdeployarea" class="maincontentarea">
-                    <!-- 컨텐츠 배치 영역 (padding: 40px;) -->
-                    <div id="contentarea2outer">
-                        <div id="contentarea2">
-                            <table border="0">
-                                <tr>
-                                    <td id="pagecontrol2">
-                                        <button class="icon-arrow-left" id="cont2button"></button>
-                                    </td>
-                                    <td>
-                                        <div id="bookarea">
-                                            <div id="bookcover">책 표지</div>
-                                            <div id="booktitle">
-                                                <h2>책 제목</h2>
-                                                <h5>저자</h5>
-                                            </div>
-                                            <div id="bookinf">
-                                                00,000$
-                                                <button class="icon-heart1" id="cont2button"></button>
-                                                <button class="icon-shopping-cart" id="cont2button"></button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div id="bookarea">
-                                            <div id="bookcover">책 표지</div>
-                                            <div id="booktitle">
-                                                <h2>책 제목</h2>
-                                                <h5>저자</h5>
-                                            </div>
-                                            <div id="bookinf">
-                                                00,000$
-                                                <button class="icon-heart1" id="cont2button"></button>
-                                                <button class="icon-shopping-cart" id="cont2button"></button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div id="bookarea">
-                                            <div id="bookcover">책 표지</div>
-                                            <div id="booktitle">
-                                                <h2>책 제목</h2>
-                                                <h5>저자</h5>
-                                            </div>
-                                            <div id="bookinf">
-                                                00,000$
-                                                <button class="icon-heart1" id="cont2button"></button>
-                                                <button class="icon-shopping-cart" id="cont2button"></button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div id="bookarea">
-                                            <div id="bookcover">책 표지</div>
-                                            <div id="booktitle">
-                                                <h2>책 제목</h2>
-                                                <h5>저자</h5>
-                                            </div>
-                                            <div id="bookinf">
-                                                00,000$
-                                                <button class="icon-heart1" id="cont2button"></button>
-                                                <button class="icon-shopping-cart" id="cont2button"></button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div id="bookarea">
-                                            <div id="bookcover">책 표지</div>
-                                            <div id="booktitle">
-                                                <h2>책 제목</h2>
-                                                <h5>저자</h5>
-                                            </div>
-                                            <div id="bookinf">
-                                                00,000$
-                                                <button class="icon-heart1" id="cont2button"></button>
-                                                <button class="icon-shopping-cart" id="cont2button"></button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td id="pagecontrol2">
-                                        <button class="icon-arrow-right" id="cont2button"></button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+        <nav id="submenu">
+            <a id="submenuscript">베스트셀러 TOP 10</a>
+            <div id="blank"></div>
+        </nav>
 
-                    </div>    
+        <!-- 컨텐츠 내부 배경 영역 (padding: 40px;) -->
+        <div id="maincontentdeployarea" class="maincontentarea">
+            <!-- 컨텐츠 배치 영역 (padding: 40px;) -->
+            <div id="maincontent01area" class="maincontentarea">
+                <!-- 컨텐츠 배치 첫번째 영역 (padding: 40px;) -->
+                <div id="contentarea">
+
+                    <table border="0">
+                                  				    
+					<br>
+
+					<c:forEach items="${data}" var="d">
+						<tr>
+							<div>
+								<td>
+									<img alt="" src="${d.imageLink}" style="width: 130px; height: 190px;">
+								</td>
+								<td>
+									<h4 style="height: 60px; text-align: center;">${d.productName}</h4>
+									<h5>${d.writerName}</h5>
+									${d.productPrice}원 <br>
+									판매량 : ${d.productSaleCount}
+									<br>
+									<button class="icon-heart1" id="cont1button"></button>
+									<button class="icon-shopping-cart" id="cont1button"></button>
+								</td>
+							</div>
+						</tr>
+									
+									<tr>
+									<td> <hr> </td>
+									<td> <hr> </td> 
+									<td> <hr> </td> 
+									<td> <hr> </td> 
+									<td> <hr> </td> 	                    		     
+									</tr> 
+			        </c:forEach>
+			        
+                    </table>
+
                 </div>
-
-                <br>
-                <hr>
-                <br>
-
-                <div id="maincontentdeployarea" class="maincontentarea">
-                    <!-- 컨텐츠 배치 영역 (padding: 40px;) -->
-
-                        <div id="contentarea3">
-                            <table border="0">
-                                <tr>
-                                    <td>
-                                        <div id="bookarea">
-                                            <div id="bookcover">책 표지</div>
-                                            <div id="booktitle">
-                                                <h2>책 제목</h2>
-                                                <h5>저자</h5>
-                                            </div>
-                                            <div id="bookinf">
-                                                00,000$
-                                                <button class="icon-heart1" id="cont3button"></button>
-                                                <button class="icon-shopping-cart" id="cont3button"></button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div id="contentarea3bookinf">
-                                            <h3>자세한 책 설명</h3>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </table>
-                        </div>
-                </div>
-
-                <br>
-                <hr>
-                <br>
-
             </div>
         </div>
     </section>

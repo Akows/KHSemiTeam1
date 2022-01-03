@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>도서 정보 수정</title>
     
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -26,6 +26,85 @@
     <!-- css -->
     <link rel="stylesheet" href="Resources/css/Product_Books/a_book_update.css">
 
+	<style type="text/css">
+		
+		#productNumberbox {
+		    width: 50px;
+		}
+		#productNamebox {
+		    width: 200px;
+		}
+		#imageLinkbox {
+		    width: 220px;
+		}
+		#productPricebox {
+		    width: 60px;
+		}
+		#productStockbox {
+		    width: 60px;
+		}
+		#productSaleCountbox {
+		    width: 60px;
+		}
+		#productLikeCountbox {
+		    width: 60px;
+		}
+		#productDescriptbox {
+			width: 200px;
+		}
+		#bookNumberbox {
+		    width: 50px;
+		}
+		#writerNamebox {
+		    width: 150px;
+		}
+		#publisherbox {
+		    width: 150px;
+		}
+		#enrollDatebox {
+		    
+		}
+		#contentListbox {
+		    width: 150px;
+		}
+		#searchbar {
+			width: 250px;
+		}
+		
+		#main
+		{
+		    width: 2300px;
+		    height: 1200px;
+		    padding: 40px;
+		    background-color: #dcdcdc;
+		    margin-top: 10px;
+		    margin-left: 10px;
+		    border-radius: 10px;
+		}
+		
+		#side
+		{
+		    width: 10%;
+		    height: 100%;
+		    display: inline;
+		    float: left;
+		}
+		#main2
+		{
+		    width: 90%;
+		    height: 100%;
+		    display: inline;
+		    float: left;
+		}
+		
+	</style>
+	
+	<script type="text/javascript">
+		window.onload = function() {
+			date = ${d.enrollDate};
+		}
+		
+	</script>
 
 </head>
 <body>
@@ -43,23 +122,29 @@
     </div>
 
     <!-------------------------------- 검색----------------------------------- -->
-    <div id="search_div" class="clearfix" style="float: left;">
-        <input type="text" class="form-control" id="search" placeholder="책 제목으로 검색하세요" style="float: left;">
-    </div>
-        <button type="submit" id="searchbtn" class="btn-outline-secondary">
-            <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
-        </button>
-    
+
 
     <div id="main">
         <div id="side">
-            <h2>도서 관리</h2>
+            <h1>도서 관리</h1>
             <br><div id="hrr"></div><br>
             <a href=""><h3>도서 등록</h3></a>
-            <a href=""><h3>도서 수정/삭제</h3></a>
+            <a href=""><h3>도서 수정</h3></a>
         </div>
         <div id="main2">
-            <h3>도서 수정/삭제</h3> 
+            <h3>도서 조회</h3> 
+      
+            		<div id="searcharea">
+					     <form action="bookupdate" method="get">
+					         <select id="selectbutton" name="searchtype">
+					             <option value="PRO_NAME">책 제목</option>
+					         </select>
+					    
+					         <input id="searchbar" type="text" placeholder="수정 대상 : 책 제목으로 검색" name="searchvalue">
+					         <button type="submit">검색</button>
+					     </form>
+					 </div>
+            
                 <table class="table-hover">
                     <thead>
                         <tr class="table-success">
@@ -81,28 +166,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                    	<c:forEach items="${data}" var="d">
-	                    	<tr class="primary">
-	                    		<td>${d.productNumber}</td>
-	                            <td>${d.productName}</td>
-	                            <td><img alt="" src="${d.imageLink}" style="width: 90px; height: 110px;"></td>
-	                            <td>${d.productPrice}</td>
-	                            <td>${d.productStock}</td>
-	                            <td>${d.productSaleCount}</td>
-	                            <td>${d.productLikeCount}</td>
-	                            <td>${d.productDescript}</td>
-	                            <td>${d.productType}</td>
-	                            <td>${d.bookNumber}</td>
-	                            <td>${d.writerName}</td>
-	                            <td>${d.publisher}</td>
-	                            <td>${d.enrollDate}</td>
-	                            <td>${d.categoty}</td>
-	                            <td>${d.contentList}</td>
-	                        </tr>
-                    	</c:forEach>
-                </tbody>
+                    
+							<c:forEach items="${data}" var="d">
+		                    	<tr class="primary">
+		                    		<td>${d.productNumber}</td>
+		                    		<td>${d.productName}</td>
+		                            <td><img alt="" src="${d.imageLink}" style="width: 70px; height: 90px;"></td>               
+		                            <td>${d.productPrice}</td>
+		                            <td>${d.productStock}</td>
+		                            <td>${d.productSaleCount}</td>
+		                            <td>${d.productLikeCount}</td>
+		                            <td>${d.productDescript}</td>
+		                            <td>${d.productType}</td>
+		                            <td>${d.bookNumber}</td>
+		                            <td>${d.writerName}</td>
+		                            <td>${d.publisher}</td>
+		                            <td>${d.enrollDate}</td>
+		                            <td>${d.categoty}</td>
+		                            <td>${d.productLikeCount}</td>
+		                        </tr>
+	                    	</c:forEach>
+	                    	
+                	</tbody>
                 </table>
-    
+                
+                <hr>
     
             <!-- -----------------------페이저----------------------------- -->
                 <div id="pagecontrol">
@@ -118,120 +206,92 @@
 					      </ul>
 					  </nav>
 				</div>
-
-    
-    
+	
+				<hr>
+    			
+    			<h3>도서 정보 수정</h3>
+    			<h6>* 주의! 정보를 수정하고 싶은 상품의 이름을 정확하게 입력해주세요.</h6>
+    			
+    	        <form action="bookupdateinsert" method="post" enctype="multipart/form-data">
+    	        	<select id="selectbutton" name="searchtype">
+					     <option value="PRO_NAME">책 제목</option>
+					</select>
+					    
+					<input id="searchbar" type="text" placeholder="수정할 상품의 이름을 입력" name="searchvalue">
+    	        
+    	        	<table class="table-hover">
+                    <thead>
+                        <tr class="table-success">
+                            <th>상품번호</th>
+                            <th>상품이름</th>
+                            <th>이미지 링크</th>
+                            <th>단가</th>
+                            <th>재고</th>
+                            <th>판매수</th>
+                            <th>좋아요</th>
+                            <th>상품설명</th>
+                            <th>상품유형</th>
+                            <th>책번호</th>
+                            <th>저자</th>
+                            <th>출판사</th>
+                            <th>출판일</th>
+                            <th>카테고리</th>
+                            <th>목차</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+						<tr class="primary">
+		                    <td><input type="text" name="productNumber" value="" id="productNumberbox"></td>
+		                    <td><input type="text" name="productName" value="" id="productNamebox"></td>
+		                    <td><input type="file" name="upload" id="imageLinkbox"></td>                  
+		                    <td><input type="text" name="productPrice" value="" id="productPricebox"></td>
+		                    <td><input type="text" name="productStock" value="" id="productStockbox"></td>
+		                    <td><input type="text" name="productSaleCount" value="" id="productSaleCountbox"></td>
+		                    <td><input type="text" name="productLikeCount" value="" id="productLikeCountbox"></td>
+		                    <td><input type="text" name="productDescript" value="" id="productDescriptbox"></td>
+		                    <td>
+			                    <select name="productType" style="width: 60px; font-size: small;">
+			                         <optgroup label="주제별">
+			                             <option value="도서">도서</option>
+			                             <option value="굿즈">굿즈</option>
+		                        </select>
+	                        </td>
+		                    <td><input type="text" name="bookNumber" value="" id="bookNumberbox"></td>
+		                    <td><input type="text" name="writerName" value="" id="writerNamebox"></td>
+		                    <td><input type="text" name="publisher" value="" id="publisherbox"></td>
+		                    <td><input type="date" name="enrollDate" value="${d.enrollDate}" id="enrollDatebox"></td>
+		                    <td>
+			                    <select name="category" style="width: 120px; font-size: small;">
+			                          <optgroup label="주제별">
+			                              <option value="프로그래밍언어">프로그래밍언어</option>
+			                              <option value="엑셀/활용서">엑셀/활용서</option>
+			                              <option value="IT자격증">IT자격증</option>
+			                          </optgroup>
+			                          <optgroup label="프로그래밍">
+			                              <option value="딥러닝">딥러닝</option>
+			                              <option value="머신러닝">머신러닝</option>
+			                              <option value="인공지능">인공지능</option>
+			                              <option value="안드로이드">안드로이드</option>
+			                              <option value="유니티">유니티</option>
+			                          </optgroup>
+		                         </select>
+	                        </td>
+		                         <td><input type="text" name="contentList" value="" id="contentListbox"></td>
+		                 </tr>
+                	</tbody>
+                </table>
+    	        	
+	            	<div id="del">
+				    	<button type="submit" class="btn1">상품 정보 수정</button>
+				    </div>
+				</form>
     
     
             <!-- ----------------------- 등록/수정 버튼 ----------------------------- -->
-            <div id="b2">
-                <div style="text-align: center;">
-                    <button type="submit" class="btn1">상품 조회</button>
-                    <i class="fas fa-chevron-down"></i>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <i class="fas fa-chevron-up"></i>
-                    <button type="submit" class="btn1">상품 수정</button>
-                </div>
-            </div>
-            <div id="del">
-                <button type="submit" class="btn1">상품 삭제</button>
-            </div>
-            <table id="table2">
-                <thead>
-                    <tr class="table-success">
-                        <th>상품번호</th>
-                        <th>상품이름</th>
-                        <th>이미지</th>
-                        <th>단가</th>
-                        <th>재고</th>
-                        <th>판매수</th>
-                        <th>좋아요</th>
-                        <th>상품설명</th>
-                        <th>상품유형</th>
-                        <th>책번호</th>
-                        <th>저자</th>
-                        <th>출판사</th>
-                        <th>출판일</th>
-                        <th>카테고리</th>
-                        <th>목차</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="primary">
-                        <td></td>
-                        <td></td>
-                        <td><input type="file"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <select name="p_category" style="width: 100%; font-size: small;">
-                                <option value="도서">도서</option>
-                                <option value="굿즈">굿즈</option>
-                                <option selected>-------------</option>
-                            </select>
-                        </td>
-                        <td></td>
-                        <td><span>검색결과</span>
-                            <button type="button" data-toggle="modal" data-target="#myModal" id="btn1" style="width: 50px;">검색</button></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <select name="b_category" style="width: 100%; font-size: small;">
-                                <optgroup label="주제별">
-                                    <option value="프로그래밍언어">프로그래밍언어</option>
-                                    <option value="엑셀/활용서">엑셀/활용서</option>
-                                    <option value="IT 자격증">IT 자격증</option>
-                                </optgroup>
-                                <optgroup label="프로그래밍">
-                                    프로그래밍
-                                    <option value="딥려닝">딥려닝</option>
-                                    <option value="머신러닝">머신러닝</option>
-                                    <option value="인공지능">인공지능</option>
-                                    <option value="안드로이드">안드로이드</option>
-                                    <option value="유니티">유니티</option>
-                                </optgroup>
-                                <option selected>-------------</option>
-                            </select>
-                        </td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+
+
         </div><!-- main2 -->
     </div><!-- main -->
-
-    <!-- ------------------------------모달----------------------------------------- -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">작가 검색</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-              <input type="text"><button id="btn1">검색</button>
-              <table>
-                  <tr>
-                    <th>저자번호</th>
-                    <th>이름</th>
-                    <th>출생년도</th>
-                  </tr>
-                  <tr>
-
-                  </tr>
-              </table>
-              <button id="btn1">등록</button>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-            </div>
-          </div>
-        </div></div>
-
-
 
     <br><br><br><br>
     

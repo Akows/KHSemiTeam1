@@ -18,6 +18,8 @@ public class BookUpdateController extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
+		String type = req.getParameter("searchtype");
+		String value = req.getParameter("searchvalue");
 		String currentPage = req.getParameter("currentPage");
 		
 		if(currentPage == null)
@@ -25,7 +27,7 @@ public class BookUpdateController extends HttpServlet
 			currentPage = "1";
 		}
 
-		int maxPage = 5;
+		int maxPage = 10;
 		req.setAttribute("maxPage", maxPage);
 		
 		int startPage = Integer.parseInt(currentPage) - 2;
@@ -38,7 +40,7 @@ public class BookUpdateController extends HttpServlet
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endpage", endPage);
 		
-		List<ProbookVO> ProductList = new ProbookService().productslistcall(currentPage);
+		List<ProbookVO> ProductList = new ProbookService().productslistcall(type, value, currentPage);
 		
 		req.setAttribute("data", ProductList);
 		

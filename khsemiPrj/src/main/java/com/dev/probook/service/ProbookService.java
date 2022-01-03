@@ -99,10 +99,105 @@ public class ProbookService
 	}
 
 
-	public List<ProbookVO> productslistcall(String currentPage) 
+	public List<ProbookVO> productslistcall(String type, String value, String currentPage) 
 	{
 		Connection conn = JDBCTemplate.getConnection();
 		List<ProbookVO> ProductList;
+		
+		int totalListCount = countAllProductMethod(conn);
+		
+		int pageLimit = 5;
+		int boardLimit = 5;
+		int maxPage = 0;
+		
+		maxPage = totalListCount / boardLimit;
+		if((totalListCount % boardLimit) != 0)
+		{
+			maxPage++;
+		}
+		
+		int p = Integer.parseInt(currentPage);
+		
+		int lastNum = p * boardLimit;
+		int startNum = lastNum - boardLimit + 1; 
+		
+		if (value == null) 
+		{
+			ProductList = productlistcall(conn, currentPage, startNum, lastNum);
+		} 
+		else 
+		{
+			ProductList = productlistcallsearchcall(conn, type, value);
+		}
+
+		JDBCTemplate.close(conn);
+			
+		return ProductList;
+	}
+
+	private List<ProbookVO> productlistcallsearchcall(Connection conn, String type, String value) 
+	{
+		return new ProbookDAO().productlistcallsearchcall(conn, type, value);
+	}
+
+	private List<ProbookVO> productlistcall(Connection conn, String currentPage, int startNum, int lastNum) 
+	{
+		return new ProbookDAO().productlistcall(conn, startNum, lastNum);
+	}
+
+	public int bookupdate(ProbookVO pro, String type, String value) 
+	{
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = 0;
+		
+		try 
+		{
+			result = updateBookProduct(conn, pro, type, value);
+			
+			if(result > 0)
+			{
+				JDBCTemplate.commit(conn);
+			}
+			else
+			{
+				JDBCTemplate.rollback(conn);
+			}
+		} 
+		finally 
+		{
+			JDBCTemplate.close(conn);
+		}
+
+		return result;
+	}
+
+	private int updateBookProduct(Connection conn, ProbookVO pro, String type, String value) 
+	{
+		return new ProbookDAO().updateBookProduct(conn, pro, type, value);
+	}
+
+	public List<ProbookVO> bestSellerlistcall() 
+	{
+		Connection conn = JDBCTemplate.getConnection();
+		List<ProbookVO> bestSellerList;
+
+		bestSellerList = bestSellerListcall(conn);
+
+		JDBCTemplate.close(conn);
+			
+		return bestSellerList;
+	}
+
+	private List<ProbookVO> bestSellerListcall(Connection conn) 
+	{
+		return new ProbookDAO().bestSellerListcall(conn);
+	}
+
+	public List<ProbookVO> programinglangListcall(String type, String value, String currentPage) 
+	{
+		Connection conn = JDBCTemplate.getConnection();
+		List<ProbookVO> programinglangList;
 		
 		int totalListCount = countAllProductMethod(conn);
 		
@@ -121,16 +216,67 @@ public class ProbookService
 		int lastNum = p * boardLimit;
 		int startNum = lastNum - boardLimit + 1; 
 		
-		ProductList = productlistcall(conn, currentPage, startNum, lastNum); 
-
+		if (value == null) 
+		{
+			programinglangList = programinglangListcall(conn, currentPage, startNum, lastNum);
+		} 
+		else 
+		{
+			programinglangList = programinglangListcallsearchcall(conn, type, value);
+		}
+		
 		JDBCTemplate.close(conn);
 			
-		return ProductList;
+		return programinglangList;
 	}
 
-	private List<ProbookVO> productlistcall(Connection conn, String currentPage, int startNum, int lastNum) 
+	private List<ProbookVO> programinglangListcall(Connection conn, String currentPage, int startNum, int lastNum)  
 	{
-		return new ProbookDAO().productlistcall(conn, startNum, lastNum);
+		return new ProbookDAO().programinglangListcall(conn, startNum, lastNum);
 	}
 
+	private List<ProbookVO> programinglangListcallsearchcall(Connection conn, String type, String value) 
+	{
+		return new ProbookDAO().programinglangListcallsearchcall(conn, type, value);
+	}
+
+	public List<ProbookVO> bookdetailListcall(String type, String value)
+	{
+		Connection conn = JDBCTemplate.getConnection();
+		
+		List<ProbookVO> bookdetailList;
+		
+		bookdetailList = bookdetailListcall(conn, type, value);
+		JDBCTemplate.close(conn);
+			
+		return bookdetailList;
+	}
+
+	private List<ProbookVO> bookdetailListcall(Connection conn, String type, String value)
+	{
+		return new ProbookDAO().bookdetailListcallsearch(conn, type, value);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
