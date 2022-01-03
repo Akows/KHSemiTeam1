@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>카테고리상품보기(도서)</title>
+    <title>카테고리상품보기(굿즈)</title>
 
     <!-- 내부 스타일시트 -->
     <link rel="stylesheet" href="./Resources/css/Product_Goods/u_category_goods_list.css">
@@ -37,136 +41,100 @@
         <div id="currentlocationarea">
             <a href="#" class="icon-home3"></a>
             >
-            <a href="#">카테고리상품보기(도서)</a>
+            <a href="#">카테고리상품보기(굿즈)</a>
         </div>
 
-        <div><h1 id="pagetitle">카테고리상품보기(도서)</h1></div>
+        <div><h1 id="pagetitle">카테고리상품보기(굿즈)</h1></div>
 
     </header>
 
     <section>
         <nav id="submenu">
-            <a id="submenuscript">결과 표시됨</a>
+            <a id="submenuscript">카테고리 SKU : ${total} 개</a>
             <div id="blank"></div>
-            <a href="#" id="submenubotton"><span class="icon-thumbsup"></span> 추천 순</a>
-            <a href="#" id="submenubotton"><span class="icon-coin-dollar"></span> 판매 순</a>
+            <a href="javascript:likedesc()" id="submenubotton"><span class="icon-thumbsup"></span> 추천 순</a>
+            <a href="javascript:salesdesc()" id="submenubotton"><span class="icon-coin-dollar"></span> 판매 순</a>
         </nav>
 
         <!-- 컨텐츠 내부 배경 영역 (padding: 40px;) -->
         <div id="maincontentdeployarea" class="maincontentarea">
-            <!-- 컨텐츠 배치 영역 (padding: 40px;) -->
-            <div id="maincontent01area" class="maincontentarea">
+           <!-- 컨텐츠 배치 영역 (padding: 40px;) -->
+           <div id="maincontent01area" class="maincontentarea">
 
                 <!-- 컨텐츠 배치 첫번째 영역 (padding: 40px;) -->
                 <div id="contentarea">
-                    <table border="0">
-                        <tr>
-                            <td>
-                                <div id="goodsarea">
-                                    <div><img src="Resources/img/Goodscover/goods_img.jpg" id="goodscover"></div>
-                                    <div id="goodstitle">
-                                        <h2>상품 이름</h2>
-                                        <h5>제조사</h5>
-                                    </div>
-                                    <div id="goodsinf">
-                                        00,000$
-                                        <button class="icon-heart1" id="cont1button"></button>
-                                        <button class="icon-shopping-cart" id="cont1button"></button>
-                                    </div>
-                                </div>
-                            </td>
-                             <td>
-                                <div id="goodsarea">
-                                    <div id="goodscover">굿즈 사진</div>
-                                    <div id="goodstitle">
-                                        <h2>상품 이름</h2>
-                                        <h5>제조사</h5>
-                                    </div>
-                                    <div id="goodsinf">
-                                        00,000$
-                                        <button class="icon-heart1" id="cont1button"></button>
-                                        <button class="icon-shopping-cart" id="cont1button"></button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div id="goodsarea">
-                                    <div id="goodscover">굿즈 사진</div>
-                                    <div id="goodstitle">
-                                        <h2>상품 이름</h2>
-                                        <h5>제조사</h5>
-                                    </div>
-                                    <div id="goodsinf">
-                                        00,000$
-                                        <button class="icon-heart1" id="cont1button"></button>
-                                        <button class="icon-shopping-cart" id="cont1button"></button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                    <table border="0">
-                                                <tr>
-                            <td>
-                                <div id="goodsarea">
-                                    <div id="goodscover">굿즈 사진</div>
-                                    <div id="goodstitle">
-                                        <h2>상품 이름</h2>
-                                        <h5>제조사</h5>
-                                    </div>
-                                    <div id="goodsinf">
-                                        00,000$
-                                        <button class="icon-heart1" id="cont1button"></button>
-                                        <button class="icon-shopping-cart" id="cont1button"></button>
-                                    </div>
-                                </div>
-                            </td>
-                             <td>
-                                <div id="goodsarea">
-                                    <div id="goodscover">굿즈 사진</div>
-                                    <div id="goodstitle">
-                                        <h2>상품 이름</h2>
-                                        <h5>제조사</h5>
-                                    </div>
-                                    <div id="goodsinf">
-                                        00,000$
-                                        <button class="icon-heart1" id="cont1button"></button>
-                                        <button class="icon-shopping-cart" id="cont1button"></button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div id="goodsarea">
-                                    <div id="goodscover">굿즈 사진</div>
-                                    <div id="goodstitle">
-                                        <h2>상품 이름</h2>
-                                        <h5>제조사</h5>
-                                    </div>
-                                    <div id="goodsinf">
-                                        00,000$
-                                        <button class="icon-heart1" id="cont1button"></button>
-                                        <button class="icon-shopping-cart" id="cont1button"></button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                   
+                   
+            <c:set var="a" value="0" /> 
+			<c:set var="b" value="3" /> 
 
-                    <div id="pagecontrol">
-                        <nav id="pagecontrolinner" aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+			<table> 
+
+			<c:forEach items="${goodsList}" var="g"> 
+			<c:if test="${a%b == 0 }"> 
+			<tr> 
+			</c:if>
+
+			<td>
+			<div id="goodsarea">
+               <div class="image-box"><img src="${g.pro_img}" class="image-thumnail" id="goodscover"></div>
+               <div id="goodstitle">
+                   <h5>${g.pro_name}</h5>
+                   <h6>${g.maker}</h6>
+               </div>
+               <div id="goodsinf">
+                       ${g.unit_price}원
+                   <button class="icon-heart1" id="cont1button"></button>
+                   <button class="icon-shopping-cart" id="cont1button"></button>
+               </div>
+           </div>
+			</td> 
+			<c:if test="${a%b == b-1 }"> 
+			</tr> 
+			</c:if> 
+			<c:set var="a" value="${a+1}" /> 
+			</c:forEach> 
+			</table>
+                   
+              <div id="pagecontrol">
+                  <nav id="pagecontrolinner" aria-label="Page navigation example">
+                         <ul class="pagination">
+                			<li class="page-item"><a id="prePage" class="page-link" href="gca?currentPage=${page.prePage()}"> < </a></li>
+	            				<c:forEach var="i" begin="${page.startNo()}" end="${page.endNo()}">
+	            				<li class="page-item"><a name="currentPage" class="page-link" href="gca?currentPage=${i}" value="${i}">${i}</a></li>
+		            			</c:forEach>
+                			<li class="page-item"><a class="page-link" href="gca?currentPage=${page.nextPage()}"> > </a></li>
+             			 </ul>                  
+                     </nav>
                 </div>
-            </div>
-        </div>
+                
+                
+                </div><!-- 컨텐츠 배치 영역 (padding: 40px;) -->
+            </div><!-- 컨텐츠 내부 배경 영역 (padding: 40px;) -->
     </section>
+ 
+	 
+<script>
+var likedesc = function(url){
+
+	$.ajax({
+		type: 'get',
+		url: "/devbooks/gca_desc",
+		data: {likedesc:"likedesc"},
+		contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+		success: function(data) {
+			$('body').html(data);
+		},
+		error: function(request, status, error) {
+			alert(error);
+		}
+	});
+};
+</script>
+ 
+
+
+
 
     <%@ include file="../Common/u_footer.jsp" %>
 

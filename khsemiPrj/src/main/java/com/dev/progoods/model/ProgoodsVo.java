@@ -2,6 +2,11 @@ package com.dev.progoods.model;
 
 public class ProgoodsVo {
 	
+	private int pro_no;
+	private int sales;
+	private int pro_like;
+	private String pro_type;
+	private int md_no;
 	private String pro_name;
 	private String pro_img;
 	private int unit_price;
@@ -11,6 +16,38 @@ public class ProgoodsVo {
 	private String maker;
 	private String country;
 	
+	
+	
+	public int getPro_no() {
+		return pro_no;
+	}
+	public void setPro_no(int pro_no) {
+		this.pro_no = pro_no;
+	}
+	public int getSales() {
+		return sales;
+	}
+	public void setSales(int sales) {
+		this.sales = sales;
+	}
+	public int getPro_like() {
+		return pro_like;
+	}
+	public void setPro_like(int pro_like) {
+		this.pro_like = pro_like;
+	}
+	public String getPro_type() {
+		return pro_type;
+	}
+	public void setPro_type(String pro_type) {
+		this.pro_type = pro_type;
+	}
+	public int getMd_no() {
+		return md_no;
+	}
+	public void setMd_no(int md_no) {
+		this.md_no = md_no;
+	}
 	
 	public String getPro_name() {
 		return pro_name;
