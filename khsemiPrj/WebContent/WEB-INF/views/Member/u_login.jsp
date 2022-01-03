@@ -25,40 +25,58 @@
     
     <!-- jQuery -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    
+    <style type="text/css">
+    	/* 아이디 텍스트 */
+		#userId {
+		    position: relative;
+		    top: 20px;
+		    margin: auto;
+		}
+		
+		/* 비밀번호 텍스트 */
+		#userPwd {
+		    position: relative;
+		    top: 60px;
+		    margin: auto;
+		}
+    </style>
 </head>
 <body>
 	<%@ include file="../Common/u_menubar.jsp" %>
     <!-- 위치 링크 -->
     <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> 로그인</a>
-    <div class="inputBox">
-        <p id="loginBox">로그인</p>
-        <br><br>
-            <div id="id" class="md-form">
-                <input type="text" id="id" class="form-control w-50">
-                <label for="inputId" style="position: relative; bottom: 45px;">아이디</label>
-            </div>
-            <div id="pwd" class="md-form">
-                <input type="password" id="password" class="form-control w-50">
-                <label for="inputPwd" style="position: relative; bottom: 5px;">비밀번호</label>
-            </div>
-            
-        <br><br><br>
-            <div id="login_Btn">
-                <input type="submit" class="btn btn-primary" id="submit" value="로그인">
-            </div>
-        <br>
-        <div class="find_Info">
-            <a href="" style="color: #2D313C;">아이디 찾기</a>
-            | 
-            <a href="" style="color: #2D313C;">비밀번호 찾기</a>
-        </div>
-        <br>
-        <div id="sign_Up">
-            <label for="" id="sign_Up">회원이 아니신가요?</label>
-            <a href=""><strong style="font-weight: bold; color: #2D313C;">회원가입</strong></a>
-        </div>
-    </div>
+    <form action="login" method="post">
+	    <div class="inputBox">
+	        <p id="loginBox">로그인</p>
+	        <br><br>
+	            <div id="id" class="md-form">
+	                <input type="text" name="userId" id="userId" class="form-control w-50">
+	                <label for="inputId" style="position: relative; bottom: 45px;">아이디</label>
+	            </div>
+	            <div id="pwd" class="md-form">
+	                <input type="password" name="userPwd" id="userPwd" class="form-control w-50">
+	                <label for="inputPwd" style="position: relative; bottom: 5px;">비밀번호</label>
+	            </div>
+	            
+	        <br><br><br>
+	            <div id="login_Btn">
+	                <input type="submit" class="btn btn-primary" id="submit" value="로그인">
+	            </div>
+	        <br>
+	        <div class="find_Info">
+	            <a href="http://127.0.0.1:8888/devbooks/idfindscreen" style="color: #2D313C;">아이디 찾기</a>
+	            | 
+	            <a href="" style="color: #2D313C;">비밀번호 찾기</a>
+	        </div>
+	        <br>
+	        <div id="sign_Up">
+	            <label for="" id="sign_Up">회원이 아니신가요?</label>
+	            <a href="http://127.0.0.1:8888/devbooks/join"><strong style="font-weight: bold; color: #2D313C;">회원가입</strong></a>
+	        </div>
+	    </div>
+    </form>
     <br><br><br><br><br><br><br><br>
     <%@ include file="../Common/u_footer.jsp" %>
 </body>
