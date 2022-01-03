@@ -3,6 +3,7 @@ package com.dev.member.model.dao;
 import static com.dev.common.JDBCTemplate.close;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ import com.dev.common.JDBCTemplate;
 import com.dev.member.model.vo.MemberVo;
 
 public class MemberDao {
-
+	
 	public int insertMember(Connection conn, MemberVo m) throws SQLException {
 		
 		// 쿼리 날리기
@@ -39,7 +40,7 @@ public class MemberDao {
 
 		} finally {
 			
-			JDBCTemplate.close(pstmt);
+			close(pstmt);
 			
 		}
 		
@@ -140,28 +141,36 @@ public class MemberDao {
 	public String findId(String userName, String userPhone) {
 		
 		// 아이디 찾기
+
+		String userId = null;
+
+        String sql = "SELECT ID FROM MEMBER WHERE NAME = ? AND PHONE = ? ";
+ 
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String id = null;
-		
-		String sql = "SELECT ID FROM MEMBER WHERE NAME = ? AND PHONE = ? ";
 		try {
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userName);
-			pstmt.setString(2, userPhone);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				id = rs.getString("userId");
-			}
-				
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return id;
+             pstmt = conn.prepareStatement(sql);
+             
+             pstmt.setString(1, userName);
+             pstmt.setString(2, userPhone);
+
+             rs = pstmt.executeQuery();
+             
+               if(rs.next()){
+                userId = rs.getString("userId");
+               }
+
+        } catch (SQLException e) {
+             e.printStackTrace();
+        } finally {
+            close(conn); 
+            close(pstmt);
+            close(rs);
+        }
+
+        return userId;
 	}
 
 }

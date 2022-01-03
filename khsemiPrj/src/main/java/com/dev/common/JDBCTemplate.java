@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class JDBCTemplate {
    
-   //Ä¿³Ø¼Ç °¡Á®¿À±â
+   //Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
    public static Connection getConnection() {
       String url = "jdbc:oracle:thin:@127.0.0.1:1521/xe";
       String id = "DEVBOOKS";
@@ -32,7 +32,7 @@ public class JDBCTemplate {
       return conn;
    }
    
-   //Ä¿¹Ô
+   //Ä¿ï¿½ï¿½
    public static void commit(Connection conn) {
       
       try {
@@ -44,7 +44,7 @@ public class JDBCTemplate {
       }
    }
    
-   //·Ñ¹é
+   //ï¿½Ñ¹ï¿½
    public static void rollback(Connection conn) {
       
       try {
@@ -56,7 +56,7 @@ public class JDBCTemplate {
       }
    }
    
-   //close µé (Connection, statement, ResultSet)
+   //close ï¿½ï¿½ (Connection, statement, ResultSet)
    public static void close(Connection conn) {
       
       try {
@@ -78,6 +78,17 @@ public class JDBCTemplate {
          e.printStackTrace();
       }
    }
+   
+   public static void close(PreparedStatement pstmt) {
+	      
+	      try {
+	         //null, isClosed
+	         if(pstmt != null && !pstmt.isClosed())
+	            pstmt.close();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }
+	   }
    
    public static void close(ResultSet rs) {
       

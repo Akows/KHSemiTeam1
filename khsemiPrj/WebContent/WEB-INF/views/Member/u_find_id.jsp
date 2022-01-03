@@ -89,8 +89,8 @@
 		 	var frm = document.idfindscreen;
 	
 		 	if (frm.userName.value.length < 1) {
-			  alert("이름을 입력해주세요");
-			  return;
+				  alert("이름을 입력해주세요");
+				  return;
 			 }
 	
 			 if (frm.userPhone.value.length != 11) {
@@ -99,7 +99,7 @@
 			 }
 	
 			 frm.method = "post";
-			 frm.action = "u_find_id_result.jsp"; //넘어간화면
+			 frm.action = "/devbooks/idsearch"; //넘어간화면
 			 frm.submit();  
 		 }
     </script>

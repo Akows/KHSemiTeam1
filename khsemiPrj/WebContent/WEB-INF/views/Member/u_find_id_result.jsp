@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.dev.member.model.dao.MemberDao" %>
+<%@ page import="com.dev.member.model.vo.MemberVo" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,25 +25,31 @@
     <!-- jQuery -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <body>
-	<%
-		 request.setCharacterEncoding("UTF-8");
-		    String userName = request.getParameter("userName");
-		    String userPhone = request.getParameter("userPhone");
+	<% request.setCharacterEncoding("UTF-8"); %>
+		 
+		 <jsp:useBean id="MemberVo" class="com.dev.member.model.vo.MemberVo" />
+		 <jsp:setProperty name="MemberVo" property="*" />
+		
+	<% String userName = request.getParameter("userName");
+	   String userPhone = request.getParameter("userPhone");
+	   
+	   System.out.println("이름 : " + userName);
+	   System.out.println("핸드폰 번호 : " + userPhone);
 		     
-		MemberDao dao = new MemberDao();
-		 String id = dao.findId(userName, userPhone); //아이디를 디비에서 가져옴..실패시 널
+	   MemberDao dao = new MemberDao();
+	   String userId = dao.findId(userName, userPhone);  //아이디를 디비에서 가져옴..실패시 널
  
 	%>
 
   <form name="idsearch" method="post">
       <%
-       if (id != null) {
+       if (userId != null) {
       %>
       
       <div class = "container">
       	<div class = "found-success">
 	      <h4>  회원님의 아이디는 </h4>  
-	      <div class ="found-id"><%=id%></div>
+	      <div class ="found-id"><%=userId%></div>
 	      <h4>  입니다 </h4>
 	     </div>
 	     <div class = "found-login">

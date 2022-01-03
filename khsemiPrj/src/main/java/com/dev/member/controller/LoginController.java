@@ -35,13 +35,15 @@ public class LoginController extends HttpServlet{
 		
 		if(loginUser != null) {
 			// success
-//			req.setAttribute("msg", "로그인 성공");
-//			req.getRequestDispatcher("/WEB-INF/views/common/successPage.jsp").forward(req, resp);
+			resp.setContentType("text/html; charset=UTF-8");
+			resp.getWriter().print("로그인 성공");
 			req.getSession().setAttribute("loginUser", loginUser);
 			req.getRequestDispatcher("/WEB-INF/views/Product_Goods/u_home.jsp").forward(req, resp);
 		} else {
 			// error
-			req.setAttribute("msg", "로그인 실패");
+			resp.setContentType("text/html; charset=UTF-8");
+			resp.getWriter().print("로그인 실패");
+//			req.setAttribute("msg", "로그인 실패");
 //			resp.sendRedirect(req.getContextPath());   
 		}
 	}
