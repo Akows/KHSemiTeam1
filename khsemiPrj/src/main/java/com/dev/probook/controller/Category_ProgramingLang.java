@@ -14,8 +14,8 @@ import com.dev.common.JDBCTemplate;
 import com.dev.probook.model.ProbookVO;
 import com.dev.probook.service.ProbookService;
 
-@WebServlet("/newproducts")
-public class NewProductController extends HttpServlet
+@WebServlet("/programinglang")
+public class Category_ProgramingLang extends HttpServlet
 {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
@@ -45,11 +45,11 @@ public class NewProductController extends HttpServlet
 		
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endpage", endPage);
-
-		List<ProbookVO> programinglangList = new ProbookService().newproductslistcall(type, value, currentPage);
 		
-		req.setAttribute("data", programinglangList);
-		req.getRequestDispatcher("./WEB-INF/views/Product_Books/u_new_book_list.jsp").forward(req, resp);
+		List<ProbookVO> newProductList = new ProbookService().programinglangListcall(type, value, currentPage);
+		
+		req.setAttribute("data", newProductList);
+		req.getRequestDispatcher("./WEB-INF/views/Product_Books/u_category_ProgramingLang.jsp").forward(req, resp);
 	}
 	
 }
