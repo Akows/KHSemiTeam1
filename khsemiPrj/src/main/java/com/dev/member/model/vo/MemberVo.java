@@ -141,4 +141,15 @@ public class MemberVo {
 		this.dd = dd;
 	}
 	
+	@Override
+	public String toString() {
+		return "MemberVo [memberNo=" + memberNo + ", userId=" + userId + ", userPwd=" + userPwd + ", pwdCheck="
+				+ pwdCheck + ", userName=" + userName + ", userEmail=" + userEmail + ", userPhone=" + userPhone
+				+ ", entYn=" + entYn + ", point=" + point + ", hireDate=" + hireDate + ", reportCount=" + reportCount
+				+ ", reviewtCount=" + reviewtCount + ", qnaCount=" + qnaCount + ", updateDate=" + updateDate + ", addr="
+				+ addr + ", addrDetail=" + addrDetail + ", yy=" + yy + ", mm=" + mm + ", dd=" + dd + "]";
+	}
+	
+	
+	
 }
