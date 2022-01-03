@@ -1,10 +1,11 @@
+<%@page import="java.util.List"%>
 <%@page import="com.dev.order.vo.CartVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
     <%
-    	CartVo data = (CartVo)request.getAttribute("data");
-    	System.out.println(data);
+    	List<CartVo> dataList = (List<CartVo>)request.getAttribute("data");
+
     %>
     
 <!DOCTYPE html>
@@ -78,33 +79,35 @@
                         <td colspan="4">합계</td>
                         <td id="m2" colspan="4"></td>
                 </tr>
-
+                
+<%
+    int totamt = 0;
+    for(CartVo c : dataList)
+    {
+    	String pro_img = c.getPro_img();
+   		String pro_name = c.getPro_name();
+   		int unit_price = c.getUnit_price();
+   		int quantity = c.getQuantity();
+   		int amt = c.getAmt();
+   		totamt = totamt + amt;
+%>	 
                 <tr>
                         <td id="chb1"><input type="checkbox"></td>
-                        <td colspan="2"><img src="Resources/img/Bookcover/book_unity.png" id="img1"></td>
-                        <td id="spm1">유니티 모바일 게임 개발/존도란</td>
-                        <td id="dg1">36,000원</td>
-                        <td id="sl1">2</td>
-                        <td id="hg1" colspan="4">72,000원</td>
+                        <td colspan="2"><img src="<%=pro_img%>" id="img1"></td>
+                        <td id="spm1"><%=pro_name%></td>
+                        <td id="dg1"><%=unit_price%>원</td>
+                        <td id="sl1"><%=quantity%></td>
+                        <td id="hg1" colspan="4"><%=amt%>원</td>
                         <td  colspan="4"></td>
                 </tr>
-                
 				<tr>
 					<td colspan="11">
 						<hr>
 					</td>
 				</tr>
-				
-                <tr>
-                        <td id="chb1"><input type="checkbox"></td>
-                        <td colspan="2"><img src="Resources/img/Bookcover/book_ml.png" id="img2"> </td>
-                        <td id="spm1">혼자 공부하는 머신러닝/박해선</td>
-                        <td id="dg1">23,400원</td>
-                        <td id="sl1">1</td>
-                        <td id="hg1" colspan="4" >23,400원</td>
-                        <td colspan="4"></td>
-                </tr>
-
+<%
+    }
+%>
                 <tr>
                     <td colspan="2"><input type="submit" id="choice" value="선택상품삭제"></td>
                     <td colspan="2"><input type="submit" id="all" value="전체상품삭제"></td>
@@ -141,14 +144,14 @@
                     <td></td>
                     <td></td>
                     <td id="gg1-1"><b>포인트 사용</b></td>
-                    <td><input type="text" placeholder="100원부터 입력"></td>
+                    <td><input type="text" placeholder="100원부터 입력" ></td>
                 </tr>
 
                 <tr>
                     <td></td>
                     <td></td>
                     <td id="gg1-2"><b>합계</b></td>
-                    <td><input type="text" placeholder="총 합계 금액"></td>
+                    <td><input type="text" placeholder="총 합계 금액" value="<%=totamt%>원"></td>
                 </tr>
 
                 <tr>
@@ -179,7 +182,8 @@
                 </tr>
             </table>
         </div>
-        
-		
+       	
 </body>
 </html>
+
+

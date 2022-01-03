@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,8 +31,18 @@ public class Cart extends HttpServlet
 		//쿼리 날릴 준비
 		PreparedStatement pstmt = null;
 		ResultSet rs= null;
-		String sql = "SELECT * FROM DEV";
-		CartVo c = null;
+		String sql = "SELECT  a.PRO_NO "
+				   + "       ,B.PRO_IMG "
+				   + "       ,B.PRO_NAME "
+				   + "       ,B.UNIT_PRICE "
+				   + "       ,a.quantity "
+				   + "       ,A.QUANTITY * B.UNIT_PRICE  AS AMT "
+				   + "  FROM  CART  A "
+				   + "  LEFT  OUTER  JOIN  PRO_INF  B "
+				   + "    ON (    A.PRO_NO = B.PRO_NO"
+				   + "       ) "
+				   ;
+		List<CartVo> cartList = new ArrayList<CartVo>();
 		
 		//이제 쿼리 날림
 		try 
@@ -41,18 +53,24 @@ public class Cart extends HttpServlet
 			while(rs.next())
 			{
 				//rs에서 현재 커서가 가리키는 행의 데이터를 가져옴
-				int m_no = rs.getInt("M_NO");
 				int pro_no = rs.getInt("PRO_NO");
+				String pro_img = rs.getString("PRO_IMG");
+				String pro_name = rs.getString("PRO_NAME");
+				int unit_price = rs.getInt("UNIT_PRICE");
 				int quantity = rs.getInt("QUANTITY");
+				int amt = rs.getInt("AMT");
 				
 				//여러 변수에 흩어져 있는 데이터를 하나로 뭉침
-				c = new CartVo();
-				c.setM_no(m_no);
+				CartVo c = new CartVo();
 				c.setPro_no(pro_no);
+				c.setPro_img(pro_img);
+				c.setPro_name(pro_name);
+				c.setUnit_price(unit_price);
 				c.setQuantity(quantity);
+				c.setAmt(amt);
 				
+				cartList.add(c);
 			}
-			
 		} 
 		catch (SQLException e) 
 		{
@@ -63,8 +81,8 @@ public class Cart extends HttpServlet
 		
 		//조회한 데이터를 JSP한테 넘겨줌
 		
-		req.setAttribute("data", c);
+		req.setAttribute("data", cartList);
 		req.getRequestDispatcher("/WEB-INF/views/Order/u_cart.jsp").forward(req, resp);
-	}
+		}
 
 }
