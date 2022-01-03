@@ -74,6 +74,7 @@
 .maincontentarea
 {
     padding: 10px;
+
 }
 #maincontentdeployarea {
     display: flex;
@@ -93,12 +94,19 @@
     /* border: hotpink 1px solid; */
 }
 
-#goodscover
-{
-    background-color: darkorange;
-    width: 180px; 
-    height: 250px;
+.image-box {
+    width:200px;
+    height:230px;
+    overflow:hidden;
+    margin:0 auto;
 }
+
+.image-thumbnail {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
 
 #pagecontrol
 {

@@ -90,12 +90,14 @@ public class Goodscontrol_1 extends HttpServlet
 		System.out.println(filePath);
 		System.out.println(filePath2);
 		
+		String filePath3 = "Resources/img/Goodscover/" + filePath.substring(filePath.lastIndexOf("\\")+1, filePath.length());
+		String filePath4 = "Resources/img/Goodscover/" + filePath2.substring(filePath2.lastIndexOf("\\")+1, filePath2.length());
 		
 		ProgoodsVo g = new ProgoodsVo();
 		g.setPro_name(pro_name);
 		g.setCountry(country);
-		g.setPro_img(filePath);
-		g.setDescription(filePath2);
+		g.setPro_img(filePath3);
+		g.setDescription(filePath4);
 		g.setMaker(maker);
 		g.setMd_cate(category);
 		g.setStock(stock);
