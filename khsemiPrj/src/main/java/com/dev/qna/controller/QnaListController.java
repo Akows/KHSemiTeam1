@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dev.paging.Paging;
 import com.dev.qna.model.service.QnaService;
+import com.dev.qna.model.vo.QnaAnswersVo;
 import com.dev.qna.model.vo.QnaVo;
 
 @WebServlet("/qna")

@@ -1,3 +1,5 @@
+<%@page import="com.dev.qna.model.vo.QnaVo"%>
+<%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -89,8 +91,24 @@
           </table>
           <br>
           <a href="qna"><button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button></a>
-          <a href="qnaupdate?qnaNo=${q.qnaNo}&qnaTitle=${q.qnaTitle}&qnaContent=${q.qnaContent}"><button class="btn btn-primary" style="float: right;">수정</button></a>
-          <a href="qnadelete?qnaNo=${q.qnaNo}"><button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button></a>
+          
+          <c:set var="user" value="${loginUser}"></c:set>
+          <% 
+          		String id = "";
+          		if(session.getAttribute("loginUser") != null) {
+          			MemberVo member = (MemberVo)session.getAttribute("loginUser");
+              		id = member.getUserId();
+          		}
+          		
+          		QnaVo qna = (QnaVo)request.getAttribute("q");
+          		String qnaId = qna.getQnaId();
+          %>
+	      
+	      <%-- 글 작성자의 id와 세션에 로그인된 id 값이 같거나 어드민인 경우에만 수정및 삭제 가능  --%>
+	      <% if(id.equals(qnaId) || id.equals("admin")) {%>
+	      		<a href="qnaupdate?qnaNo=${q.qnaNo}&qnaTitle=${q.qnaTitle}&qnaContent=${q.qnaContent}"><button class="btn btn-primary" style="float: right;">수정</button></a>
+          		<a href="qnadelete?qnaNo=${q.qnaNo}"><button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button></a>
+		  <%} %>
           <hr>
           <h4>답변</h4>
           <table class="table table-borderless">
@@ -98,21 +116,27 @@
               <tr>
                 <th colspan="2">관리자</th>
                 <!-- <th></th> -->
-                <th>2018.3.11</th>
+                <th><fmt:formatDate value="${a.ansDate}" pattern="yy.MM.dd"/></th>
                 <td style="display: none;"><button type="button" class="btn btn-danger">삭제</button></td>
               </tr>
             </thead>
-            <tbody>
+            <tbody> 
               <tr>
-                <td colspan="2">요로케 하면 돼용 ~~~</td>
-                <td><i class="far fa-thumbs-up fa-2x">+25</i></td>
+                <td colspan="2">${a.ansContent}</td>
+                <td><i class="far fa-thumbs-up fa-2x">+${a.answersLike}</i></td>
               </tr>
             </tbody>
           </table>
-          <form action="">
-            <textarea name="" id="coment" cols="10" rows="5" placeholder="답변을 등록해주세요."></textarea>
-            <input id="submit" type="submit" class="btn btn-primary" value="답변 등록">
-          </form>
+          <%-- 글 작성자의 id와 세션에 로그인된 id 값이 같거나 어드민인 경우에만 수정및 삭제 가능  --%>
+	      <% if(id.equals("admin")) {%>
+	      	<form action="answers" method="post">
+	      		<%-- qna번호 전달용 input --%>
+	      		<input name="qnaNo" type="text" value="${q.qnaNo}" style="display: none">
+            	<textarea name="coment" id="coment" cols="10" rows="5" placeholder="답변을 등록해주세요."></textarea>
+            	<input id="submit" type="submit" class="btn btn-primary" value="답변 등록">
+          	</form>
+	      <%} %>
+          
           
           </div>
         

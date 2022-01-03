@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.dev.common.JDBCTemplate.*;
+
+import com.dev.qna.model.vo.QnaAnswersVo;
 import com.dev.qna.model.vo.QnaVo;
 
 public class QnaDao {
@@ -81,9 +83,8 @@ public class QnaDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			//pstmt.setInt(1, q.getQnaId()); 세션 처리 끝난 후 사용할 쿼리
-			//pstmt.setInt(1, 3); 임시로 사용
-			pstmt.setInt(1, 3);
+			pstmt.setInt(1, q.getQnaNo());
+//			pstmt.setInt(1, 3);
 			pstmt.setString(2, q.getQnaTitle());
 			pstmt.setString(3, q.getQnaContent());
 			
@@ -170,6 +171,64 @@ public class QnaDao {
 			close(pstmt);
 		}
 		return result;
+	}
+
+	public int insertQnaAnswers(Connection conn, QnaAnswersVo a) {
+		String sql = "INSERT INTO ANSWERS(A_NO, Q_NO, A_CONTENT) VALUES(SEQ_ANSWERS.NEXTVAL, ?, ?)";
+
+		PreparedStatement pstmt = null;
+
+		int result = 0;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, a.getQnaNo());
+			pstmt.setString(2, a.getAnsContent());
+
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	public QnaAnswersVo ansSelect(Connection conn, int qnaNo) {
+		String sql = "SELECT * FROM ANSWERS WHERE Q_NO = ? AND A_DEL_YN = 'N'";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		QnaAnswersVo a = new QnaAnswersVo();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			rs = pstmt.executeQuery();
+				
+			rs.next();
+//			int qnaNo = rs.getInt("Q_NO");
+			String aContent = rs.getString("A_CONTENT");
+			int aLike = rs.getInt("A_LIKE");
+			Timestamp aDate = rs.getTimestamp("A_DATE");
+			
+					
+			//모델에 넣어줌
+			a = new QnaAnswersVo();
+			a.setQnaNo(qnaNo);
+			a.setAnsContent(aContent);
+			a.setAnswersLike(aLike);
+			a.setAnsDate(aDate);
+			
+		} catch (SQLException e) {
+			System.out.println("답변이 없어요");
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return a;
 	}
 
 }
