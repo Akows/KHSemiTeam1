@@ -28,7 +28,7 @@ public class BookInsertcontroller extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		doPost(req, resp);
+		req.getRequestDispatcher("./WEB-INF/views/Product_Books/a_book_insert.jsp").forward(req, resp);
 	}
 	
 	@Override
