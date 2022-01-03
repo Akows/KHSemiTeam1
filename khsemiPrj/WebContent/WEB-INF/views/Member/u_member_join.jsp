@@ -73,25 +73,26 @@
             <div id="user_Info" class="col-xs-3">
                 <ul class="wright_info">
                     <p class="text_info">아이디</p>
-                    <input type="text" class="form-control box_size" name="ID" id="user_Id">
+                    <input type="text" class="form-control box_size" name="userId" id="userId">
+                    <input type="button" name="dupCheck" id="dupCheck" class="form-control box_size" value="중복 확인">
                 </ul>
-                <ul class="wright_info">
+                <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">비밀번호</p>
-                    <input type="password" class="form-control box_size" name="PWD" id="user_Pwd">
+                    <input type="password" class="form-control box_size" name="userPwd" id="userPwd">
                 </ul>
-                <ul class="wright_info">
+                <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">비밀번호 확인</p>
-                    <input type="password" class="form-control box_size" name="pwd_Check" id="pwd_Check">
+                    <input type="password" class="form-control box_size" name="pwdCheck" id="pwdCheck">
                 </ul>
-                <ul class="wright_info">
+                <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">이름</p>
-                    <input type="text" class="form-control box_size" name="user_Name" id="user_Name">
+                    <input type="text" class="form-control box_size" name="userName" id="userName">
                 </ul>
-                <ul class="wright_info">
+                <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">이메일</p>
-                    <input type="text" class="form-control box_size" name="user_Email" id="user_Email">
+                    <input type="text" class="form-control box_size" name="userEmail" id="user_Email">
                     <label style="font-weight: bold; position: relative; left: 355px; bottom: 78px;">@</label>
-                    <input type="text" class="form-control box_size" name="input_Email" id="input_Email" style="position: relative; width: 155px !important; height: 38px; left: 370px; bottom: 118px;">
+                    <input type="text" class="form-control box_size" name="userEmail" id="input_Email" style="position: relative; width: 155px !important; height: 38px; left: 370px; bottom: 118px;">
                     <select name="site_Type" class="form-control box_size" id="select_Site" title="이메일 선택" style="position: relative; width: 150px !important; height: 38px; left: 540px; bottom: 156px !important;">
                     	<option value="">  직접 입력  </option>
                     	<option value="naver.com">naver.com</option>
@@ -101,24 +102,24 @@
 		                <option value="hanmail.net">hanmail.net</option>
                     </select>
                 </ul>
-                <ul class="wright_info" style="position: relative; left: 0px; bottom: 110px;">
+                <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">전화번호</p>
-                    <input type="text" class="form-control box_size" name="user_Phone" id="user_Phone" placeholder="-를 제외하고 입력해 주세요.">
+                    <input type="number" class="form-control box_size" name="phoneNum" id="user_Phone" placeholder="-를 제외하고 입력해 주세요.">
                 </ul>
-                <ul class="wright_info" style="position: relative; left: 0px; bottom: 115px;">
+                <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">주소</p>
                     <input type="text" class="form-control box_size" name="addr" id="addrBox1">
-                    <input type="text" class="form-control box_size" name="addr" id="addrBox2">
+                    <input type="text" class="form-control box_size" name="addrDetail" id="addrBox2">
                 </ul>
-                <ul class="wright_info" style="position: relative; left: 0px; bottom: 120px;">
+                <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">생년월일</p>
-                    <select name=yy" class="form-control box_size" id="year"></select>
+                    <select name="yy" class="form-control box_size" id="year"></select>
                     <select name="mm" class="form-control box_size" id="month"></select>
                     <select name="dd" class="form-control box_size" id="day"></select>
                 </ul>
                 <br>
         </div>
-    <hr color ="#787878" width="90%" height="2px" style="position: relative; bottom: 260px;">
+    <hr color ="#787878" width="90%" height="2px" style="position: relative; bottom: 280px;">
     <br><br>
     <input style="background-color: #2D313C; color: white;" type="submit" name="info_Submit" class="btn btn-default" id="info_Submit" value="회원 가입">
     </div>
@@ -130,6 +131,27 @@
         $( "#select_Site" ).change(function(){
             $("#input_Email").val( $("#select_Site").val() );
         });
+    </script>
+    
+    <!-- 아이디 중복확인 스크립트 -->
+    <script>
+        $("#dupCheck").on('click', function() {
+            $.ajax ({
+                url : '/devbooks/memberDupCheck',
+                type : 'get',
+                data : {
+                   
+                    id : $("#userId").val()
+                },
+                success : function(data) {
+                    alert(data);
+                    
+                },
+                error : function(err) {
+                    alert("실패");
+                }
+            })
+        })
     </script>
 </body>
 </html>

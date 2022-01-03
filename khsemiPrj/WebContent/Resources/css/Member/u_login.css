@@ -49,14 +49,14 @@ label {
 }
 
 /* 아이디 텍스트 */
-#id {
+#userId {
     position: relative;
     top: 20px;
     margin: auto;
 }
 
 /* 비밀번호 텍스트 */
-#password {
+#userPwd {
     position: relative;
     top: 60px;
     margin: auto;

@@ -28,10 +28,12 @@ public class MemberJoinController extends HttpServlet{
 		String pwdCheck = req.getParameter("pwdCheck");
 		String userName = req.getParameter("userName");
 		String userEmail = req.getParameter("userEmail");
-		int phoneNum = Integer.parseInt(req.getParameter("phoneNum"));
-		String address = req.getParameter("address");
+		String userPhone = req.getParameter("userPhone");
+		String addr = req.getParameter("addr");
 		String addrDetail = req.getParameter("addrDetail");
-		int birthDay = Integer.parseInt(req.getParameter("birthDay"));
+		String yy = req.getParameter("yy");
+		String mm = req.getParameter("mm");
+		String dd = req.getParameter("dd");
 		
 		MemberVo m = new MemberVo();
 		m.setUserId(userId);
@@ -39,10 +41,12 @@ public class MemberJoinController extends HttpServlet{
 		m.setPwdCheck(pwdCheck);
 		m.setUserName(userName);
 		m.setUserEmail(userEmail);
-		m.setPhoneNum(phoneNum);
-		m.setAddress(address);
+		m.setUserPhone(userPhone);
+		m.setAddr(addr);
 		m.setAddrDetail(addrDetail);
-		m.setBirthDay(birthDay);
+		m.setYy(yy);
+		m.setMm(mm);
+		m.setDd(dd);
 		
 		int result = new MemberService().join(m);
 		

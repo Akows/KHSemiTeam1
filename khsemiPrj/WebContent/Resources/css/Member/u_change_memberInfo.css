@@ -76,6 +76,16 @@ h3 {
     bottom: 48px;
 }
 
+#dupCheck {
+    width: 120px !important; 
+    height: 40px; 
+    background-color: #2D313C; 
+    color: white; 
+    position: relative; 
+    left: 540px; 
+    bottom: 86px;
+}
+
 /* 첫번째 이메일 입력 인풋 */
 #user_Email {
     width: 155px !important;
@@ -136,6 +146,6 @@ h3 {
 #info_Submit {
     position: relative;
     left: 235px !important;
-    top: -290px !important;
+    top: -320px !important;
     width: 350px;
 }

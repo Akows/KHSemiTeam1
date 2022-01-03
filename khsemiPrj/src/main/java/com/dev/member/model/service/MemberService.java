@@ -1,9 +1,12 @@
 package com.dev.member.model.service;
 
 import java.sql.Connection;
+
 import java.sql.SQLException;
 
 import static com.dev.common.JDBCTemplate.*;
+import static com.dev.common.JDBCTemplate.close;
+import static com.dev.common.JDBCTemplate.getConnection;
 
 import com.dev.member.model.dao.MemberDao;
 import com.dev.member.model.vo.MemberVo;
@@ -11,6 +14,7 @@ import com.dev.member.model.vo.MemberVo;
 public class MemberService {
 
 	public int join(MemberVo m) {
+		
 		
 		// DB Connection 가져오기
 		Connection conn = getConnection();
@@ -41,6 +45,37 @@ public class MemberService {
 		// dao 한테 쿼리 실행 결과 받아서, 비즈니스 로직 처리
 		return new MemberDao().insertMember(conn, m);
 		
+	}
+
+	public int dupCheck(String userId) {
+		Connection conn = getConnection();
+		int result = selectMemberById(conn, userId);
+		close(conn);
+		return result;
+	}
+
+	private int selectMemberById(Connection conn, String userId) {
+		return new MemberDao().selectMemberId(conn, userId);
+	}
+
+	public MemberVo login(MemberVo m) {
+		// 커넥션 가져오기
+		Connection conn = getConnection();
+				
+		// id로 그 아이디의 비번 조회
+		MemberVo selectedMember = selectMember(conn, m);
+				
+		close(conn);
+				
+		if (selectedMember.getUserPwd().equals(m.getUserPwd())) {
+				return selectedMember;
+		} else {
+				return null;
+		}
+	}
+
+	private MemberVo selectMember(Connection conn, MemberVo m) {
+		return new MemberDao().selectMember(conn ,m);
 	}
 	
 }
