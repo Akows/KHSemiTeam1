@@ -13,6 +13,8 @@ import com.dev.member.model.vo.MemberVo;
 
 public class MemberService {
 
+	private MemberDao dao = new MemberDao();
+	
 	public int join(MemberVo m) {
 		
 		
@@ -77,5 +79,19 @@ public class MemberService {
 	private MemberVo selectMember(Connection conn, MemberVo m) {
 		return new MemberDao().selectMember(conn ,m);
 	}
-	
+
+	public String searchId(String userName, String userPhone) {
+		Connection conn = getConnection();
+		String userId = dao.findId(conn, userName, userPhone);
+		close(conn);
+		return userId;
+	}
+
+	public String searchPwd(String userId, String userName) {
+		Connection conn = getConnection();
+		String userPwd = dao.findPwd(conn, userId, userName);
+		close(conn);
+		return userPwd;
+	}
+
 }

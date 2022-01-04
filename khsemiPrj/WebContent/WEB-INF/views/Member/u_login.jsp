@@ -62,13 +62,13 @@
 	            
 	        <br><br><br>
 	            <div id="login_Btn">
-	                <input type="submit" class="btn btn-primary" id="submit" value="로그인">
+	                <a href="loginUserHome"><input type="submit" class="btn btn-primary" id="submit" value="로그인"></a>
 	            </div>
 	        <br>
 	        <div class="find_Info">
 	            <a href="idsearch" style="color: #2D313C;">아이디 찾기</a>
 	            | 
-	            <a href="" style="color: #2D313C;">비밀번호 찾기</a>
+	            <a href="pwdsearch" style="color: #2D313C;">비밀번호 찾기</a>
 	        </div>
 	        <br>
 	        <div id="sign_Up">
