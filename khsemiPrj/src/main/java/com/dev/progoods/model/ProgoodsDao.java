@@ -367,6 +367,170 @@ public class ProgoodsDao {
 		
 		return goodsListAll;
 	}
+
+//	---------------------- update -------------------------------
+	
+	
+	public int updateProName(Connection conn, int pro_no, String pro_name) {
+		int result = 0; 
+		
+		String sql = "UPDATE PRO_INF SET PRO_NAME = ? WHERE PRO_NO =? ";
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pro_name);
+			pstmt.setInt(2, pro_no);
+			
+			result = pstmt.executeUpdate();
+			if(result != 0) {
+				commit(conn);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			rollback(conn);
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int updateUnitPrice(Connection conn, int pro_no, int unit_price) {
+		int result = 0; 
+		
+		String sql = "UPDATE PRO_INF SET UNIT_PRICE = ? WHERE PRO_NO =? ";
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, unit_price);
+			pstmt.setInt(2, pro_no);
+			
+			result = pstmt.executeUpdate();
+			if(result != 0) {
+				commit(conn);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			rollback(conn);
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	
+
+	public int updateStock(Connection conn, int pro_no, int stock) {
+		int result = 0; 
+		
+		String sql = "UPDATE PRO_INF SET STOCK = ? WHERE PRO_NO =? ";
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, stock);
+			pstmt.setInt(2, pro_no);
+			
+			result = pstmt.executeUpdate();
+			if(result != 0) {
+				commit(conn);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			rollback(conn);
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+
+	}
+
+	public int updatemdCate(Connection conn, int pro_no, String md_cate) {
+		int result = 0; 
+		
+		String sql = "UPDATE PRO_INF SET MD_CATE = ? WHERE PRO_NO =? ";
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, md_cate);
+			pstmt.setInt(2, pro_no);
+			
+			result = pstmt.executeUpdate();
+			if(result != 0) {
+				commit(conn);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			rollback(conn);
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+
+	}
+
+	public int updateMaker(Connection conn, int pro_no, String maker) {
+		int result = 0; 
+		
+		String sql = "UPDATE PRO_INF SET MAKER = ? WHERE PRO_NO =? ";
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, maker);
+			pstmt.setInt(2, pro_no);
+			
+			result = pstmt.executeUpdate();
+			if(result != 0) {
+				commit(conn);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			rollback(conn);
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+
+	}
+
+	public int updateCountry(Connection conn, int pro_no, String country) {
+		int result = 0; 
+		
+		String sql = "UPDATE PRO_INF SET COUNTRY = ? WHERE PRO_NO =? ";
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, country);
+			pstmt.setInt(2, pro_no);
+			
+			result = pstmt.executeUpdate();
+			if(result != 0) {
+				commit(conn);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			rollback(conn);
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 	
 	
 	

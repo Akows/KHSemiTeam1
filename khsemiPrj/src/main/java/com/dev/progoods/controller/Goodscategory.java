@@ -39,6 +39,10 @@ public class Goodscategory extends HttpServlet
 		
 		List<ProgoodsVo> goodsList = new ProgoodsService().goodsList(page, category);
 		req.setAttribute("curpage", curpage2);
+		
+		//swy start
+		System.out.println(page.startNo());
+		//swy end
 		req.setAttribute("page", page);
 		req.setAttribute("goodsList", goodsList);
 		req.setAttribute("total", total);
