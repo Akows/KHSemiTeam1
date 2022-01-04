@@ -18,7 +18,7 @@ public class ProgoodsDao {
 	public int insertProG(Connection conn, ProgoodsVo g) {
 		
 		String sql = "INSERT ALL INTO PRO_INF "
-				+ "VALUES(SEQ_PRO_INF.NEXTVAL,?,?,?,?,0,0,?,'±ÂÁî') "
+				+ "VALUES(SEQ_PRO_INF.NEXTVAL,?,?,?,?,0,0,?,'ï¿½ï¿½ï¿½ï¿½') "
 				+ "INTO MD_INF "
 				+ "VALUES(SEQ_MD_INF.NEXTVAL,SEQ_PRO_INF.NEXTVAL,?,?,?) "
 				+ "SELECT * FROM DUAL";
@@ -53,23 +53,13 @@ public class ProgoodsDao {
 		return result;
 	}
 
-	public List<ProgoodsVo> selectAll(Connection conn, Paging page, String category) {
+	public List<ProgoodsVo> categoryGoods(Connection conn, int rowStartNo, int rowEndNo, String category) {
 				
 		String sql = "SELECT * FROM (SELECT ROWNUM AS RNUM, P.*, M.MD_NO,M.MD_CATE,M.MAKER,M.COUNTRY FROM PRO_INF P JOIN MD_INF M ON P.PRO_NO = M.MD_NO WHERE M.MD_CATE=?) WHERE RNUM BETWEEN ? AND ?";
 		
-		int rowStartNo = page.rowStarNo();
-		int rowEndNo = page.rowEndNo();
+		
 		String category2 = category;
-		
-		System.out.println("=======DAO=================");
-		System.out.println("curPage:"+ page.currentPage);
-		System.out.println("startNo:"+ page.startNo());
-		System.out.println("endNo:"+ page.endNo());
-		System.out.println("prePage:"+ page.prePage());
-		System.out.println("nextPage:"+ page.nextPage());
-		System.out.println("category:"+category);
-		System.out.println("========================");
-		
+				
 		PreparedStatement pstmt = null;
 		
 		List<ProgoodsVo> goodsListAll = new ArrayList<ProgoodsVo>();
@@ -292,6 +282,90 @@ public class ProgoodsDao {
 		
 		return goodsListAll;
 		
+	}
+
+	public int totalCountAll(Connection conn) {
+		int total = 0 ;
+		String sql = "SELECT COUNT(*) FROM MD_INF";
+
+		PreparedStatement pstmt = null;
+		
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+		    rs.next();
+		    
+		    total = rs.getInt(1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return total;
+	}
+
+	public List<ProgoodsVo> goodsAll(Connection conn, int rowStartNo, int rowEndNo) {
+		String sql = "SELECT * FROM (SELECT ROWNUM AS RNUM, P.*, M.MD_NO,M.MD_CATE,M.MAKER,M.COUNTRY FROM PRO_INF P JOIN MD_INF M ON P.PRO_NO = M.MD_NO) WHERE RNUM BETWEEN ? AND ?";
+		
+		PreparedStatement pstmt = null;
+		
+		List<ProgoodsVo> goodsListAll = new ArrayList<ProgoodsVo>();
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rowStartNo);
+			pstmt.setInt(2, rowEndNo);
+			
+			rs = pstmt.executeQuery();
+			ProgoodsVo p = null;
+			while(rs.next()) {
+				int pro_no =rs.getInt("PRO_NO");
+				int sales =rs.getInt("SALES");
+				int pro_like =rs.getInt("PRO_LIKE");
+				String pro_type =rs.getString("PRO_TYPE");
+				int md_no =rs.getInt("MD_NO");
+				
+				String pro_name =rs.getString("PRO_NAME");
+				String pro_img =rs.getString("PRO_IMG");
+				int unit_price =rs.getInt("UNIT_PRICE");
+				int stock =rs.getInt("STOCK"); 
+				String description =rs.getString("DESCRIPTION");
+				String md_cate =rs.getString("MD_CATE");
+				String maker =rs.getString("MAKER");
+				String country =rs.getString("COUNTRY");
+				
+				p = new ProgoodsVo();
+				p.setCountry(country);
+				p.setDescription(description);
+				p.setMaker(maker);
+				p.setMd_cate(md_cate);
+				p.setMd_no(md_no);
+				p.setPro_img(pro_img);
+				p.setPro_like(pro_like);
+				p.setPro_name(pro_name);
+				p.setPro_no(pro_no);
+				p.setPro_type(pro_type);
+				p.setSales(sales);
+				p.setStock(stock);
+				p.setUnit_price(unit_price);
+				
+				goodsListAll.add(p);
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("sql error");
+			e.printStackTrace();
+		}finally {
+				close(pstmt);
+				close(rs);
+		}
+		
+		return goodsListAll;
 	}
 	
 	

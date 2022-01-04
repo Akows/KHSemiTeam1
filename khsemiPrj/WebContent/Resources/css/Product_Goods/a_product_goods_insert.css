@@ -1,9 +1,10 @@
 body{
     border: 0;
     background-color: #eeeeee;
+    overflow-x: hidden;
 }
 
-/* ---------- °æ·Î ---------------- */
+/* ---------- ï¿½ï¿½ï¿½ ---------------- */
 #route{
     position: relative;
     margin-top: 10px;
@@ -26,7 +27,7 @@ a{
 }
 
 
-/* ---------- ¸ÞÀÎ ---------------- */
+/* ---------- ï¿½ï¿½ï¿½ï¿½ ---------------- */
 #main{
     width: 1700px;
     height: 700px;
