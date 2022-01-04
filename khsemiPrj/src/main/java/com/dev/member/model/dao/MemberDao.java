@@ -14,6 +14,7 @@ import com.dev.common.JDBCTemplate;
 import com.dev.member.model.vo.MemberVo;
 
 public class MemberDao {
+	Connection conn = null;
 	
 	public int insertMember(Connection conn, MemberVo m) throws SQLException {
 		
@@ -137,5 +138,57 @@ public class MemberDao {
 		}		
 		
 		return selectedMember;
+	}
+
+	public String findId(Connection conn, String userName, String userPhone) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String userId = null;
+		String sql = "SELECT ID FROM MEMBER WHERE NAME = ? AND PHONE = ? ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userName);
+			pstmt.setString(2, userPhone);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				userId = rs.getString("ID");
+			}
+			
+			System.out.println(userId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return userId;
+	}
+
+	public String findPwd(Connection conn, String userId, String userName) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String userPwd = null;
+		String sql = "SELECT PWD FROM MEMBER WHERE ID = ? AND NAME = ? ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			pstmt.setString(2, userName);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				userPwd = rs.getString("PWD");
+			}
+			
+			System.out.println(userPwd);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return userPwd;
 	}
 }

@@ -87,13 +87,13 @@ h3 {
 }
 
 /* 첫번째 이메일 입력 인풋 */
-#user_Email {
+#userEmail {
     width: 155px !important;
     height: 38px;
 }
 
 /* 두번째 이메일 선택 인풋 */
-#input_Email {
+#inputEmail {
     position: relative;
     width: 158px !important;
     height: 38px;

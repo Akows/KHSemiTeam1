@@ -38,7 +38,7 @@ public class LoginController extends HttpServlet{
 			resp.setContentType("text/html; charset=UTF-8");
 			resp.getWriter().print("로그인 성공");
 			req.getSession().setAttribute("loginUser", loginUser);
-			req.getRequestDispatcher("/WEB-INF/views/Product_Goods/u_home.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/views/Product_Goods/u_login_home.jsp").forward(req, resp);
 		} else {
 			// error
 			resp.setContentType("text/html; charset=UTF-8");

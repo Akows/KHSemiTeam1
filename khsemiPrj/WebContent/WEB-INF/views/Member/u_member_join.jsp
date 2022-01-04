@@ -73,27 +73,27 @@
             <div id="user_Info" class="col-xs-3">
                 <ul class="wright_info">
                     <p class="text_info">아이디</p>
-                    <input type="text" class="form-control box_size" name="userId" id="userId">
+                    <input type="text" class="form-control box_size" name="userId" id="userId" placeholder="영문자, 숫자를 포함하여 총 4 ~ 12자로 입력." required>
                     <input type="button" name="dupCheck" id="dupCheck" class="form-control box_size" value="중복 확인">
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">비밀번호</p>
-                    <input type="password" class="form-control box_size" name="userPwd" id="userPwd">
+                    <input type="password" class="form-control box_size" name="userPwd" id="userPwd" placeholder="영문자, 숫자, 특수문자를 포함하여 총 8 ~ 15자로 입력." required>
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">비밀번호 확인</p>
-                    <input type="password" class="form-control box_size" name="pwdCheck" id="pwdCheck">
+                    <input type="password" class="form-control box_size" name="pwdCheck" id="pwdCheck" placeholder="위 비밀번호와 일치하게 입력해 주세요." required>
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">이름</p>
-                    <input type="text" class="form-control box_size" name="userName" id="userName">
+                    <input type="text" class="form-control box_size" name="userName" id="userName" placeholder="한글로 작성하며 2글자 이상으로 입력해 주세요." required>
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">이메일</p>
-                    <input type="text" class="form-control box_size" name="userEmail" id="user_Email">
+                    <input type="text" class="form-control box_size" name="userEmail" id="user_Email" placeholder="이메일을 입력하세요" required>
                     <label style="font-weight: bold; position: relative; left: 355px; bottom: 78px;">@</label>
-                    <input type="text" class="form-control box_size" name="userEmail" id="input_Email" style="position: relative; width: 155px !important; height: 38px; left: 370px; bottom: 118px;">
-                    <select name="site_Type" class="form-control box_size" id="select_Site" title="이메일 선택" style="position: relative; width: 150px !important; height: 38px; left: 540px; bottom: 156px !important;">
+                    <input type="text" class="form-control box_size" name="userEmail" id="input_Email" style="position: relative; width: 155px !important; height: 38px; left: 370px; bottom: 118px;" required>
+                    <select name="site_Type" class="form-control box_size" name="userEmail" id="select_Site" title="이메일 선택" style="position: relative; width: 150px !important; height: 38px; left: 540px; bottom: 156px !important;">
                     	<option value="">  직접 입력  </option>
                     	<option value="naver.com">naver.com</option>
 		                <option value="nate.com">nate.com</option>
@@ -104,12 +104,12 @@
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">전화번호</p>
-                    <input type="number" class="form-control box_size" name="userPhone" id="userPhone" placeholder="-를 제외하고 입력해 주세요.">
+                    <input type="text" class="form-control box_size" name="userPhone" id="userPhone" placeholder="-를 제외하고 입력해 주세요." required>
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">주소</p>
-                    <input type="text" class="form-control box_size" name="addr" id="addrBox1">
-                    <input type="text" class="form-control box_size" name="addrDetail" id="addrBox2">
+                    <input type="text" class="form-control box_size" name="addr" id="addrBox1" placeholder="주소를 입력하세요" required>
+                    <input type="text" class="form-control box_size" name="addrDetail" id="addrBox2" placeholder="상세 주소를 입력하세요" required>
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">생년월일</p>
@@ -121,7 +121,8 @@
         </div>
     <hr color ="#787878" width="90%" height="2px" style="position: relative; bottom: 280px;">
     <br><br>
-    <input style="background-color: #2D313C; color: white;" type="submit" name="info_Submit" class="btn btn-default" id="info_Submit" value="회원 가입">
+
+               <input style="background-color: #2D313C; color: white;" type="submit" name="info_Submit" class="btn btn-default" id="info_Submit" value="회원 가입" onclick="return validate();">
     </div>
         </form>
     <%@ include file="../Common/u_footer.jsp" %>
@@ -152,6 +153,67 @@
                 }
             })
         })
+    </script>
+
+    <!-- 정규표현식 스크립트 -->
+    <script>
+        function validate() {
+            let userId = document.getElementById('userId').value;
+            let userPwd = document.getElementById('userPwd').value;
+            let pwdCheck = document.getElementById('pwdCheck').value;
+            let userName = document.getElementById('userName').value;
+            let addr = document.getElementById('addr').value;
+            let addrDetail = document.getElementById('addrDetail').value;
+
+            // 첫 글자는 반드시 영문자로 입력되어야 하고,
+            // 영문 소문자, 숫자 포함하여 총 4 ~ 12자로 입력하시오.
+            if(!(/^[a-z][a-z\d]{3,11}$/.test(userId))) {
+                alert('유효한 아이디를 입력하세요.');
+
+                return false;
+
+            };
+
+            if(!(/^[\w!@#$%^&*-]{8,15}$/.test(userPwd))) {
+                alert('유효한 비밀번호를 입력하세요');
+
+                return false;
+            };
+
+            // 비밀번호 확인 검사
+            if(userPwd !== pwdCheck) {
+
+                document.getElementById('pwdCheck').value = '';
+                document.getElementById('pwdCheck').focus();
+
+                return false;
+            };
+
+            // 이름 검사
+            // 한글로만 이루어져야 하며 2글자 이상으로 입력하시오.
+            if(!(/^[가-힣]{2,}$/.test(userName))) {
+                alert('유효한 이름을 입력하세요');
+
+                return false;
+            };
+
+            // 전화번호
+            if(!(/^01{1}[016789]{1}[0-9]{7,8}$/.test(userPhone))) {
+                alert('-를 제외하고 입력해 주세요.');
+                
+                return false;
+            }
+
+            // 주소
+            if(!(/^[a-zA-Zㄱ-힣0-9|s]*$/.test(addr))) {
+                alert('특수문자를 제외하고 입력해 주세요')
+            }
+
+            // 상세 주소
+            if(!(/^[a-zA-Zㄱ-힣0-9|s]*$/.test(addrDetail))) {
+                alert('특수문자를 제외하고 입력해 주세요')
+            }
+        };
     </script>
 </body>
 </html>
