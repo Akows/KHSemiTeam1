@@ -26,8 +26,13 @@ public class QnaDetailController extends HttpServlet{
 		
 		req.setAttribute("q", q);
 		
-		if(a != null) {
+		String aCon = a.getAnsContent();
+		
+		if(aCon != null) {
 			req.setAttribute("a", a);
+			req.setAttribute("msg", "yes");
+		} else {
+			req.setAttribute("msg", "no");
 		}
 		
 		req.getRequestDispatcher("WEB-INF/views/QnA/m_qna_detail.jsp").forward(req, resp);
