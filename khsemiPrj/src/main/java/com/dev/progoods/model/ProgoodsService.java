@@ -79,7 +79,69 @@ public class ProgoodsService {
 		close(conn);
 		return goodsListAll;
 	}
-
 	
+//	------------------- update------------------------------
+
+	public int updateProName(int pro_no , String pro_name) {
+		Connection conn = getConnection();
+		int update =  new ProgoodsDao().updateProName(conn, pro_no, pro_name) ;
+		close(conn);
+		return update;
+	}
+	
+	public int updateUnitPrice(int pro_no ,int unit_price) {
+		Connection conn = getConnection();
+		int update =  new ProgoodsDao().updateUnitPrice(conn, pro_no, unit_price) ;
+		close(conn);
+		return update;
+	}
+	
+	public int updateStock(int pro_no, int stock) {
+		Connection conn = getConnection();
+		int update =  new ProgoodsDao().updateStock(conn, pro_no, stock) ;
+		close(conn);
+		return update;
+	}
+	public int updatemdCate(int pro_no, String md_cate) {
+		Connection conn = getConnection();
+		int update =  new ProgoodsDao().updatemdCate(conn, pro_no, md_cate) ;
+		close(conn);
+		return update;
+	}
+	public int updateMaker(int pro_no, String maker) {
+		Connection conn = getConnection();
+		int update =  new ProgoodsDao().updateMaker(conn, pro_no, maker) ;
+		close(conn);
+		return update;
+	}
+	
+	public int updateCountry(int pro_no, String country) {
+		Connection conn = getConnection();
+		int update =  new ProgoodsDao().updateCountry(conn, pro_no, country) ;
+		close(conn);
+		return update;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public int updateProImg(int pro_no) {
+		Connection conn = getConnection();
+		int update = 0;
+		
+		close(conn);
+		return update;
+	}
+	public int updateProInf(int pro_no) {
+		Connection conn = getConnection();
+		int update = 0;
+		
+		close(conn);
+		return update;
+	}
 	
 }

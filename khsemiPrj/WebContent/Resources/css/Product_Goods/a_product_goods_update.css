@@ -126,16 +126,21 @@ select{
 #del{
     margin-top: 10px;
 }
-#a{
+.a{
 	width: 200px !important;
 	border: 0;	
 }
-#b{
+.b{
 	width: 70px;
 	border: 0;	
 }
+.c{
+	width: 30px;
+	border: 0;
+	text-align: center;	
+}
 #proN{
-	width: 40px;
+	width: 30px;
 	border: 0;	
 	text-align: center;
 }

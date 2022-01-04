@@ -78,7 +78,7 @@
                     </thead>
                     <tbody id="tbody">
                     <c:forEach items="${goodsList}" var="g" varStatus="status"> 
-                        <tr id="tval" onclick="statusChange(this)" >
+                        <tr id="tval" >
 					        <td>${g.pro_no}</td>
 					        <td>${g.pro_name}</td>
 					        <td>${g.pro_img}</td>
@@ -168,24 +168,25 @@
                     </tr>
                     <tr id="update">
 			            <td><input id="proN" type="text" name="pro_no" disabled/></td>
-			            <td><input id="a" type="text" name="pro_name"></td>
-			            <td><input type="file" accept="image/jpeg,.png" name="goodsimg"></td>
-			            <td><input id="b" type="number" name="unit_price"></td>
-			            <td><input id="b" type="number" name="stock"></td>
-			            <td></td>
-			            <td></td>
-			            <td><input type="file" accept="image/jpeg,.png" name="goodsinf"></td>
-			            <td>굿즈</td>
-			            <td></td>
+			            <td><input class="a" id="proName" type="text" name="pro_name"></td>
+			            <td><input id="img" type="file" accept="image/jpeg,.png" name="goodsimg"></td>
+			            <td><input class="b" id="price" type="number" name="unit_price"></td>
+			            <td><input class="b" id="stock" type="number" name="stock"></td>
+			            <td><input class="c" id="sale" type="number" name="sales" disabled/></td>
+			            <td><input class="c" id="like" type="number" name="pro_like" disabled/></td>
+			            <td><input id="inf" type="file" accept="image/jpeg,.png" name="goodsinf"></td>
+			            <td>굿즈<input class="c" id="type" type="text" name="pro_type" disabled/></td>
+			            <td><input class="c" id="mdNo" type="text" name="md_no" disabled/></td>
 			            <td>
-			                <select name="category" style="width: 100%; font-size: small;">
+			                <select id="cate" name="category" style="width: 100%; font-size: small;">
 			                        <option value="생활용품">생활용품</option>
 			                        <option value="문구/활용서">문구</option>
 			                        <option value="인형">인형</option>
+			                        <option selected>----------</option>
 			                </select>
 			            </td>
-			            <td><input id="b" type="text" name="maker"></td>
-			            <td><input id="b" type="text" name="country"></td>
+			            <td><input class="b" id="maker" type="text" name="maker"></td>
+			            <td><input class="b" id="country" type="text" name="country"></td>
                     </tr>
                 </tbody>
             </table>
@@ -233,14 +234,56 @@
                 $('#update').children().eq(6).text(num6);
                 $('#update').children().eq(8).text(num8);
                 $('#update').children().eq(9).text(num9);    
-            
+             
                 
                var pro_no = $(this).children().eq(0).text();
+               console.log(pro_no);
  			   $("#proN").val(pro_no);
-                
-                
-                
-                
+ 			   
+ 			 /*var pro_name = $(this).children().eq(1).text();
+ 			   console.log(pro_name);
+			   $("#proName").val(pro_name);
+			   
+			   
+ 			   
+ 			   var unit_price = $(this).children().eq(3).text();
+ 			   console.log(unit_price);
+			   $("#price").val(unit_price);
+			   
+			   var stock = $(this).children().eq(4).text();
+			   console.log(stock);
+ 			   $("#stock").val(stock);
+ 			   
+ 			   var sales = $(this).children().eq(5).text();
+ 			   console.log(sales);
+			   $("#sale").val(sales);
+			   6
+			   var pro_like = $(this).children().eq(6).text();
+			   console.log(pro_like);
+ 			   $("#like").val(pro_like);
+ 			   
+ 			  
+			   
+			   var pro_type = $(this).children().eq(8).text();
+			   console.log(pro_type);
+ 			   $("#type").val(pro_type);
+ 			   
+ 			   var md_no = $(this).children().eq(9).text();
+ 			   console.log(md_no);
+			   $("#mdNo").val(md_no);
+			   
+			   var category = $(this).children().eq(10).text();
+			   console.log(category);
+ 			   $("#cate").val(category);
+ 			   
+ 			   var maker = $(this).children().eq(11).text();
+ 			   console.log(maker);
+			   $("#maker").val(maker);
+			   
+			   var country = $(this).children().eq(12).text();
+			   console.log(country);
+			   $("#country").val(country); */
+ 	            
             });
 
         });    

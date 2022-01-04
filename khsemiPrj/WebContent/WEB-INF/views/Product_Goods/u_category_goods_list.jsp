@@ -1,3 +1,4 @@
+<%@page import="com.dev.paging.Paging"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -108,7 +109,12 @@
                   <nav id="pagecontrolinner" aria-label="Page navigation example">
                          <ul class="pagination">
                 			<li class="page-item"><a id="prePage" class="page-link" href="gca?currentPage=${page.prePage()}"> < </a></li>
-	            				<c:forEach var="i" begin="${page.startNo()}" end="${page.endNo()}">
+                			<%
+                			System.out.println( "swy : " + ((Paging)request.getAttribute("page")).startNo() );	
+                			System.out.println( "swy : " + ((Paging)request.getAttribute("page")).endNo() );	
+                			%>
+                			 <c:forEach var="i" begin="${4}" end="${4}">
+	            				<%--  <c:forEach var="i" begin="${page.startNo()}" end="${page.endNo()}"> --%>
 	            				<li class="page-item"><a name="currentPage" class="page-link" href="gca?currentPage=${i}" value="${i}">${i}</a></li>
 		            			</c:forEach>
                 			<li class="page-item"><a class="page-link" href="gca?currentPage=${page.nextPage()}"> > </a></li>
