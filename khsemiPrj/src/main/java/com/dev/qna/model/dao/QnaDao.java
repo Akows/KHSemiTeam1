@@ -100,16 +100,16 @@ public class QnaDao {
 
 	public QnaVo qnaSelect(Connection conn, int qnaNo) {
 		String sql = "SELECT Q.Q_NO, Q.Q_TITLE, Q.Q_CONTENT, TRUNC(Q.Q_DATE) AS \"Q_DATE\", M.ID, Q.Q_VIEW FROM QNA Q JOIN MEMBER M ON Q.M_NO = M.M_NO WHERE Q_NO = ?";
-		String sql2 = "UPDATE QNA SET Q_VIEW = Q_VIEW +1 WHERE Q_NO = ?";
+//		String sql2 = "UPDATE QNA SET Q_VIEW = Q_VIEW +1 WHERE Q_NO = ?";
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		QnaVo q = new QnaVo();
 		try {
 			//조회수 증가
-			pstmt = conn.prepareStatement(sql2);
-			pstmt.setInt(1, qnaNo);
-			pstmt.execute();
+//			pstmt = conn.prepareStatement(sql2);
+//			pstmt.setInt(1, qnaNo);
+//			pstmt.execute();
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, qnaNo);
@@ -134,7 +134,23 @@ public class QnaDao {
 		
 		return q;
 	}
+	
+	//qna조회수 증가
+	public void qnaViewPlus(Connection conn, int qnaNo) {
+		String sql = "UPDATE QNA SET Q_VIEW = Q_VIEW +1 WHERE Q_NO = ?";
+		PreparedStatement pstmt = null;
+		//조회수 증가
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			pstmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("조회수 추가 안댐");
+		}
+	}
 
+	//qna 삭제
 	public int qnaDelete(Connection conn, int qnaNo) {
 		String sql = "UPDATE QNA SET Q_DEL_YN = 'Y' WHERE Q_NO = ?";
 		
@@ -153,6 +169,7 @@ public class QnaDao {
 		return result;
 	}
 	
+	//qna수정
 	public int qnaUpdate(Connection conn, QnaVo q) {
 		String sql = "UPDATE QNA SET Q_TITLE = ?, Q_CONTENT = ? WHERE Q_NO = ?";
 		
@@ -172,7 +189,8 @@ public class QnaDao {
 		}
 		return result;
 	}
-
+	
+	//답변 작성
 	public int insertQnaAnswers(Connection conn, QnaAnswersVo a) {
 		String sql = "INSERT INTO ANSWERS(A_NO, Q_NO, A_CONTENT) VALUES(SEQ_ANSWERS.NEXTVAL, ?, ?)";
 
@@ -196,6 +214,7 @@ public class QnaDao {
 		return result;
 	}
 
+	//답변 조회
 	public QnaAnswersVo ansSelect(Connection conn, int qnaNo) {
 		String sql = "SELECT * FROM ANSWERS WHERE Q_NO = ? AND A_DEL_YN = 'N'";
 		

@@ -15,17 +15,14 @@ import com.dev.qna.model.vo.QnaVo;
 public class QnaUpdateController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String qnaNo = req.getParameter("qnaNo");
+		int qnaNo = Integer.parseInt(req.getParameter("qnaNo"));
 		System.out.println("수정전 qnaNo : " + qnaNo);
 		String qnaTitle = req.getParameter("qnaTitle");
 		System.out.println("수정전 qnaNo : " + qnaTitle);
 		String qnaContent = req.getParameter("qnaContent");
 		System.out.println("수정전 qnaContent : " + qnaContent);
 		
-//		int result = new QnaService().qnaUpdate(Integer.parseInt(qnaNo));
-		
-//		req.setAttribute("result", result);
-		
+		req.setAttribute("qnaNo", qnaNo);
 		req.setAttribute("qnaTitle", qnaTitle);
 		req.setAttribute("qnaContent", qnaContent);
 		req.getRequestDispatcher("WEB-INF/views/QnA/u_qna_update.jsp").forward(req, resp);
@@ -33,14 +30,16 @@ public class QnaUpdateController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//세션 처리 후 세션에 있는 m_no를 가져옴
-		// String id = req.getAttribute("m_no");
+		System.out.println("qna업데이트의 dopost 문 안으로 들어옴");
+		int qnaNo = Integer.parseInt(req.getParameter("qnano"));
+		System.out.println(qnaNo);
 		String title = req.getParameter("qnatitle");
+		System.out.println(title);
 		String content = req.getParameter("qnacontent");
+		System.out.println(content);
 
-		// 세션 처리 되면 사용할 생성자
-		// QnaVo q = new QnaVo(title, content, id);
 		QnaVo q = new QnaVo();
+		q.setQnaNo(qnaNo);
 		q.setQnaTitle(title);
 		q.setQnaContent(content);
 

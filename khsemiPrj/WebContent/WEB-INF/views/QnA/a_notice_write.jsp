@@ -62,20 +62,17 @@
           <!-- BEGIN RESULT -->
           <div class="col-md-10">
             <h2>공지작성</h2>
-            <form action="writerAction" method="post">
-                <input type="hidden" name="bdGroup">
-                <input type="hidden" name="bdOrder">
-                <input type="hidden" name="bdIndent">
-                <input type="text" id="bdTitle" name="bdTitle" class="form-control mt-4 mb-2"
+            <form action="noticewrite" method="post">
+                <input type="text" id="noticeTitle" name="noticetitle" class="form-control mt-4 mb-2"
                     placeholder="제목을 입력해주세요." required
                 >
                 <div class="form-group">
-                    <textarea class="form-control" rows="10" name="bdContent"
+                    <textarea class="form-control" rows="10" id="noticeContent" name="noticecontent"
                         placeholder="내용을 입력해주세요" required
                     ></textarea>
                 </div>
                 <div class="writeBtn">
-                    <button type="button" class="btn btn-primary" style="background-color: #6c757d; border-color: #6c757d;">취소</button>
+                    <a href="notice"><button type="button" class="btn btn-primary" style="background-color: #6c757d; border-color: #6c757d;">취소</button></a>
                     <button type="submit" class="btn btn-primary">공지작성</button>
                 </div>
             </form>

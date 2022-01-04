@@ -1,3 +1,4 @@
+<%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,8 +33,23 @@
 </head>
 
 <body>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<%@ include file="../Common/u_menubar.jsp" %>
+
+<%
+	String id = "";
+	if(session.getAttribute("loginUser") != null) {
+		MemberVo member = (MemberVo)session.getAttribute("loginUser");
+		id = member.getUserId();
+	}
+%>
+
+<% if(id.equals("admin")) { %>
+	<%@ include file="../Common/a_menubar.jsp" %>
+<% } else if(session.getAttribute("loginUser") != null) { %>
+	<%@ include file="../Common/u_menubar_login.jsp" %>
+<% } else if(session.getAttribute("loginUser") == null) { %>
+	<%@ include file="../Common/u_menubar.jsp" %>
+<% } %>
+
 <div class="container">
 <div class="row">
   <div class="bbiv">
@@ -155,7 +171,10 @@
         </table>
         <hr>
         <div class="writeBtn">
-            <a href="eventwrite"><button type="button" class="btn btn-primary">이벤트작성</button></a>
+        	<% if(id.equals("admin")) { %>
+	        	<a href="eventwrite"><button type="button" class="btn btn-primary">이벤트작성</button></a>
+	  		<% } %>
+            
         </div>
         <br><br>
         
@@ -163,12 +182,12 @@
             <!-- END TABLE RESULT -->
             <!-- BEGIN PAGINATION -->
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#"> << </a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#"> >> </a></li>
-              </ul>
+                <li class="page-item"><a id="prePage" class="page-link" > < </a></li>
+	            	<c:forEach var="i" begin="${page.startNo()}" end="${page.endNo()}">
+	            		<li class="page-item"><a name="currentPage" class="page-link" href="event?currentPage=${i}" value="${i}">${i}</a></li>
+		            </c:forEach>
+                <li class="page-item"><a class="page-link" href="notice?currentPage=${page.nextPage() }"> > </a></li>
+             </ul>
             <!-- END PAGINATION -->
           </div>
           <!-- END RESULT -->

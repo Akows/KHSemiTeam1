@@ -62,7 +62,7 @@
           <!-- BEGIN RESULT -->
           <div class="col-md-10">
             <h2>이벤트작성</h2>
-            <form action="writerAction" method="post">
+            <form action="eventwrite" method="post">
                 <input type="hidden" name="bdGroup">
                 <input type="hidden" name="bdOrder">
                 <input type="hidden" name="bdIndent">
@@ -74,6 +74,8 @@
                         placeholder="내용을 입력해주세요" required
                     ></textarea>
                 </div>
+                이벤트 기간 : <input type="date" name="startdate" min="sysdate"> <h4 style="display: inline;">~</h4> <input type="date" name="enddate"><br>
+                <br>
                 <input type="file" name="file"><br>
                 <div class="writeBtn">
                     <button type="button" class="btn btn-primary" style="background-color: #6c757d; border-color: #6c757d;">취소</button>

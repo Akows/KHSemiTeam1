@@ -1,3 +1,4 @@
+<%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -34,7 +35,21 @@
 </head>
 
 <body>
-<%@ include file="../Common/u_menubar.jsp" %>
+<%
+	String id = "";
+	if(session.getAttribute("loginUser") != null) {
+		MemberVo member = (MemberVo)session.getAttribute("loginUser");
+		id = member.getUserId();
+	}
+%>
+
+<% if(id.equals("admin")) { %>
+	<%@ include file="../Common/a_menubar.jsp" %>
+<% } else if(session.getAttribute("loginUser") != null) { %>
+	<%@ include file="../Common/u_menubar_login.jsp" %>
+<% } else if(session.getAttribute("loginUser") == null) { %>
+	<%@ include file="../Common/u_menubar.jsp" %>
+<% } %>
 
 <div class="container">
 <div class="row">
@@ -99,10 +114,9 @@
         <c:set var="user" value="session.getAttribute('loginUser')"></c:set>
         <div class="writeBtn">
         <%-- 세션에 loginUser가 없다면 글 작성을 하지 못함  --%>
-        <c:if test="${user ne null}">
+        <% if(session.getAttribute("loginUser") != null) { %>
         	<a href="qnawrite"><button type="button" class="btn btn-primary">질문작성</button></a>
-        </c:if>
-        
+  		<% } %>
         </div>
         <br>
         <br>
@@ -114,7 +128,7 @@
 	            		<li class="page-item"><a name="currentPage" class="page-link" href="qna?currentPage=${i}" value="${i}">${i}</a></li>
 		            </c:forEach>
                 <li class="page-item"><a class="page-link" href="qna?currentPage=${page.nextPage() }"> > </a></li>
-              </ul>
+             </ul>
             <!-- END PAGINATION -->
           </div>
           <!-- END RESULT -->
@@ -132,6 +146,12 @@
     		location.href = 'qna?currentPage=${page.prePage() }';
     	})
     </script>
-    <%@ include file="../Common/u_footer.jsp" %>
+    
+    <% if(id.equals("admin")) { %>
+		<%@ include file="../Common/a_footer.jsp" %>
+	<% } else if(session.getAttribute("loginUser") != null) { %>
+		<%@ include file="../Common/u_footer.jsp" %>
+	<% } %>
+    
 </body>
 </html>

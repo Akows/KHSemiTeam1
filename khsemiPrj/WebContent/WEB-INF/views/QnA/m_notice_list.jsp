@@ -1,5 +1,8 @@
+<%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +22,21 @@
 </head>
 
 <body>
-<%@ include file="../Common/u_menubar.jsp" %>
+<%
+	String id = "";
+	if(session.getAttribute("loginUser") != null) {
+		MemberVo member = (MemberVo)session.getAttribute("loginUser");
+		id = member.getUserId();
+	}
+%>
+
+<% if(id.equals("admin")) { %>
+	<%@ include file="../Common/a_menubar.jsp" %>
+<% } else if(session.getAttribute("loginUser") != null) { %>
+	<%@ include file="../Common/u_menubar_login.jsp" %>
+<% } else if(session.getAttribute("loginUser") == null) { %>
+	<%@ include file="../Common/u_menubar.jsp" %>
+<% } %>
 <div class="container">
 <div class="row">
   <!-- BEGIN SEARCH RESULT -->
@@ -66,95 +83,34 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>108</td>
-                    <td>제목 TEST4</td>
-                    <td>2021.12.22</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>108</td>
-                    <td>제목 TEST4</td>
-                    <td>2021.12.22</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>108</td>
-                    <td>제목 TEST4</td>
-                    <td>2021.12.22</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>108</td>
-                    <td>제목 TEST4</td>
-                    <td>2021.12.22</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>108</td>
-                    <td>제목 TEST4</td>
-                    <td>2021.12.22</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>108</td>
-                    <td>제목 TEST4</td>
-                    <td>2021.12.22</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>108</td>
-                    <td>제목 TEST4</td>
-                    <td>2021.12.22</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>108</td>
-                    <td>제목 TEST4</td>
-                    <td>2021.12.22</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>108</td>
-                    <td>제목 TEST4</td>
-                    <td>2021.12.22</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>107</td>
-                    <td>제목 TEST3</td>
-                    <td>2021.12.18</td>
-                    <td>76</td>
-                </tr>
-                <tr>
-                    <td>106</td>
-                    <td>제목 TEST2</td>
-                    <td>2021.12.04</td>
-                    <td>48</td>
-                </tr>
-                <tr>
-                    <td>105</td>
-                    <td>제목 TEST1</td>
-                    <td>2021.11.27</td>
-                    <td>100</td>
-                </tr>
+                <c:forEach items="${noticeList}" var="n">
+					<tr>
+						<td>${n.noticeNo}</td>
+						<td><a href="noticedt?noticeNo=${n.noticeNo}">
+						${n.noticeTitle}</a></td>
+						<td><fmt:formatDate value="${n.noticeDate}" pattern="yy.MM.dd"/></td>
+						<td>${n.noticeView}</td>
+					</tr>
+				</c:forEach>
             </tbody>
         </table>
         <hr>
         <div class="writeBtn">
-            <button type="button" class="btn btn-primary">공지작성</button>
+	        <% if(id.equals("admin")) { %>
+	        	<a href="noticewrite"><button type="button" class="btn btn-primary">공지작성</button></a>
+	  		<% } %>
         </div>
         <br><br>
         <!-- <hr/> -->
             <!-- END TABLE RESULT -->
             <!-- BEGIN PAGINATION -->
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#"> << </a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#"> >> </a></li>
-              </ul>
+                <li class="page-item"><a id="prePage" class="page-link" > < </a></li>
+	            	<c:forEach var="i" begin="${page.startNo()}" end="${page.endNo()}">
+	            		<li class="page-item"><a name="currentPage" class="page-link" href="notice?currentPage=${i}" value="${i}">${i}</a></li>
+		            </c:forEach>
+                <li class="page-item"><a class="page-link" href="notice?currentPage=${page.nextPage() }"> > </a></li>
+             </ul>
             <!-- END PAGINATION -->
           </div>
           <!-- END RESULT -->

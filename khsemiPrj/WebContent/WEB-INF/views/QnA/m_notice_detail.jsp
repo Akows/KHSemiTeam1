@@ -1,5 +1,8 @@
+<%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,8 +28,21 @@
 </head>
 
 <body>
-<%@ include file="../Common/u_menubar.jsp" %>
-<div class="container">
+	<% String id = "";
+	if (session.getAttribute("loginUser") != null) {
+		MemberVo member = (MemberVo) session.getAttribute("loginUser");
+		id = member.getUserId();
+	} %>
+
+	<% if (id.equals("admin")) { %>
+	<%@ include file="../Common/a_menubar.jsp"%>
+	<% } else if (session.getAttribute("loginUser") != null) { %>
+	<%@ include file="../Common/u_menubar_login.jsp"%>
+	<% } else if (session.getAttribute("loginUser") == null) { %>
+	<%@ include file="../Common/u_menubar.jsp"%>
+	<% } %>
+
+	<div class="container">
 <div class="row">
   <!-- BEGIN SEARCH RESULT -->
   <div class="bbiv">
@@ -73,31 +89,29 @@
               <tbody>
                 <tr>
                   <th style="width: 8%;">제목</th>
-                  <td id="title" colspan="5">공지 테스트입니다.</td>
-                  <!-- <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td> -->
+                  <td id="title" colspan="5">${n.noticeTitle}</td>
                 </tr>
                 <tr>
                   <th>작성일</th>
-                  <td id="date">2018.3.10</td>
+                  <td id="date"><fmt:formatDate value="${n.noticeDate}" pattern="yy.MM.dd"/></td>
                   <th style="width: 10%;">작성자</th>
                   <td id="author">관리자</td>
                   <th style="width: 10%;">조회수</th>
-                  <td id="view">1500</td>
+                  <td id="view">${n.noticeView}</td>
                 </tr>
                 <tr>
                   <td id="content" colspan="6">
-                    요러요러한 공지사항이 있습니다.
+                    ${n.noticeContent}
                   </td>
                 </tr>
               </tbody>
           </table>
           <br>
-          <button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button>
-          <button class="btn btn-primary" style="float: right;">수정</button>
-          <button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button>
+          <a href="notice"><button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button></a>
+          <% if(id.equals("admin")) { %>
+          <a href="noticeupdate?noticeNo=${n.noticeNo}&noticeTitle=${n.noticeTitle}&noticeContent=${n.noticeContent}"><button class="btn btn-primary" style="float: right;">수정</button></a>
+          <a href="noticedelete?noticeNo=${n.noticeNo}"><button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button></a>
+          <% } %>
           <hr>
         <!-- <hr/> -->
             <!-- END TABLE RESULT -->
@@ -118,6 +132,11 @@
     <script type="text/javascript">
     
     </script>
-    <%@ include file="../Common/u_footer.jsp" %>
+    
+	<% if(id.equals("admin")) { %>
+        <%@ include file="../Common/a_footer.jsp" %>
+    <% } else if(session.getAttribute("loginUser") != null) { %>
+        <%@ include file="../Common/u_footer.jsp" %>
+    <% } %>
 </body>
 </html>
