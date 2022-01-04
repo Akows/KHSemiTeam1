@@ -1,3 +1,4 @@
+<%@page import="com.dev.qna.model.vo.QnaAnswersVo"%>
 <%@page import="com.dev.qna.model.vo.QnaVo"%>
 <%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -101,34 +102,41 @@
           		}
           		
           		QnaVo qna = (QnaVo)request.getAttribute("q");
+          		String msg = (String)request.getAttribute("msg");
           		String qnaId = qna.getQnaId();
+          		System.out.println(msg);
           %>
 	      
 	      <%-- 글 작성자의 id와 세션에 로그인된 id 값이 같거나 어드민인 경우에만 수정및 삭제 가능  --%>
-	      <% if(id.equals(qnaId) || id.equals("admin")) {%>
+	      <% if(id.equals(qnaId) || id.equals("admin")) { %>
 	      		<a href="qnaupdate?qnaNo=${q.qnaNo}&qnaTitle=${q.qnaTitle}&qnaContent=${q.qnaContent}"><button class="btn btn-primary" style="float: right;">수정</button></a>
           		<a href="qnadelete?qnaNo=${q.qnaNo}"><button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button></a>
-		  <%} %>
+		  <% } %>
           <hr>
           <h4>답변</h4>
-          <table class="table table-borderless">
-            <thead>
-              <tr>
-                <th colspan="2">관리자</th>
-                <!-- <th></th> -->
-                <th><fmt:formatDate value="${a.ansDate}" pattern="yy.MM.dd"/></th>
-                <td style="display: none;"><button type="button" class="btn btn-danger">삭제</button></td>
-              </tr>
-            </thead>
-            <tbody> 
-              <tr>
-                <td colspan="2">${a.ansContent}</td>
-                <td><i class="far fa-thumbs-up fa-2x">+${a.answersLike}</i></td>
-              </tr>
-            </tbody>
-          </table>
-          <%-- 글 작성자의 id와 세션에 로그인된 id 값이 같거나 어드민인 경우에만 수정및 삭제 가능  --%>
-	      <% if(id.equals("admin")) {%>
+          <% if(msg == "yes") { %>
+          	<table class="table table-borderless">
+            	<thead>
+              		<tr>
+                		<th colspan="2">관리자</th>
+                		<!-- <th></th> -->
+                		<th><fmt:formatDate value="${a.ansDate}" pattern="yy.MM.dd"/></th>
+                		<td style="display: none;"><button type="button" class="btn btn-danger">삭제</button></td>
+              		</tr>
+            	</thead>
+            	<tbody> 
+              		<tr>
+                		<td colspan="2">${a.ansContent}</td>
+                		<td><i class="far fa-thumbs-up fa-2x">+${a.answersLike}</i></td>
+              		</tr>
+            	</tbody>
+          	</table>
+          <% } else if(msg == "no") { %>
+          	<h6>아직 답변이 등록되지 않았습니다.</h3>
+          <% } %>
+          
+          <%-- 어드민인 경우에만 답변 등록 가능, 답변이 이미 달린 질문엔 답변 불가  --%>
+	      <% if(id.equals("admin") && msg=="no") {%>
 	      	<form action="answers" method="post">
 	      		<%-- qna번호 전달용 input --%>
 	      		<input name="qnaNo" type="text" value="${q.qnaNo}" style="display: none">
