@@ -102,7 +102,11 @@
 												<h5>${d.writerName}</h5>
 												${d.productPrice}원
 												<br>
-												<button class="icon-heart1" id="cont1button"></button>
+												<form action="booklikecount" method="get">
+													<input class="icon-heart1" id="cont1button">
+													<button class="icon-heart1" id="cont1button"></button>
+												</form>
+												
 												<button class="icon-shopping-cart" id="cont1button"></button>
 											</td>
 										</div>

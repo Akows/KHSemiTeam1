@@ -153,7 +153,8 @@ public class ProbookService
 		
 		try 
 		{
-			result = updateBookProduct(conn, pro, type, value);
+//			result = updateBookINF(conn, pro, type, value);
+			result = updateProINF(conn, pro, type, value);
 			
 			if(result > 0)
 			{
@@ -172,9 +173,14 @@ public class ProbookService
 		return result;
 	}
 
-	private int updateBookProduct(Connection conn, ProbookVO pro, String type, String value) 
+	private int updateProINF(Connection conn, ProbookVO pro, String type, String value) 
 	{
-		return new ProbookDAO().updateBookProduct(conn, pro, type, value);
+		return new ProbookDAO().updateProINF(conn, pro, type, value);
+	}
+
+	private int updateBookINF(Connection conn, ProbookVO pro, String type, String value) 
+	{
+		return new ProbookDAO().updateBookINF(conn, pro, type, value);
 	}
 
 	public List<ProbookVO> bestSellerlistcall() 

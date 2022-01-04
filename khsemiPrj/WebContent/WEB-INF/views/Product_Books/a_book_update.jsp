@@ -140,7 +140,7 @@
 					             <option value="PRO_NAME">책 제목</option>
 					         </select>
 					    
-					         <input id="searchbar" type="text" placeholder="수정 대상 : 책 제목으로 검색" name="searchvalue">
+					         <input id="searchbar" type="text" placeholder="책 제목으로 검색" name="searchvalue">
 					         <button type="submit">검색</button>
 					     </form>
 					 </div>
@@ -166,7 +166,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                    
 							<c:forEach items="${data}" var="d">
 		                    	<tr class="primary">
 		                    		<td>${d.productNumber}</td>
@@ -207,87 +206,96 @@
 					  </nav>
 				</div>
 	
-				<hr>
-    			
-    			<h3>도서 정보 수정</h3>
-    			<h6>* 주의! 정보를 수정하고 싶은 상품의 이름을 정확하게 입력해주세요.</h6>
-    			
-    	        <form action="bookupdateinsert" method="post" enctype="multipart/form-data">
-    	        	<select id="selectbutton" name="searchtype">
-					     <option value="PRO_NAME">책 제목</option>
-					</select>
-					    
-					<input id="searchbar" type="text" placeholder="수정할 상품의 이름을 입력" name="searchvalue">
-    	        
-    	        	<table class="table-hover">
-                    <thead>
-                        <tr class="table-success">
-                            <th>상품번호</th>
-                            <th>상품이름</th>
-                            <th>이미지 링크</th>
-                            <th>단가</th>
-                            <th>재고</th>
-                            <th>판매수</th>
-                            <th>좋아요</th>
-                            <th>상품설명</th>
-                            <th>상품유형</th>
-                            <th>책번호</th>
-                            <th>저자</th>
-                            <th>출판사</th>
-                            <th>출판일</th>
-                            <th>카테고리</th>
-                            <th>목차</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-						<tr class="primary">
-		                    <td><input type="text" name="productNumber" value="" id="productNumberbox"></td>
-		                    <td><input type="text" name="productName" value="" id="productNamebox"></td>
-		                    <td><input type="file" name="upload" id="imageLinkbox"></td>                  
-		                    <td><input type="text" name="productPrice" value="" id="productPricebox"></td>
-		                    <td><input type="text" name="productStock" value="" id="productStockbox"></td>
-		                    <td><input type="text" name="productSaleCount" value="" id="productSaleCountbox"></td>
-		                    <td><input type="text" name="productLikeCount" value="" id="productLikeCountbox"></td>
-		                    <td><input type="text" name="productDescript" value="" id="productDescriptbox"></td>
-		                    <td>
-			                    <select name="productType" style="width: 60px; font-size: small;">
-			                         <optgroup label="주제별">
-			                             <option value="도서">도서</option>
-			                             <option value="굿즈">굿즈</option>
-		                        </select>
-	                        </td>
-		                    <td><input type="text" name="bookNumber" value="" id="bookNumberbox"></td>
-		                    <td><input type="text" name="writerName" value="" id="writerNamebox"></td>
-		                    <td><input type="text" name="publisher" value="" id="publisherbox"></td>
-		                    <td><input type="date" name="enrollDate" value="${d.enrollDate}" id="enrollDatebox"></td>
-		                    <td>
-			                    <select name="category" style="width: 120px; font-size: small;">
-			                          <optgroup label="주제별">
-			                              <option value="프로그래밍언어">프로그래밍언어</option>
-			                              <option value="엑셀/활용서">엑셀/활용서</option>
-			                              <option value="IT자격증">IT자격증</option>
-			                          </optgroup>
-			                          <optgroup label="프로그래밍">
-			                              <option value="딥러닝">딥러닝</option>
-			                              <option value="머신러닝">머신러닝</option>
-			                              <option value="인공지능">인공지능</option>
-			                              <option value="안드로이드">안드로이드</option>
-			                              <option value="유니티">유니티</option>
-			                          </optgroup>
-		                         </select>
-	                        </td>
-		                         <td><input type="text" name="contentList" value="" id="contentListbox"></td>
-		                 </tr>
-                	</tbody>
-                </table>
-    	        	
-	            	<div id="del">
-				    	<button type="submit" class="btn1">상품 정보 수정</button>
-				    </div>
-				</form>
-    
-    
             <!-- ----------------------- 등록/수정 버튼 ----------------------------- -->
+            
+                <hr>
+                
+                <h3>도서 정보 수정</h3>
+                <h6>* 주의! 상단 도서 정보 기능에서 책을 검색하여 수정. 책은 한 권만 수정할 것!</h6>
+                <h6>* 주의! 출판일을 변경하지 않을 경우, 기존 입력 데이터를 그대로 다시 입력해주세요.</h6>
+                
+                <form action="bookupdateinsert" method="post" enctype="multipart/form-data">
+
+					<input id="searchbar" type="text" value="PRO_NAME" name="searchtype" disabled>
+					<input id="searchbar" type="text" placeholder="책 제목으로 검색" name="searchvalue">
+                
+                    <table class="table-hover">
+	                    <thead>
+	                        <tr class="table-success">
+	                            <th>상품번호</th>
+	                            <th>상품이름</th>
+	                            <th>이미지</th>
+	                            <th>이미지 링크</th>
+	                            <th>단가</th>
+	                            <th>재고</th>
+	                            <th>판매수</th>
+	                            <th>좋아요</th>
+	                            <th>상품설명</th>
+	                            <th>상품유형</th>
+	                            <th>책번호</th>
+	                            <th>저자</th>
+	                            <th>출판사</th>
+	                            <th>출판일</th>
+	                            <th>카테고리</th>
+	                            <th>목차</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody>		
+	                    
+	                    	<c:forEach items="${data}" var="d" begin="0" end="0" step="1">
+		                        <tr class="primary">
+		                            <td><input type="text" name="productNumber" value="${d.productNumber}" id="productNumberbox"></td>
+		                            <td><input type="text" name="productName" value="${d.productName}" id="productNamebox"></td>
+		                            <td><img alt="" src="${d.imageLink}" style="width: 70px; height: 90px;"></td>   
+		                            <td><input type="file" name="upload" id="imageLinkbox"></td>                  
+		                            <td><input type="text" name="productPrice" value="${d.productPrice}" id="productPricebox"></td>
+		                            <td><input type="text" name="productStock" value="${d.productStock}" id="productStockbox"></td>
+		                            <td><input type="text" name="productSaleCount" value="${d.productSaleCount}" id="productSaleCountbox"></td>
+		                            <td><input type="text" name="productLikeCount" value="${d.productLikeCount}" id="productLikeCountbox"></td>
+		                            <td><input type="text" name="productDescript" value="${d.productDescript}" id="productDescriptbox"></td>
+		                            <td>
+		                                <select name="productType" style="width: 60px; font-size: small;">
+		                                     <optgroup label="주제별">
+		                                         <option value="${d.productType}">${d.productType}</option>
+		                                         <option value="도서">도서</option>
+		                                         <option value="굿즈">굿즈</option>
+		                                </select>
+		                            </td>
+		                            <td><input type="text" name="bookNumber" value="${d.bookNumber}" id="bookNumberbox"></td>
+		                            <td><input type="text" name="writerName" value="${d.writerName}" id="writerNamebox"></td>
+		                            <td><input type="text" name="publisher" value="${d.publisher}" id="publisherbox"></td>
+		                            <td>
+		                            	${d.enrollDate} <br>
+		                            	<input type="date" name="enrollDate" value="${d.enrollDate}" id="enrollDatebox">
+		                            </td>
+		                            <td>
+		                                <select name="category" style="width: 120px; font-size: small;">
+		                                      <optgroup label="주제별">
+		                                      	  <option value="${d.categoty}">${d.categoty}</option>
+		                                          <option value="프로그래밍언어">프로그래밍언어</option>
+		                                          <option value="엑셀/활용서">엑셀/활용서</option>
+		                                          <option value="IT자격증">IT자격증</option>
+		                                      </optgroup>
+		                                      <optgroup label="프로그래밍">
+		                                          <option value="딥러닝">딥러닝</option>
+		                                          <option value="머신러닝">머신러닝</option>
+		                                          <option value="인공지능">인공지능</option>
+		                                          <option value="안드로이드">안드로이드</option>
+		                                          <option value="유니티">유니티</option>
+		                                      </optgroup>
+		                                 </select>
+		                            </td>
+		                                 <td><input type="text" name="contentList" value="${d.contentList}" id="contentListbox"></td>
+		                         </tr>		
+	                         </c:forEach>
+	                    </tbody>
+	                </table>
+                    
+                    <div id="del">
+                    	<input type="submit" class="btn1" value="상품 정보 수정">
+                    </div>
+                </form>
+            
 
 
         </div><!-- main2 -->

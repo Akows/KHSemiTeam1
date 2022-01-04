@@ -343,40 +343,31 @@ public class ProbookDAO
 		return newProductList;
 	}
 
-	public int updateBookProduct(Connection conn, ProbookVO pro, String type, String value) 
+	public int updateBookINF(Connection conn, ProbookVO pro, String type, String value) 
 	{
-		String sql = "INSERT ALL INTO PRO_INF VALUES (SEQ_PRO_INF.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, '도서')"
-				+ 				"INTO BOOK_INF VALUES (SEQ_BOOK_INF.NEXTVAL, SEQ_PRO_INF.NEXTVAL, ?, ?, ?, ?, ?)"
-				+ 				"SELECT *"
-				+ 				"FROM DUAL";
-		
-		sql = String.format(sql, type);
+		String sql = "UPDATE BOOK_INF "
+			       + "SET (BOOK_NO, BOOK_AUTH, BOOK_PUB, PUBL_DATE, CATEGORY, CONT_LIST) = (?, ?, ?, ?, ?, ?) "
+			       + "WHERE PRO_NAME = ? "
+			       + "AND "
+			       + "EXISTS ( SELECT * FROM PRO_INF P INNER JOIN BOOK_INF B ON(P.PRO_NO = B.PRO_NO))";
 
+		sql = String.format(sql, type);
+		
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try 
 		{
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%" + value + "%");
-			
-			
-			
-			pstmt.setString(1, pro.getImageLink());
-			
-			pstmt.setString(3, pro.getProductPrice());
-			pstmt.setString(4, pro.getProductStock());
-			pstmt.setString(5, pro.getProductSaleCount());
-			pstmt.setString(6, pro.getProductLikeCount());
-			pstmt.setString(7, pro.getProductDescript());
-			
-			pstmt.setString(8, pro.getWriterName());
-			pstmt.setString(9, pro.getPublisher());
-			
-			pstmt.setString(10, pro.getEnrollDate());
-			
-			pstmt.setString(11, pro.getCategoty());
-			pstmt.setString(12, pro.getContentList());
 
+			pstmt.setString(1, pro.getBookNumber());
+			pstmt.setString(2, pro.getWriterName());
+			pstmt.setString(3, pro.getPublisher());
+			pstmt.setString(4, pro.getEnrollDate());
+			pstmt.setString(5, pro.getCategoty());
+			pstmt.setString(6, pro.getContentList());
+
+			pstmt.setString(7, value);
+			
 			result = pstmt.executeUpdate();
 		} 
 		catch (SQLException e) 
@@ -387,6 +378,49 @@ public class ProbookDAO
 		{
 			JDBCTemplate.close(pstmt);
 		}
+		
+		return result;
+	}
+	
+	public int updateProINF(Connection conn, ProbookVO pro, String type, String value) 
+	{
+		String sql = "UPDATE PRO_INF "
+				   + "SET PRO_NO = ?, PRO_NAME = ?, PRO_IMG = ?, UNIT_PRICE = ?, STOCK = ?, SALES = ?, PRO_LIKE = ?, DESCRIPTION = ?, PRO_TYPE = ? "
+				   + "WHERE PRO_NAME = ?";
+		
+		sql = String.format(sql, type);
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try 
+		{
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, pro.getProductName());
+			pstmt.setString(2, pro.getProductName());
+			pstmt.setString(3, pro.getImageLink());
+			pstmt.setString(4, pro.getProductPrice());
+			pstmt.setString(5, pro.getProductStock());
+			pstmt.setString(6, pro.getProductSaleCount());
+			pstmt.setString(7, pro.getProductLikeCount());
+			pstmt.setString(8, pro.getProductDescript());
+			pstmt.setString(9, pro.getProductType());
+			
+			pstmt.setString(10, value);
+			
+			result = pstmt.executeUpdate();
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		finally 
+		{
+			JDBCTemplate.close(pstmt);
+		}
+		
+		System.out.println(type);
+		System.out.println(value);
 		
 		return result;
 	}
