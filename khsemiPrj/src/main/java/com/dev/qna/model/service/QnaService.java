@@ -5,6 +5,10 @@ import java.util.List;
 
 import static com.dev.common.JDBCTemplate.*;
 
+import com.dev.event.model.dao.EventDao;
+import com.dev.event.model.vo.EventVo;
+import com.dev.notice.model.dao.NoticeDao;
+import com.dev.notice.model.vo.NoticeVo;
 import com.dev.paging.Paging;
 import com.dev.qna.model.dao.QnaDao;
 import com.dev.qna.model.vo.QnaAnswersVo;
@@ -67,7 +71,10 @@ public class QnaService {
 		//커넥션 
 		Connection conn = getConnection();
 				
-		QnaVo q = new QnaDao().qnaSelect(conn, qnaNo);
+		QnaDao qd = new QnaDao();
+		QnaVo q = qd.qnaSelect(conn, qnaNo);
+		qd.qnaViewPlus(conn, qnaNo);
+		
 		System.out.println("qnaservice.qnaselect called... ");
 		close(conn);
 				
@@ -120,12 +127,14 @@ public class QnaService {
 		return result;
 	}
 
+	//답변 작성
 	private int insertQnaAnswers(Connection conn, QnaAnswersVo a) {
 		//dao 불러서 쿼리 실행
 		//dao 한테 쿼리 실행 결과 받기
 		return new QnaDao().insertQnaAnswers(conn, a);
 	}
 
+	//답변 조회
 	public QnaAnswersVo ansSelect(int qnaNo) {
 		//커넥션 
 		Connection conn = getConnection();
@@ -135,6 +144,47 @@ public class QnaService {
 		close(conn);
 
 		return a;
+	}
+	
+	//공지작성
+	public int writeNotice(NoticeVo n) {
+		//커넥션 
+		Connection conn = getConnection();
+
+		int result = 0;
+		result = insertNotice(conn, n);
+
+		if (result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+
+		return result;
+	}
+
+	private int insertNotice(Connection conn, NoticeVo n) {
+		return new NoticeDao().insertNotice(conn, n);
+	}
+
+	public int writeEvent(EventVo e) {
+		//커넥션 
+		Connection conn = getConnection();
+
+		int result = 0;
+		result = insertEvent(conn, e);
+
+		if (result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+
+		return result;
+	}
+
+	private int insertEvent(Connection conn, EventVo e) {
+		return new EventDao().insertEvent(conn, e);
 	}
 	
 }

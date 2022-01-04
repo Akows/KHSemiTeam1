@@ -20,7 +20,7 @@
 
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<%@ include file="../Common/u_menubar_login.jsp" %>
+<%@ include file="../Common/a_menubar.jsp" %>
 <div class="container">
 <div class="row">
   <!-- BEGIN SEARCH RESULT -->
@@ -28,8 +28,8 @@
     <div class="">
         <a href="home" class="breadcrumbtext"><img id="home_icon" src="Resources/img/i_con/home_icon.png" alt="홈아이콘"></a> > 
         <a href="qna" class="breadcrumbtext">게시판</a> > 
-        <a href="qna" class="breadcrumbtext">Q&A</a> > 
-        <a href="#" class="breadcrumbtext">질문수정</a>
+        <a href="qna" class="breadcrumbtext">공지사항</a> > 
+        <a href="#" class="breadcrumbtext">공지수정</a>
     </div>
   </div>
   
@@ -57,19 +57,19 @@
           <!-- BEGIN RESULT -->
           <div class="col-md-10">
             <h2>질문수정</h2>
-            <form action="qnaupdate" method="post">
-            	<input type="text" id="qnaNo" name="qnano" value=${qnaNo} style="display: none;">
-                <input type="text" id="qnaTitle" name="qnatitle" class="form-control mt-4 mb-2"
-                    placeholder="제목을 입력해주세요." value="${qnaTitle}" required
+            <form action="noticeupdate" method="post">
+            	<input type="text" id="noticeNo" name="noticeno" value=${noticeNo} style="display: none;">
+                <input type="text" id="noticeTitle" name="noticetitle" class="form-control mt-4 mb-2"
+                    placeholder="제목을 입력해주세요." value="${noticeTitle}" required
                 >
                 <div class="form-group">
-                    <textarea class="form-control" rows="10" name="qnacontent"
+                    <textarea class="form-control" rows="10" name="noticecontent"
                         placeholder="내용을 입력해주세요" required
-                    >${qnaContent}</textarea>
+                    >${noticeContent}</textarea>
                 </div>
                 <div class="writeBtn">
-                    <a href="qna"><button type="button" class="btn btn-primary" style="background-color: #6c757d; border-color: #6c757d;">취소</button></a>
-                    <button type="submit" class="btn btn-primary">질문수정</button>
+                    <a href="notice"><button type="button" class="btn btn-primary" style="background-color: #6c757d; border-color: #6c757d;">취소</button></a>
+                    <button type="submit" class="btn btn-primary">공지수정</button>
                 </div>
             </form>
         
@@ -93,6 +93,6 @@
     
     </script>
     
-	<%@ include file="../Common/u_footer.jsp" %>
+	<%@ include file="../Common/a_footer.jsp" %>
 </body>
 </html>

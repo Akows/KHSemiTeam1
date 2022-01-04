@@ -27,7 +27,21 @@
 
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<%@ include file="../Common/u_menubar.jsp" %>
+	<%
+	    String id = "";
+	    if(session.getAttribute("loginUser") != null) {
+	        MemberVo member = (MemberVo)session.getAttribute("loginUser");
+	        id = member.getUserId();
+	    }
+	%>
+	
+	<% if(id.equals("admin")) { %>
+	    <%@ include file="../Common/a_menubar.jsp" %>
+	<% } else if(session.getAttribute("loginUser") != null) { %>
+	    <%@ include file="../Common/u_menubar_login.jsp" %>
+	<% } else if(session.getAttribute("loginUser") == null) { %>
+	    <%@ include file="../Common/u_menubar.jsp" %>
+	<% } %>
 <div class="container">
   <div class="bbiv">
     <div class="">
@@ -95,7 +109,6 @@
           
           <c:set var="user" value="${loginUser}"></c:set>
           <% 
-          		String id = "";
           		if(session.getAttribute("loginUser") != null) {
           			MemberVo member = (MemberVo)session.getAttribute("loginUser");
               		id = member.getUserId();
@@ -168,6 +181,10 @@
     
     </script>
     
-	<%@ include file="../Common/u_footer.jsp" %>
+    <% if(id.equals("admin")) { %>
+        <%@ include file="../Common/a_footer.jsp" %>
+    <% } else if(session.getAttribute("loginUser") != null) { %>
+        <%@ include file="../Common/u_footer.jsp" %>
+    <% } %>
 </body>
 </html>
