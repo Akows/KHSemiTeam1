@@ -66,14 +66,14 @@
 	            </div>
 	        <br>
 	        <div class="find_Info">
-	            <a href="http://127.0.0.1:8888/devbooks/idfindscreen" style="color: #2D313C;">아이디 찾기</a>
+	            <a href="idsearch" style="color: #2D313C;">아이디 찾기</a>
 	            | 
 	            <a href="" style="color: #2D313C;">비밀번호 찾기</a>
 	        </div>
 	        <br>
 	        <div id="sign_Up">
 	            <label for="" id="sign_Up">회원이 아니신가요?</label>
-	            <a href="http://127.0.0.1:8888/devbooks/join"><strong style="font-weight: bold; color: #2D313C;">회원가입</strong></a>
+	            <a href="join"><strong style="font-weight: bold; color: #2D313C;">회원가입</strong></a>
 	        </div>
 	    </div>
     </form>

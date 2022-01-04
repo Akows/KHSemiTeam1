@@ -1,5 +1,12 @@
+<%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <% 
+ 	MemberVo userId = (MemberVo)request.getAttribute("userId");
+ 	System.out.println(userId);
+ %>
+ 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -59,7 +66,7 @@
 </head>
 <body>
   <div class="input_box">
-    <form name="idfindscreen" method = "POST">
+    <form action="idsearch" method = "POST">
       <div class = "search-title">
         <h3>휴대폰 본인확인</h3>
       </div>
@@ -76,33 +83,11 @@
       <br>
     </section>
     <div class ="btnSearch">
-      <input type="button" name="enter" value="찾기"  onClick="id_search()">
-      <input type="button" name="cancle" value="취소" onClick="history.back()">
+      <input type="submit" name="enter" value="찾기">
+      <a href="login"><input type="button" name="cancle" value="취소"></a>
     </div>
     </form>
   </div>
   <br>
-  
-  <!-- findInfo JS -->
-    <script>
-	    function id_search() { 
-		 	var frm = document.idfindscreen;
-	
-		 	if (frm.userName.value.length < 1) {
-				  alert("이름을 입력해주세요");
-				  return;
-			 }
-	
-			 if (frm.userPhone.value.length != 11) {
-				  alert("핸드폰번호를 정확하게 입력해주세요");
-				  return;
-			 }
-	
-			 frm.method = "post";
-			 frm.action = "/devbooks/idsearch"; //넘어간화면
-			 frm.submit();  
-		 }
-    </script>
-    
 </body>
 </html>
