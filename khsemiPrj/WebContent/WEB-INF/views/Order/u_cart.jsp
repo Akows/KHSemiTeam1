@@ -51,12 +51,12 @@
                 </tr>
 
                 <tr class="tbody">
-                        <td id="chb1"><input type="checkbox" name="chkAll" value="1" onchange="JavaScript:chkAllChange();"></td>
-                        <td colspan="3" >상품명</td>
-                        <td>단가</td>
-                        <td>수량</td>
-                        <td colspan="4">합계</td>
-                        <td id="m2" colspan="4"></td>
+                    <td id="chb1"><input type="checkbox" name="chkAll" value="1" onchange="JavaScript:chkAllChange();"></td>
+                    <td colspan="3" >상품명</td>
+                    <td>단가</td>
+                    <td>수량</td>
+                    <td colspan="4">합계</td>
+                    <td id="m2" colspan="4"></td>
                 </tr>
        
 <%
@@ -73,13 +73,13 @@ int i = 0;
   		totamt = totamt + amt;
 %>	 
                 <tr>
-                        <td id="chb1"><input type="checkbox" name="chkUnit" value="<%=pro_no%>" onchange="JavaScript:chkUnitChange();"></td>
-                        <td colspan="2"><img src="<%=pro_img%>" id="img1"></td>
-                        <td id="spm1"><%=pro_name%></td>
-                        <td id="dg1"><%=unit_price%>원</td>
-                        <td id="sl1"><%=quantity%></td>
-                        <td id="hg1" colspan="4"><%=amt%>원</td>
-                        <td  colspan="4"></td>
+                    <td id="chb1"><input type="checkbox" name="chkUnit" value="<%=pro_no%>" onchange="JavaScript:chkUnitChange();"></td>
+                    <td colspan="2"><img src="<%=pro_img%>" id="img1"></td>
+                    <td id="spm1"><%=pro_name%></td>
+                    <td id="dg1"><%=unit_price%>원</td>
+                    <td id="sl1"><%=quantity%></td>
+                    <td id="hg1" colspan="4"><%=amt%>원</td>
+                    <td  colspan="4"></td>
                 </tr>
 				<tr>
 					<td colspan="11">
@@ -188,48 +188,27 @@ int i = 0;
        
        
    <script type="text/javascript">
-   function chkAllChange()
-   {
-	    var chk = document.getElementsByName("chkAll")[0].checked;
-        var arrChk = document.getElementsByName("chkUnit");
-        for(var i = 0; i < arrChk.length; i++) { arrChk[i].checked = chk; }
-   }
+	   //'전체' 선택 시 전부 체크하기
+	   function chkAllChange()
+	   {
+		    var chk = document.getElementsByName("chkAll")[0].checked;
+	        var arrChk = document.getElementsByName("chkUnit");
+	        for(var i = 0; i < arrChk.length; i++) { arrChk[i].checked = chk; }
+	   }
+	   //'전체' 선택 해제 시 전부 체크해제
+	   function chkUnitChange()
+	   {
+	       var chk = true;
+	       var arrChk = document.getElementsByName("chkUnit");
+	       for(var i = 0; i < arrChk.length; i++)
+	       {
+	    	   if ( arrChk[i].checked == false ) { chk = false; }
+	       }
+	       document.getElementsByName("chkAll")[0].checked = chk;
+	   }
    
-   function chkUnitChange()
-   {
-       var chk = true;
-       var arrChk = document.getElementsByName("chkUnit");
-       for(var i = 0; i < arrChk.length; i++)
-       {
-    	   if ( arrChk[i].checked == false ) { chk = false; }
-       }
-       document.getElementsByName("chkAll")[0].checked = chk;
-   }
-   
-	   /* -- '전체' 선택 시 이벤트 -- 
-	   $('#chb1').click(function()
-		{
-	       '전체' 선택 시 전부 체크하기
-		   $(":checkbox").attr("checked", true);
-		   
-	       '전체' 선택 해제 시 전부 체크해제
-		   //$(":checkbox").attr("checked", false);
-		}
-	   );
-	   */
-	   
 	   
 	   //포인트 차감 안됨 ㅠㅠㅠㅠ
-	   /*
-	   $(function()
-        {
-            $("#target").keydown(function()
-	         {
-	            $('#target').onkeydown();
-	         });
-        });
-	   */
-	   
 	   /*
 	   $('#target').keydown(function() 
 		{ 
