@@ -192,16 +192,16 @@ var salesdesc = function(url){
 <script>
 
 function addCart(pronum){
-	console.log(pronum);
-			var proNum = document.getElementsByName(pronum);
-            var url = 'addcart?pro_no=' + pronum;
+			console.log(pronum);
+			/* var proNum = document.getElementsByName(pronum); */
+            var url = 'addcart?pro_no=' + pronum ;
             window.open(url, "_self");
-    }
+    };
     
 function addLike(proNum){
     var url = 'addlike?pro_no=' + proNum.value;
     window.open(url, "_self");
-    }
+    };
 
 </script>
 

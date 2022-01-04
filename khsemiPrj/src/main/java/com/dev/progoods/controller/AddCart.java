@@ -18,18 +18,19 @@ public class AddCart extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//if�� �α��� ���� Ȯ��!! 
+		//로그인 되었을때만 가능하게..... 
 		
 		int pro_no = Integer.parseInt( req.getParameter("pro_no"));
 //		int m_no = Integer.parseInt(req.getSession());	
-		int m_no = 0007;
+		int m_no = 1;
+		int quantity =1;
 		
 		AddCartVo c = new AddCartVo();
 		c.setPro_no(pro_no);
 		c.setM_no(m_no);
-		c.setQuantity(1);
+		c.setQuantity(quantity);
 		
 		boolean result = new ProService().insertCart(c);
-		
+		req.getRequestDispatcher(""); // 장바구니 페이지로 보낸다.
 	}
 }

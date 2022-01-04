@@ -24,10 +24,10 @@ public class Goodscategory extends HttpServlet
 		
 		String curpage = req.getParameter("currentPage");
 //		String category = req.getParameter("category");
-		String category = "»ıÈ°¿ëÇ°";
+		String category = "ìƒí™œìš©í’ˆ";
 		
-		String likedesc = req.getParameter("likedesc");
-		String salesdesc = req.getParameter("salesdesc");
+//		String likedesc = req.getParameter("likedesc");
+//		String salesdesc = req.getParameter("salesdesc");
 		
 		if(curpage == null) {
 			curpage = "1";
@@ -37,7 +37,7 @@ public class Goodscategory extends HttpServlet
 		Paging page = new Paging(6, 3, total, curpage2);
 		
 		
-		List<ProgoodsVo> goodsList = new ProgoodsService().goodsListAll(page, category);
+		List<ProgoodsVo> goodsList = new ProgoodsService().goodsList(page, category);
 		req.setAttribute("curpage", curpage2);
 		req.setAttribute("page", page);
 		req.setAttribute("goodsList", goodsList);
@@ -47,7 +47,7 @@ public class Goodscategory extends HttpServlet
 		
 		
 		
-		System.out.println("=========ÄÁÆ®·Ñ·¯===============");
+		System.out.println("======ì»¨íŠ¸ë¡¤ëŸ¬=============");
 		System.out.println("curPage:"+ curpage2);
 		System.out.println("startNo:"+ page.startNo());
 		System.out.println("endNo:"+ page.endNo());
