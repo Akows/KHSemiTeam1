@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,11 +103,9 @@
 												${d.productPrice}원
 												<br>
 												<form action="booklikecount" method="get">
-													<input class="icon-heart1" id="cont1button">
 													<button class="icon-heart1" id="cont1button"></button>
+													<button class="icon-shopping-cart" id="cont1button"></button>
 												</form>
-												
-												<button class="icon-shopping-cart" id="cont1button"></button>
 											</td>
 										</div>
 									</tr>
