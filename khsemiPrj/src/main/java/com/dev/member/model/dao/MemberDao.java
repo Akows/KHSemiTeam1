@@ -1,6 +1,7 @@
 package com.dev.member.model.dao;
 
 import static com.dev.common.JDBCTemplate.close;
+import static com.dev.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -137,40 +138,4 @@ public class MemberDao {
 		
 		return selectedMember;
 	}
-	
-	public String findId(String userName, String userPhone) {
-		
-		// 아이디 찾기
-
-		String userId = null;
-
-        String sql = "SELECT ID FROM MEMBER WHERE NAME = ? AND PHONE = ? ";
- 
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-             pstmt = conn.prepareStatement(sql);
-             
-             pstmt.setString(1, userName);
-             pstmt.setString(2, userPhone);
-
-             rs = pstmt.executeQuery();
-             
-               if(rs.next()){
-                userId = rs.getString("userId");
-               }
-
-        } catch (SQLException e) {
-             e.printStackTrace();
-        } finally {
-            close(conn); 
-            close(pstmt);
-            close(rs);
-        }
-
-        return userId;
-	}
-
 }
