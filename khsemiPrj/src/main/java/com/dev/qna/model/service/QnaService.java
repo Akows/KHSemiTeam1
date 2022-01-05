@@ -24,8 +24,8 @@ public class QnaService {
 		int rowStartNo = page.rowStarNo();
 		int rowEndNo = page.rowEndNo();
 		
-		System.out.println("selectQnaLiust currenpage = "+ page.currentPage);
-		System.out.println("selectQnaLiust startno = "+ page.startNo());
+		System.out.println("selectQnaList currenpage = "+ page.currentPage);
+		System.out.println("selectQnaList startno = "+ page.startNo());
 		
 		List<QnaVo> qnaList = new QnaDao().qnaList(conn, rowStartNo, rowEndNo);
 		System.out.println("qnaservice.qnaList called... ");
