@@ -59,7 +59,7 @@ public class BookUpdateInsertController extends HttpServlet
 		pro.setCategoty(category);
 		pro.setContentList(contentList);
 		
-		System.out.println(productNumber);
+		System.out.println(productStock);
 		System.out.println(productName);
 		System.out.println(type);
 		System.out.println(value);

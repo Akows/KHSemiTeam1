@@ -240,7 +240,7 @@
 	                            <th>목차</th>
 	                        </tr>
 	                    </thead>
-	                    <tbody>		
+	                    <tbody>
 	                    
 	                    	<c:forEach items="${data}" var="d" begin="0" end="0" step="1">
 		                        <tr class="primary">
@@ -259,6 +259,7 @@
 		                                         <option value="${d.productType}">${d.productType}</option>
 		                                         <option value="도서">도서</option>
 		                                         <option value="굿즈">굿즈</option>
+		                                     </optgroup>
 		                                </select>
 		                            </td>
 		                            <td><input type="text" name="bookNumber" value="${d.bookNumber}" id="bookNumberbox"></td>
