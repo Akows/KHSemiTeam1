@@ -27,7 +27,7 @@ public class BookUpdateInsertController extends HttpServlet
 		String type = req.getParameter("searchtype");
 		String value = req.getParameter("searchvalue");
 		
-		String productNumber = req.getParameter("productNumber");
+		String productNumber = req.getParameter("proNum");
 		String productName = req.getParameter("proName");
 		String productPrice = req.getParameter("productPrice");
 		String productStock = req.getParameter("productStock");

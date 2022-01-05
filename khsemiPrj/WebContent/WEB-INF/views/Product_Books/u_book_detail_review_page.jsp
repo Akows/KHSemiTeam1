@@ -67,58 +67,71 @@
 
 </head>
 <body>
-	        <hr id="bottom_contents_line" style="border: 0; height: 1px; background: #ccc; width: 62%; position: relative; bottom: 10px;">
-            <!-- 하단 소개항목/독자 리뷰 -->
+
             <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
-            <div class="container" id="book_review">
+            	<div class="container" id="book_review">
                             
-                            	<c:forEach items="${data}" var="d" begin="1" end="5" step="1">
-                            		<div class="reviews-members pt-4 pb-4">
-                                    	<div class="media">
-	                                        <div class="media-body">
-	                                            <div class="reviews-members-header">
-	                                                <span class="star-rating float-right">
-	                                                    <a href="#"><i class='fas fa-bell fa-2x' style="position: relative; left: 3px; color: red;"></i></a>
-	                                                </span>
-	                                                <!-- 리뷰 글쓴이 및 작성일 -->
-	                                                <h6 class="mb-1"><a class="text-black" href="#">글쓴이</a></h6>
-	                                                <p class="text-gray">${d.bookReviewDate}</p>
-	                                            </div>
-	                                            <!-- 리뷰 내용 -->
-	                                            <div class="reviews-members-body">
-	                                                <p>
-														${d.bookReviewContext}	
-	                                                </p>
-	                                            </div>
-	                                            <div class="reviews-members-footer">
-	                                                <a class="total-like" href="#" style="background-color: #2D313C !important; color: white;"><i class="far fa-thumbs-up"></i>${d.bookReviewLikeCount}</a>
-	                                                <!-- 수정 및 삭제버튼 -->
-	                                                <a class="edit-delete-button float-right" href="#" style="background-color: #2D313C !important; color: white;"> 삭제</a>
-	                                                <a class="edit-delete-button float-right" href="#" style="background-color: white !important; color: black;"> 수정</a>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-                                	</div>
-                                
-                                <hr>
-			                    </c:forEach>
-                            </div>
+                <c:choose>
+		            <c:when test="${data eq null}">
+		            	<div class="reviews-members pt-4 pb-4">
+	                    	<div class="media">
+		                    	<div class="media-body">
+		                        	<div class="reviews-members-header">
+										<h6 class="mb-1"><a class="text-black" href="#">리뷰가 존재하지 않는 상품입니다.</a></h6>
+		                            </div>
+		                    	</div>
+		                	</div>
+	                	</div>     
+		            </c:when>
+	                    		
+                	<c:otherwise>
+	                	<c:forEach items="${data}" var="d" begin="1" end="5" step="1">
+	                    	<div class="reviews-members pt-4 pb-4">
+	                        	<div class="media">
+		                        	<div class="media-body">
+		                            	<div class="reviews-members-header">
+			                                <span class="star-rating float-right">
+			                                	<a href="#"><i class='fas fa-bell fa-2x' style="position: relative; left: 3px; color: red;"></i></a>
+			                                </span>
+		                                    
+		                                    <h6 class="mb-1"><a class="text-black" href="#">글쓴이</a></h6>
+		                                    <p class="text-gray">${d.bookReviewDate}</p>
+		                                </div>
+		                                            
+		                                            <!-- 리뷰 내용 -->
+		                                <div class="reviews-members-body">
+											${d.bookReviewContext}	
+										</div>
+		                                <div class="reviews-members-footer">
+			                                <a class="total-like" href="#" style="background-color: #2D313C !important; color: white;"><i class="far fa-thumbs-up"></i>${d.bookReviewLikeCount}</a>
+			                                 
+			                                <a class="edit-delete-button float-right" href="#" style="background-color: #2D313C !important; color: white;"> 삭제</a>
+			                                <a class="edit-delete-button float-right" href="#" style="background-color: white !important; color: black;"> 수정</a>
+		                            	</div>
+		                        	</div>
+		                    	</div>
+	                    	</div>      
+				    	</c:forEach>
+                	</c:otherwise>
+                </c:choose>
+
+	                <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
+	                	<h5 class="mb-4" style="font-weight: bold !important;">리뷰 작성</h5>
+	                    <form action="bookdetailinsertreview" method="get">
+	                        <div class="form-group">
+		                        <label>내용</label>
+		                        <input class="form-control" style="resize: none; height: 150px;" name="reviewinsert">
+	                        </div>
+	                        <div class="form-group">
+	                        	<button class="btn btn-primary btn-m" type="submit" style="background-color: #2D313C !important; border: 1px solid #2D313C;"> 등록하기 </button>
+	                    	</div>
+	                    </form>
+	                </div>
+                </div> 	
+
                             
                             
                             
-                            <!-- 리뷰 작성 박스 -->
-                            <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
-                                <h5 class="mb-4" style="font-weight: bold !important;">리뷰 작성</h5>
-                                <form action="bookdetailinsertreview" method="get">
-                                    <div class="form-group">
-                                        <label>내용</label>
-                                        <input class="form-control" style="resize: none; height: 150px;" name="reviewinsert">
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn-m" type="submit" style="background-color: #2D313C !important; border: 1px solid #2D313C;"> 등록하기 </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+
 </body>
 </html>

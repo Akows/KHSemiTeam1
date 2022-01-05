@@ -244,8 +244,8 @@
 	                    
 	                    	<c:forEach items="${data}" var="d" begin="0" end="0" step="1">
 		                        <tr class="primary">
-		                            <td><input type="text" name="productNumber" value="${d.productNumber}" id="productNumberbox"></td>
-		                            <td><input type="text" name="productName" value="${d.productName}" id="productNamebox"></td>
+		                            <td><input type="text" name="proNum" value="${d.productNumber}" id="productNumberbox"></td>
+		                            <td><input type="text" name="proName" value="${d.productName}" id="productNamebox"></td>
 		                            <td><img alt="" src="${d.imageLink}" style="width: 70px; height: 90px;"></td>   
 		                            <td><input type="file" name="upload" id="imageLinkbox"></td>                  
 		                            <td><input type="text" name="productPrice" value="${d.productPrice}" id="productPricebox"></td>
