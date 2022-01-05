@@ -20,7 +20,6 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> 
 
-
     <!-- 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <!-- css -->
@@ -216,15 +215,28 @@
                 
                 <form action="bookupdateinsert" method="post" enctype="multipart/form-data">
 
-					<input id="searchbar" type="text" value="PRO_NAME" name="searchtype" disabled>
-					<input id="searchbar" type="text" placeholder="책 제목으로 검색" name="searchvalue">
+					<select name="searchtype" style="width: 60px; font-size: small;">
+			            <optgroup label="검색값 설정">
+			            <option value="PRO_NAME">책 이름</option>
+			            </optgroup>
+		            </select>
+
+					
+					<select name="searchtype2" style="width: 60px; font-size: small;">
+			            <optgroup label="검색값 설정">
+			            <option value="BOOK_NO">책 번호</option>
+			            </optgroup>
+		            </select>
+
+
+					<input id="searchbar" type="text" placeholder="책 제목 입력" name="searchvalue">
+
+					<input id="searchbar" type="text" placeholder="책 번호 입력" name="searchvalue2">
                 
                     <table class="table-hover">
 	                    <thead>
 	                        <tr class="table-success">
-	                            <th>상품번호</th>
 	                            <th>상품이름</th>
-	                            <th>이미지</th>
 	                            <th>이미지 링크</th>
 	                            <th>단가</th>
 	                            <th>재고</th>
@@ -232,7 +244,6 @@
 	                            <th>좋아요</th>
 	                            <th>상품설명</th>
 	                            <th>상품유형</th>
-	                            <th>책번호</th>
 	                            <th>저자</th>
 	                            <th>출판사</th>
 	                            <th>출판일</th>
@@ -241,12 +252,9 @@
 	                        </tr>
 	                    </thead>
 	                    <tbody>
-	                    
 	                    	<c:forEach items="${data}" var="d" begin="0" end="0" step="1">
 		                        <tr class="primary">
-		                            <td><input type="text" name="proNum" value="${d.productNumber}" id="productNumberbox"></td>
 		                            <td><input type="text" name="proName" value="${d.productName}" id="productNamebox"></td>
-		                            <td><img alt="" src="${d.imageLink}" style="width: 70px; height: 90px;"></td>   
 		                            <td><input type="file" name="upload" id="imageLinkbox"></td>                  
 		                            <td><input type="text" name="productPrice" value="${d.productPrice}" id="productPricebox"></td>
 		                            <td><input type="text" name="productStock" value="${d.productStock}" id="productStockbox"></td>
@@ -262,7 +270,6 @@
 		                                     </optgroup>
 		                                </select>
 		                            </td>
-		                            <td><input type="text" name="bookNumber" value="${d.bookNumber}" id="bookNumberbox"></td>
 		                            <td><input type="text" name="writerName" value="${d.writerName}" id="writerNamebox"></td>
 		                            <td><input type="text" name="publisher" value="${d.publisher}" id="publisherbox"></td>
 		                            <td>
@@ -286,9 +293,10 @@
 		                                      </optgroup>
 		                                 </select>
 		                            </td>
-		                                 <td><input type="text" name="contentList" value="${d.contentList}" id="contentListbox"></td>
+		                            <td><input type="text" name="contentList" value="${d.contentList}" id="contentListbox"></td>
 		                         </tr>		
 	                         </c:forEach>
+	                         
 	                    </tbody>
 	                </table>
                     

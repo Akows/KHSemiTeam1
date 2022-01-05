@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,11 @@ import javax.servlet.http.Part;
 import com.dev.probook.model.ProbookVO;
 import com.dev.probook.service.ProbookService;
 
+@MultipartConfig
+(
+		maxFileSize = 1024 * 1024 * 50,
+		maxRequestSize = 1024 * 1024 * 50 * 5
+)
 @WebServlet("/bookupdateinsert")
 public class BookUpdateInsertController extends HttpServlet
 {
@@ -26,8 +32,9 @@ public class BookUpdateInsertController extends HttpServlet
 		
 		String type = req.getParameter("searchtype");
 		String value = req.getParameter("searchvalue");
+		String type2 = req.getParameter("searchtype2");
+		String value2 = req.getParameter("searchvalue2");
 		
-		String productNumber = req.getParameter("proNum");
 		String productName = req.getParameter("proName");
 		String productPrice = req.getParameter("productPrice");
 		String productStock = req.getParameter("productStock");
@@ -35,7 +42,6 @@ public class BookUpdateInsertController extends HttpServlet
 		String productlike = req.getParameter("productLikeCount");
 		String productDescript = req.getParameter("productDescript");
 		String productType = req.getParameter("productType");
-		String bookNumber = req.getParameter("bookNumber");
 		String writerName = req.getParameter("writerName");
 		String publisher = req.getParameter("publisher");
 		String enrollDate = req.getParameter("enrollDate");
@@ -44,7 +50,6 @@ public class BookUpdateInsertController extends HttpServlet
 		
 		ProbookVO pro = new ProbookVO();
 		
-		pro.setProductNumber(productNumber);
 		pro.setProductName(productName);
 		pro.setProductPrice(productPrice);
 		pro.setProductStock(productStock);
@@ -52,47 +57,41 @@ public class BookUpdateInsertController extends HttpServlet
 		pro.setProductLikeCount(productlike);
 		pro.setProductDescript(productDescript);
 		pro.setProductType(productType);
-		pro.setBookNumber(bookNumber);
 		pro.setWriterName(writerName);
 		pro.setPublisher(publisher);
 		pro.setEnrollDate(enrollDate);
 		pro.setCategoty(category);
 		pro.setContentList(contentList);
+
+		Part file = req.getPart("upload");
+
+		String originName = file.getSubmittedFileName();
+
+		InputStream fis = file.getInputStream();
 		
-		System.out.println(productStock);
-		System.out.println(productName);
-		System.out.println(type);
-		System.out.println(value);
+		String realPath = req.getServletContext().getRealPath("./Resources/img/Bookcover");
 		
-//		Part file = req.getPart("upload");
-//
-//		String originName = file.getSubmittedFileName();
-//
-//		InputStream fis = file.getInputStream();
-//		
-//		String realPath = req.getServletContext().getRealPath("./Resources/img/Bookcover");
-//		
-//		String filePath = realPath + File.separator + originName;
-//		
-//		FileOutputStream fos = new FileOutputStream(filePath);
-//		
-//		byte[] buf = new byte[1024];
-//		int size = 0;
-//		while ((size = fis.read(buf)) != -1) 
-//		{
-//			fos.write(buf, 0, size);
-//		}
-//		
-//		fis.close();
-//		fos.close();
-//		
-//		String imgPath1 = filePath.substring(filePath.lastIndexOf("WebContent")+10);
-//		String imgPath2 = imgPath1.replace("\\", "/");
-//		String imgPath3 = imgPath2.replace("/Resources", "./Resources");
-//		
-//		pro.setImageLink(imgPath3);
+		String filePath = realPath + File.separator + originName;
 		
-		int result = new ProbookService().bookupdate(pro, type, value);
+		FileOutputStream fos = new FileOutputStream(filePath);
+		
+		byte[] buf = new byte[1024];
+		int size = 0;
+		while ((size = fis.read(buf)) != -1) 
+		{
+			fos.write(buf, 0, size);
+		}
+		
+		fis.close();
+		fos.close();
+		
+		String imgPath1 = filePath.substring(filePath.lastIndexOf("WebContent")+10);
+		String imgPath2 = imgPath1.replace("\\", "/");
+		String imgPath3 = imgPath2.replace("/Resources", "./Resources");
+		
+		pro.setImageLink(imgPath3);
+		
+		int result = new ProbookService().bookupdate(pro, type, value, type2, value2);
 		
 		if (result > 0) 
 		{
@@ -102,6 +101,5 @@ public class BookUpdateInsertController extends HttpServlet
 		{	
 			req.getRequestDispatcher("./WEB-INF/views/Product_Books/a_book_update.jsp").forward(req, resp);
 		}
-
 	}
 }

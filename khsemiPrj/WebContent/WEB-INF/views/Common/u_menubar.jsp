@@ -69,6 +69,7 @@
                 <button type="submit" style="background-color: #2D313C; border: none;"><i id="search" class="fas fa-search fa-2x" type="submit"></i></button>
                 </div>
             </form>
+            
             <div class="cart-btn">
                 <span class="nav-icon" style="color:#eee">
                 	<a id="menu_cart" href="cart" style="color:#eee">

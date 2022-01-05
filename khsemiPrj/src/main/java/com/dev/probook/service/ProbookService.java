@@ -145,7 +145,7 @@ public class ProbookService
 		return new ProbookDAO().productlistcall(conn, startNum, lastNum);
 	}
 
-	public int bookupdate(ProbookVO pro, String type, String value) 
+	public int bookupdate(ProbookVO pro, String type, String value, String type2, String value2) 
 	{
 		Connection conn = JDBCTemplate.getConnection();
 		
@@ -153,7 +153,7 @@ public class ProbookService
 		
 		try 
 		{
-//			result = updateBookINF(conn, pro, type, value);
+			result = updateBookINF(conn, pro, type2, value2);
 			result = updateProINF(conn, pro, type, value);
 			
 			if(result > 0)
@@ -178,9 +178,9 @@ public class ProbookService
 		return new ProbookDAO().updateProINF(conn, pro, type, value);
 	}
 
-	private int updateBookINF(Connection conn, ProbookVO pro, String type, String value) 
+	private int updateBookINF(Connection conn, ProbookVO pro, String type2, String value2) 
 	{
-		return new ProbookDAO().updateBookINF(conn, pro, type, value);
+		return new ProbookDAO().updateBookINF(conn, pro, type2, value2);
 	}
 
 	public List<ProbookVO> bestSellerlistcall() 
