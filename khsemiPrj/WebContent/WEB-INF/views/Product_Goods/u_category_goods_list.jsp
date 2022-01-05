@@ -160,7 +160,7 @@
  
 	 
 <script>
-var likedesc = function(url){
+var likedesc = function(){
 
 	$.ajax({
 		type: 'get',
@@ -177,7 +177,7 @@ var likedesc = function(url){
 };
 
 
-var salesdesc = function(url){
+var salesdesc = function(){
 
 	$.ajax({
 		type: 'get',
