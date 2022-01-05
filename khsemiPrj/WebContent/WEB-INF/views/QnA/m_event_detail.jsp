@@ -1,3 +1,4 @@
+<%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -34,8 +35,22 @@
 </head>
 
 <body>
-<%@ include file="../Common/u_menubar.jsp" %>
-<div class="container">
+	<%
+	String id = "";
+	if (session.getAttribute("loginUser") != null) {
+		MemberVo member = (MemberVo) session.getAttribute("loginUser");
+		id = member.getUserId();
+	}
+	%>
+
+	<%if (id.equals("admin")) {%>
+	<%@ include file="../Common/a_menubar.jsp"%>
+	<%} else if (session.getAttribute("loginUser") != null) {%>
+	<%@ include file="../Common/u_menubar_login.jsp"%>
+	<%} else if (session.getAttribute("loginUser") == null) {%>
+	<%@ include file="../Common/u_menubar.jsp"%>
+	<%}%>
+	<div class="container">
 <div class="row">
   <div class="bbiv">
     <div class="">
@@ -93,36 +108,41 @@
                 </tr>
               </tbody>
           </table>
-          <img src="Resources/img/Eventupload/${e.eventImgUrl}" onerror="this.style.display='none';" border=0><br>
+          <img src="Resources/img/Eventupload/${e.eventImgUrl}" onerror="this.style.display='none';" border=0 width="885">
+          <br><br>
           ${e.eventContent}<br><br>
           <h6>이벤트 기간 : <fmt:formatDate value="${e.eventStart}" pattern="yy.MM.dd"/> ~ <fmt:formatDate value="${e.eventEnd}" pattern="yy.MM.dd"/></h6>
           
           <br>
           <a href="event"><button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button></a>
-          <button class="btn btn-primary" style="float: right;">수정</button>
-          <button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button>
+          <% if(id.equals("admin")) { %>
+          <a href="eventupdate?eventNo=${e.eventNo}&eventTitle=${e.eventTitle}&eventContent=${e.eventContent}&eventStart=${e.eventStart}&eventEnd=${e.eventEnd}"><button class="btn btn-primary" style="float: right;">수정</button></a>
+          <a href="eventdelete?eventNo=${e.eventNo}"><button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button></a>
+          <% } %>
           <hr>
-          <h4>신청</h4>
           <hr>
-          <form action="">
+          <% if(session.getAttribute("loginUser") != null) { %>
+        	<form action="application" method="post">
               <div id="userInfo" class="col-xs-6">
                 <ul>
+                	<%-- eventNo 전달용 input --%>
+                	<input type="text" class="form-control" name="eventno" id="eventno" value="${e.eventNo}" style="display:none;">
+                	<%-- memberNo 전달용 input --%>
+                	<input type="text" class="form-control" name="memberno" id="memberno" value="${loginUser.memberNo}" style="display:none;">
                     <p id="textId">아이디</p>
-                    <input type="text" class="form-control" name="" id="">
-                </ul>
-                <ul>
-                    <p id="textId">이름</p>
-                    <input type="text" class="form-control" name="" id="">
+                    <input type="text" class="form-control" name="appid" id="appid" value="${loginUser.userId}" readonly>
                 </ul>
                 <ul>
                     <p id="textId">이메일</p>
-                    <input type="text" class="form-control" name="" id="">
+                    <input type="text" class="form-control" name="appemail" id="appemail">
                 </ul>
                 <ul>
                     <input type="submit" class="btn btn-primary" value="이벤트 신청">
                 </ul>
                </div>
-          </form>
+          	</form>
+  		  <% } %>
+          
         
         <!-- <hr/> -->
             <!-- END TABLE RESULT -->
@@ -143,6 +163,10 @@
     <script type="text/javascript">
     
     </script>
-    <%@ include file="../Common/u_footer.jsp" %>
+    <% if(id.equals("admin")) { %>
+        <%@ include file="../Common/a_footer.jsp" %>
+    <% } else if(session.getAttribute("loginUser") != null) { %>
+        <%@ include file="../Common/u_footer.jsp" %>
+    <% } %>
 </body>
 </html>
