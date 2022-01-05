@@ -81,6 +81,8 @@
             <h2 id="book_Title" style="font-weight: bold;">${gvo.getPro_name()}</h2>
             <br>
             <span>제조사 : ${gvo.getMaker()} | 제조국가 : ${gvo.getCountry()}</span>
+            <input type="hidden" id="proN" value="${gvo.getPro_no()}" >
+            
             <br>
             <a href="" class="edit-delete-button" style="background-color: #2D313C !important; color: white; position: relative; top: 30px;"><i class="far fa-thumbs-up"></i> ${gvo.getPro_like()}명의 유저들이 추천합니다</a>
         </div>
@@ -249,10 +251,10 @@
                                 <form>
                                     <div class="form-group">
                                         <label>내용</label>
-                                        <textarea class="form-control" style="resize: none; height: 150px;"></textarea>
+                                        <textarea id="mr_cont" class="form-control" style="resize: none; height: 150px;"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary btn-m" type="button" style="background-color: #2D313C !important; border: 1px solid #2D313C;"> 등록하기 </button>
+                                        <button id="insert" onclick="insertR(${gvo.getPro_no()})" class="btn btn-primary btn-m" type="button" style="background-color: #2D313C !important; border: 1px solid #2D313C;"> 등록하기 </button>
                                     </div>
                                 </form>
                             </div>
@@ -263,6 +265,34 @@
             </div>
         </div>
     </div>
+    
+ <script>
+ 
+/*  function insertR(proNum){
+	    var url = 'mdreview?pro_no=' + proNum;
+	    window.open(url, "_self");
+	    }; */
+	    
+function insertR(){  
+	    	
+	   /*  var textarea = $("#mr_cont").val()
+	    textarea = encodeURIComponent(textarea); */
+	$.ajax({         
+		url : "/mdreview",
+		method: "get",
+		data : {
+			'pro_no' : $("#proN").val(),
+			'mr_cont': $("#mr_cont").val()
+		}
+	});        
+   console.log($("#mr_cont").val())
+		}
+ 
+</script>
+    
+    
+    
+    
     <%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>

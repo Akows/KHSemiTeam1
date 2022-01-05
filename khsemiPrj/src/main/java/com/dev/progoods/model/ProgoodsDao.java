@@ -679,7 +679,8 @@ public class ProgoodsDao {
 		
 		return gvo;
 	}
-		
+
+
 	
 
 }//class
