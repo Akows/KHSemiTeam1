@@ -56,9 +56,9 @@
           <!-- END FILTERS -->
           <!-- BEGIN RESULT -->
           <div class="col-md-10">
-            <h2>질문수정</h2>
+            <h2>공지수정</h2>
             <form action="noticeupdate" method="post">
-            	<input type="text" id="noticeNo" name="noticeno" value=${noticeNo} style="display: none;">
+            	<input type="text" id="noticeno" name="noticeno" value="${noticeNo}" style="display: none;">
                 <input type="text" id="noticeTitle" name="noticetitle" class="form-control mt-4 mb-2"
                     placeholder="제목을 입력해주세요." value="${noticeTitle}" required
                 >

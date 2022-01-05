@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.dev.event.model.vo.EventApplicationVo;
 import com.dev.event.model.vo.EventVo;
 
 public class EventDao {
@@ -177,23 +178,52 @@ public class EventDao {
 		return result;
 	}
 	
-	public int eventUpdate(Connection conn, EventVo n) {
-		String sql = "UPDATE EVENT SET E_TITLE = ?, E_CONTENT = ? WHERE E_NO = ?";
+	public int eventUpdate(Connection conn, EventVo e) {
+		String sql = "UPDATE EVENT SET E_TITLE = ?, E_CONTENT = ?, E_START = ?, E_END = ?, E_IMGURL = ? WHERE E_NO = ?";
 		
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, n.getEventTitle());
-			pstmt.setString(2, n.getEventContent());
-			pstmt.setInt(3, n.getEventNo());
+			pstmt.setString(1, e.getEventTitle());
+			pstmt.setString(2, e.getEventContent());
+			pstmt.setTimestamp(3, e.getEventStart());
+			pstmt.setTimestamp(4, e.getEventEnd());
+			pstmt.setString(5, e.getEventImgUrl());
+			pstmt.setInt(6, e.getEventNo());
 			result = pstmt.executeUpdate();
-					
+			System.out.println("이벤트dao에서 e 객체 : " + e);
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	public int insertEventApplication(Connection conn, EventApplicationVo ea) {
+		String sql = "INSERT INTO EVENT_APPLICATION(EA_NO, E_NO, M_NO, EA_ID, EA_EMAIL) VALUES(SEQ_EVENT_APP.NEXTVAL, ?, ?, ?, ?)";
+
+		PreparedStatement pstmt = null;
+
+		int result = 0;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ea.geteNo());
+			pstmt.setInt(2, ea.getmNo());
+			pstmt.setString(3, ea.getEaId());
+			pstmt.setString(4, ea.getEaEmail());
+			
+
+			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
+
 		return result;
 	}
 }

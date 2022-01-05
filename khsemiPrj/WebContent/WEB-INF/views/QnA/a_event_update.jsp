@@ -34,7 +34,7 @@
         <a href="home" class="breadcrumbtext"><img id="home_icon" src="Resources/img/i_con/home_icon.png" alt="홈아이콘"></a> > 
         <a href="qna" class="breadcrumbtext">게시판</a> >
         <a href="event" class="breadcrumbtext">이벤트</a> > 
-        <a href="#" class="breadcrumbtext">이벤트작성</a> 
+        <a href="#" class="breadcrumbtext">이벤트수정</a> 
     </div>
   </div>
   
@@ -48,7 +48,7 @@
             <hr>
             
             <!-- BEGIN FILTER BY CATEGORY -->
-            <a class="community" href="notice"><h4>공지사항</h4></a>
+            <a class="community" href="event"><h4>공지사항</h4></a>
             <a class="community" href="qna"><h4>Q&A</h4></a>
             <a class="community" href="event"><h4>이벤트</h4></a>
             <!-- END FILTER BY CATEGORY -->
@@ -61,17 +61,17 @@
           <!-- END FILTERS -->
           <!-- BEGIN RESULT -->
           <div class="col-md-10">
-            <h2>이벤트작성</h2>
+            <h2>이벤트수정</h2>
             <form action="eventupdate" method="post" enctype="multipart/form-data">
-                <input type="text" id="eventno" name="eventno" value="${eventNo}" style="display: none;">
+            	<input type="text" id="eventno" name="eventno" value="${eventNo}" style="display: none;">
                 <input type="text" id="eventtitle" name="eventtitle" class="form-control mt-4 mb-2"
-                    placeholder="제목을 입력해주세요."  value="${eventTitle}" required>
+                    placeholder="제목을 입력해주세요." required value="${eventTitle}">
                 <div class="form-group">
                     <textarea class="form-control" rows="10" name="eventcontent"
                         placeholder="내용을 입력해주세요" required
-                    ></textarea>
+                    >${eventContent}</textarea>
                 </div>
-                이벤트 기간 : <input type="date" name="startdate" value="${evenStart}"> <h4 style="display: inline;">~</h4> <input type="date" name="enddate" value="${evenStart}"><br>
+                이벤트 기간 : <input type="date" name="startdate" value="${eventStart}"> <h4 style="display: inline;">~</h4> <input type="date" name="enddate" value="${eventEnd}"><br>
                 <br>
                 <input type="file" name="eventimg"><br>
                 <div class="writeBtn">

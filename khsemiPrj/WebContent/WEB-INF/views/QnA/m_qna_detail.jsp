@@ -106,7 +106,7 @@
           </table>
           <br>
           <a href="qna"><button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button></a>
-          
+          <a href="qnadtreport?qnaNo=${q.qnaNo}" style="float: right; text-decoration: none; color:red"><i class="fas fa-exclamation-triangle">신고</i></a>
           <c:set var="user" value="${loginUser}"></c:set>
           <% 
           		if(session.getAttribute("loginUser") != null) {

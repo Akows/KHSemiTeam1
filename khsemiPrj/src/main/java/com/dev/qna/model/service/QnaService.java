@@ -6,6 +6,7 @@ import java.util.List;
 import static com.dev.common.JDBCTemplate.*;
 
 import com.dev.event.model.dao.EventDao;
+import com.dev.event.model.vo.EventApplicationVo;
 import com.dev.event.model.vo.EventVo;
 import com.dev.notice.model.dao.NoticeDao;
 import com.dev.notice.model.vo.NoticeVo;
@@ -185,6 +186,29 @@ public class QnaService {
 
 	private int insertEvent(Connection conn, EventVo e) {
 		return new EventDao().insertEvent(conn, e);
+	}
+
+	//이벤트 신청
+	public int writeEventApplication(EventApplicationVo ea) {
+		// 커넥션
+		Connection conn = getConnection();
+
+		int result = 0;
+		result = insertEventApplication(conn, ea);
+
+		if (result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+
+		return result;
+	}
+
+	private int insertEventApplication(Connection conn, EventApplicationVo ea) {
+		// dao 불러서 쿼리 실행
+		// dao 한테 쿼리 실행 결과 받기
+		return new EventDao().insertEventApplication(conn, ea);
 	}
 	
 }

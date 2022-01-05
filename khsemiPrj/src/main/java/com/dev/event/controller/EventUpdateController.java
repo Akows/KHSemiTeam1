@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Timestamp;
-import java.text.ParseException;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -16,32 +15,49 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import com.dev.event.model.service.EventService;
 import com.dev.event.model.vo.EventVo;
-import com.dev.qna.model.service.QnaService;
+import com.dev.event.model.service.EventService;
+import com.dev.event.model.vo.EventVo;
 
 @MultipartConfig(
 		maxFileSize = 1024 * 1024 * 10,
 		maxRequestSize = 1024 * 1024 * 50
 )
-
-@WebServlet("/eventwrite")
-public class EventWriteController extends HttpServlet{
+@WebServlet("/eventupdate")
+public class EventUpdateController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/QnA/a_event_write.jsp").forward(req, resp);
+		int eventNo = Integer.parseInt(req.getParameter("eventNo"));
+		System.out.println("수정전 eventNo : " + eventNo);
+		String eventTitle = req.getParameter("eventTitle");
+		System.out.println("수정전 eventNo : " + eventTitle);
+		String eventContent = req.getParameter("eventContent");
+		System.out.println("수정전 eventContent : " + eventContent);
+		
+		req.setAttribute("eventNo", eventNo);
+		req.setAttribute("eventTitle", eventTitle);
+		req.setAttribute("eventContent", eventContent);
+		req.getRequestDispatcher("WEB-INF/views/QnA/a_event_update.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("event업데이트의 dopost 문 안으로 들어옴");
+		int eventNo = Integer.parseInt(req.getParameter("eventno"));
+		System.out.println("이벤트 업데이트 컨트롤러에서 받은 eNo = "+eventNo);
 		String title = req.getParameter("eventtitle");
+		System.out.println(title);
 		String content = req.getParameter("eventcontent");
+		System.out.println(content);
 		String sStartDate = req.getParameter("startdate") + " 00:00:00";
 		Timestamp startDate = Timestamp.valueOf(sStartDate);
+		System.out.println(startDate);
 		String sEndDate = req.getParameter("enddate") + " 00:00:00";
 		Timestamp endDate = Timestamp.valueOf(sEndDate);
+		System.out.println(endDate);
 		String eventImg = null;
 		
-		//이미지 파일 읽을 준비
 		Part part = req.getPart("eventimg");
 		System.out.println("파트 : " + part.getSubmittedFileName());
 		if(part.getSubmittedFileName() != "") {
@@ -73,19 +89,22 @@ public class EventWriteController extends HttpServlet{
 			eventImg = "NoImage";
 		}
 		
+
 		EventVo e = new EventVo();
+		e.setEventNo(eventNo);
 		e.setEventTitle(title);
 		e.setEventContent(content);
 		e.setEventStart(startDate);
 		e.setEventEnd(endDate);
 		e.setEventImgUrl(eventImg);
 		System.out.println(e);
-		int result = new QnaService().writeEvent(e);
+
+		int result = new EventService().eventUpdate(e);
 
 		if (result > 0) {
 			resp.sendRedirect("event");
 		} else {
-			req.getRequestDispatcher("WEB-INF/views/QnA/a_event_write.jsp").forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/views/QnA/a_event_update.jsp").forward(req, resp);
 		}
 	}
 }
