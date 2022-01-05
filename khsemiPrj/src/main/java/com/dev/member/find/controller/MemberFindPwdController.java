@@ -47,17 +47,19 @@ public class MemberFindPwdController extends HttpServlet{
 		
 		if(userPwd != null) {
 			// success
-//			req.setAttribute("ID", userId);
 			resp.setContentType("text/html; charset=UTF-8");
-			resp.getWriter().print("회원님의 비밀번호는 " + userPwd + " 입니다.");
-//			req.getRequestDispatcher("/WEB-INF/views/Member/u_login.jsp").forward(req, resp);
+			resp.getWriter().print("<script>");
+			resp.getWriter().print("alert('회원님의 비밀번호는 ");
+			resp.getWriter().print(userPwd);
+			resp.getWriter().print(" 입니다. \\n로그인 화면으로 이동합니다.');");
+			resp.getWriter().print("</script>");
+			resp.getWriter().print("<script>location.href='login';</script>");
+						
 		} else {
 			// error
 			resp.setContentType("text/html; charset=UTF-8");
-			resp.getWriter().print("조회되는 비밀번호가 없습니다. 아이디 조회 페이지로 이동합니다.");
-			req.getRequestDispatcher("/WEB-INF/views/Member/u_find_id.jsp").forward(req, resp);
+			resp.getWriter().print("<script>alert('조회되는 정보가 없습니다.\\n비밀번호 조회 페이지로 다시 이동합니다.');</script>");
+			resp.getWriter().print("<script>location.href='pwdsearch';</script>");
 		}
-		
-        
 	}
 }
