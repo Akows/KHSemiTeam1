@@ -37,7 +37,7 @@
         <div id="aa">
             <!-- <a href="" id="route">홈</a>  -->
             &nbsp; > 
-            <a href="" id="tt">상품관리_굿즈</a>
+            <a href="" id="rr">상품관리_굿즈</a>
         </div>
     </div>
 
@@ -53,8 +53,8 @@
         <div id="side">
             <h2>굿즈 관리</h2>
             <br><div id="hrr"></div><br>
-            <a href="gcon1"><h3>굿즈 등록</h3></a>
-            <a href="gcon2"><h3>굿즈 수정/삭제</h3></a>
+            <a id="rr" href="gcon1"><h3>굿즈 등록</h3></a>
+            <a id="rr" href="gcon2"><h3>굿즈 수정/삭제</h3></a>
         </div>
         <div id="main2">
             <h3>굿즈 수정/삭제</h3>            
@@ -123,16 +123,8 @@
                 </div> -->
             </div>
             
-            <form method="post">
-            <div id="del">
+            <form method="get" >
             
-            	<input type="submit" value="상품 수정" onclick="javascript: form.action='/goods_update';"/>
-    			<input type="submit" value="상품 삭제" onclick="javascript: form.action='/goods_delete';"/>
-            
-               <!--  
-               	<button type="submit" class="btn1">상품 수정</button>
-                <button type="submit" class="btn1">상품 삭제</button> -->
-            </div>
             <table id="table2">
                 <thead>
                     <tr class="table-success">
@@ -167,15 +159,15 @@
                         <td></td>
                     </tr>
                     <tr id="update">
-			            <td><input id="proN" type="text" name="pro_no" disabled/></td>
+			            <td><input id="proN" type="text" name="pro_no" readonly/></td>
 			            <td><input class="a" id="proName" type="text" name="pro_name"></td>
-			            <td><input id="img" type="file" accept="image/jpeg,.png" name="goodsimg"></td>
+			            <td><!-- <input id="img" type="file" accept="image/jpeg,.png" name="goodsimg"> --></td>
 			            <td><input class="b" id="price" type="number" name="unit_price"></td>
 			            <td><input class="b" id="stock" type="number" name="stock"></td>
 			            <td><input class="c" id="sale" type="number" name="sales" disabled/></td>
 			            <td><input class="c" id="like" type="number" name="pro_like" disabled/></td>
-			            <td><input id="inf" type="file" accept="image/jpeg,.png" name="goodsinf"></td>
-			            <td>굿즈<input class="c" id="type" type="text" name="pro_type" disabled/></td>
+			            <td><!-- <input id="inf" type="file" accept="image/jpeg,.png" name="goodsinf"> --></td>
+			            <td><input class="c" id="type" type="text" name="pro_type" disabled/></td>
 			            <td><input class="c" id="mdNo" type="text" name="md_no" disabled/></td>
 			            <td>
 			                <select id="cate" name="category" style="width: 100%; font-size: small;">
@@ -190,7 +182,13 @@
                     </tr>
                 </tbody>
             </table>
+            <div id="del">
+            	<input type="hidden" name="currentpage" value="${currentPage}"/>
+    			<input type="hidden" name="search" value="${search}"/>
+            	<input type="submit" value="상품 수정" onclick="javascript: form.action='goods_update';"/>
             </form>
+    			<button value="상품 삭제" id="delete" onclick="delMD()"/>상품 삭제</button>
+            </div>
             
         </div><!-- main2 -->
 	 </div><!-- main1 -->
@@ -212,9 +210,7 @@
                 const num10 = $(this).children().eq(10).text();
                 const num11 = $(this).children().eq(11).text();
                 const num12 = $(this).children().eq(12).text();
-                
-
-                
+                          
              	$('#view').children().eq(0).text(num0);
                 $('#view').children().eq(1).text(num1);
                 $('#view').children().eq(2).text(num2);
@@ -229,7 +225,7 @@
                 $('#view').children().eq(11).text(num11);
                 $('#view').children().eq(12).text(num12);
                 
-               /*  $('#update').children().eq(0).text(num0); */
+             /* $('#update').children().eq(0).text(num0); */
                 $('#update').children().eq(5).text(num5);
                 $('#update').children().eq(6).text(num6);
                 $('#update').children().eq(8).text(num8);
@@ -239,56 +235,27 @@
                var pro_no = $(this).children().eq(0).text();
                console.log(pro_no);
  			   $("#proN").val(pro_no);
- 			   
- 			 /*var pro_name = $(this).children().eq(1).text();
- 			   console.log(pro_name);
-			   $("#proName").val(pro_name);
-			   
-			   
- 			   
- 			   var unit_price = $(this).children().eq(3).text();
- 			   console.log(unit_price);
-			   $("#price").val(unit_price);
-			   
-			   var stock = $(this).children().eq(4).text();
-			   console.log(stock);
- 			   $("#stock").val(stock);
- 			   
- 			   var sales = $(this).children().eq(5).text();
- 			   console.log(sales);
-			   $("#sale").val(sales);
-			   6
-			   var pro_like = $(this).children().eq(6).text();
-			   console.log(pro_like);
- 			   $("#like").val(pro_like);
- 			   
- 			  
-			   
-			   var pro_type = $(this).children().eq(8).text();
-			   console.log(pro_type);
- 			   $("#type").val(pro_type);
- 			   
- 			   var md_no = $(this).children().eq(9).text();
- 			   console.log(md_no);
-			   $("#mdNo").val(md_no);
-			   
-			   var category = $(this).children().eq(10).text();
-			   console.log(category);
- 			   $("#cate").val(category);
- 			   
- 			   var maker = $(this).children().eq(11).text();
- 			   console.log(maker);
-			   $("#maker").val(maker);
-			   
-			   var country = $(this).children().eq(12).text();
-			   console.log(country);
-			   $("#country").val(country); */
- 	            
+ 			  console.log($("#proN").val());
+
             });
 
         });    
     </script> 
-    
+   
+	<script>
+	
+	function delMD(){          
+		$.ajax({         
+		url : "/devbooks/goods_delete",
+		method: "post",
+		data : {
+			'pro_no' : $("#proN").val()
+			}
+	});        
+		}
+	</script>
+
+
 
     <br><br><br><br>
   <%@ include file="../Common/a_footer.jsp" %>

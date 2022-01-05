@@ -19,9 +19,12 @@ public class Goodscontrol_2 extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
+		String search = req.getParameter("search");
+		if(search == null || search.trim().equals("")){
+			search = "0";
+		}
 		
 		String curpage = req.getParameter("currentPage");
-		
 		if(curpage == null) {
 			curpage = "1";
 		}
@@ -31,6 +34,7 @@ public class Goodscontrol_2 extends HttpServlet
 		
 		
 		List<ProgoodsVo> goodsList = new ProgoodsService().goodsAll(page);
+		req.setAttribute("search", search);
 		req.setAttribute("curpage", curpage2);
 		req.setAttribute("page", page);
 		req.setAttribute("goodsList", goodsList);

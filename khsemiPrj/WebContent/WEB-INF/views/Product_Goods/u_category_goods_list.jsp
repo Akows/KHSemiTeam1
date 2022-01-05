@@ -78,7 +78,7 @@
 
 			<td>
 			<div id="goodsarea">
-               <div class="image-box"><img src="${g.pro_img}" class="image-thumnail" id="goodscover"></div>
+               <div class="image-box"><img src="${g.pro_img}" class="image-thumnail" id="goodscover" onclick="detail(${g.pro_no})"/></div>
                <div id="goodstitle">
                    <h5>${g.pro_name}</h5>
                    <h6>${g.maker}</h6>
@@ -205,12 +205,18 @@ function addCart(pronum){
     };
     
 function addLike(proNum){
-    var url = 'addlike?pro_no=' + proNum.value;
+    var url = 'addlike?pro_no=' + proNum;
     window.open(url, "_self");
     };
 
 </script>
+<script>
+function detail(proNum){
+    var url = 'gd?pro_no=' + proNum;
+    window.open(url, "_self");
+    };
 
+</script>
 
 
  
