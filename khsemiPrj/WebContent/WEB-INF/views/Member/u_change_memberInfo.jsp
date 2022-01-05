@@ -88,7 +88,7 @@
             <div id="user_Info" class="col-xs-3">
                 <ul class="wright_info">
                     <p class="text_info">아이디</p>
-                    <input type="text" class="form-control box_size" name="userId" id="userId" value="${loginUser.userId}" readonly>
+                    <input type="text" class="form-control box_size" name="userId" id="userId" value="${vo.userId}" readonly>
                     <input type="button" name="dupCheck" id="dupCheck" class="form-control box_size" value="중복 확인" readonly>
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
@@ -101,11 +101,11 @@
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">이름</p>
-                    <input type="text" class="form-control box_size" name="userName" id="userName" value="${loginUser.userName}" required >
+                    <input type="text" class="form-control box_size" name="userName" id="userName" value="${vo.userName}" required >
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">이메일</p>
-                    <input type="text" class="form-control box_size" name="userEmail" id="userEmail" placeholder="이메일을 입력하세요" value="${loginUser.userEmail}" required >
+                    <input type="text" class="form-control box_size" name="userEmail" id="userEmail" placeholder="이메일을 입력하세요" value="${vo.userEmail}" required >
                     <label style="font-weight: bold; position: relative; left: 355px; bottom: 78px;">@</label>
                     <input type="text" class="form-control box_size" name="userEmail" id="inputEmail" style="position: relative; width: 155px !important; height: 38px; left: 370px; bottom: 118px;">
                     <select name="site_Type" class="form-control box_size" name="userEmail" id="select_Site" title="이메일 선택" style="position: relative; width: 150px !important; height: 38px; left: 540px; bottom: 156px !important;">
@@ -119,18 +119,18 @@
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">전화번호</p>
-                    <input type="text" class="form-control box_size" name="userPhone" id="userPhone" placeholder="-를 제외하고 입력해 주세요." required value="${loginUser.userPhone}">
+                    <input type="text" class="form-control box_size" name="userPhone" id="userPhone" placeholder="-를 제외하고 입력해 주세요." required value="${vo.userPhone}">
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">주소</p>
-                    <input type="text" class="form-control box_size" name="addr" id="addrBox1" placeholder="주소를 입력하세요" required value="${loginUser.addr}">
-                    <input type="text" class="form-control box_size" name="addrDetail" id="addrBox2" placeholder="상세 주소를 입력하세요" required value="${loginUser.addrDetail}">
+                    <input type="text" class="form-control box_size" name="addr" id="addrBox1" placeholder="주소를 입력하세요" required value="${vo.addr}">
+                    <input type="text" class="form-control box_size" name="addrDetail" id="addrBox2" placeholder="상세 주소를 입력하세요" required value="${vo.addrDetail}">
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">생년월일</p>
-                    <select name="yy" class="form-control box_size" id="year" value="${loginUser.yy}"></select>
-                    <select name="mm" class="form-control box_size" id="month" value="${loginUser.mm}"></select>
-                    <select name="dd" class="form-control box_size" id="day" value="${loginUser.dd}"></select>
+                    <select name="yy" class="form-control box_size" id="year" value="${vo.yy}"></select>
+                    <select name="mm" class="form-control box_size" id="month" value="${vo.mm}"></select>
+                    <select name="dd" class="form-control box_size" id="day" value="${vo.dd}"></select>
                 </ul>
                 <br>
         </div>

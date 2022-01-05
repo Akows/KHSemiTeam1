@@ -66,7 +66,7 @@
 </head>
 <body>
   <div class="input_box">
-    <form action="idsearch" method = "POST">
+    <form action="idsearch" method = "post">
       <div class = "search-title">
         <h3>휴대폰 본인확인</h3>
       </div>

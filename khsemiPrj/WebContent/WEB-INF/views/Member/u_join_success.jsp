@@ -74,7 +74,7 @@
             </span>
         </div>
         <div class="go_home">
-            <button class="btn btn-default" style="background-color: #2D313C; border-radius: 2px solid #2D313C; height: 50px; width: 150px;"><a style=" color: white;" href="http://127.0.0.1:8888/devbooks/login">확인</a></button>
+            <button class="btn btn-default" style="background-color: #2D313C; border-radius: 2px solid #2D313C; height: 50px; width: 150px;"><a style=" color: white;" href="login">확인</a></button>
         </div>
     </div>
     <br>

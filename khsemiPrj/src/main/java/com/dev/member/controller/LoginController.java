@@ -30,25 +30,25 @@ public class LoginController extends HttpServlet{
 		m.setUserPwd(userPwd);
 		
 		MemberVo loginUser = new MemberService().login(m);
-		resp.setContentType("text/html; charset=UTF-8");
-		resp.getWriter().print("<script>alert('로그인 성공');</script>");
+		
 		if(loginUser != null) {
 			// success
-			
 			req.getSession().setAttribute("loginUser", loginUser);
 			if(loginUser.getUserId().equals("admin")) {
 				resp.setContentType("text/html; charset=UTF-8");
 				resp.getWriter().print("<script>alert('관리자 로그인 완료');</script>");
-				req.getRequestDispatcher("/WEB-INF/views/Order/a_home.jsp").forward(req, resp);
+				resp.getWriter().print("<script>location.href='adminHome';</script>");
 			} else {
-				
-				req.getRequestDispatcher("/WEB-INF/views/Product_Goods/u_home.jsp").forward(req, resp);
+				resp.setContentType("text/html; charset=UTF-8");
+				resp.getWriter().print("<script>alert('로그인 완료');</script>");
+				resp.getWriter().print("<script>location.href='home';</script>");
 			}
+			
 		} else {
 			// error
 			resp.setContentType("text/html; charset=UTF-8");
 			resp.getWriter().print("<script>alert('로그인 실패, 정보가 일치하지 않습니다.');</script>");
-			resp.sendRedirect("login");
+			resp.getWriter().print("<script>location.href='login';</script>");
 		}
 	}
 

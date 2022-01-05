@@ -201,6 +201,7 @@ public class MemberDao {
 	}
 	
 	public int updateMember(MemberVo vo) {
+		// 회원 정보 업데이트
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = -1;
@@ -238,12 +239,13 @@ public class MemberDao {
 	}
 
 	public MemberVo getUser(String userId) {
+		// 가입된 회원의 ID를 가져와 입력 정보를 불러온다.
 		MemberVo vo = null; // 데이터가 없을 경우 null 값을 반환.
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT NAME , EMAIL , PHONE , ADDR , ADDR_DETAIL , YY , MM , DD FROM MEMBER WHERE ID = ?";
+		String sql = "SELECT ID, NAME , EMAIL , PHONE , ADDR , ADDR_DETAIL , YY , MM , DD FROM MEMBER WHERE ID = ?";
 
 		try {
 			conn = getConnection(); // DB 연결 시도
@@ -254,14 +256,15 @@ public class MemberDao {
 			
 			if (rs.next()) {
 				vo = new MemberVo();
-				vo.setUserName(rs.getString("userName"));
-				vo.setUserEmail(rs.getString("userEmail"));
-				vo.setUserPhone(rs.getString("userPhone"));
-				vo.setAddr(rs.getString("addr"));
-				vo.setAddrDetail(rs.getString("addrDetail"));
-				vo.setYy(rs.getString("yy"));
-				vo.setMm(rs.getString("mm"));
-				vo.setDd(rs.getString("dd"));
+				vo.setUserId(rs.getString("ID"));
+				vo.setUserName(rs.getString("NAME"));
+				vo.setUserEmail(rs.getString("EMAIL"));
+				vo.setUserPhone(rs.getString("PHONE"));
+				vo.setAddr(rs.getString("ADDR"));
+				vo.setAddrDetail(rs.getString("ADDR_DETAIL"));
+				vo.setYy(rs.getString("YY"));
+				vo.setMm(rs.getString("MM"));
+				vo.setDd(rs.getString("DD"));
 			}
 
 		} catch (Exception e) {
