@@ -71,7 +71,7 @@
                     <table border="0">
                                   
 					    <div id="searcharea">
-					        <form action="newproducts" method="get">
+					        <form action="programinglang" method="get">
 					        
 					            <select id="selectbutton" name="searchtype">
 					                <option value="PRO_NAME">책 제목</option>

@@ -75,33 +75,8 @@
 </head>
 <body>
 	<%@ include file="../Common/u_menubar.jsp" %>
-    <!-- 위치 링크 -->
-    <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
-    <a href="" id="placeLink">> 주제별 도서</a>
-    <a href="" id="placeLink">> IT 자격증</a>
-    
-    <div id="searcharea">
-		<form action="bookdetail" method="get">
-		
-			<h3>임시조치, 정확한 책 제목을 검색하면 필요 정보를 출력.</h3>
-					        
-			<select id="selectbutton" name="searchtype">
-				<option value="PRO_NAME">책 제목</option>
-			</select>
-					    
-			<input id="searchbar" type="text" placeholder="책 제목으로 검색" name="searchvalue">
-			<button id="searchbutton" type="submit">검색</button>
-		</form>
-	</div>
-					    
-    <!-- 상단 컨텐츠 항목 -->
-    <div class="content">
-        <!-- 오른쪽 책 제목 및 설명 / 구매 항목 -->
-        <!-- 책 제목 및 저자, 출판사, 출판일 -->
-        <div class="box_datail_right">
-            <br>
-            
-        <% 
+	
+	    <% 
 			for(ProbookVO p : list)
 			{
 				String productName = p.getProductName();
@@ -115,6 +90,23 @@
 				String productDescript = p.getProductDescript();
 				String contentList = p.getContentList();
 		%>	
+	
+    <!-- 위치 링크 -->
+    <nav>
+    	<a href="home"><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
+	    <a href="" id="placeLink">> 주제별 도서</a>
+	    <a href="" id="placeLink">> <%=productName%></a>
+    </nav>
+    
+
+    <!-- 상단 컨텐츠 항목 -->
+    <div class="content">
+        <!-- 오른쪽 책 제목 및 설명 / 구매 항목 -->
+        <!-- 책 제목 및 저자, 출판사, 출판일 -->
+        <div class="box_datail_right">
+            <br>
+            
+
 		
         <hr id="rec_peopleLine">
         <!-- 책 제목 및 저자, 출판사, 출판일 그리고 좋아요 수  -->
@@ -171,7 +163,8 @@
             <!-- 하단 소개항목/책 소개 -->
             <div class="bottom_book_intro">
                 <strong id="book_intro">책 소개</strong>
-                    <br>
+                <br>
+                <br>
                 <p style="line-height: 2.0;">
 					<%=productDescript%>
                 </p>
@@ -183,8 +176,6 @@
                     <div class="contents_inside">
                         <p>
                             <br>
-                            [목 차]
-                            <br><br>
                             <%=contentList%>
                         </p>
                     </div>
@@ -199,11 +190,8 @@
         
 
                         <br><br><br><br><br>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
+
     <%@ include file="../Common/u_footer.jsp" %>
 </body>
 </html>
