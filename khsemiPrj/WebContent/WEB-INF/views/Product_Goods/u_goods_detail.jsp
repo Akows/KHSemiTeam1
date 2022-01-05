@@ -69,8 +69,7 @@
     <!-- 위치 링크 -->
     <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> DEV BOOKS 굿즈</a>
-    <a href="" id="placeLink">> PC/노트북</a>
-    <a href="" id="placeLink">> 키보드/마우스</a>
+    <a href="" id="placeLink">> ${gvo.getMd_cate()}</a>
     <!-- 상단 컨텐츠 항목 -->
     <div class="content">
         <!-- 오른쪽 굿즈명 및 설명 / 구매 항목 -->
@@ -79,11 +78,11 @@
         <hr id="rec_peopleLine">
         <!-- 굿즈명 및 제조사, 제조국가 -->
         <div class="rec_peopleBox">
-            <h2 id="book_Title" style="font-weight: bold;">로지텍 정품 블루투스 키보드K380</h2>
+            <h2 id="book_Title" style="font-weight: bold;">${gvo.getPro_name()}</h2>
             <br>
-            <span>제조사 : logitech | 제조국가 : 한국</span>
+            <span>제조사 : ${gvo.getMaker()} | 제조국가 : ${gvo.getCountry()}</span>
             <br>
-            <a href="" class="edit-delete-button" style="background-color: #2D313C !important; color: white; position: relative; top: 30px;"><i class="far fa-thumbs-up"></i> 350명의 유저들이 추천합니다</a>
+            <a href="" class="edit-delete-button" style="background-color: #2D313C !important; color: white; position: relative; top: 30px;"><i class="far fa-thumbs-up"></i> ${gvo.getPro_like()}명의 유저들이 추천합니다</a>
         </div>
         <hr id="pur_QauntityLine">
         <!-- 구매 수량 및 가격 그리고 장바구니,구매 버튼 -->
@@ -92,7 +91,7 @@
         <!-- 오른쪽 영역 : 수량 버튼  -->
         <div class="def-number-input number-input safari_only" style="position: relative; left: 1200px; top: 260px;">
             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                <input class="quantity" min="0" name="quantity" value="1" type="number">
+                <input id="ea" class="quantity" min="0" name="quantity" value="1" type="number">
             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
         </div>
         <br>
@@ -100,7 +99,7 @@
         <div class="buy_price">
             <strong>
                 <span style="font-size: 15px; vertical-align: middle;">합계</span>
-                34,900원
+                ${gvo.getUnit_price()} 원
             </strong>
         </div>
         <!-- 버튼 영역 -->
@@ -115,7 +114,8 @@
         <div class="box_detail_left">
             <!-- 굿즈 이미지 -->
             <div class="cover">
-                <img src="${pageContext.request.contextPath}/Resources/img/Goodscover/goods_img.jpg" width="198" height="282" alt="" class="coverImg">
+                <%-- <img src="${pageContext.request.contextPath}/Resources/img/Goodscover/goods_img.jpg" width="198" height="282" alt="" class="coverImg"> --%>
+                <img src="${pageContext.request.contextPath}/${gvo.getPro_img()}" width="198" height="282" alt="" class="coverImg">
             </div>
         </div>
         <br><br>
@@ -131,7 +131,7 @@
             <div class="bottom_book_intro">
                 <strong id="book_intro">상품 소개</strong>
                 <br>
-                <img src="${pageContext.request.contextPath}/Resources/img/Goodsinfo/goods_intro.png" style="margin-top: 40px; margin-bottom: 10px;">
+                <img src="${gvo.getDescription()}" style="margin-top: 40px; margin-bottom: 10px;">
             </div>
             <hr style="border: 0; height: 1px; background: #ccc; width: 62%; position: relative; top: 5px;">
         </div>

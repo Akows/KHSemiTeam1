@@ -66,7 +66,6 @@ public class ProgoodsService {
 		int total = new ProgoodsDao().totalCountAll(conn);
 		close(conn);
 		return total ;
-		
 	}
 
 	public List<ProgoodsVo> goodsAll(Paging page) {
@@ -102,12 +101,14 @@ public class ProgoodsService {
 		close(conn);
 		return update;
 	}
+	
 	public int updatemdCate(int pro_no, String md_cate) {
 		Connection conn = getConnection();
 		int update =  new ProgoodsDao().updatemdCate(conn, pro_no, md_cate) ;
 		close(conn);
 		return update;
 	}
+	
 	public int updateMaker(int pro_no, String maker) {
 		Connection conn = getConnection();
 		int update =  new ProgoodsDao().updateMaker(conn, pro_no, maker) ;
@@ -121,27 +122,41 @@ public class ProgoodsService {
 		close(conn);
 		return update;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	public int updateProImg(int pro_no) {
-		Connection conn = getConnection();
-		int update = 0;
 		
+	public int updateProImg(int pro_no, String filePath) {
+		Connection conn = getConnection();
+		int update =  new ProgoodsDao().updateProImg(conn, pro_no, filePath) ;
 		close(conn);
 		return update;
 	}
-	public int updateProInf(int pro_no) {
+	public int updateProInf(int pro_no, String filePath2) {
 		Connection conn = getConnection();
-		int update = 0;
-		
+		int update =  new ProgoodsDao().updateProInf(conn, pro_no, filePath2) ;
 		close(conn);
 		return update;
+	}
+
+	public int deleteMd(int pro_no) {
+		Connection conn = getConnection();
+		System.out.println("md 서비스");
+		int result = new ProgoodsDao().deleteMd(conn, pro_no);
+		close(conn);
+		return result;
+	}
+	
+	public int deletePro(int pro_no) {
+		Connection conn = getConnection();
+		System.out.println("pro 서비스");
+		int result = new ProgoodsDao().deletePro(conn, pro_no);
+		close(conn);
+		return result;
+	}
+
+	public ProgoodsVo mdDetail(int pro_no) {
+		Connection conn = getConnection();
+		ProgoodsVo pvo = new ProgoodsDao().mdDetail(conn, pro_no);
+		close(conn);
+		return pvo;
 	}
 	
 }

@@ -18,7 +18,7 @@ public class ProgoodsDao {
 	public int insertProG(Connection conn, ProgoodsVo g) {
 		
 		String sql = "INSERT ALL INTO PRO_INF "
-				+ "VALUES(SEQ_PRO_INF.NEXTVAL,?,?,?,?,0,0,?,'����') "
+				+ "VALUES(SEQ_PRO_INF.NEXTVAL,?,?,?,?,0,0,?,'생활용품') "
 				+ "INTO MD_INF "
 				+ "VALUES(SEQ_MD_INF.NEXTVAL,SEQ_PRO_INF.NEXTVAL,?,?,?) "
 				+ "SELECT * FROM DUAL";
@@ -375,7 +375,6 @@ public class ProgoodsDao {
 		int result = 0; 
 		
 		String sql = "UPDATE PRO_INF SET PRO_NAME = ? WHERE PRO_NO =? ";
-		
 		PreparedStatement pstmt = null;
 		
 		try {
@@ -401,7 +400,6 @@ public class ProgoodsDao {
 		int result = 0; 
 		
 		String sql = "UPDATE PRO_INF SET UNIT_PRICE = ? WHERE PRO_NO =? ";
-		
 		PreparedStatement pstmt = null;
 		
 		try {
@@ -429,7 +427,6 @@ public class ProgoodsDao {
 		int result = 0; 
 		
 		String sql = "UPDATE PRO_INF SET STOCK = ? WHERE PRO_NO =? ";
-		
 		PreparedStatement pstmt = null;
 		
 		try {
@@ -455,8 +452,7 @@ public class ProgoodsDao {
 	public int updatemdCate(Connection conn, int pro_no, String md_cate) {
 		int result = 0; 
 		
-		String sql = "UPDATE PRO_INF SET MD_CATE = ? WHERE PRO_NO =? ";
-		
+		String sql = "UPDATE MD_INF SET MD_CATE = ? WHERE PRO_NO =? ";
 		PreparedStatement pstmt = null;
 		
 		try {
@@ -482,8 +478,7 @@ public class ProgoodsDao {
 	public int updateMaker(Connection conn, int pro_no, String maker) {
 		int result = 0; 
 		
-		String sql = "UPDATE PRO_INF SET MAKER = ? WHERE PRO_NO =? ";
-		
+		String sql = "UPDATE MD_INF SET MAKER = ? WHERE PRO_NO =? ";
 		PreparedStatement pstmt = null;
 		
 		try {
@@ -509,8 +504,7 @@ public class ProgoodsDao {
 	public int updateCountry(Connection conn, int pro_no, String country) {
 		int result = 0; 
 		
-		String sql = "UPDATE PRO_INF SET COUNTRY = ? WHERE PRO_NO =? ";
-		
+		String sql = "UPDATE MD_INF SET COUNTRY = ? WHERE PRO_NO =? ";
 		PreparedStatement pstmt = null;
 		
 		try {
@@ -531,8 +525,166 @@ public class ProgoodsDao {
 		
 		return result;
 	}
+
+	public int updateProImg(Connection conn, int pro_no, String filePath) {
+		int result = 0; 
+		
+		String sql = "UPDATE PRO_INF SET PRO_IMG = ? WHERE PRO_NO =? ";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, filePath);
+			pstmt.setInt(2, pro_no);
+			
+			result = pstmt.executeUpdate();
+			if(result != 0) {
+				commit(conn);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			rollback(conn);
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+
+	}
+
+	public int updateProInf(Connection conn, int pro_no, String filePath2) {
+		int result = 0; 
+		
+		String sql = "UPDATE PRO_INF SET DESCRIPTION = ? WHERE PRO_NO =? ";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, filePath2);
+			pstmt.setInt(2, pro_no);
+			
+			result = pstmt.executeUpdate();
+			if(result != 0) {
+				commit(conn);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			rollback(conn);
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	public int deleteMd(Connection conn, int pro_no) {
+		System.out.println("delmd dao");
+		int result = 0; 
+		
+		String sql = "DELETE FROM MD_INF WHERE PRO_NO = ? ";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pro_no);
+			result = pstmt.executeUpdate();
+			if(result != 0) {
+				commit(conn);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			rollback(conn);
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	public int deletePro(Connection conn, int pro_no) {
+		System.out.println("delpro dao");
+		int result = 0; 
+		
+		String sql = "DELETE FROM PRO_INF WHERE PRO_NO = ? ";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pro_no);
+			result = pstmt.executeUpdate();
+			if(result != 0) {
+				commit(conn);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			rollback(conn);
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	public ProgoodsVo mdDetail(Connection conn, int pro_No) {
+		
+		String sql ="SELECT P.*, M.MD_NO,M.MD_CATE,M.MAKER,M.COUNTRY FROM PRO_INF P JOIN MD_INF M ON P.PRO_NO = M.MD_NO WHERE P.PRO_NO = ?";
+		
+		PreparedStatement pstmt = null;
+		
+		ProgoodsVo gvo = new ProgoodsVo();
+		gvo = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pro_No);
+			
+			rs = pstmt.executeQuery();
+		    
+			while(rs.next()) {
+				int pro_no =rs.getInt("PRO_NO");
+				int sales =rs.getInt("SALES");
+				int pro_like =rs.getInt("PRO_LIKE");
+				String pro_type =rs.getString("PRO_TYPE");
+				int md_no =rs.getInt("MD_NO");
+				
+				String pro_name =rs.getString("PRO_NAME");
+				String pro_img =rs.getString("PRO_IMG");
+				int unit_price =rs.getInt("UNIT_PRICE");
+				int stock =rs.getInt("STOCK"); 
+				String description =rs.getString("DESCRIPTION");
+				String md_cate =rs.getString("MD_CATE");
+				String maker =rs.getString("MAKER");
+				String country =rs.getString("COUNTRY");
+				
+				gvo = new ProgoodsVo();
+				gvo.setCountry(country);
+				gvo.setDescription(description);
+				gvo.setMaker(maker);
+				gvo.setMd_cate(md_cate);
+				gvo.setMd_no(md_no);
+				gvo.setPro_img(pro_img);
+				gvo.setPro_like(pro_like);
+				gvo.setPro_name(pro_name);
+				gvo.setPro_no(pro_no);
+				gvo.setPro_type(pro_type);
+				gvo.setSales(sales);
+				gvo.setStock(stock);
+				gvo.setUnit_price(unit_price);
+			}//while 
+			
+		} catch (SQLException e) {
+			System.out.println("sql error");
+			e.printStackTrace();
+		}finally {
+				close(pstmt);
+				close(rs);
+		}
+		
+		return gvo;
+	}
+		
+	
+
+}//class
 	
 	
 	
 
-}
+
