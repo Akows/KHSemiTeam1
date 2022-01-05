@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %>
-<%@ page import="com.dev.member.model.vo.MemberVo" %>
-<%@ page import="com.dev.member.model.dao.MemberDao" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -28,6 +26,23 @@
     
     <!-- jQuery -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    
+    <style>
+    	/* 첫번째 이메일 입력 인풋 */
+		#userEmail {
+		    width: 155px !important;
+		    height: 38px;
+		}
+		
+		/* 두번째 이메일 선택 인풋 */
+		#inputEmail {
+		    position: relative;
+		    width: 158px !important;
+		    height: 38px;
+		    left: 370px;
+		    bottom: 117px !important;
+		}
+    </style>
 	
 	<!-- 생년월일 셀렉트 박스 -->
 	<script>
@@ -61,42 +76,20 @@
 	</script>
 </head>
 <body>
-	<%
-		String userId = null;
-		if(session.getAttribute("userId") != null) {
-			userId = (String) session.getAttribute("userId");
-			System.out.println("u_change_memberInfo.jsp : userId"+userId);
-		}else if (session.getAttribute("userId") == null) {
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('로그인을 하세요.')");
-			script.println("location.href='u_login.jsp'");
-			script.println("</script>");
-		}
-		
-		MemberVo user = new MemberDao().getUser(conn, userId);
-		if (!userId.equals(user.getUserId())) {
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('권한이 없습니다.')");
-			script.println("location.href='u_login.jsp'");
-			script.println("</script>");
-		}
-	%>
-	<%@ include file="../Common/u_menubar.jsp" %>
+	<%@ include file="../Common/u_menubar_login.jsp" %>
      <!-- 위치 링크 -->
-    <a href="loginUserHome"><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
+    <a href="home"><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="changeInfo" id="placeLink">> 마이페이지</a>
     <div id="inputBox">
         &nbsp;<h1>DEV BOOKS 회원정보 변경</h1>
         <hr color ="#787878" width="90%" height="2px">
         &nbsp;<h3>기본 정보</h3>
-        <form action="changeInfo" method="post">
+        <form action="${pageContext.request.contextPath }/changeInfo.do" method="post">
             <div id="user_Info" class="col-xs-3">
                 <ul class="wright_info">
                     <p class="text_info">아이디</p>
-                    <input type="text" class="form-control box_size" name="userId" id="userId" placeholder="영문자, 숫자를 포함하여 총 4 ~ 12자로 입력." required>
-                    <input type="button" name="dupCheck" id="dupCheck" class="form-control box_size" value="중복 확인">
+                    <input type="text" class="form-control box_size" name="userId" id="userId" value="${loginUser.userId}" readonly>
+                    <input type="button" name="dupCheck" id="dupCheck" class="form-control box_size" value="중복 확인" readonly>
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">비밀번호</p>
@@ -108,13 +101,13 @@
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">이름</p>
-                    <input type="text" class="form-control box_size" name="userName" id="userName" placeholder="한글로 작성하며 2글자 이상으로 입력해 주세요." required>
+                    <input type="text" class="form-control box_size" name="userName" id="userName" value="${loginUser.userName}" required >
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">이메일</p>
-                    <input type="text" class="form-control box_size" name="userEmail" id="user_Email" placeholder="이메일을 입력하세요" required>
+                    <input type="text" class="form-control box_size" name="userEmail" id="userEmail" placeholder="이메일을 입력하세요" value="${loginUser.userEmail}" required >
                     <label style="font-weight: bold; position: relative; left: 355px; bottom: 78px;">@</label>
-                    <input type="text" class="form-control box_size" name="userEmail" id="input_Email" style="position: relative; width: 155px !important; height: 38px; left: 370px; bottom: 118px;" required>
+                    <input type="text" class="form-control box_size" name="userEmail" id="inputEmail" style="position: relative; width: 155px !important; height: 38px; left: 370px; bottom: 118px;">
                     <select name="site_Type" class="form-control box_size" name="userEmail" id="select_Site" title="이메일 선택" style="position: relative; width: 150px !important; height: 38px; left: 540px; bottom: 156px !important;">
                     	<option value="">  직접 입력  </option>
                     	<option value="naver.com">naver.com</option>
@@ -126,29 +119,28 @@
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">전화번호</p>
-                    <input type="text" class="form-control box_size" name="userPhone" id="userPhone" placeholder="-를 제외하고 입력해 주세요." required>
+                    <input type="text" class="form-control box_size" name="userPhone" id="userPhone" placeholder="-를 제외하고 입력해 주세요." required value="${loginUser.userPhone}">
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">주소</p>
-                    <input type="text" class="form-control box_size" name="addr" id="addrBox1" placeholder="주소를 입력하세요" required>
-                    <input type="text" class="form-control box_size" name="addrDetail" id="addrBox2" placeholder="상세 주소를 입력하세요" required>
+                    <input type="text" class="form-control box_size" name="addr" id="addrBox1" placeholder="주소를 입력하세요" required value="${loginUser.addr}">
+                    <input type="text" class="form-control box_size" name="addrDetail" id="addrBox2" placeholder="상세 주소를 입력하세요" required value="${loginUser.addrDetail}">
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 150px;">
                     <p class="text_info">생년월일</p>
-                    <select name="yy" class="form-control box_size" id="year"></select>
-                    <select name="mm" class="form-control box_size" id="month"></select>
-                    <select name="dd" class="form-control box_size" id="day"></select>
+                    <select name="yy" class="form-control box_size" id="year" value="${loginUser.yy}"></select>
+                    <select name="mm" class="form-control box_size" id="month" value="${loginUser.mm}"></select>
+                    <select name="dd" class="form-control box_size" id="day" value="${loginUser.dd}"></select>
                 </ul>
                 <br>
         </div>
     <hr color ="#787878" width="90%" height="2px" style="position: relative; bottom: 280px;">
     <br><br>
 
-               <input style="background-color: #2D313C; color: white;" type="submit" name="info_Submit" class="btn btn-default" id="info_Submit" value="회원 가입" onclick="return validate();">
+               <input style="background-color: #2D313C; color: white;" type="submit" name="info_Submit" class="btn btn-default" id="info_Submit" value="정보 변경" onclick="return validate();">
     </div>
         </form>
-    <%@ include file="../Common/u_footer.jsp" %>
-    
+    <%@ include file="../Common/u_footer.jsp" %>   
     <!-- 이메일 주소 스크립트 -->
 	<script>
         $( "#select_Site" ).change(function(){

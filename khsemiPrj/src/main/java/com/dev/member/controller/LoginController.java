@@ -29,23 +29,27 @@ public class LoginController extends HttpServlet{
 		m.setUserId(userId);
 		m.setUserPwd(userPwd);
 		
-		System.out.println(userPwd);
-		
 		MemberVo loginUser = new MemberService().login(m);
-		
+		resp.setContentType("text/html; charset=UTF-8");
+		resp.getWriter().print("<script>alert('로그인 성공');</script>");
 		if(loginUser != null) {
 			// success
-			resp.setContentType("text/html; charset=UTF-8");
-			resp.getWriter().print("로그인 성공");
+			
 			req.getSession().setAttribute("loginUser", loginUser);
-			req.getRequestDispatcher("/WEB-INF/views/Product_Goods/u_login_home.jsp").forward(req, resp);
+			if(loginUser.getUserId().equals("admin")) {
+				resp.setContentType("text/html; charset=UTF-8");
+				resp.getWriter().print("<script>alert('관리자 로그인 완료');</script>");
+				req.getRequestDispatcher("/WEB-INF/views/Order/a_home.jsp").forward(req, resp);
+			} else {
+				
+				req.getRequestDispatcher("/WEB-INF/views/Product_Goods/u_home.jsp").forward(req, resp);
+			}
 		} else {
 			// error
 			resp.setContentType("text/html; charset=UTF-8");
-			resp.getWriter().print("로그인 실패");
-//			req.setAttribute("msg", "로그인 실패");
-//			resp.sendRedirect(req.getContextPath());   
+			resp.getWriter().print("<script>alert('로그인 실패, 정보가 일치하지 않습니다.');</script>");
+			resp.sendRedirect("login");
 		}
 	}
-	
+
 }
