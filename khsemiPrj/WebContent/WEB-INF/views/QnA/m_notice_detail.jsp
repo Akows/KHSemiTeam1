@@ -85,7 +85,7 @@
                   <col width="15%">
                   <col width="*">
               </colgroup>
-            <table class="board_view" border="1">
+            <table class="board_view table">
               <tbody>
                 <tr>
                   <th style="width: 8%;">제목</th>

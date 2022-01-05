@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -75,33 +77,28 @@
                   <col width="15%">
                   <col width="*">
               </colgroup>
-            <table class="board_view" border="1">
+            <table class="board_view table">
               <tbody>
                 <tr>
                   <th style="width: 8%;">제목</th>
-                  <td id="title" colspan="5">이벤트 테스트입니다.</td>
-                  <!-- <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td> -->
+                  <td id="title" colspan="5">${e.eventTitle}</td>
                 </tr>
                 <tr>
                   <th>작성일</th>
-                  <td id="date">2018.3.10</td>
+                  <td id="date"><fmt:formatDate value="${e.eventDate}" pattern="yy.MM.dd"/></td>
                   <th style="width: 10%;">작성자</th>
                   <td id="author">관리자</td>
                   <th style="width: 10%;">조회수</th>
-                  <td id="view">1500</td>
-                </tr>
-                <tr>
-                  <td id="content" colspan="6">
-                    요러요러한 이벤트를 합니다.
-                  </td>
+                  <td id="view">${e.eventView}</td>
                 </tr>
               </tbody>
           </table>
+          <img src="Resources/img/Eventupload/${e.eventImgUrl}" onerror="this.style.display='none';" border=0><br>
+          ${e.eventContent}<br><br>
+          <h6>이벤트 기간 : <fmt:formatDate value="${e.eventStart}" pattern="yy.MM.dd"/> ~ <fmt:formatDate value="${e.eventEnd}" pattern="yy.MM.dd"/></h6>
+          
           <br>
-          <button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button>
+          <a href="event"><button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button></a>
           <button class="btn btn-primary" style="float: right;">수정</button>
           <button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button>
           <hr>

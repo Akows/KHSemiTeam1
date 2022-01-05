@@ -126,6 +126,11 @@
     <script type="text/javascript">
     
     </script>
-    <%@ include file="../Common/u_footer.jsp" %>
+    
+    <% if(id.equals("admin")) { %>
+        <%@ include file="../Common/a_footer.jsp" %>
+    <% } else if(session.getAttribute("loginUser") != null) { %>
+        <%@ include file="../Common/u_footer.jsp" %>
+    <% } %>
 </body>
 </html>

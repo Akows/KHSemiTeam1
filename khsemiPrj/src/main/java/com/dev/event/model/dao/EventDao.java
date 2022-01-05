@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.dev.event.model.vo.EventVo;
@@ -17,7 +18,7 @@ public class EventDao {
 		System.out.println("eventlist dao called...");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM ( SELECT ROW_NUMBER() OVER(ORDER BY N.N_NO DESC) AS RNUM, N.N_NO, N.N_TITLE,TRUNC(N.N_DATE) AS \"N_DATE\", N.N_VIEW FROM NOTICE N WHERE N_DEL_YN = 'N' ORDER BY N.N_NO DESC ) WHERE RNUM BETWEEN ? AND ?";
+		String sql = "SELECT * FROM ( SELECT ROW_NUMBER() OVER(ORDER BY E.E_NO DESC) AS RNUM, E.E_NO, E.E_TITLE,TRUNC(E.E_DATE) AS \"E_DATE\", E.E_VIEW FROM EVENT E WHERE E_DEL_YN = 'N' ORDER BY E.E_NO DESC)WHERE RNUM BETWEEN ? AND ?";
 		List<EventVo> eventList = new ArrayList<EventVo>();
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -27,13 +28,17 @@ public class EventDao {
 			EventVo e = null;
 			
 			while(rs.next()) {
-				int eventNo = rs.getInt("N_NO");
-				String nTitle = rs.getString("N_TITLE");
-				Timestamp nDate = rs.getTimestamp("N_DATE");
-				int nView = rs.getInt("N_VIEW");
+				int eventNo = rs.getInt("E_NO");
+				String eTitle = rs.getString("E_TITLE");
+				Timestamp eDate = rs.getTimestamp("E_DATE");
+				int eView = rs.getInt("E_VIEW");
 				
 				//모델에 넣어줌
 				e = new EventVo();
+				e.setEventNo(eventNo);
+				e.setEventTitle(eTitle);
+				e.setEventDate(eDate);
+				e.setEventView(eView);
 				eventList.add(e);
 			}
 		} catch (SQLException e) {
@@ -50,7 +55,7 @@ public class EventDao {
 		System.out.println("eventlist dao called...");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT COUNT(*) FROM NOTICE WHERE N_DEL_YN = 'N'";
+		String sql = "SELECT COUNT(*) FROM EVENT WHERE E_DEL_YN = 'N'";
 		
 		int total = 0;
 		
@@ -72,8 +77,8 @@ public class EventDao {
 		return total;
 	}
 
-	public int insertEvent(Connection conn, EventVo n) {
-		String sql = "INSERT INTO NOTICE(N_NO, N_TITLE, N_CONTENT) VALUES(SEQ_NOTICE.NEXTVAL, ?, ?)";
+	public int insertEvent(Connection conn, EventVo e) {
+		String sql = "INSERT INTO EVENT(E_NO, E_TITLE, E_CONTENT, E_DATE, E_START, E_END, E_IMGURL) VALUES (SEQ_EVENT.NEXTVAL, ?, ?, SYSDATE,?, ?, ?)";
 		
 		PreparedStatement pstmt = null;
 		
@@ -81,12 +86,15 @@ public class EventDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, n.getEventTitle());
-			pstmt.setString(2, n.getEventContent());
+			pstmt.setString(1, e.getEventTitle());
+			pstmt.setString(2, e.getEventContent());
+			pstmt.setTimestamp(3, e.getEventStart());
+			pstmt.setTimestamp(4, e.getEventEnd());
+			pstmt.setString(5, e.getEventImgUrl());
 			
 			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
@@ -95,7 +103,7 @@ public class EventDao {
 	}
 
 	public EventVo eventSelect(Connection conn, int eventNo) {
-		String sql = "SELECT N.N_NO, N.N_TITLE, N.N_CONTENT, TRUNC(N.N_DATE) AS \"N_DATE\", N.N_VIEW FROM NOTICE N WHERE N_NO = ?";
+		String sql = "SELECT E.E_NO, E.E_TITLE, E.E_CONTENT, TRUNC(E.E_DATE) AS \"E_DATE\", E.E_START, E.E_END, E.E_VIEW, E.E_IMGURL FROM EVENT E WHERE E_NO = ?";
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -106,14 +114,26 @@ public class EventDao {
 			rs = pstmt.executeQuery();
 				
 			rs.next();
-//			int eventNo = rs.getInt("N_NO");
-			String nTitle = rs.getString("N_TITLE");
-			String nContent = rs.getString("N_CONTENT");
-			Timestamp nDate = rs.getTimestamp("N_DATE");
-			int nView = rs.getInt("N_VIEW");
+//			int eventNo = rs.getInt("E_NO");
+			String eTitle = rs.getString("E_TITLE");
+			String eContent = rs.getString("E_CONTENT");
+			Timestamp eDate = rs.getTimestamp("E_DATE");
+			Timestamp sStart = rs.getTimestamp("E_START");
+			Timestamp sEnd = rs.getTimestamp("E_END");
+			String sImg = rs.getString("E_IMGURL");
+			int eView = rs.getInt("E_VIEW");
 					
 			//모델에 넣어줌
 			e = new EventVo();
+			e.setEventNo(eventNo);
+			e.setEventTitle(eTitle);
+			e.setEventContent(eContent);
+			e.setEventDate(eDate);
+			e.setEventStart(sStart);
+			e.setEventEnd(sEnd);
+			e.setEventImgUrl(sImg);
+			e.setEventView(eView);
+			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
@@ -126,7 +146,7 @@ public class EventDao {
 	
 	//event조회수 증가
 	public void eventViewPlus(Connection conn, int eventNo) {
-		String sql = "UPDATE NOTICE SET N_VIEW = N_VIEW +1 WHERE N_NO = ?";
+		String sql = "UPDATE EVENT SET E_VIEW = E_VIEW +1 WHERE E_NO = ?";
 		PreparedStatement pstmt = null;
 		// 조회수 증가
 		try {
@@ -140,7 +160,7 @@ public class EventDao {
 	}
 
 	public int eventDelete(Connection conn, int eventNo) {
-		String sql = "UPDATE NOTICE SET N_DEL_YN = 'Y' WHERE N_NO = ?";
+		String sql = "UPDATE EVENT SET E_DEL_YN = 'Y' WHERE E_NO = ?";
 		
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -158,7 +178,7 @@ public class EventDao {
 	}
 	
 	public int eventUpdate(Connection conn, EventVo n) {
-		String sql = "UPDATE NOTICE SET N_TITLE = ?, N_CONTENT = ? WHERE N_NO = ?";
+		String sql = "UPDATE EVENT SET E_TITLE = ?, E_CONTENT = ? WHERE E_NO = ?";
 		
 		PreparedStatement pstmt = null;
 		int result = 0;

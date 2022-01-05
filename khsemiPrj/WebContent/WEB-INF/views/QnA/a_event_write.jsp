@@ -62,21 +62,17 @@
           <!-- BEGIN RESULT -->
           <div class="col-md-10">
             <h2>이벤트작성</h2>
-            <form action="eventwrite" method="post">
-                <input type="hidden" name="bdGroup">
-                <input type="hidden" name="bdOrder">
-                <input type="hidden" name="bdIndent">
-                <input type="text" id="bdTitle" name="bdTitle" class="form-control mt-4 mb-2"
-                    placeholder="제목을 입력해주세요." required
-                >
+            <form action="eventwrite" method="post" enctype="multipart/form-data">
+                <input type="text" id="bdTitle" name="eventtitle" class="form-control mt-4 mb-2"
+                    placeholder="제목을 입력해주세요." required>
                 <div class="form-group">
-                    <textarea class="form-control" rows="10" name="bdContent"
+                    <textarea class="form-control" rows="10" name="eventcontent"
                         placeholder="내용을 입력해주세요" required
                     ></textarea>
                 </div>
-                이벤트 기간 : <input type="date" name="startdate" min="sysdate"> <h4 style="display: inline;">~</h4> <input type="date" name="enddate"><br>
+                이벤트 기간 : <input type="date" name="startdate"> <h4 style="display: inline;">~</h4> <input type="date" name="enddate"><br>
                 <br>
-                <input type="file" name="file"><br>
+                <input type="file" name="eventimg"><br>
                 <div class="writeBtn">
                     <button type="button" class="btn btn-primary" style="background-color: #6c757d; border-color: #6c757d;">취소</button>
                     <button type="submit" class="btn btn-primary">이벤트작성</button>
