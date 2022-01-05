@@ -13,6 +13,8 @@ public class LogoutController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html; charset=UTF-8");
+		resp.getWriter().print("<script>alert('로그아웃 되었습니다.');</script>");
 		req.getSession().invalidate();
 		req.getRequestDispatcher("/WEB-INF/views/Product_Goods/u_home.jsp").forward(req, resp);
 	}

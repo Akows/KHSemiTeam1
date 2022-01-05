@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.dev.member.model.vo.MemberVo" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,8 +25,21 @@
 
 </head>
 <body>
+<%
+    String id = "";
+    if(session.getAttribute("loginUser") != null) {
+        MemberVo member = (MemberVo)session.getAttribute("loginUser");
+        id = member.getUserId();
+    }
+%>
 
-<%@ include file="../Common/u_menubar.jsp" %>
+<% if(id.equals("admin")) { %>
+    <%@ include file="../Common/a_menubar.jsp" %>
+<% } else if(session.getAttribute("loginUser") != null) { %>
+    <%@ include file="../Common/u_menubar_login.jsp" %>
+<% } else if(session.getAttribute("loginUser") == null) { %>
+    <%@ include file="../Common/u_menubar.jsp" %>
+<% } %>
 <div class="parallax"> 
   <div id="aa">
     <div id="bb">
@@ -113,8 +127,11 @@
 
 </div><!-- wrap -->
 <div id="bg"></div>
-
-<%@ include file="../Common/u_footer.jsp" %>
+<% if(id.equals("admin")) { %>
+        <%@ include file="../Common/a_footer.jsp" %>
+    <% } else if(session.getAttribute("loginUser") != null) { %>
+        <%@ include file="../Common/u_footer.jsp" %>
+    <% } %>
 </body>
 </html>
     

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.dev.member.model.vo.MemberVo" %> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -43,7 +44,21 @@
     </style>
 </head>
 <body>
-	<%@ include file="../Common/u_menubar.jsp" %>
+	<%
+	    String id = "";
+	    if(session.getAttribute("loginUser") != null) {
+	        MemberVo member = (MemberVo)session.getAttribute("loginUser");
+	        id = member.getUserId();
+	    }
+	%>
+	
+		<% if(id.equals("admin")) { %>
+	    <%@ include file="../Common/a_menubar.jsp" %>
+	<% } else if(session.getAttribute("loginUser") != null) { %>
+	    <%@ include file="../Common/u_menubar_login.jsp" %>
+	<% } else if(session.getAttribute("loginUser") == null) { %>
+	    <%@ include file="../Common/u_menubar.jsp" %>
+	<% } %>
     <!-- 위치 링크 -->
     <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> 로그인</a>
@@ -78,6 +93,10 @@
 	    </div>
     </form>
     <br><br><br><br><br><br><br><br>
-    <%@ include file="../Common/u_footer.jsp" %>
+    <% if(id.equals("admin")) { %>
+        <%@ include file="../Common/a_footer.jsp" %>
+    <% } else if(session.getAttribute("loginUser") != null) { %>
+        <%@ include file="../Common/u_footer.jsp" %>
+    <% } %>
 </body>
 </html>

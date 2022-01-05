@@ -27,6 +27,23 @@
     
     <!-- jQuery -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    
+    <style>
+    	/* 첫번째 이메일 입력 인풋 */
+		#userEmail {
+		    width: 155px !important;
+		    height: 38px;
+		}
+		
+		/* 두번째 이메일 선택 인풋 */
+		#inputEmail {
+		    position: relative;
+		    width: 158px !important;
+		    height: 38px;
+		    left: 370px;
+		    bottom: 117px !important;
+		}
+    </style>
 	
 	<!-- 생년월일 셀렉트 박스 -->
 	<script>
@@ -90,9 +107,9 @@
                 </ul>
                 <ul class="wright_info" style="position: relative; left: 0px; bottom: 40px;">
                     <p class="text_info">이메일</p>
-                    <input type="text" class="form-control box_size" name="userEmail" id="user_Email" placeholder="이메일을 입력하세요" required>
+                    <input type="text" class="form-control box_size" name="userEmail" id="userEmail" placeholder="이메일을 입력하세요" required>
                     <label style="font-weight: bold; position: relative; left: 355px; bottom: 78px;">@</label>
-                    <input type="text" class="form-control box_size" name="userEmail" id="input_Email" style="position: relative; width: 155px !important; height: 38px; left: 370px; bottom: 118px;" required>
+                    <input type="text" class="form-control box_size" name="userEmail" id="inputEmail" style="position: relative; width: 155px !important; height: 38px; left: 370px; bottom: 118px;">
                     <select name="site_Type" class="form-control box_size" name="userEmail" id="select_Site" title="이메일 선택" style="position: relative; width: 150px !important; height: 38px; left: 540px; bottom: 156px !important;">
                     	<option value="">  직접 입력  </option>
                     	<option value="naver.com">naver.com</option>
@@ -130,7 +147,7 @@
     <!-- 이메일 주소 스크립트 -->
 	<script>
         $( "#select_Site" ).change(function(){
-            $("#input_Email").val( $("#select_Site").val() );
+            $("#inputEmail").val( $("#select_Site").val() );
         });
     </script>
     

@@ -1,6 +1,7 @@
 package com.dev.member.model.dao;
 
 import static com.dev.common.JDBCTemplate.close;
+
 import static com.dev.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -8,13 +9,20 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.Properties;
 
 import com.dev.common.JDBCTemplate;
 import com.dev.member.model.vo.MemberVo;
 
 public class MemberDao {
-	Connection conn = null;
+
+	private static MemberDao instance = new MemberDao();
+
+	public static MemberDao getInstance() {
+		return instance;
+	}
 	
 	public int insertMember(Connection conn, MemberVo m) throws SQLException {
 		
@@ -191,4 +199,90 @@ public class MemberDao {
 		
 		return userPwd;
 	}
+	
+	public int updateMember(MemberVo vo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = -1;
+		
+		String sql = "UPDATE MEMBER SET PWD = ?, NAME = ?, EMAIL = ?, PHONE = ?, ADDR = ?, ADDR_DETAIL = ? WHERE ID = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getUserPwd());
+			pstmt.setString(2, vo.getUserName());
+			pstmt.setString(3, vo.getUserEmail());
+			pstmt.setString(4, vo.getUserPhone());
+			pstmt.setString(5, vo.getAddr());
+			pstmt.setString(6, vo.getAddrDetail());
+			pstmt.setString(7, vo.getUserId());
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+
+	public MemberVo getUser(String userId) {
+		MemberVo vo = null; // 데이터가 없을 경우 null 값을 반환.
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "SELECT NAME , EMAIL , PHONE , ADDR , ADDR_DETAIL , YY , MM , DD FROM MEMBER WHERE ID = ?";
+
+		try {
+			conn = getConnection(); // DB 연결 시도
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				vo = new MemberVo();
+				vo.setUserName(rs.getString("userName"));
+				vo.setUserEmail(rs.getString("userEmail"));
+				vo.setUserPhone(rs.getString("userPhone"));
+				vo.setAddr(rs.getString("addr"));
+				vo.setAddrDetail(rs.getString("addrDetail"));
+				vo.setYy(rs.getString("yy"));
+				vo.setMm(rs.getString("mm"));
+				vo.setDd(rs.getString("dd"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return vo;
+	}
+	
 }
