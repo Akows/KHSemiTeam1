@@ -8,13 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.dev.member.model.vo.MemberVo;
 import com.dev.paging.Paging;
 import com.dev.review.goods.modelVo.MdReviewVo;
 
 
 @WebServlet("/mdreview")
-public class MdReivewController extends HttpServlet{
+public class MRinsert extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,44 +29,32 @@ public class MdReivewController extends HttpServlet{
 		}
 		String mr_cont = req.getParameter("mr_cont");
 				
-		
 		System.out.println("컨트롤러 pro_no1 :"+pro_no);
 		System.out.println("컨트롤러 mr_cont :"+mr_cont);
-		//swy start
-//		System.out.println("startNo"+page.startNo());
+
+		
+		//=====================등록=======================
+
+//		
+//		HttpSession session = req.getSession();
+//		MemberVo loginUser = (MemberVo)(session.getAttribute("loginUser"));
+//		
+//		if(loginUser == null) {
+//			resp.setContentType("text/html; charset=UTF-8");
+//			resp.getWriter().print("<script>alert('로그인 후 등록하세요');</script>");
+//			resp.getWriter().print("<script>location.href='login';</script>");
+//		}else {
+//			int m_no = loginUser.getMemberNo();
+			int m_no = 3;
+			boolean result = new MdReviewService().insertR(m_no, pro_no, mr_cont);
+			
+			req.setAttribute("pro_no", pro_no);
+			resp.sendRedirect("/devbooks/gd?pro_no=" + pro_no);
+	//		req.getRequestDispatcher("/gd").forward(req, resp);
+			
+	//	}//if
 		
 		
-		
-		
-		//조회=======================
-		String curpage = req.getParameter("currentPage");		
-		if(curpage == null) {
-			curpage = "1";
-		}
-		int curpage2 = Integer.parseInt(curpage);
-		int total = new MdReviewService().totalMdReviewCount(pro_no);
-		Paging page = new Paging(3, 3, total, curpage2);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-//		List<MdReviewVo> mdReviewList = new MdReviewService().mdReviewList(page, pro_no);
-		req.setAttribute("curpage", curpage2);
-		
-		
-		
-		req.setAttribute("page", page);
-//		req.setAttribute("goodsList", goodsList);
-		req.setAttribute("total", total);
-		req.setAttribute("pro_no", pro_no);
-		req.getRequestDispatcher("/gd").forward(req, resp);
 		
 	}
 

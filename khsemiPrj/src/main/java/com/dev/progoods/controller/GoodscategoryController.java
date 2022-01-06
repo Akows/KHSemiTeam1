@@ -16,7 +16,7 @@ import com.dev.qna.model.service.QnaService;
 import com.dev.qna.model.vo.QnaVo;
 
 @WebServlet ("/gca")
-public class Goodscategory extends HttpServlet
+public class GoodscategoryController extends HttpServlet
 {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 

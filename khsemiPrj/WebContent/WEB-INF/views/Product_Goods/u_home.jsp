@@ -127,11 +127,9 @@
 
 </div><!-- wrap -->
 <div id="bg"></div>
-<% if(id.equals("admin")) { %>
-        <%@ include file="../Common/a_footer.jsp" %>
-    <% } else if(session.getAttribute("loginUser") != null) { %>
+
         <%@ include file="../Common/u_footer.jsp" %>
-    <% } %>
+
 </body>
 </html>
     

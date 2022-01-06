@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -92,22 +94,35 @@
         <strong id="pur_Qauntity">구매수량</strong>
         <!-- 오른쪽 영역 : 수량 버튼  -->
         <div class="def-number-input number-input safari_only" style="position: relative; left: 1200px; top: 260px;">
-            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                <input id="ea" class="quantity" min="0" name="quantity" value="1" type="number">
-            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+            <button id="down" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                <input id="ea" class="quantity" min="1" name="quantity" value="1" type="number">
+            <button id="up" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
         </div>
         <br>
         <!-- 금액 영역 -->
         <div class="buy_price">
             <strong>
                 <span style="font-size: 15px; vertical-align: middle;">합계</span>
-                ${gvo.getUnit_price()} 원
+                <span id="price"></span>
+                <script>
+                var ea = parseInt($('#ea').val()); 
+                var unitprice = parseInt(${gvo.getUnit_price()}); 
+                var price = ea*unitprice;
+                $('#price').text(price);
+                $('#up, #down').on('click', function () {
+                var ea = parseInt($('#ea').val()); 
+                var unitprice = parseInt(${gvo.getUnit_price()}); 
+                var price = ea*unitprice;
+                $('#price').text(price);
+                	});
+                </script>
+                 원
             </strong>
         </div>
         <!-- 버튼 영역 -->
         <div class="buy_btn">
-            <button type="button" class="btn btn-default btn-lg" style="background-color: white; color: black; width: 190px !important;">장바구니</button>
-            <button type="button" class="btn btn-primary btn-lg" style="background-color: #2D313C; border: 1px solid #2D313C; width: 190px !important;">바로구매</button>
+           	<button type="button" class="btn btn-default btn-lg" style="background-color: #eeeeee; border:0; color: black; width: 190px !important;"></button>
+            <button type="button" class="btn btn-primary btn-lg" style="background-color: #2D313C; border: 1px solid #2D313C; width: 190px !important;">장바구니</button>
         </div>
         <!-- // 구매 수량 및 가격 그리고 장바구니,구매 버튼 -->
         <!-- //오른쪽 책 제목 및 설명 / 구매 항목 -->
@@ -139,11 +154,13 @@
         </div>
         </div>
             <!-- 하단 소개항목/구매자 리뷰 -->
-            <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
+       <!--      <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous"> -->
             <div class="container" id="book_review">
                             <div class="bg-white rounded shadow-sm p-4 mb-4 restaurant-detailed-ratings-and-reviews">
                                 <h5 class="mb-1" style="font-weight: bold !important;">구매자 리뷰</h5>
-                                <div class="reviews-members pt-4 pb-4">
+                                
+                               <c:forEach items="${mdReviewList}" var="r"> 
+                                <div class="reviews-members pt-4 pb-4" style="border: 1px solid red;">
                                     <div class="media">
                                         
                                         <div class="media-body">
@@ -152,20 +169,17 @@
                                                     <a href="#"><i class="fas fa-bell fa-2x" style="position: relative; left: 3px; color: red;"></i></a>
                                                 </span>
                                                 <!-- 리뷰 글쓴이 및 작성일 -->
-                                                <h6 class="mb-1"><a class="text-black" href="#">Singh Osahan</a></h6>
-                                                <p class="text-gray">2021-12-18</p>
+                                                <h6 class="mb-1"><a class="text-black" href="#">${r.getId()}</a></h6>
+                                                <p class="text-gray">${r.getMr_date()}</p>
                                             </div>
                                             <!-- 리뷰 내용 -->
                                             <div class="reviews-members-body">
                                                 <p>
-                                                    19,900원에 자주 뜨던 모델인데 가격이 꽤 올랐네
-                                                    가끔씩 폰이나 패드에서 페어링하며 쓰기엔 이만한게 없는듯
-                                                    보조용 키보드는 온오프 스위치와 멀티 페어링은 필수
-                                                    이것보다 크기가 더 크고 무거워봐야 자리만 차지할뿐
+                                                   ${r.getMr_count()}
                                                 </p>
                                             </div>
                                             <div class="reviews-members-footer">
-                                                <a class="total-like" href="#" style="background-color: #2D313C !important; color: white;"><i class="far fa-thumbs-up"></i> 856</a>
+                                                <a class="total-like" href="#" style="background-color: #2D313C !important; color: white;"><i class="far fa-thumbs-up"></i> ${r.getMr_like()}</a>
                                                 <!-- 수정 및 삭제버튼 -->
                                                 <a class="edit-delete-button float-right" href="#" style="background-color: #2D313C !important; color: white;"> 삭제</a>
                                                 <a class="edit-delete-button float-right" href="#" style="background-color: white !important; color: black;"> 수정</a>
@@ -174,68 +188,8 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="reviews-members pt-4 pb-4">
-                                    <div class="media">
-                                        
-                                        <div class="media-body">
-                                            <div class="reviews-members-header">
-                                                <span class="star-rating float-right">
-                                                    <a href="#"><i class="fas fa-bell fa-2x" style="position: relative; left: 3px; color: red;"></i></a>
-                                                </span>
-                                                <!-- 리뷰 글쓴이 및 작성일 -->
-                                                <h6 class="mb-1"><a class="text-black" href="#">Gurdeep Singh</a></h6>
-                                                <p class="text-gray">2021-12-23</p>
-                                            </div>
-                                            <!-- 리뷰 내용 -->
-                                            <div class="reviews-members-body">
-                                                <p>
-                                                    노트북하고 테블릿 연결용으로 구매했는데 연결방법도 간단하고 키보드 사용감도 좋네요. 지금 상품평도 로지텍으로 작성하고 있네요. 무게가 좀 나가는게 흠이긴하지만 가격대비 잘 산것같아요
-                                                </p>
-                                            </div>
-                                            <div class="reviews-members-footer">
-                                                <a class="total-like" href="#" style="background-color: #2D313C !important; color: white;"><i class="far fa-thumbs-up"></i> 125</a>
-                                                <!-- 수정 및 삭제버튼 -->
-                                                <a class="edit-delete-button float-right" href="#" style="background-color: #2D313C !important; color: white;"> 삭제</a>
-                                                <a class="edit-delete-button float-right" href="#" style="background-color: white !important; color: black;"> 수정</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="reviews-members pt-4 pb-4">
-                                    <div class="media">
-                                        
-                                        <div class="media-body">
-                                            <div class="reviews-members-header">
-                                                <span class="star-rating float-right">
-                                                    <a href="#"><i class="fas fa-bell fa-2x" style="position: relative; left: 3px; color: red;"></i></a>
-                                                </span>
-                                                <!-- 리뷰 글쓴이 및 작성일 -->
-                                                <h6 class="mb-1"><a class="text-black" href="#">Gurdeep Singh</a></h6>
-                                                <p class="text-gray">2021-12-28</p>
-                                            </div>
-                                            <!-- 리뷰 내용 -->
-                                            <div class="reviews-members-body">
-                                                <p>
-                                                    유선 키보드 사용하다가 무선 써보고 싶어서
-                                                    로지텍이 제일 유명하길래 그중에 디자인 이쁜걸로 구매했어요
-                                                    일반 키보드보다 작고 너무 귀엽네요~
-                                                    <br>
-                                                    저는 너무 마음에 들어요 원형 키보드라 괜찮을까했는데
-                                                    며칠써보니 손에 익네요
-                                                    무선이라 선이 걸릴일이 없어서 편하네요
-                                                </p>
-                                            </div>
-                                            <div class="reviews-members-footer">
-                                                <a class="total-like" href="#" style="background-color: #2D313C !important; color: white;"><i class="far fa-thumbs-up"></i> 88</a>
-                                                <!-- 수정 및 삭제버튼 -->
-                                                <a class="edit-delete-button float-right" href="#" style="background-color: #2D313C !important; color: white;"> 삭제</a>
-                                                <a class="edit-delete-button float-right" href="#" style="background-color: white !important; color: black;"> 수정</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
+                               </c:forEach>
+                           
                                 <!-- 페이지 네비게이션 -->
                                 <ul class="pagination">
                                     <li class="page-item"><a class="page-link" href="#">이전</a></li>
@@ -265,24 +219,26 @@
             </div>
         </div>
     </div>
-    
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
  <script>
  
 /*  function insertR(proNum){
 	    var url = 'mdreview?pro_no=' + proNum;
 	    window.open(url, "_self");
+	   textarea = encodeURIComponent(textarea);
 	    }; */
 	    
 function insertR(){  
+	   var textarea = $("#mr_cont").val()
+	    console.log($("#mr_cont").val())
+	    console.log(textarea)
 	    	
-	   /*  var textarea = $("#mr_cont").val()
-	    textarea = encodeURIComponent(textarea); */
 	$.ajax({         
-		url : "/mdreview",
+		url : "/devbooks/mdreview",
 		method: "get",
 		data : {
 			'pro_no' : $("#proN").val(),
-			'mr_cont': $("#mr_cont").val()
+			'mr_cont': textarea
 		}
 	});        
    console.log($("#mr_cont").val())
