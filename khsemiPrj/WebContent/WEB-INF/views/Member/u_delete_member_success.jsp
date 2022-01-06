@@ -62,7 +62,7 @@
 </head>
 <body>
 	 <%
-        String id = (String)session.getAttribute("loginUser.userId"); 
+        String id = (String)session.getAttribute("loginUser"); 
         String pwd = request.getParameter("userPwd");
         
         // 세션에서 아이디를, DeleteForm.jsp에서 입력받은 비밀번호를 가져온다.
