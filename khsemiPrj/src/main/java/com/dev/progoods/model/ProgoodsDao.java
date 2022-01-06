@@ -304,7 +304,7 @@ public class ProgoodsDao {
 	}
 
 	public List<ProgoodsVo> goodsAll(Connection conn, int rowStartNo, int rowEndNo) {
-		String sql = "SELECT * FROM (SELECT ROWNUM AS RNUM, P.*, M.MD_NO,M.MD_CATE,M.MAKER,M.COUNTRY FROM PRO_INF P JOIN MD_INF M ON P.PRO_NO = M.MD_NO) WHERE RNUM BETWEEN ? AND ?";
+		String sql = "SELECT * FROM (SELECT ROWNUM AS RNUM, P.*, M.MD_NO,M.MD_CATE,M.MAKER,M.COUNTRY FROM PRO_INF P JOIN MD_INF M ON P.PRO_NO = M.PRO_NO) WHERE RNUM BETWEEN ? AND ?";
 		
 		PreparedStatement pstmt = null;
 		

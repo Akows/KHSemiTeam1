@@ -26,14 +26,10 @@
 	
 	<!-- Latest compiled JavaScript -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-	
-	<!-- 아임포트 CDN -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
 
-	<%--  <%@ include file="../Common/u_menubar.jsp" %> --%>
+	<%@ include file="../Common/u_menubar.jsp" %>
 
         <div class="homecart">
             <a href="#"><img src="Resources/img/i_con/home_icon.png"id="icon3"></a>
@@ -222,6 +218,9 @@ int i = 0;
 	   */
    </script>
    
+   <!-- 아임포트 CDN -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
    <script>
    // 아임포트 결제 API
    $("#payment").click(function () {

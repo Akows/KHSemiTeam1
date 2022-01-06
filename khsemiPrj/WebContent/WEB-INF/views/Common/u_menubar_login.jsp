@@ -91,7 +91,7 @@
                 <ul class="main1">
                     <li><a href="#"><i class="fas fa-user fa-2x" style="color: #eee;"></i></a>
                         <ul class="main2">                               	
-                        	<li><a href="#"> ${loginUser.userName} 님 환영합니다.</a></li>
+                        	<li><a href="#"> ${loginUser.userName} 님</a></li>
                             <li><a href="#">포인트 : 10000P</a></li>
                             <li><a href="changeInfo.do?userId=${loginUser.userId}">마이페이지</a></li>
                             <li><a href="logout">로그아웃</a></li>
