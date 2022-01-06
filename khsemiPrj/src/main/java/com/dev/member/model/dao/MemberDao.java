@@ -33,11 +33,12 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
+			String userEmail = m.getUserEmail() + '@' + m.getUserEmail2();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, m.getUserId());
 			pstmt.setString(2, m.getUserPwd());
 			pstmt.setString(3, m.getUserName());
-			pstmt.setString(4, m.getUserEmail());
+			pstmt.setString(4, userEmail);
 			pstmt.setString(5, m.getUserPhone());
 			pstmt.setString(6, m.getAddr());
 			pstmt.setString(7, m.getAddrDetail());
@@ -288,4 +289,66 @@ public class MemberDao {
 		return vo;
 	}
 	
+	 @SuppressWarnings("resource")
+	public int deleteMember(String userId, String userPwd) {
+	        Connection conn = null;
+	        PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	 
+	        String dbpw = ""; // DB상의 비밀번호를 담아둘 변수
+	        int result = -1;
+	 
+	        try {
+	            // 비밀번호 조회
+	            StringBuffer query1 = new StringBuffer();
+	            query1.append("SELECT PWD FROM MEMBER WHERE ID = ?");
+	 
+	            // 회원 삭제
+	            StringBuffer query2 = new StringBuffer();
+	            query2.append("DELETE FROM MEMBER WHERE ID=?");
+	 
+	            conn = getConnection();
+	            
+	            // 1. 아이디에 해당하는 비밀번호를 조회한다.
+	            pstmt = conn.prepareStatement(query1.toString());
+	            pstmt.setString(1, userId);
+	            System.out.println(userId);
+	            rs = pstmt.executeQuery();
+	 
+	            if (rs.next()) 
+	            {
+	                dbpw = rs.getString("PWD");
+	                System.out.println(userPwd);
+	                if (dbpw.equals(userPwd)) // 입력된 비밀번호와 DB비번 비교
+	                {
+	                    // 같을경우 회원삭제 진행
+	                    pstmt = conn.prepareStatement(query2.toString());
+	                    pstmt.setString(1, userId);
+	                    System.out.println(userId);
+	                    pstmt.executeUpdate();
+	                    conn.commit(); 
+	                    result = 1; // 삭제 성공
+	                } else {
+	                    result = 0; // 비밀번호 비교결과 - 다름
+	                }
+	            }
+	 
+	            return result;
+	 
+	        } catch (Exception sqle) {
+	            try {
+	                conn.rollback(); // 오류시 롤백
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	            throw new RuntimeException(sqle.getMessage());
+	        } finally {
+	            try{
+	                if ( pstmt != null ){ pstmt.close(); pstmt=null; }
+	                if ( conn != null ){ conn.close(); conn=null;    }
+	            }catch(Exception e){
+	                throw new RuntimeException(e.getMessage());
+	            }
+	        }
+	    } // end deleteMember
 }

@@ -67,7 +67,7 @@
                             <li><a href="reviewreport">도서리뷰 신고내역</a></li>
                             <li><a href="a6_2">굿즈리뷰 신고내역</a></li>
                             <li><a href="qnareport">QnA 신고내역</a></li>
-                            <li><a href="home">로그아웃</a></li>
+                            <li><a href="logout">로그아웃</a></li>
                         </ul>
                     </li>
                 </ul>

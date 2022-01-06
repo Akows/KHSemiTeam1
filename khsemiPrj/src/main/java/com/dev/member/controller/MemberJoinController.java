@@ -28,6 +28,7 @@ public class MemberJoinController extends HttpServlet{
 		String pwdCheck = req.getParameter("pwdCheck");
 		String userName = req.getParameter("userName");
 		String userEmail = req.getParameter("userEmail");
+		String userEmail2 = req.getParameter("userEmail2");
 		String userPhone = req.getParameter("userPhone");
 		String addr = req.getParameter("addr");
 		String addrDetail = req.getParameter("addrDetail");
@@ -41,6 +42,7 @@ public class MemberJoinController extends HttpServlet{
 		m.setPwdCheck(pwdCheck);
 		m.setUserName(userName);
 		m.setUserEmail(userEmail);
+		m.setUserEmail2(userEmail2);
 		m.setUserPhone(userPhone);
 		m.setAddr(addr);
 		m.setAddrDetail(addrDetail);

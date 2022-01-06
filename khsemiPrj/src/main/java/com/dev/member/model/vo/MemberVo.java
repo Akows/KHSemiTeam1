@@ -10,6 +10,7 @@ public class MemberVo {
 	private String pwdCheck;
 	private String userName;
 	private String userEmail;
+	private String userEmail2;
 	private String userPhone;
 	private String entYn;
 	private int point;
@@ -61,6 +62,12 @@ public class MemberVo {
 	}
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+	public String getUserEmail2() {
+		return userEmail2;
+	}
+	public void setUserEmail2(String userEmail2) {
+		this.userEmail2 = userEmail2;
 	}
 	public String getUserPhone() {
 		return userPhone;
@@ -141,15 +148,15 @@ public class MemberVo {
 		this.dd = dd;
 	}
 	
+	
 	@Override
 	public String toString() {
 		return "MemberVo [memberNo=" + memberNo + ", userId=" + userId + ", userPwd=" + userPwd + ", pwdCheck="
-				+ pwdCheck + ", userName=" + userName + ", userEmail=" + userEmail + ", userPhone=" + userPhone
-				+ ", entYn=" + entYn + ", point=" + point + ", hireDate=" + hireDate + ", reportCount=" + reportCount
-				+ ", reviewtCount=" + reviewtCount + ", qnaCount=" + qnaCount + ", updateDate=" + updateDate + ", addr="
-				+ addr + ", addrDetail=" + addrDetail + ", yy=" + yy + ", mm=" + mm + ", dd=" + dd + "]";
+				+ pwdCheck + ", userName=" + userName + ", userEmail=" + userEmail + ", userEmail2=" + userEmail2
+				+ ", userPhone=" + userPhone + ", entYn=" + entYn + ", point=" + point + ", hireDate=" + hireDate
+				+ ", reportCount=" + reportCount + ", reviewtCount=" + reviewtCount + ", qnaCount=" + qnaCount
+				+ ", updateDate=" + updateDate + ", addr=" + addr + ", addrDetail=" + addrDetail + ", yy=" + yy
+				+ ", mm=" + mm + ", dd=" + dd + "]";
 	}
-	
-	
-	
+
 }
