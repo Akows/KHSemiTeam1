@@ -38,23 +38,28 @@
                 <ul class="main1">
                     <li><a href="#"><i id="menu" class="fas fa-bars fa-2x" style="color: #eee;"></i></a>
                         <ul class="main2">
-                            <li><a href="categoryproduct">주제별</a>
+                             <li><a href="programinglang">주제별</a>
                                 <ul class="main3">
-                                    <li><a href="#">프로그래밍 언어</a></li>
-                                    <li><a href="#">엑셀 / 활용서</a></li>
-                                    <li><a href="#">IT 자격증</a></li>
+                                    <li><a href="programinglang">프로그래밍 언어</a></li>
+                                    <li><a href="programinglang">엑셀 / 활용서</a></li>
+                                    <li><a href="programinglang">IT 자격증</a></li>
                                 </ul>
                             </li>
-                            <li><a href="categoryproduct">프로그래밍</a>
+                            <li><a href="programinglang">프로그래밍</a>
                                 <ul class="main3">
-                                    <li><a href="#">딥러닝</a></li>
-                                    <li><a href="#">머신러닝</a></li>
-                                    <li><a href="#">인공지능</a></li>
-                                    <li><a href="#">안드로이드</a></li>
-                                    <li><a href="#">유니티</a></li>
+                                    <li><a href="programinglang">딥러닝</a></li>
+                                    <li><a href="programinglang">머신러닝</a></li>
+                                    <li><a href="programinglang">인공지능</a></li>
+                                    <li><a href="programinglang">안드로이드</a></li>
+                                    <li><a href="programinglang">유니티</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">굿즈</a></li>
+                            <li><a href="gca">굿즈</a></li>
+                            <ul class="main3">
+                            <li><a href="gca?category=생활용품">생활용품</a></li>
+		                    <li><a href="gca?category=문구">문구</a></li>
+		                    <li><a href="gca?category=전자">전자</a></li>
+		                    </ul>
                         </ul>
                     </li>
                     <li><a href="bestseller">베스트</a></li>
@@ -63,9 +68,12 @@
                 </ul>
             </div>
             
-            <form class="form-inline" action="/action_page.php">
+            <form class="form-inline" action="bookdetail" method="get">
                 <div class="inputDiv">
-                    <input class="form-control mr-sm-2" type="text" placeholder="내용을 입력해주세요.">
+                	<select id="selectbutton" name="searchtype" hidden="">
+						<option value="PRO_NAME">책 제목</option>
+					</select>
+                    <input class="form-control mr-sm-2" type="text" placeholder="책 제목을 정확하게 입력해주세요." name="searchvalue">
                 <button type="submit" style="background-color: #2D313C; border: none;"><i id="search" class="fas fa-search fa-2x" type="submit"></i></button>
                 </div>
             </form>

@@ -51,12 +51,18 @@
                                     <li><a href="programinglang">유니티</a></li>
                                 </ul>
                             </li>
+                            
                             <li><a href="gca">굿즈</a></li>
+                            <ul class="main3">
+                            <li><a href="gca?category=생활용품">생활용품</a></li>
+		                    <li><a href="gca?category=문구">문구</a></li>
+		                    <li><a href="gca?category=전자">전자</a></li>
+		                    </ul>
                         </ul>
                     </li>
-                    <li><a href="gca?category=생활용품">생활용품</a></li>
-                    <li><a href="gca?category=문구">문구</a></li>
-                    <li><a href="gca?category=전자">전자</a></li>
+                    <li><a href="bestseller">베스트</a></li>
+                    <li><a href="newproducts">신상품</a></li>
+                    <li><a href="qna">게시판</a></li>
              
                 </ul>
             </div>
