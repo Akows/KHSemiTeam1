@@ -1,8 +1,5 @@
-
-*
-{
-    margin: auto;
-    padding: 0%;
+table{
+	margin: auto;
 }
 
 /* 메뉴바-로고 */
@@ -54,24 +51,6 @@ h2
     color: #2d313c;
 }
 
-/* 책 이미지 */
-#book1
-{
-    width: 120px;
-    height: 140px;
-}
-
-/* 책 이미지 칸  */
-#book2
-{
-    width: 150px;
-}
-
-#book3
-{
-    width: 140px;
-}
-
 /* 아이콘-좋아요 */
 #wish
 {
@@ -108,3 +87,10 @@ h2
     position:absolute;
     left: 1035px;
 }
+
+.pagination {
+    position: relative;
+    left: 950px;
+    width: 250px;
+    padding-bottom: 20px;
+} 

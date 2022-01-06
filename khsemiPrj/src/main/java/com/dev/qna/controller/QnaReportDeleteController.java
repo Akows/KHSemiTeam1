@@ -9,18 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dev.qna.model.service.QnaService;
-import com.dev.qna.model.vo.QnaVo;
 
-@WebServlet("/qnadtreport")
-public class QnaDetailReportController extends HttpServlet{
+@WebServlet("/qnareportdelete")
+public class QnaReportDeleteController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int qnaNo = Integer.parseInt(req.getParameter("qnaNo"));
+		String qnaNo = req.getParameter("qnaNo");
+		System.out.println("삭제시 qnaNo : " + qnaNo);
 		
-		int result = new QnaService().reportQnaDetail(qnaNo);
+		int result = new QnaService().qnaDelete(Integer.parseInt(qnaNo));
 		
-		if(result > 0) {
-			resp.sendRedirect("qnadt?qnaNo=" + qnaNo);
-		}
+		resp.sendRedirect("qnareport");
 	}
 }
