@@ -127,7 +127,7 @@
         <div id="side">
             <h1>도서 관리</h1>
             <br><div id="hrr"></div><br>
-            <a href=""><h3>도서 등록</h3></a>
+            <a href="bookinsert"><h3>도서 등록</h3></a>
             <a href=""><h3>도서 수정</h3></a>
         </div>
         <div id="main2">

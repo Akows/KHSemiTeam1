@@ -47,17 +47,14 @@
                     <li><a href="qna">게시판</a></li>
                 </ul>
             </div>
-            
-            <form class="form-inline" action="/action_page.php">
-                <div class="inputDiv">
-                    <input class="form-control mr-sm-2" type="text" placeholder="내용을 입력해주세요.">
-                </div>
-            </form>
 
             <div class="cart-btn">
-                <span class="nav-icon" style="color:#eee">
+            <a href="mdRecommend">
+            	<span class="nav-icon" style="color:#eee">
                     MD추천 관리
                 </span>
+            </a>
+                
                 <!-- <div class="cart-items">0</div> -->
             </div>
             <div id="menu2">
@@ -65,7 +62,7 @@
                     <li><a href="#"><i class="fas fa-user fa-2x" style="color: #eee;"></i></a>
                         <ul class="main2">
                             <li><a href="reviewreport">도서리뷰 신고내역</a></li>
-                            <li><a href="a6_2">굿즈리뷰 신고내역</a></li>
+                            <li><a href="mrReport">굿즈리뷰 신고내역</a></li>
                             <li><a href="qnareport">QnA 신고내역</a></li>
                             <li><a href="logout">로그아웃</a></li>
                         </ul>
