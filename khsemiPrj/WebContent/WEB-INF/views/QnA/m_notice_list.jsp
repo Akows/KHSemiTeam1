@@ -105,7 +105,7 @@
             <!-- END TABLE RESULT -->
             <!-- BEGIN PAGINATION -->
             <ul class="pagination">
-                <li class="page-item"><a id="prePage" class="page-link" > < </a></li>
+                <li class="page-item"><a id="prePage" class="page-link"> < </a></li>
 	            	<c:forEach var="i" begin="${page.startNo()}" end="${page.endNo()}">
 	            		<li class="page-item"><a name="currentPage" class="page-link" href="notice?currentPage=${i}" value="${i}">${i}</a></li>
 		            </c:forEach>
