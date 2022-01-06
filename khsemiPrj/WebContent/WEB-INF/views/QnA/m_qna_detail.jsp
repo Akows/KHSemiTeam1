@@ -17,12 +17,14 @@
     <!-- 공용으로 쓰는 부트스트랩 -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    
     <script src="https://kit.fontawesome.com/d088eb3922.js" crossorigin="anonymous"></script>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
     <!-- 기존에 쓰던 부트스트랩 -->
     <!-- <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
-
+	
 </head>
 
 <body>
@@ -34,7 +36,7 @@
 	        id = member.getUserId();
 	    }
 	%>
-	
+
 	<% if(id.equals("admin")) { %>
 	    <%@ include file="../Common/a_menubar.jsp" %>
 	<% } else if(session.getAttribute("loginUser") != null) { %>
@@ -42,7 +44,7 @@
 	<% } else if(session.getAttribute("loginUser") == null) { %>
 	    <%@ include file="../Common/u_menubar.jsp" %>
 	<% } %>
-<div class="container">
+	<div class="container">
   <div class="bbiv">
     <div class="">
         <a href="home" class="breadcrumbtext"><img id="home_icon" src="Resources/img/i_con/home_icon.png" alt="홈아이콘"></a> > 
@@ -83,6 +85,7 @@
                   <col width="15%">
                   <col width="*">
               </colgroup>
+            <input id="qnaNo" name="qnaNo" type="text" value="${q.qnaNo}" style="display: none;">
             <table class="board_view table" id="qna">
               <tbody>
                 <tr>
@@ -106,7 +109,6 @@
           </table>
           <br>
           <a href="qna"><button class="btn btn-primary" style="background-color: #666666; border-color: #666666;">목록으로</button></a>
-          <a href="qnadtreport?qnaNo=${q.qnaNo}" style="float: right; text-decoration: none; color:red"><i class="fas fa-exclamation-triangle">신고</i></a>
           <c:set var="user" value="${loginUser}"></c:set>
           <% 
           		if(session.getAttribute("loginUser") != null) {
@@ -125,27 +127,32 @@
 	      		<a href="qnaupdate?qnaNo=${q.qnaNo}&qnaTitle=${q.qnaTitle}&qnaContent=${q.qnaContent}"><button class="btn btn-primary" style="float: right;">수정</button></a>
           		<a href="qnadelete?qnaNo=${q.qnaNo}"><button class="btn btn-primary" style="float: right; background-color: #d31c1c; border-color: #d31c1c;">삭제</button></a>
 		  <% } %>
+		  <a href="qnadtreport?qnaNo=${q.qnaNo}" style="float: right; text-decoration: none; color:red"><i class="fas fa-exclamation-triangle">신고</i></a>
           <hr>
           <h4>답변</h4>
+			
           <% if(msg == "yes") { %>
           	<table class="table table-borderless">
             	<thead>
               		<tr>
-                		<th colspan="2">관리자</th>
+                		<th colspan="2" width="80%">관리자</th>
                 		<!-- <th></th> -->
-                		<th><fmt:formatDate value="${a.ansDate}" pattern="yy.MM.dd"/></th>
-                		<td style="display: none;"><button type="button" class="btn btn-danger">삭제</button></td>
+                		<th><fmt:formatDate value="${a.ansDate}" pattern="yy.MM.dd"/>
+                		<% if(id.equals("admin")) { %>
+                		<a href="answersdelete?qnaNo=${q.qnaNo}"><button type="button" class="btn btn-danger">삭제</button></a>
+                		<% } %>
+                		</th>
               		</tr>
             	</thead>
             	<tbody> 
               		<tr>
                 		<td colspan="2">${a.ansContent}</td>
-                		<td><i class="far fa-thumbs-up fa-2x">+${a.answersLike}</i></td>
+                		<td><button class="btn" onclick="likeUp();"><i id="likeicon" class="far fa-thumbs-up fa-2x">+<span id="answerslike">${a.answersLike}</span></i></button></td>
               		</tr>
             	</tbody>
           	</table>
           <% } else if(msg == "no") { %>
-          	<h6>아직 답변이 등록되지 않았습니다.</h3>
+          	<h6>아직 답변이 등록되지 않았습니다.</h6>
           <% } %>
           
           <%-- 어드민인 경우에만 답변 등록 가능, 답변이 이미 달린 질문엔 답변 불가  --%>
@@ -157,8 +164,6 @@
             	<input id="submit" type="submit" class="btn btn-primary" value="답변 등록">
           	</form>
 	      <%} %>
-          
-          
           </div>
         
         <!-- <hr/> -->
@@ -173,15 +178,30 @@
     </div>
   </div>
   <!-- END SEARCH RESULT -->
-</div>
-</div>
 
-    
-    <script type="text/javascript">
-    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+    	function likeUp() {
+    		$.ajax({
+    			url : "/devbooks/qnalike",
+    			method : "GET",
+    			data : {qnaNo : $("#qnaNo").val()},
+    			success : function(like) {
+    				$("#answerslike").text(like);
+    				$("#likeicon").attr('class','fas fa-thumbs-up fa-2x');
+    			},
+    			error : function(like){
+    				alert("error");
+    			},
+				complete : function(like){
+					console.log("complete : " + result);
+				}
+    		});
+    	}	
     </script>
     
-    <% if(id.equals("admin")) { %>
+   <% if(id.equals("admin")) { %>
         <%@ include file="../Common/a_footer.jsp" %>
     <% } else if(session.getAttribute("loginUser") != null) { %>
         <%@ include file="../Common/u_footer.jsp" %>

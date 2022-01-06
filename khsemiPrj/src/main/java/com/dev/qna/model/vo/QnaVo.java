@@ -10,7 +10,8 @@ public class QnaVo {
 	private String qnaId;
 	private int qnaView;
 	private char delYN;
-	
+	private char reptYN;
+
 	//기본 생성자
 	public QnaVo() {
 
@@ -25,7 +26,7 @@ public class QnaVo {
 		this.qnaView = qnaView;
 	}
 	
-	//qna 자세히 볼 때 사용하는 생성자
+	//qna 자세히 볼 때 사용하는 생성자(qna 신고된 리스트 볼때도 사용함)
 	public QnaVo(int qnaNo, String qnaTitle, String qnaContent, Timestamp qnaDate, String qnaId, int qnaView) {
 		this.qnaNo = qnaNo;
 		this.qnaTitle = qnaTitle;
@@ -98,10 +99,19 @@ public class QnaVo {
 		this.delYN = delYN;
 	}
 
+	public char getReptYN() {
+		return reptYN;
+	}
+
+	public void setReptYN(char reptYN) {
+		this.reptYN = reptYN;
+	}
+
 	@Override
 	public String toString() {
 		return "QnaVo [qnaNo=" + qnaNo + ", qnaTitle=" + qnaTitle + ", qnaContent=" + qnaContent + ", qnaDate="
-				+ qnaDate + ", qnaId=" + qnaId + ", qnaView=" + qnaView + ", delYN=" + delYN + "]";
+				+ qnaDate + ", qnaId=" + qnaId + ", qnaView=" + qnaView + ", delYN=" + delYN + ", reptYN=" + reptYN
+				+ "]";
 	}
 	
 }

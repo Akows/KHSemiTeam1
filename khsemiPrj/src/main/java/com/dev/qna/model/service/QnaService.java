@@ -35,6 +35,24 @@ public class QnaService {
 		return qnaList;
 	}
 	
+	//신고받은 qna 리스트 조회
+	public List<QnaVo> qnaReportList(Paging page) {
+		// 커넥션
+		Connection conn = getConnection();
+
+		int rowStartNo = page.rowStarNo();
+		int rowEndNo = page.rowEndNo();
+
+		System.out.println("selectQnaList currenpage = " + page.currentPage);
+		System.out.println("selectQnaList startno = " + page.startNo());
+
+		List<QnaVo> qnaList = new QnaDao().qnaReportList(conn, rowStartNo, rowEndNo);
+		System.out.println("qnaservice.qnaList called... ");
+		close(conn);
+
+		return qnaList;
+	}
+	
 	//qna 글 개수 확인
 	public int totalQnaCount() {
 		//커넥션 
@@ -42,6 +60,15 @@ public class QnaService {
 		
 		int total = new QnaDao().totalCount(conn);
 		
+		return total;
+	}
+	
+	public int totalQnaReptCount() {
+		//커넥션 
+		Connection conn = getConnection();
+
+		int total = new QnaDao().totalReptCount(conn);
+
 		return total;
 	}
 
@@ -209,6 +236,67 @@ public class QnaService {
 		// dao 불러서 쿼리 실행
 		// dao 한테 쿼리 실행 결과 받기
 		return new EventDao().insertEventApplication(conn, ea);
+	}
+
+	//qna 자세히 보기에서 신고
+	public int reportQnaDetail(int qnaNo) {
+		// 커넥션
+		Connection conn = getConnection();
+
+		int result = 0;
+		result = new QnaDao().reportQnaDt(conn, qnaNo);
+
+		if (result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		return result;
+	}
+	
+	//qna 신고 취소처리
+	public int qnaReportCancel(int qnaNo) {
+		// 커넥션
+		Connection conn = getConnection();
+
+		int result = new QnaDao().qnaReportCancel(conn, qnaNo);
+		System.out.println("qnaservice.qnareportcancel called... ");
+		close(conn);
+
+		return result;
+	}
+
+	public int qnaAnswersDelete(int qnaNo) {
+		// 커넥션
+		Connection conn = getConnection();
+
+		int result = new QnaDao().qnaAnswersDelete(conn, qnaNo);
+		System.out.println("qnaservice.qnaanswersdelete called... ");
+		close(conn);
+
+		return result;
+	}
+
+	public int qnaLikePlus(int qnaNo) {
+		// 커넥션
+		Connection conn = getConnection();
+		
+		int result = new QnaDao().qnaLikePlus(conn, qnaNo);
+
+		System.out.println("qnaservice.qnalikeplus called... ");
+		close(conn);
+
+		return result;
+	}
+
+	public int qnaLikeSelect(int qnaNo) {
+		// 커넥션
+		Connection conn = getConnection();
+		
+		int result = new QnaDao().qnaLikeSelect(conn, qnaNo);
+		
+		return result;
 	}
 	
 }

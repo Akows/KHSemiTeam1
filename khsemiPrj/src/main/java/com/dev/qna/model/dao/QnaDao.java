@@ -18,7 +18,7 @@ public class QnaDao {
 		System.out.println("qnalist dao called...");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM ( SELECT ROW_NUMBER() OVER(ORDER BY Q.Q_NO DESC) AS RNUM, Q.Q_NO, Q.Q_TITLE,TRUNC(Q.Q_DATE) AS \"Q_DATE\", M.ID, Q.Q_VIEW FROM QNA Q JOIN MEMBER M ON Q.M_NO = M.M_NO WHERE Q_DEL_YN = 'N' ORDER BY Q.Q_NO DESC ) WHERE RNUM BETWEEN ? AND ?";
+		String sql = "SELECT * FROM ( SELECT ROW_NUMBER() OVER(ORDER BY Q.Q_NO DESC) AS RNUM, Q.Q_NO, Q.Q_TITLE, Q.Q_CONTENT, TRUNC(Q.Q_DATE) AS \"Q_DATE\", M.ID, Q.Q_VIEW FROM QNA Q JOIN MEMBER M ON Q.M_NO = M.M_NO WHERE Q_DEL_YN = 'N' ORDER BY Q.Q_NO DESC ) WHERE RNUM BETWEEN ? AND ?";
 		List<QnaVo> qnaList = new ArrayList<QnaVo>();
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -30,12 +30,48 @@ public class QnaDao {
 			while(rs.next()) {
 				int qnaNo = rs.getInt("Q_NO");
 				String qTitle = rs.getString("Q_TITLE");
+				String qContent = rs.getString("Q_CONTENT");
 				Timestamp qDate = rs.getTimestamp("Q_DATE");
 				String qId = rs.getString("ID");
 				int qView = rs.getInt("Q_VIEW");
 				
 				//모델에 넣어줌
-				q = new QnaVo(qnaNo, qTitle, qDate, qId, qView);
+				q = new QnaVo(qnaNo, qTitle, qContent, qDate, qId, qView);
+				qnaList.add(q);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return qnaList;
+	}
+	
+	public List<QnaVo> qnaReportList(Connection conn, int rowStartNo, int rowEndNo) {
+		System.out.println("qnareportlist dao called...");
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM ( SELECT ROW_NUMBER() OVER(ORDER BY Q.Q_NO DESC) AS RNUM, Q.Q_NO, Q.Q_TITLE, Q.Q_CONTENT, TRUNC(Q.Q_DATE) AS \"Q_DATE\", M.ID, Q.Q_VIEW FROM QNA Q JOIN MEMBER M ON Q.M_NO = M.M_NO WHERE Q_REPT_YN = 'Y' AND Q_DEL_YN = 'N' ORDER BY Q.Q_NO DESC ) WHERE RNUM BETWEEN ? AND ?";
+		List<QnaVo> qnaList = new ArrayList<QnaVo>();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rowStartNo);
+			pstmt.setInt(2, rowEndNo);
+			rs = pstmt.executeQuery();
+			QnaVo q = null;
+			
+			while(rs.next()) {
+				int qnaNo = rs.getInt("Q_NO");
+				String qTitle = rs.getString("Q_TITLE");
+				String qContent = rs.getString("Q_CONTENT");
+				Timestamp qDate = rs.getTimestamp("Q_DATE");
+				String qId = rs.getString("ID");
+				int qView = rs.getInt("Q_VIEW");
+				
+				//모델에 넣어줌
+				q = new QnaVo(qnaNo, qTitle, qContent, qDate, qId, qView);
 				qnaList.add(q);
 			}
 		} catch (SQLException e) {
@@ -53,6 +89,32 @@ public class QnaDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT COUNT(*) FROM QNA WHERE Q_DEL_YN = 'N'";
+		
+		int total = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			
+			total = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+
+		
+		return total;
+	}
+	
+	public int totalReptCount(Connection conn) {
+		System.out.println("qnareptlist dao called...");
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT COUNT(*) FROM QNA WHERE Q_REPT_YN = 'Y'";
 		
 		int total = 0;
 		
@@ -248,6 +310,104 @@ public class QnaDao {
 		}
 		
 		return a;
+	}
+	
+	//신고
+	public int reportQnaDt(Connection conn, int qnaNo) {
+		String sql = "UPDATE QNA SET Q_REPT_YN = 'Y' WHERE Q_NO = ?";
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			result = pstmt.executeUpdate();
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	//신고취소
+	public int qnaReportCancel(Connection conn, int qnaNo) {
+		String sql = "UPDATE QNA SET Q_REPT_YN = 'N' WHERE Q_NO = ?";
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			result = pstmt.executeUpdate();
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	public int qnaAnswersDelete(Connection conn, int qnaNo) {
+		String sql = "DELETE FROM ANSWERS WHERE Q_NO = ?";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			result = pstmt.executeUpdate();
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	public int qnaLikePlus(Connection conn, int qnaNo) {
+		String sql = "UPDATE ANSWERS SET A_LIKE = A_LIKE +1 WHERE Q_NO = ?";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		//조회수 증가
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("좋아요 추가 안댐");
+		}
+		return result;
+	}
+
+	public int qnaLikeSelect(Connection conn, int qnaNo) {
+		String sql = "SELECT A_LIKE FROM ANSWERS WHERE Q_NO = ?";
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			rs = pstmt.executeQuery();
+				
+			rs.next();
+			int aLike = rs.getInt("A_LIKE");
+					
+			//모델에 넣어줌
+			result = aLike;
+			
+		} catch (SQLException e) {
+			System.out.println("좋아요가 없어요");
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return result;
+
 	}
 
 }
