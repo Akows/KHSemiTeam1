@@ -57,7 +57,6 @@ public class ProgoodsDao {
 				
 		String sql = "SELECT * FROM (SELECT ROWNUM AS RNUM, P.*, M.MD_NO,M.MD_CATE,M.MAKER,M.COUNTRY FROM PRO_INF P JOIN MD_INF M ON P.PRO_NO = M.MD_NO WHERE M.MD_CATE=?) WHERE RNUM BETWEEN ? AND ?";
 		
-		
 		String category2 = category;
 				
 		PreparedStatement pstmt = null;
