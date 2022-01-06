@@ -42,8 +42,8 @@
         <div id="side">
             <h2>굿즈 관리</h2>
             <br><div id="hrr"></div><br>
-            <a href="gcon1"><h3>굿즈 등록</h3></a>
-            <a href="gcon2"><h3>굿즈 수정/삭제</h3></a>
+            <a id="a" href="gcon1"><h3>굿즈 등록</h3></a>
+            <a id="a" href="gcon2"><h3>굿즈 수정/삭제</h3></a>
         </div>
         <div id="main2">
             <form action="gcon1" method="post" enctype="multipart/form-data">

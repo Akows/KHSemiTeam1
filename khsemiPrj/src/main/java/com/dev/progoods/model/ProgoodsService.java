@@ -28,8 +28,9 @@ public class ProgoodsService {
 		Connection conn = getConnection();
 		
 		int rowStartNo = page.rowStarNo();
+		rowStartNo = 1;
 		int rowEndNo = page.rowEndNo();
-		
+		rowEndNo = 6;
 		List<ProgoodsVo> goodsListAll = new ProgoodsDao().categoryGoods(conn, rowStartNo, rowEndNo, category);
 		close(conn);
 		

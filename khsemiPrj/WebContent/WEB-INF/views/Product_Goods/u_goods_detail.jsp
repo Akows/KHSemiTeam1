@@ -1,3 +1,4 @@
+<%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -67,7 +68,30 @@
     </style>
 </head>
 <body>
-	<%@ include file="../Common/u_menubar.jsp" %>
+	<%
+        String id = "";
+        if (session.getAttribute("loginUser") != null) {
+            MemberVo member = (MemberVo) session.getAttribute("loginUser");
+            id = member.getUserId();
+        }
+        %>
+
+        <%
+        if (session.getAttribute("loginUser") != null) {
+        %>
+        <%@ include file="../Common/u_menubar_login.jsp"%>
+        <%
+        } else if (session.getAttribute("loginUser") == null) {
+        %>
+        <%@ include file="../Common/u_menubar.jsp"%>
+        <%
+        }
+        %>
+	
+	
+	
+	
+	
     <!-- 위치 링크 -->
     <a href=""><img src="${pageContext.request.contextPath}/Resources/img/i_con/home_icon.png" id="home_icon"></a>
     <a href="" id="placeLink">> DEV BOOKS 굿즈</a>
