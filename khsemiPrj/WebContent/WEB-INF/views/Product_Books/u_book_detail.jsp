@@ -186,7 +186,7 @@
 			}
 		%>
 		
-		<%@ include file="../Product_Books/u_book_detail_review_page.jsp" %>	 
+		 
         
 
                         <br><br><br><br><br>
