@@ -76,7 +76,19 @@ h3 {
     bottom: 48px;
 }
 
+/* 아이디 중복확인 버튼*/
 #dupCheck {
+    width: 120px !important; 
+    height: 40px; 
+    background-color: #2D313C; 
+    color: white; 
+    position: relative; 
+    left: 540px; 
+    bottom: 86px;
+}
+
+/* 비밀번호 확인 버튼 */
+#pwdCheckBtn {
     width: 120px !important; 
     height: 40px; 
     background-color: #2D313C; 
@@ -93,7 +105,7 @@ h3 {
 }
 
 /* 두번째 이메일 선택 인풋 */
-#inputEmail {
+#userEmail2 {
     position: relative;
     width: 158px !important;
     height: 38px;
@@ -102,7 +114,7 @@ h3 {
 }
 
 /* 세번째 다른 이메일 주소 인풋 */
-#select_Site {
+#select_site {
     position: relative;
     width: 150px !important;
     height: 38px;
@@ -111,7 +123,7 @@ h3 {
 }
 
 /* 두번째 주소 인풋 간격 */
-#addrBox2 {
+#addrDetail {
     position: relative;
     bottom: 43px !important;
 }
@@ -146,6 +158,6 @@ h3 {
 #info_Submit {
     position: relative;
     left: 235px !important;
-    top: -320px !important;
+    top: -360px !important;
     width: 350px;
 }
