@@ -17,11 +17,7 @@ public class ProgoodsDao {
 	
 	public int insertProG(Connection conn, ProgoodsVo g) {
 		
-		String sql = "INSERT ALL INTO PRO_INF "
-				+ "VALUES(SEQ_PRO_INF.NEXTVAL,?,?,?,?,0,0,?,'생활용품') "
-				+ "INTO MD_INF "
-				+ "VALUES(SEQ_MD_INF.NEXTVAL,SEQ_PRO_INF.NEXTVAL,?,?,?) "
-				+ "SELECT * FROM DUAL";
+		String sql ="INSERT ALL INTO PRO_INF VALUES(SEQ_PRO_INF.NEXTVAL,?,?,?,?,0,0,?,'굿즈') INTO MD_INF VALUES(SEQ_MD_INF.NEXTVAL, SEQ_PRO_INF.NEXTVAL,?,?,?) SELECT * FROM DUAL";
 		
 		PreparedStatement pstmt = null;
 		

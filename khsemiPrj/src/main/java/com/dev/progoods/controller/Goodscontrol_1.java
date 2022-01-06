@@ -41,6 +41,12 @@ public class Goodscontrol_1 extends HttpServlet
 		String maker = req.getParameter("maker");
 		String country = req.getParameter("country");
 		
+		System.out.println(pro_name);
+		System.out.println(unit_price);
+		System.out.println(stock);
+		System.out.println(category);
+		System.out.println(maker);
+		System.out.println(country);
 		
 		Part part = req.getPart("goodsimg");		
 		String filePath = null;
