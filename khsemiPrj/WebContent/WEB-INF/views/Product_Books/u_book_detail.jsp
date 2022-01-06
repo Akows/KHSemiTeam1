@@ -1,3 +1,4 @@
+<%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -74,7 +75,28 @@
     </style>
 </head>
 <body>
-	<%@ include file="../Common/u_menubar.jsp" %>
+
+	    <%
+			String id = "";
+			if (session.getAttribute("loginUser") != null) {
+				MemberVo member = (MemberVo) session.getAttribute("loginUser");
+				id = member.getUserId();
+			}
+		%>
+
+
+		<%
+			if (session.getAttribute("loginUser") != null) {
+		%>
+			<%@ include file="../Common/u_menubar_login.jsp"%>
+			
+		<%
+			} else if (session.getAttribute("loginUser") == null) {
+		%>
+			<%@ include file="../Common/u_menubar.jsp"%>
+		<%
+			}
+		%>
 	
 	    <% 
 			for(ProbookVO p : list)

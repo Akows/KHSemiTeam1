@@ -16,7 +16,7 @@ import javax.servlet.http.Part;
 
 import com.dev.progoods.model.ProgoodsService;
 import com.dev.progoods.model.ProgoodsVo;
-import com.sun.tools.javac.util.List;
+
 @MultipartConfig( 
 		maxFileSize = 1024 * 1024 * 5,
 		maxRequestSize = 1024 * 1024 * 50 * 5

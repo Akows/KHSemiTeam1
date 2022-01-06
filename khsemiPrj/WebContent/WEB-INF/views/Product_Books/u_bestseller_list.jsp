@@ -33,25 +33,26 @@
     <!-- 헤더 영역, 상단 메뉴바 -->
     <header>
 
-		<%
-		String id = "";
-		if (session.getAttribute("loginUser") != null) {
-			MemberVo member = (MemberVo) session.getAttribute("loginUser");
-			id = member.getUserId();
-		}
+    	<%
+			String id = "";
+			if (session.getAttribute("loginUser") != null) {
+				MemberVo member = (MemberVo) session.getAttribute("loginUser");
+				id = member.getUserId();
+			}
 		%>
 
 
 		<%
-		if (session.getAttribute("loginUser") != null) {
+			if (session.getAttribute("loginUser") != null) {
 		%>
-		<%@ include file="../Common/u_menubar_login.jsp"%>
+			<%@ include file="../Common/u_menubar_login.jsp"%>
+			
 		<%
-		} else if (session.getAttribute("loginUser") == null) {
+			} else if (session.getAttribute("loginUser") == null) {
 		%>
-		<%@ include file="../Common/u_menubar.jsp"%>
+			<%@ include file="../Common/u_menubar.jsp"%>
 		<%
-		}
+			}
 		%>
 
 		<br>

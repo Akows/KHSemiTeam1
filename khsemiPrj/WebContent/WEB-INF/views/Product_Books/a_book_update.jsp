@@ -108,7 +108,7 @@
 </head>
 <body>
 
-<%@ include file="../Common/a_menubar.jsp" %>
+	<%@ include file="../Common/a_menubar.jsp" %>
 
 
     <div id="route">
