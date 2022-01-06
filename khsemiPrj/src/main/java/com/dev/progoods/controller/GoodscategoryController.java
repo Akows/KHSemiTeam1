@@ -23,8 +23,7 @@ public class GoodscategoryController extends HttpServlet
 	{
 		
 		String curpage = req.getParameter("currentPage");
-//		String category = req.getParameter("category");
-		String category = "생활용품";
+		String category = req.getParameter("category");
 		
 //		String likedesc = req.getParameter("likedesc");
 //		String salesdesc = req.getParameter("salesdesc");

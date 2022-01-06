@@ -1,3 +1,4 @@
+<%@page import="com.dev.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -31,10 +32,29 @@
 <body>
     <!-- 헤더 영역, 상단 메뉴바 -->
     <header>
-    
-    	<%@ include file="../Common/u_menubar.jsp" %>
-    	
-    	<br>
+
+		<%
+		String id = "";
+		if (session.getAttribute("loginUser") != null) {
+			MemberVo member = (MemberVo) session.getAttribute("loginUser");
+			id = member.getUserId();
+		}
+		%>
+
+
+		<%
+		if (session.getAttribute("loginUser") != null) {
+		%>
+		<%@ include file="../Common/u_menubar_login.jsp"%>
+		<%
+		} else if (session.getAttribute("loginUser") == null) {
+		%>
+		<%@ include file="../Common/u_menubar.jsp"%>
+		<%
+		}
+		%>
+
+		<br>
 
         <div id="currentlocationarea">
             <a href="#" class="icon-home3"></a>
