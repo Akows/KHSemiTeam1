@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,7 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+<!-- jQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -41,7 +46,7 @@
     		<div id="m1">
 			    <h3>도서 수정/삭제</h3> 
 			        <div id="search_div" class="clearfix">
-			                <input type="text" placeholder="책 제목으로 검색하세요" style="float: left;">
+			                <input name="search" type="text" placeholder="책 제목으로 검색하세요" style="float: left;">
 			                <button type="submit" class="btn1" id="searchbtn">
 			                    <img id="searchbtn_img" src="Resources/img/i_con/search.png" alt="검색" >
 			                </button>
@@ -50,110 +55,38 @@
 			    <!----------------- 테이블 ------------------------->
 			      <table class="table-hover">
 			                    <thead>
-			                        <tr class="table-success">
+			                        <tr>
 			                            <th>상품번호</th>
 			                            <th>상품이름</th>
 			                            <th>이미지</th>
 			                            <th>단가</th>
 			                            <th>재고</th>
-			                            <th>판매수</th>
-			                            <th>좋아요</th>
 			                            <th>상품설명</th>
-			                            <th>상품유형</th>
 			                            <th>책번호</th>
 			                            <th>저자</th>
 			                            <th>출판사</th>
 			                            <th>출판일</th>
 			                            <th>카테고리</th>
-			                            <th>목차</th>
 			                        </tr>
 			                    </thead>
-			                    <tbody>
-			                        <tr class="primary">
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                        </tr>
+			                    <tbody id="#tbody">
+			                    <c:forEach items="${bookList}" var="b" varStatus="status">
 			                        <tr>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
-			                            <td>데이터</td>
+			                            <td>${b.getProductNumber()}</td>
+			                            <td>${b.getProductName()}</td>
+			                            <td>${b.getImageLink()}</td>
+			                            <td>${b.getProductPrice()}</td>
+			                            <td>${b.getProductStock()}</td>
+			                            <td>${b.getProductDescript()}</td>
+			                            <td>${b.getBookNumber()}</td>
+			                            <td>${b.getWriterName()}</td>
+			                            <td>${b.getPublisher()}</td>
+			                            <td>${b.getEnrollDate()}</td>
+			                            <td>${b.getCategoty()}</td>
 			                        </tr>
-			                        <tr>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                        </tr>
-			                        <tr>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                        </tr>
-			                        <tr>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                            <td></td>
-			                        </tr>
+			                    
+			                    </c:forEach>
+
 			                </tbody>
 			                </table>    
 			    <!------------------------페이저------------------------------->
@@ -165,68 +98,101 @@
 			 			 <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
 					</ul>
 			    <!---------------------버튼3------------------------->
-			    <div id="b2">
+			    <!-- <div id="b2">
 			          <div>
 			              <button type="submit" class="btn1">1페이지 ▼</button>
 			              <button type="submit" class="btn1">2페이지 ▼</button>
 			              <button type="submit" class="btn1">3페이지 ▼</button>
 			          </div>
-			     </div>
+			     </div> -->
 			    
 			    <!------------------- 슬라이드 ---------------------->
+			    <tr id="view">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+			    
+			    
 			    <div class="row">
 				    <div class="col-sm-4">
 				    <div id="slide">
-			                <div style="margin-left: 20px;">1 / 3</div>
+			                
 			                <div id="middle">
 			                    <div id="img">
-			                        <img id="book" src="./it지식.JPG">
+			                        <img id="book" src="">
 			                    </div><!-- img -->
 			                    <div id="txt">
-			                        <h4>비전공자를 위한 IT 지식</h4>
-			                        <span>남궁성 | 강산북스 | 27000원</span>
+			                        <h4 id="title"></h4><!-- 책 제목  -->
+			                        <span id ="inf"></span><!-- 저자 / 출판사 / 가격 --><span id="proN" hidden>dd</span>
 			                        <textarea name="" id="md" cols="30" rows="10"></textarea>
 			                    </div>
 			                </div>
 			                    <button class="btn1" id="btn3">등록</button>
 			            </div><!-- slide -->
 				    </div>
-				    <div class="col-sm-4">
-				    <div id="slide">
-			                <div style="margin-left: 20px;">1 / 3</div>
-			                <div id="middle">
-			                    <div id="img">
-			                        <img id="book" src="./it지식.JPG">
-			                    </div><!-- img -->
-			                    <div id="txt">
-			                        <h4>비전공자를 위한 IT 지식</h4>
-			                        <span>남궁성 | 강산북스 | 27000원</span>
-			                        <textarea name="" id="md" cols="30" rows="10"></textarea>
-			                    </div>
-			                </div>
-			                    <button class="btn1" id="btn3">등록</button>
-			            </div><!-- slide -->
-				    </div>
-				    <div class="col-sm-4">
-				    <div id="slide">
-			                <div style="margin-left: 20px;">1 / 3</div>
-			                <div id="middle">
-			                    <div id="img">
-			                        <img id="book" src="./it지식.JPG">
-			                    </div><!-- img -->
-			                    <div id="txt">
-			                        <h4>비전공자를 위한 IT 지식</h4>
-			                        <span>남궁성 | 강산북스 | 27000원</span>
-			                        <textarea name="" id="md" cols="30" rows="10"></textarea>
-			                    </div>
-			                </div>
-			                    <button class="btn1" id="btn3">등록</button>
-			            </div><!-- slide -->
-				    </div>
+				  </div>
+				    
+				    
+				    
+				    
 			    </div>
    		 	</div><!-- m1 -->  
     	</div><!-- col12 -->
     </div><!-- row -->
+    
+    
+    
+    
+    
+<script>
+        $(function(){
+        	$('#tbody>tr').on("click", function(){
+      
+                const num0 = $(this).children().eq(0).text(); //proN
+                const num1 = $(this).children().eq(1).text(); //name
+                const num2 = $(this).children().eq(2).text(); //img
+                const num3 = $(this).children().eq(3).text(); //price
+                const num8 = $(this).children().eq(8).text(); //writer
+                const num9 = $(this).children().eq(9).text(); //publisher
+               /*  
+                const num4 = $(this).children().eq(4).text(); //stock
+                const num5 = $(this).children().eq(5).text(); //date
+                const num6 = $(this).children().eq(6).text(); //bookNo
+                const num7 = $(this).children().eq(7).text(); //descript 
+                const num10 = $(this).children().eq(10).text(); //category
+                */
+                
+                
+                $('#view').children().eq(0).text(num0);
+                $('#view').children().eq(1).text(num1);
+                $('#view').children().eq(2).text(num2);
+                $('#view').children().eq(3).text(num3);
+                $('#view').children().eq(4).text(num8);
+                $('#view').children().eq(5).text(num9);
+                
+                
+                
+                
+                console.log(num0);
+                          
+             	$('#proN').text(num0);
+                $('#title').text(num1);
+              
+                var bookcover = $('#book');
+                bookcover.attr('src',num2);
+                
+                $('#inf').text(num8+"|"+num9+"|"+num3);
+                
+            });
+
+        });    
+</script> 
+    
+    
+    
     
     
     
