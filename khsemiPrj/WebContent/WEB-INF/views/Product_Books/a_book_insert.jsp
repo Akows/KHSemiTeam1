@@ -45,7 +45,7 @@
             <h2>도서 관리</h2>
             <br><div id="hrr"></div><br>
             <a href=""><h3>도서 등록</h3></a>
-            <a href=""><h3>도서 수정/삭제</h3></a>
+            <a href="bookupdate"><h3>도서 수정/삭제</h3></a>
         </div>
         <div id="main2">
             <h3>도서 등록</h3> 
