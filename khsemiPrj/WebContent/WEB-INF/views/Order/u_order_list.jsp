@@ -1,5 +1,12 @@
+<%@page import="java.util.List"%>
+<%@page import="com.dev.order.vo.OrderListVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="co"%>
+    
+    <%
+    	List<OrderListVo> dataList = (List<OrderListVo>)request.getAttribute("data");
+    %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -33,6 +40,20 @@
             <a href="#" id="ordercheck">주문내역조회</a>
         </div>
 
+<%
+int totamt = 0;
+int i = 0;
+   for(OrderListVo l : dataList)
+   {
+   	int pro_no = l.getPro_no();
+   	String pro_img = l.getPro_img();
+  		String pro_name = l.getPro_name();
+  		int unit_price = l.getUnit_price();
+  		int quantity = l.getQuantity();
+  		int amt = l.getAmt();
+  		totamt = totamt + amt;
+%>	
+
 		
         <table class="t1" >
             <tr >
@@ -63,7 +84,6 @@
                 <td id="gc1-2"></td>
                 <td id="gc">89,000￦</td>
                 <td id="gc1-3"></td>
-
             </tr>
 
             <tr>
@@ -92,6 +112,11 @@
                 <td id="bg">32,000￦</td>
                 <td id="gc1-2" colspan="3"></td>
             </tr>
+            
+<%
+	i = i +1;
+   }
+%> 
 
             <tr>
                 <td id="gc1-4" colspan="9"></td>
@@ -169,7 +194,6 @@
     <br><br><br><br><br>
     <br><br><br><br><br>
     
-    
-    
+  <%--<%@ include file="../Common/u_footer.jsp" %> --%>	  
 </body>
 </html>
